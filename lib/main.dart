@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/view/profile/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +14,10 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       builder: (_, child) {
-        return MaterialApp(
+        return const MaterialApp(
           title: 'Balink',
           debugShowCheckedModeBanner: false,
-          home: child,
+          home: ProfileScreen(),
         );
       },
       // child: LoginScreen(),

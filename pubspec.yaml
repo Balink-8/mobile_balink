@@ -65,7 +65,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
+    - assets/profil.png
     - assets/icon/bottom_navigasi_icon/
     - assets/icon/setting_icon/
 
