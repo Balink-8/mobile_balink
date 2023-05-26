@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/view/home/home_screen.dart';
 import 'package:mobile_balink/view/menu_utama/event_page.dart';
-import 'package:mobile_balink/view/menu_utama/home_page.dart';
 import 'package:mobile_balink/view/menu_utama/shop_page.dart';
 import 'package:mobile_balink/view/profile/profile_screen.dart';
 
@@ -16,7 +16,7 @@ class _NavbarBawahState extends State<NavbarBawah> {
   int _selectedPage = 0;
 
   static List<Widget> _widgethome = <Widget>[
-    HomePage(),
+    HomePageScreen(),
     EventPage(),
     ShopPage(),
     ProfileScreen(),
