@@ -77,7 +77,7 @@ class DetailCard extends StatelessWidget {
                         backgroundColor: Colors.white,
                         child: IconButton(
                           icon: Image.asset(
-                            'assets/Vector2.png',
+                            'assets/titik3.png',
                             color: Colors.black,
                           ),
                           onPressed: () {
@@ -133,7 +133,7 @@ class DetailCard extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(right: 8),
-                        child: Image.asset('assets/Vector.png'),
+                        child: Image.asset('assets/truck.png'),
                       ),
                       Text(
                         'Ongkos kirim Rp. 5.000 - Rp. 10.000',

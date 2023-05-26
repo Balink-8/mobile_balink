@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/view/event/eventPage/event.dart';
 import 'package:mobile_balink/view/home/home_screen.dart';
-import 'package:mobile_balink/view/menu_utama/event_page.dart';
-import 'package:mobile_balink/view/menu_utama/shop_page.dart';
 import 'package:mobile_balink/view/profile/profile_screen.dart';
+import 'package:mobile_balink/view/shopping/sopping_page/shop_page.dart';
 
 class NavbarBawah extends StatefulWidget {
   const NavbarBawah({super.key});
@@ -18,7 +18,7 @@ class _NavbarBawahState extends State<NavbarBawah> {
   static List<Widget> _widgethome = <Widget>[
     HomePageScreen(),
     EventPage(),
-    ShopPage(),
+    ShopScreen(),
     ProfileScreen(),
   ];
 

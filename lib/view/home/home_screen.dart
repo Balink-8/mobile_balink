@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/theme.dart';
 import '../widget/home_screen_widget/carousel_welcome.dart';
 
@@ -16,7 +17,7 @@ class HomePageScreen extends StatelessWidget {
             children: [
               // CarouselView(),
               Container(
-                height: 74,
+                height: 74.h,
                 width: MediaQuery.of(context).size.width * 1,
                 // color: secondaryColor,
                 decoration: BoxDecoration(
@@ -63,8 +64,8 @@ class HomePageScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 22,
+              SizedBox(
+                height: 22.h,
               ),
               const CarouselView(),
               // Center(
@@ -111,7 +112,7 @@ class HomePageScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                       left: 25.0, right: 25.0, bottom: 17),
                   child: SizedBox(
-                    height: 120,
+                    height: 120.h,
                     // height: 300,
                     // width: 94,
                     child: ListView.separated(
@@ -134,7 +135,7 @@ class HomePageScreen extends StatelessWidget {
                 child: Text(
                   'Shopping',
                   style: poppinsKecil.copyWith(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Color.fromRGBO(48, 48, 48, 1),
                       fontWeight: FontWeight.w600),
                 ),
@@ -150,7 +151,7 @@ class HomePageScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                       left: 25.0, right: 25.0, bottom: 17),
                   child: SizedBox(
-                    height: 87,
+                    height: 87.h,
                     // height: 300,
                     // width: 94,
                     child: ListView.separated(
@@ -160,8 +161,8 @@ class HomePageScreen extends StatelessWidget {
                           return shoppingCard();
                         },
                         separatorBuilder: (context, index) {
-                          return const SizedBox(
-                            width: 5,
+                          return SizedBox(
+                            width: 5.w,
                           );
                         },
                         itemCount: 5),
@@ -173,7 +174,7 @@ class HomePageScreen extends StatelessWidget {
                 child: Text(
                   'Promo',
                   style: poppinsKecil.copyWith(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Color.fromRGBO(48, 48, 48, 1),
                       fontWeight: FontWeight.w600),
                 ),
@@ -182,7 +183,7 @@ class HomePageScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                       left: 25.0, right: 25.0, bottom: 17),
                   child: SizedBox(
-                    height: 200,
+                    height: 200.h,
                     // height: 300,
                     // width: 94,
                     child: ListView.separated(
@@ -192,8 +193,8 @@ class HomePageScreen extends StatelessWidget {
                           return promoCard();
                         },
                         separatorBuilder: (context, index) {
-                          return const SizedBox(
-                            width: 5,
+                          return SizedBox(
+                            width: 5.w,
                           );
                         },
                         itemCount: 5),
@@ -217,14 +218,14 @@ class HomePageScreen extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
       child: SizedBox(
-        height: 175,
-        width: 125,
+        height: 175.h,
+        width: 125.w,
         child: Stack(
           children: [
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               SizedBox(
-                height: 96,
-                width: 125,
+                height: 96.h,
+                width: 125.w,
                 child: ClipRRect(
                   // decoration: const BoxDecoration(
                   borderRadius: const BorderRadius.only(
@@ -245,13 +246,13 @@ class HomePageScreen extends StatelessWidget {
                 child: Text(
                   'Daster Bali',
                   style: poppinsKecil.copyWith(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.w700),
                 ),
               ),
               SizedBox(
-                height: 4,
+                height: 4.h,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
@@ -260,18 +261,18 @@ class HomePageScreen extends StatelessWidget {
                     Text(
                       'Rp 34.000',
                       style: poppinsKecil.copyWith(
-                          fontSize: 10,
+                          fontSize: 10.sp,
                           color: Color.fromRGBO(48, 48, 48, 1),
                           fontWeight: FontWeight.w400,
                           decoration: TextDecoration.lineThrough),
                     ),
                     SizedBox(
-                      width: 5,
+                      width: 5.h,
                     ),
                     Text(
                       'Rp 24.000',
                       style: poppinsKecil.copyWith(
-                          fontSize: 11,
+                          fontSize: 11.sp,
                           color: Color.fromRGBO(48, 48, 48, 1),
                           fontWeight: FontWeight.w700),
                     ),
@@ -279,7 +280,7 @@ class HomePageScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 9,
+                height: 9.h,
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -293,19 +294,19 @@ class HomePageScreen extends StatelessWidget {
                       color: Color.fromRGBO(194, 129, 62, 1),
                     ),
                     SizedBox(
-                      width: 2,
+                      width: 2.w,
                     ),
                     Text(
                       '4.9 | ',
                       style: poppinsKecil.copyWith(
-                          fontSize: 11,
+                          fontSize: 11.sp,
                           color: Color.fromRGBO(48, 48, 48, 1),
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
                       '23 Terjual',
                       style: poppinsKecil.copyWith(
-                          fontSize: 11,
+                          fontSize: 11.sp,
                           color: Color.fromRGBO(48, 48, 48, 1),
                           fontWeight: FontWeight.w400),
                     )
@@ -314,8 +315,8 @@ class HomePageScreen extends StatelessWidget {
               )
             ]),
             Container(
-              height: 20,
-              width: 30,
+              height: 20.h,
+              width: 30.w,
               decoration: BoxDecoration(
                   color:
                       thirdColor, // Replace with your desired background color
@@ -328,7 +329,7 @@ class HomePageScreen extends StatelessWidget {
                 '20%',
                 textAlign: TextAlign.center,
                 style: poppinsKecil.copyWith(
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     color: whiteColor,
                     fontWeight: FontWeight.w400),
               ),
@@ -343,8 +344,8 @@ class HomePageScreen extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(5.0),
       child: SizedBox(
-        height: 87,
-        width: 68,
+        height: 87.h,
+        width: 68.w,
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -359,7 +360,7 @@ class HomePageScreen extends StatelessWidget {
               child: Text(
                 'Pakaian',
                 style: poppinsKecil.copyWith(
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     color: Colors.white,
                     fontWeight: FontWeight.w500),
               ),
@@ -382,8 +383,8 @@ class HomePageScreen extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
               child: SizedBox(
-                height: 87,
-                width: 94,
+                height: 87.h,
+                width: 94.w,
                 child: Image.network(
                   'https://ticket.gwkbali.com/images/ticket/1200%20x%20900.png'
                   // 'https://f.ptcdn.info/298/073/000/qs7t6ibhscUkbPBmH8t-o.jpg',
@@ -415,7 +416,7 @@ class HomePageScreen extends StatelessWidget {
                       child: Text(
                         '12 Jan 2023',
                         style: poppinsKecil.copyWith(
-                            fontSize: 10,
+                            fontSize: 10.sp,
                             color: Color.fromRGBO(247, 245, 245, 1),
                             fontWeight: FontWeight.w400),
                       ),
@@ -443,7 +444,7 @@ class HomePageScreen extends StatelessWidget {
                     Text(
                       'Event Location',
                       style: poppinsKecil.copyWith(
-                        fontSize: 12,
+                        fontSize: 12.sp,
                         color: Colors.black,
                       ),
                     ),
