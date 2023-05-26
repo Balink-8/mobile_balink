@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/menu_utama/event_page.dart';
 import 'package:mobile_balink/view/menu_utama/home_page.dart';
-import 'package:mobile_balink/view/menu_utama/profile_page.dart';
 import 'package:mobile_balink/view/menu_utama/shop_page.dart';
+import 'package:mobile_balink/view/profile/profile_screen.dart';
 
 class NavbarBawah extends StatefulWidget {
   const NavbarBawah({super.key});
@@ -19,7 +19,7 @@ class _NavbarBawahState extends State<NavbarBawah> {
     HomePage(),
     EventPage(),
     ShopPage(),
-    ProfilePage(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
