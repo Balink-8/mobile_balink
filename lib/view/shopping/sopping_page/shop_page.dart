@@ -67,7 +67,7 @@ class _ShopScreenState extends State<ShopScreen> {
                     Text(
                       'Kategori',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12.sp,
+                          fontSize: 12,
                           fontWeight: FontWeight.w700,
                           color: Colors.black),
                     ),
@@ -89,7 +89,7 @@ class _ShopScreenState extends State<ShopScreen> {
                     Text(
                       'Terlaris',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12.sp,
+                          fontSize: 12,
                           fontWeight: FontWeight.w700,
                           color: Colors.black),
                     ),
