@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/widgetEvent/card_event.dart';
-import 'package:weekly_date_picker/weekly_date_picker.dart';
 
 class EventPage extends StatefulWidget {
   const EventPage({super.key});
@@ -11,60 +11,65 @@ class EventPage extends StatefulWidget {
 }
 
 class _EventPageState extends State<EventPage> {
-  DateTime _selectedDay = DateTime.now();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
-            child: Column(
+          child: Column(children: [
+            Stack(
               children: [
-                WeeklyDatePicker(
-                  backgroundColor: thirdColor,
-                  weekdays: const [
-                    'Mon',
-                    'Tue',
-                    'Wed',
-                    'Thu',
-                    'Fri',
-                    'Sat',
-                    'Sun'
-                  ],
-                  selectedBackgroundColor: fifthColor,
-                  enableWeeknumberText: false,
-                  selectedDigitColor: thirdColor,
-                  digitsColor: secondaryColor,
-                  weekdayTextColor: blackColor,
-                  selectedDay: _selectedDay,
-                  changeDay: (value) => setState(
-                    () {
-                      _selectedDay = value;
-                    },
+                Image.asset('assets/laut.png', width: 360.w, height: 150),
+                Padding(
+                  padding: const EdgeInsets.only(top: 40),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Text(
+                          '12 : 22',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400,
+                              color: blackColor),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          'Senin, 29 Mei 2023',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              color: blackColor),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
-                const CardEvent(),
-                const SizedBox(
-                  height: 10,
-                ),
-                const CardEvent(),
-                const SizedBox(
-                  height: 10,
-                ),
-                const CardEvent(),
-                const SizedBox(
-                  height: 10,
-                ),
-                const CardEvent()
               ],
             ),
-          ),
+            const SizedBox(
+              height: 40,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: SizedBox(
+                height: 600,
+                child: ListView.separated(
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return CardEvent();
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(
+                        height: 10,
+                      );
+                    },
+                    itemCount: 5),
+              ),
+            ),
+          ]),
         ),
       ),
     );

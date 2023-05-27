@@ -19,19 +19,19 @@ class CardEvent extends StatelessWidget {
         );
       },
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        color: fifthColor,
-        shadowColor: secondaryColor,
+        shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+        color: putihColor,
+        shadowColor: abuColor,
         child: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10.0),
                 child: Image.asset(
-                  'assets/logo.png',
-                  width: 94,
-                  height: 87,
+                  'assets/icon/event_icon/dummy/g1.png',
+                  width: 64,
+                  height: 64,
                 ),
               ),
             ),
@@ -45,17 +45,18 @@ class CardEvent extends StatelessWidget {
                   height: 10,
                 ),
                 Card(
-                  shape: RoundedRectangleBorder(
+                  shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  color: thirdColor,
+                  color: putihColor,
+                  shadowColor: blackColor,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      '12 Jan 2023',
+                      '29 Mei 2023',
                       style: poppinsKecil.copyWith(
-                          fontSize: 10,
+                          fontSize: 11,
                           fontWeight: FontWeight.w400,
-                          color: whiteColor),
+                          color: blackColor),
                     ),
                   ),
                 ),
@@ -63,10 +64,10 @@ class CardEvent extends StatelessWidget {
                   height: 12,
                 ),
                 Text(
-                  'Title Event',
+                  'Ogoh - Ogoh',
                   style: poppinsKecil.copyWith(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
                       color: blackColor),
                 ),
                 const SizedBox(
@@ -83,7 +84,7 @@ class CardEvent extends StatelessWidget {
                       width: 10,
                     ),
                     Text(
-                      'Lokasi Event',
+                      'Denpasar, Bali',
                       style: poppinsKecil.copyWith(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,

@@ -69,6 +69,7 @@ flutter:
     - assets/icon/bottom_navigasi_icon/
     - assets/icon/setting_icon/
     - assets/icon/event_icon/
+    - assets/icon/event_icon/dummy/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
