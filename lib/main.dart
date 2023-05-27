@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/view/login_page.dart';
+import 'package:mobile_balink/view/alamat/alamat.dart';
+// import 'package:mobile_balink/view/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         return const MaterialApp(
           title: 'Balink',
           debugShowCheckedModeBanner: false,
-          home: LoginScreen(),
+          home: AlamatPage(),
         );
       },
     );
