@@ -24,48 +24,46 @@ class _TambahAlamatState extends State<TambahAlamat> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(14.0),
+        padding: const EdgeInsets.fromLTRB(15, 24, 15, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              'Nama',
+              style: poppinsKecil.copyWith(
+                  color: blackColor, fontWeight: FontWeight.bold),
+            ),
+            TextField(
+              decoration: InputDecoration(hintText: 'Masukkan Nama'),
+            ),
             SizedBox(height: 10.h),
             Text(
-              'Informasi Kontak',
+              'Email',
               style: poppinsKecil.copyWith(
-                  color: Colors.grey, fontWeight: FontWeight.bold),
+                  color: blackColor, fontWeight: FontWeight.bold),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextField(
-                    decoration: InputDecoration(hintText: 'Masukkan Nama'),
-                  ),
-                  SizedBox(height: 10.h),
-                  TextField(
-                    decoration: InputDecoration(hintText: 'Nomor Telepon'),
-                  ),
-                ],
-              ),
+            TextField(
+              decoration: InputDecoration(hintText: 'Masukkan Email'),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 10.h),
             Text(
-              'Informasi Alamat',
+              'No Telepon',
               style: poppinsKecil.copyWith(
-                  color: Colors.grey, fontWeight: FontWeight.bold),
+                  color: blackColor, fontWeight: FontWeight.bold),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextField(
-                    decoration: InputDecoration(hintText: 'Masukkan Alamat'),
-                  ),
-                ],
-              ),
+            TextField(
+              decoration: InputDecoration(hintText: 'No Telepon'),
             ),
+            SizedBox(height: 10.h),
+            Text(
+              'Alamat',
+              style: poppinsKecil.copyWith(
+                  color: blackColor, fontWeight: FontWeight.bold),
+            ),
+            TextField(
+              decoration: InputDecoration(hintText: 'Masukkan Alamat Lengkap'),
+            ),
+            SizedBox(height: 10.h),
           ],
         ),
       ),
