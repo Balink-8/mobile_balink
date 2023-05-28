@@ -33,11 +33,22 @@ class _AlamatPageState extends State<AlamatPage> {
                 SizedBox(height: 20.h),
                 Row(
                   children: [
-                    Icon(Icons.add),
-                    Text('Tambah Alamat'),
-                    SizedBox(width: 180.w),
                     Expanded(
-                        child: GestureDetector(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.add,
+                          ),
+                          SizedBox(width: 6.w),
+                          Text(
+                            'Tambah Alamat',
+                            style: poppinsKecil.copyWith(
+                                color: blackColor, fontSize: 15.sp),
+                          ),
+                        ],
+                      ),
+                    ),
+                    GestureDetector(
                       onTap: () {
                         Navigator.push(
                             context,
@@ -46,9 +57,9 @@ class _AlamatPageState extends State<AlamatPage> {
                       },
                       child: Icon(
                         Icons.arrow_forward_ios,
-                        size: 15.w,
+                        size: 16.w,
                       ),
-                    ))
+                    )
                   ],
                 ),
                 SizedBox(height: 30.h),
