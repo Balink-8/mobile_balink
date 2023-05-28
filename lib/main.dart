@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
 import 'package:mobile_balink/view/profile/profile_screen.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         return const MaterialApp(
           title: 'Balink',
           debugShowCheckedModeBanner: false,
-          home: ProfileScreen(),
+          home: PengaturanScreen(),
         );
       },
     );
