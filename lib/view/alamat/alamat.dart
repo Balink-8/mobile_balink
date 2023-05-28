@@ -89,17 +89,20 @@ class _AlamatPageState extends State<AlamatPage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Container(
-        width: 300.w,
-        height: 48.h,
-        decoration: BoxDecoration(
-          color: secondaryColor,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Center(
-          child: Text(
-            'Simpan',
-            style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+      floatingActionButton: GestureDetector(
+        onTap: () {},
+        child: Container(
+          width: 330.w,
+          height: 48.h,
+          decoration: BoxDecoration(
+            color: secondaryColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Center(
+            child: Text(
+              'Simpan',
+              style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),
