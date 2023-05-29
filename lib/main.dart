@@ -14,8 +14,12 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       builder: (_, child) {
-        return const MaterialApp(
+        return MaterialApp(
           title: 'Balink',
+          theme: ThemeData(
+              appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(color: Colors.black),
+          )),
           debugShowCheckedModeBanner: false,
           home: LoginScreen(),
         );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/view/chechkout/checkout_shop.dart';
 import '../../config/theme.dart';
 import '../widget/home_screen_widget/carousel_welcome.dart';
 
@@ -57,8 +58,17 @@ class HomePageScreen extends StatelessWidget {
                             //   Icons.shop,
                             //   color: primaryColor,
                             // ),
-                            Image.asset(
-                                'assets/icon/bottom_navigasi_icon/cart.png'),
+                            InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CheckoutShopPage()));
+                          },
+                          child: Image.asset(
+                              'assets/icon/bottom_navigasi_icon/cart.png'),
+                        ),
                       ),
                     ],
                   ),
@@ -68,33 +78,6 @@ class HomePageScreen extends StatelessWidget {
                 height: 22.h,
               ),
               const CarouselView(),
-              // Center(
-              //   child: Card(
-              //     shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(20.0)),
-              //     child: SizedBox(
-              //       height: 167,
-              //       width: 310,
-              //       child: ClipRRect(
-              //         // decoration: const BoxDecoration(
-              //         borderRadius: const BorderRadius.only(
-              //           topLeft: Radius.circular(20.0),
-              //           topRight: Radius.circular(20.0),
-              //           bottomLeft: Radius.circular(20.0),
-              //           bottomRight: Radius.circular(20.0),
-              //         ),
-              //         // ),
-              //         child: Image.network(
-              //           'https://ticket.gwkbali.com/images/ticket/1200%20x%20900.png',
-              //           fit: BoxFit.cover,
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              // const SizedBox(
-              //   height: 24,
-              // ),
               Padding(
                 padding: const EdgeInsets.only(
                   left: 25.0,
