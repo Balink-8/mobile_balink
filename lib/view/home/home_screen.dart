@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/view/chechkout/checkout_shop.dart';
+import 'package:mobile_balink/view/checkout/checkout_shop.dart';
 import '../../config/theme.dart';
 import '../widget/home_screen_widget/carousel_welcome.dart';
 

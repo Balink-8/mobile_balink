@@ -22,8 +22,8 @@ class CheckoutShopPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(
-              height: 24,
+            SizedBox(
+              height: 14.h,
             ),
             Row(
               children: [
@@ -31,7 +31,11 @@ class CheckoutShopPage extends StatelessWidget {
                 const SizedBox(
                   width: 5,
                 ),
-                const Text('Pengiriman produk')
+                Text('Pengiriman produk',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w400))
               ],
             ),
             const SizedBox(
@@ -51,13 +55,21 @@ class CheckoutShopPage extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  const Expanded(
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Alamat Pengiriman'),
+                        Text('Alamat Pengiriman',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 12,
+                                color: blackColor,
+                                fontWeight: FontWeight.w400)),
                         Text(
-                            'Jl. Mengaling, Celuk, Kec. Sukawati, Kabupaten Gianyar, Bali'),
+                            'Jl. Mengaling, Celuk, Kec. Sukawati, Kabupaten Gianyar, Bali',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 12,
+                                color: const Color.fromRGBO(89, 90, 89, 1),
+                                fontWeight: FontWeight.w400)),
                       ],
                     ),
                   ),
@@ -67,6 +79,7 @@ class CheckoutShopPage extends StatelessWidget {
                   const Icon(
                     Icons.arrow_forward_ios,
                     size: 12,
+                    color: Color.fromRGBO(89, 90, 89, 1),
                   )
                 ],
               ),
@@ -97,17 +110,34 @@ class CheckoutShopPage extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                const Expanded(
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Kemeja Endek Strait Motif Bali Premium'),
-                      SizedBox(
+                      Text('Kemeja Endek Strait Motif Bali Premium',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 12,
+                              color: blackColor,
+                              fontWeight: FontWeight.w400)),
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text('Rp 90.0000'), Text('1x')],
+                        children: [
+                          Text(
+                            'Rp 90.0000',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 12,
+                                color: blackColor,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Text('1x',
+                              style: poppinsKecil.copyWith(
+                                  fontSize: 12,
+                                  color: blackColor,
+                                  fontWeight: FontWeight.w400))
+                        ],
                       ),
                     ],
                   ),
@@ -117,67 +147,61 @@ class CheckoutShopPage extends StatelessWidget {
                 ),
               ],
             ),
-            // ListTile(
-            //   leading: SizedBox(
-            //     height: 50,
-            //     width: 50,
-            //     child: ClipRRect(
-            //       // decoration: const BoxDecoration(
-            //       borderRadius: const BorderRadius.all(
-            //         Radius.circular(5.0),
-            //         // topRight: Radius.circular(5.0),
-            //       ),
-            //       // ),
-            //       child: Image.network(
-            //         'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
-            //         fit: BoxFit.cover,
-
-            //         // scale: 1.7,
-            //       ),
-            //     ),
-            //   ),
-            //   title: const Text('Kemeja Endek Strait Motif Bali Premium'),
-            //   subtitle: const Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Text('Rp 90.000'),
-            //       Text('1x'),
-            //     ],
-            //   ),
-            // ),
 
             //PENGIRIMAN
             const SizedBox(
               height: 24,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Pengiriman'),
-                Text('Rp 10.000'),
+                Text('Pengiriman',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w700)),
+                Text('Rp 10.000',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w400)),
               ],
             ),
-            const SizedBox(
-              height: 4,
+            SizedBox(
+              height: 4.h,
             ),
-            const Text(
-              'Akan diterima pada tanggal 30 April - 2 Mei',
-            ),
+            Text('Akan diterima pada tanggal 30 April - 2 Mei',
+                style: poppinsKecil.copyWith(
+                    fontSize: 12,
+                    color: const Color.fromRGBO(89, 90, 89, 1),
+                    fontWeight: FontWeight.w400)),
             const SizedBox(
               height: 24,
             ),
 
             //PESAN
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Pesan'),
+                Text('Pesan',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w700)),
                 Row(
                   children: [
-                    Text('Opsional'),
-                    Icon(
+                    Text('Opsional',
+                        style: poppinsKecil.copyWith(
+                            fontSize: 12,
+                            color: const Color.fromRGBO(89, 90, 89, 1),
+                            fontWeight: FontWeight.w400)),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    const Icon(
                       Icons.arrow_forward_ios,
                       size: 12,
+                      color: Color.fromRGBO(89, 90, 89, 1),
                     )
                   ],
                 ),
@@ -186,21 +210,24 @@ class CheckoutShopPage extends StatelessWidget {
             const SizedBox(
               height: 4,
             ),
-            const Text(
-              'Rp 100.000',
-              textAlign: TextAlign.end,
-            ),
+            Text('Rp 100.000',
+                textAlign: TextAlign.end,
+                style: poppinsKecil.copyWith(
+                    fontSize: 12,
+                    color: blackColor,
+                    fontWeight: FontWeight.w400)),
             const SizedBox(
               height: 4,
             ),
 
             //KODE PROMO
-            const Text(
-              'Kode Promo',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 4,
+            Text('Kode Promo',
+                style: poppinsKecil.copyWith(
+                    fontSize: 12,
+                    color: blackColor,
+                    fontWeight: FontWeight.w700)),
+            SizedBox(
+              height: 4.h,
             ),
             TextFormField(
               decoration: InputDecoration(
@@ -221,48 +248,95 @@ class CheckoutShopPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(25),
                     ),
                   ),
+                  focusColor: Colors.transparent,
                   border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)))),
             ),
+            // TextFormField(
+            //   decoration: InputDecoration(
+            //       // filled: true,
+            //       // enabled: false,
+            //       // fillColor: Color.fromRGBO(205, 203, 200, 0.2),
+            //       suffixIcon: Icon(
+            //         Icons.key_outlined,
+            //         size: 14.67,
+            //         color: secondaryColor,
+            //       ),
+            //       border: OutlineInputBorder(
+            //           borderRadius: BorderRadius.all(Radius.circular(8)))),
+            // ),
             const SizedBox(
               height: 24,
             ),
 
             //RINGKASAN PESANAN
-            const Text(
-              'Ringkasan Pesanan',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            const Row(
+            Text('Ringkasan Pesanan',
+                style: poppinsKecil.copyWith(
+                    fontSize: 12,
+                    color: blackColor,
+                    fontWeight: FontWeight.w700)),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Subtotal'),
-                Text('Rp 90.000'),
+                Text('Subtotal',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: const Color.fromRGBO(89, 90, 89, 1),
+                        fontWeight: FontWeight.w400)),
+                Text('Rp 90.000',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w400)),
               ],
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Pengiriman'),
-                Text('Rp 10.000'),
+                Text('Pengiriman',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: const Color.fromRGBO(89, 90, 89, 1),
+                        fontWeight: FontWeight.w400)),
+                Text('Rp 10.000',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w400)),
               ],
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Promo'),
-                Text('-'),
+                Text('Promo',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: const Color.fromRGBO(89, 90, 89, 1),
+                        fontWeight: FontWeight.w400)),
+                Text('-',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w400)),
               ],
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Total'),
-                Text('Rp 100.000'),
+                Text('Total',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w700)),
+                Text('Rp 100.000',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w700)),
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             //METODE PEMBAYARAN
             Row(
@@ -276,7 +350,11 @@ class CheckoutShopPage extends StatelessWidget {
                 const SizedBox(
                   width: 5,
                 ),
-                const Text('Metode Pembayaran')
+                Text('Metode Pembayaran',
+                    style: poppinsKecil.copyWith(
+                        fontSize: 12,
+                        color: blackColor,
+                        fontWeight: FontWeight.w700))
               ],
             ),
             const SizedBox(
@@ -298,7 +376,7 @@ class CheckoutShopPage extends StatelessWidget {
                         ),
                         // color: thirdColor,
                         child: Padding(
-                          padding: EdgeInsets.all(4.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Center(
                             child: Text(
                               'TRF',
@@ -312,30 +390,41 @@ class CheckoutShopPage extends StatelessWidget {
                     const SizedBox(
                       width: 6,
                     ),
-                    const Text('Transfer Bank'),
+                    Text('Transfer Bank',
+                        style: poppinsKecil.copyWith(
+                            fontSize: 12,
+                            color: blackColor,
+                            fontWeight: FontWeight.w400)),
                   ],
                 ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 12,
-                )
+                const Icon(Icons.arrow_forward_ios,
+                    size: 12, color: Color.fromRGBO(89, 90, 89, 1))
               ],
             ),
             SizedBox(
-              height: 50.h,
+              height: 40.h,
             ),
             // SizedBox(
             //   height: 80.h,
             // ),
 
             //TOTAL PRODUK DAN HARGA
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Total (1 Produk)'),
+                Text(
+                  'Total (1 Produk)',
+                  style: poppinsKecil.copyWith(
+                      fontSize: 12,
+                      color: blackColor,
+                      fontWeight: FontWeight.w400),
+                ),
                 Text(
                   'Rp 100.000',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: poppinsKecil.copyWith(
+                      fontSize: 12,
+                      color: blackColor,
+                      fontWeight: FontWeight.w700),
                 )
               ],
             ),
@@ -366,6 +455,9 @@ class CheckoutShopPage extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: 20.h,
             ),
 
             //COMMAND CANCEL CODE USED LIST TILE
