@@ -156,11 +156,151 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        LupaPasswordScreen()));
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (context) {
+                                  return Container(
+                                    height: 420.h,
+                                    width: 360.h,
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          14, 20, 14, 20),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Center(
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  'Lupa Password?',
+                                                  style: poppinsKecil.copyWith(
+                                                    color: blackColor,
+                                                    fontSize: 16.sp,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                SizedBox(height: 6.h),
+                                                Text(
+                                                  'Jangan kawatir, kami akan mengirimkan pesan reset.',
+                                                  style: poppinsKecil.copyWith(
+                                                    fontSize: 12.sp,
+                                                    color: blackColor,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 30.h,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Text(
+                                            'Email / Username',
+                                            style: poppinsKecil.copyWith(
+                                              color: blackColor,
+                                              fontSize: 12.sp,
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 320.w,
+                                            height: 48.h,
+                                            decoration: BoxDecoration(
+                                                color: whiteColor,
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(10.w))),
+                                            child: TextFormField(
+                                              controller: usernameController,
+                                              decoration: InputDecoration(
+                                                hintText:
+                                                    'Masukkan Email / Username',
+                                                hintStyle:
+                                                    poppinsKecil.copyWith(
+                                                        color: Colors.grey,
+                                                        fontSize: 12.sp),
+                                                border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(
+                                                              10.w)),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                  color: secondaryColor,
+                                                )),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(height: 40.h),
+                                          Align(
+                                            alignment: Alignment.bottomCenter,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            NavbarBawah()));
+                                              },
+                                              child: Container(
+                                                width: 290.w,
+                                                height: 38.h,
+                                                decoration: BoxDecoration(
+                                                  color: secondaryColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                child: Center(
+                                                  child: Text(
+                                                    'Reset Password',
+                                                    style:
+                                                        poppinsKecil.copyWith(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(height: 10),
+                                          Align(
+                                            alignment: Alignment.bottomCenter,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            NavbarBawah()));
+                                              },
+                                              child: Container(
+                                                width: 290.w,
+                                                height: 38.h,
+                                                decoration: BoxDecoration(
+                                                  color: whiteColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                child: Center(
+                                                  child: Text(
+                                                    'Reset Password',
+                                                    style:
+                                                        poppinsKecil.copyWith(
+                                                            color: blackColor,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                });
                           },
                           child: Text(
                             'Reset',
