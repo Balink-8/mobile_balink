@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/theme.dart';
+import '../widgets_shopping/order_now.dart';
 import '../widgets_shopping/shopping_card.dart';
+import '../widgets_shopping/keranjang.dart';
 import 'list_gambar.dart';
 
 class DetailCard extends StatelessWidget {
@@ -70,18 +72,13 @@ class DetailCard extends StatelessWidget {
                             color: Colors.black,
                           ),
                           onPressed: () {
-                            // Aksi ketika tombol berbagi ditekan
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Keranjang(index: index),
+                              ),
+                            );
                           },
-                        ),
-                      ),
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: IconButton(
-                          icon: Image.asset(
-                            'assets/truck.png',
-                            color: Colors.black,
-                          ),
-                          onPressed: () {},
                         ),
                       ),
                     ],
@@ -219,6 +216,7 @@ class DetailCard extends StatelessWidget {
                       ),
                       Expanded(
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Lokasi',
@@ -246,6 +244,9 @@ class DetailCard extends StatelessWidget {
             )
           ],
         ),
+      ),
+      bottomNavigationBar: OrderNow(
+        index: index,
       ),
     );
   }

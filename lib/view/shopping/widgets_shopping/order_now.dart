@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../config/theme.dart';
+import 'bottom_sheet_ordernow.dart';
 
 class OrderNow extends StatelessWidget {
   const OrderNow({Key? key, required this.index}) : super(key: key);
@@ -24,7 +25,13 @@ class OrderNow extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 80, right: 20),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) =>
+                      BottomSheetOrderNow(index: index),
+                );
+              },
               child: Text(
                 'Beli Sekarang',
                 style: poppinsKecil.copyWith(
