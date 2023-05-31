@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,8 +10,25 @@ import '../../config/theme.dart';
 import 'change_address_screen.dart';
 import 'change_number_screen.dart';
 
-class DetailProfileScreen extends StatelessWidget {
+class DetailProfileScreen extends StatefulWidget {
   const DetailProfileScreen({super.key});
+
+  @override
+  State<DetailProfileScreen> createState() => _DetailProfileScreenState();
+}
+
+class _DetailProfileScreenState extends State<DetailProfileScreen> {
+  File? image;
+  void pickImage() async {
+    FilePickerResult? result =
+        await FilePicker.platform.pickFiles(type: FileType.image);
+    if (result != null) {
+      File file = File(result.files.single.path!);
+      setState(() {
+        image = file;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +89,9 @@ class DetailProfileScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          onTap: () {},
+                          onTap: () {
+                            pickImage();
+                          },
                         ),
                         const Divider(),
                         ListTile(

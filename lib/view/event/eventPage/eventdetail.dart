@@ -29,7 +29,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    'assets/ogoh.png',
+                    'assets/icon/ogoh.png',
                     fit: BoxFit.cover,
                   ),
                 ),
