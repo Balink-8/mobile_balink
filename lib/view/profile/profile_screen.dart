@@ -177,10 +177,8 @@ class ProfileScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 40,
-              vertical: 15,
-            ),
+            height: 120.h,
+            width: 160.w,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               border: Border.all(
@@ -189,11 +187,12 @@ class ProfileScreen extends StatelessWidget {
             ),
             child: Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: 40.w,
                     child: Image.asset(
                       'assets/icon/setting_icon/receipt_long.png',
+                      scale: 2.r,
                     ),
                   ),
                   SizedBox(height: 8.h),
@@ -208,10 +207,8 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 60,
-              vertical: 20,
-            ),
+            height: 120.h,
+            width: 160.w,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               border: Border.all(
@@ -220,11 +217,13 @@ class ProfileScreen extends StatelessWidget {
             ),
             child: Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: 40.w,
+                    // width: 40.w,
                     child: Image.asset(
                       'assets/icon/setting_icon/newspaper.png',
+                      scale: 2.r,
                     ),
                   ),
                   SizedBox(height: 8.h),
@@ -245,9 +244,9 @@ class ProfileScreen extends StatelessWidget {
 
   Padding buildSetting() {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16.r),
       child: Container(
-        padding: const EdgeInsets.all(12),
+        padding: EdgeInsets.all(12.r),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
           border: Border.all(

@@ -18,7 +18,7 @@ List<String> category = [
 ];
 
 List<String> nameCategory = [
-  'Kemeja Endek Strait Motif Bali Premium',
+  'Kemeja Endek Strait Motif Bali pop',
   'Hiasan Dinding Hand Made Khas Bali',
   'Tas Kualitas Premium',
   'Topeng Bali Premium',

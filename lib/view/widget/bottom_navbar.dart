@@ -34,7 +34,7 @@ class _NavbarBawahState extends State<NavbarBawah> {
       body: SafeArea(
           child: Stack(
         children: [
-          Center(child: _widgethome.elementAt(_selectedPage)),
+          Positioned(bottom: 62.h,top: 0, left: 0, right: 0,child: _widgethome.elementAt(_selectedPage)),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
