@@ -12,6 +12,7 @@ Color blackColor = Colors.black;
 Color putihColor = const Color(0xffFFFDFC);
 Color abuColor = const Color(0xff868686);
 Color greyColor = const Color(0xffEBEBEB);
+Color abuAColor = const Color(0xffD9D9D9);
 
 TextStyle poppinsKecil =
     GoogleFonts.poppins(fontSize: 14.sp, color: whiteColor);

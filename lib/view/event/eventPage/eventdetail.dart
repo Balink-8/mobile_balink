@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
-import 'package:mobile_balink/view/event/eventPage/overlaybuyevent.dart';
-import 'package:mobile_balink/view/event/widgetEvent/card_aboutEvent.dart';
-import 'package:mobile_balink/view/event/widgetEvent/card_calendar.dart';
-import 'package:mobile_balink/view/event/widgetEvent/card_clock.dart';
-
-import '../widgetEvent/card_detailevent.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/card_aboutEvent.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/card_calendar.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/card_clock.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/card_detailevent.dart';
 
 class EventDetailScreen extends StatefulWidget {
   const EventDetailScreen({super.key});
@@ -57,7 +56,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/icon/event_icon/location_on.png',
+                      'assets/icon/event_icon/location.png',
                       width: 10,
                       height: 13,
                     ),
@@ -83,7 +82,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                         Padding(
                           padding: const EdgeInsets.all(10),
                           child: Image.asset(
-                            'assets/icon/event_icon/confirmation_number.png',
+                            'assets/icon/event_icon/ticket.png',
                             width: 13,
                             height: 10,
                           ),
@@ -132,7 +131,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/icon/event_icon/language.png',
+                      'assets/icon/event_icon/net.png',
                       width: 10,
                       height: 13,
                     ),
@@ -158,7 +157,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/icon/event_icon/location_on.png',
+                      'assets/icon/event_icon/location.png',
                       width: 10,
                       height: 13,
                     ),
@@ -193,43 +192,13 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const bsTicket()
               ],
             ),
           ),
-        ),
-      ),
-      bottomNavigationBar: const PesanNow(),
-    );
-  }
-}
-
-class PesanNow extends StatefulWidget {
-  const PesanNow({super.key});
-
-  @override
-  State<PesanNow> createState() => _PesanNowState();
-}
-
-class _PesanNowState extends State<PesanNow> {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const BuyEvent(),
-          ),
-        );
-      },
-      child: Container(
-        color: secondaryColor,
-        alignment: Alignment.center,
-        height: 53,
-        child: Text(
-          'Pesan Sekarang',
-          style: poppinsKecil.copyWith(
-              fontSize: 14, fontWeight: FontWeight.w700, color: whiteColor),
         ),
       ),
     );

@@ -19,7 +19,7 @@ class CardEvent extends StatelessWidget {
         );
       },
       child: Card(
-        shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         color: putihColor,
         shadowColor: abuColor,
         child: Row(
@@ -76,7 +76,7 @@ class CardEvent extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/icon/event_icon/location_on.png',
+                      'assets/icon/event_icon/location.png',
                       width: 10,
                       height: 13,
                     ),

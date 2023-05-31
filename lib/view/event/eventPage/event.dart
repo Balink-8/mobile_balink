@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
-import 'package:mobile_balink/view/event/widgetEvent/card_event.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/card_event.dart';
 
 class EventPage extends StatefulWidget {
   const EventPage({super.key});

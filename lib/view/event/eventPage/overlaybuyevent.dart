@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/eventPage/eventcheckout.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
-import 'package:mobile_balink/view/event/widgetEvent/card_adultTicket.dart';
 
 class BuyEvent extends StatefulWidget {
   const BuyEvent({super.key});
@@ -68,7 +67,7 @@ class _OverlayEventState extends State<BuyEvent> {
                     Row(
                       children: [
                         Image.asset(
-                          'assets/icon/event_icon/location_on.png',
+                          'assets/icon/event_icon/location.png',
                           width: 10,
                           height: 13,
                         ),
@@ -108,23 +107,6 @@ class _OverlayEventState extends State<BuyEvent> {
             ),
             const SizedBox(
               height: 10,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
-              child: SizedBox(
-                height: 300,
-                child: ListView.separated(
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return AdultTicket();
-                    },
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        height: 10,
-                      );
-                    },
-                    itemCount: 3),
-              ),
             ),
           ],
         ),

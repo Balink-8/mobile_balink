@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_balink/config/theme.dart';
 
-class cardCalendar extends StatelessWidget {
-  const cardCalendar({
+class cardClock extends StatelessWidget {
+  const cardClock({
     super.key,
   });
 
@@ -19,7 +19,7 @@ class cardCalendar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/icon/event_icon/calendar_month.png',
+                  'assets/icon/event_icon/alarmm.png',
                   width: 11,
                   height: 12,
                 ),
@@ -27,7 +27,7 @@ class cardCalendar extends StatelessWidget {
                   width: 5,
                 ),
                 Text(
-                  'Tanggal',
+                  'Waktu',
                   style: poppinsKecil.copyWith(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
@@ -36,7 +36,7 @@ class cardCalendar extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 5),
-            Text('12 Jan 2023',
+            Text('18:00',
                 style: poppinsKecil.copyWith(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
