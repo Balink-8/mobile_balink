@@ -75,16 +75,6 @@ class DetailCard extends StatelessWidget {
                           },
                         ),
                       ),
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: IconButton(
-                          icon: Image.asset(
-                            'assets/Vector2.png',
-                            color: Colors.black,
-                          ),
-                          onPressed: () {},
-                        ),
-                      ),
                     ],
                   ),
                 ),
