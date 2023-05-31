@@ -67,9 +67,7 @@ class _ShopScreenState extends State<ShopScreen> {
                     Text(
                       'Kategori',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
+                          fontWeight: FontWeight.w700, color: Colors.black),
                     ),
                     SizedBox(
                       height: 4.h,
@@ -83,21 +81,21 @@ class _ShopScreenState extends State<ShopScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Terlaris',
-                      style: poppinsKecil.copyWith(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    const ShoppingCard(),
-                  ],
+                child: Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Terlaris',
+                        style: poppinsKecil.copyWith(
+                            fontWeight: FontWeight.w700, color: Colors.black),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      const ShoppingCard(),
+                    ],
+                  ),
                 ),
               ),
             ],
