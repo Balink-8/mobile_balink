@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/theme.dart';
+import '../widgets_shopping/shopping_card.dart';
 import 'list_gambar.dart';
 
 class DetailCard extends StatelessWidget {
@@ -77,12 +78,10 @@ class DetailCard extends StatelessWidget {
                         backgroundColor: Colors.white,
                         child: IconButton(
                           icon: Image.asset(
-                            'assets/titik3.png',
+                            'assets/Vector2.png',
                             color: Colors.black,
                           ),
-                          onPressed: () {
-                            // Aksi ketika tombol unduh ditekan
-                          },
+                          onPressed: () {},
                         ),
                       ),
                     ],
@@ -161,6 +160,99 @@ class DetailCard extends StatelessWidget {
                         fontWeight: FontWeight.w100,
                         color: Colors.black38),
                   ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Text(
+                    'Deskripsi',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w700, color: Colors.black),
+                  ),
+                  Text(
+                    'Endek adalah kain tenun tradisional Bali yang sudah ada pada zaman dahulu. Kain endek Bali dibuat sistem tenun ikat, yakni dengan mengikat benang pakan dan benang lungsi.',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100,
+                        color: Colors.black,
+                        overflow: TextOverflow.clip),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    'Ready Warna :',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  Text(
+                    'Ungu Wine',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  Text(
+                    'Ungu Terong',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  Text(
+                    'Biru',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  Text(
+                    'Hitam',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Text(
+                    'Kategori Produk',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w700, color: Colors.black),
+                  ),
+                  Text(
+                    'Kerajinan',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Row(
+                    children: [
+                      Image.asset(
+                        'assets/location.png',
+                        width: 20.w,
+                        height: 20.h,
+                      ),
+                      SizedBox(
+                        width: 16.w,
+                      ),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              'Lokasi',
+                              style: poppinsKecil.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black),
+                            ),
+                            Text(
+                              'Jl. Pudak, Gianyar, Kec. Gianyar, Kabupaten Gianyar',
+                              style: poppinsKecil.copyWith(
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  const ShoppingCard(),
                 ],
               ),
             )

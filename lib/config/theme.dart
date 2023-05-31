@@ -11,4 +11,4 @@ Color whiteColor = Colors.white;
 Color blackColor = Colors.black;
 
 TextStyle poppinsKecil =
-    GoogleFonts.poppins(fontSize: 14.sp, color: whiteColor);
+    GoogleFonts.poppins(fontSize: 12.sp, color: whiteColor);
