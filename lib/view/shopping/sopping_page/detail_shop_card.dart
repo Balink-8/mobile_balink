@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/theme.dart';
+import '../widgets_shopping/order_now.dart';
 import '../widgets_shopping/shopping_card.dart';
 import 'list_gambar.dart';
 
@@ -231,6 +232,7 @@ class DetailCard extends StatelessWidget {
                       ),
                       Expanded(
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Lokasi',
@@ -258,6 +260,9 @@ class DetailCard extends StatelessWidget {
             )
           ],
         ),
+      ),
+      bottomNavigationBar: OrderNow(
+        index: index,
       ),
     );
   }
