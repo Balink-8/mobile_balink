@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'view/shopping/sopping_page/shop_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         );
       },
       // child: LoginScreen(),
+      child: const ShopScreen(),
     );
   }
 }
