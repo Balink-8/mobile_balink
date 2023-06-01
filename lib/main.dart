@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/checkout/berhasil_bayar.dart';
+import 'package:mobile_balink/view/checkout/upload_bukti_pembayaran.dart';
 import 'package:mobile_balink/view/login_page.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.black),
           )),
           debugShowCheckedModeBanner: false,
-          home: BerhasilBayarPage(),
+          home: BuktiPembayaranPage(),
         );
       },
     );
