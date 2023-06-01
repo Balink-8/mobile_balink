@@ -436,24 +436,24 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                   ),
                 ),
               ),
-                SizedBox(height: 100.h),
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    width: 360.w,
-                    height: 48.h,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[500],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Batalkan Pesanan',
-                        style: poppinsKecil.copyWith(),
-                      ),
+              SizedBox(height: 100.h),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: 360.w,
+                  height: 48.h,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[500],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Batalkan Pesanan',
+                      style: poppinsKecil.copyWith(),
                     ),
                   ),
                 ),
+              ),
             ],
           ),
         ),
