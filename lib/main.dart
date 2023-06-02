@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
 import 'package:mobile_balink/view/profile/profile_screen.dart';
-
+import 'view/transaksi/transaksi_event.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +16,14 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       builder: (_, child) {
-        return const MaterialApp(
+        return MaterialApp(
           title: 'Balink',
+          theme: ThemeData(
+              appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(color: Colors.black),
+          )),
           debugShowCheckedModeBanner: false,
-          home: PengaturanScreen(),
+          home: TransaksiEventPage(),
         );
       },
       // child: LoginScreen(),
