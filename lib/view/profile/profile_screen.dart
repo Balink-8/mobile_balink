@@ -8,7 +8,7 @@ import 'package:mobile_balink/view/profile/edit_profile_screen.dart';
 import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
 
 import '../../config/theme.dart';
-import '../artikel/artikel_screen.dart';
+// import '../artikel/artikel_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -327,14 +327,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const ArtikelScreen();
-                  },
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) {
+              //       return const ArtikelScreen();
+              //     },
+              //   ),
+              // );
             },
             child: Container(
               height: 100.h,
