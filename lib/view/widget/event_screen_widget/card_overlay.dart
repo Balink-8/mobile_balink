@@ -34,7 +34,7 @@ class card_CO extends StatelessWidget {
                     width: 10,
                   ),
                   Text(
-                    'Dewasa',
+                    'Tiket',
                     style: poppinsKecil.copyWith(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -58,7 +58,7 @@ class card_CO extends StatelessWidget {
             width: 170.w,
           ),
           Text(
-            'x 2',
+            'x 1',
             style: poppinsKecil.copyWith(
                 fontSize: 12, fontWeight: FontWeight.w400, color: blackColor),
           )
