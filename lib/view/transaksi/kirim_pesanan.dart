@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
-import 'package:mobile_balink/view/transaksi/batal_pesan.dart';
 
-class BerhasilBayarPage extends StatefulWidget {
-  const BerhasilBayarPage({super.key});
+class KirimPesananPage extends StatefulWidget {
+  const KirimPesananPage({super.key});
 
   @override
-  State<BerhasilBayarPage> createState() => _BerhasilBayarPageState();
+  State<KirimPesananPage> createState() => _KirimPesananPageState();
 }
 
-class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
+class _KirimPesananPageState extends State<KirimPesananPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Berhasil Dipesan',
+          'Dikirim',
           style: poppinsKecil.copyWith(
             color: blackColor,
             fontWeight: FontWeight.bold,
@@ -29,6 +28,74 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Row(
+              children: [
+                Text(
+                  'Total',
+                  style: poppinsKecil.copyWith(
+                      color: Color.fromRGBO(89, 90, 89, 1)),
+                ),
+                SizedBox(
+                  width: 5.h,
+                ),
+                Text(
+                  'Rp 100.000',
+                  style: poppinsKecil.copyWith(
+                      fontWeight: FontWeight.w700, color: blackColor),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 4.h,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Metode pembayaran pilihan',
+                  style: poppinsKecil.copyWith(
+                      color: Color.fromRGBO(89, 90, 89, 1)),
+                ),
+                SizedBox(
+                  width: 5.h,
+                ),
+                Text(
+                  'Bank Central Asia',
+                  style: poppinsKecil.copyWith(
+                      fontWeight: FontWeight.w700, color: blackColor),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 24.h,
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 14.5, right: 14.5, bottom: 24),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    'assets/truck.png',
+                    color: Colors.black,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text('Pesanan Outbond - Denpasar',
+                      style: poppinsKecil.copyWith(
+                          color: const Color.fromRGBO(89, 90, 89, 1),
+                          fontWeight: FontWeight.w400)),
+                  SizedBox(
+                    width: 80.w,
+                  ),
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 12,
+                    color: Color.fromRGBO(89, 90, 89, 1),
+                  )
+                ],
+              ),
+            ),
             Row(
               children: [
                 SizedBox(
@@ -201,42 +268,22 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
               ],
             ),
             SizedBox(height: 6.h),
-            Divider(thickness: 1),
-            SizedBox(height: 10.h),
-            Text(
-              'Status Pembayaran',
-              style: poppinsKecil.copyWith(
-                  color: blackColor, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 16.h),
-            Center(
-              child: Column(
-                children: [
-                  Text(
-                    '" Berhasil Dibayar "',
-                    style: poppinsKecil.copyWith(
-                        color: blackColor, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
             SizedBox(height: 230.h),
             GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => BatalPesanPage()));
-              },
+              onTap: () {},
               child: Container(
                 width: 360.w,
                 height: 48.h,
                 decoration: BoxDecoration(
-                  color: secondaryColor,
+                  color: Color.fromRGBO(134, 134, 134, 1),
+                  // color: secondaryColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(
                   child: Text(
                     'Batalkan Pesanan',
-                    style: poppinsKecil.copyWith(fontWeight: FontWeight.w700),
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w700, color: whiteColor),
                   ),
                 ),
               ),
