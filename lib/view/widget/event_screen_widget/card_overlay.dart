@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 
 class card_CO extends StatelessWidget {
-  const card_CO({
-    super.key,
-  });
+  var jumlah;
+
+  card_CO({super.key, required this.jumlah});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class card_CO extends StatelessWidget {
             width: 170.w,
           ),
           Text(
-            'x 1',
+            'x $jumlah',
             style: poppinsKecil.copyWith(
                 fontSize: 12, fontWeight: FontWeight.w400, color: blackColor),
           )
