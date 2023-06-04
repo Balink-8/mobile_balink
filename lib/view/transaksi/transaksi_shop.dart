@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../config/theme.dart';
+import 'berhasil_pesan.dart';
 
 class TransaksiShopPage extends StatelessWidget {
   const TransaksiShopPage({super.key});
@@ -51,9 +52,10 @@ class CardShopSuccess extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // onTap: () {
-      //   Navigator.push(context, MaterialPageRoute(builder: (context)=> Berhasil));
-      // },
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => BerhasilBayarPage()));
+      },
       child: SizedBox(
         height: 220.h,
         width: 330.w,
