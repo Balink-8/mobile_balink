@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/view/event/eventPage/event.dart';
 import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
 import 'package:mobile_balink/view/profile/profile_screen.dart';
 
@@ -19,8 +18,7 @@ class MyApp extends StatelessWidget {
         return const MaterialApp(
           title: 'Balink',
           debugShowCheckedModeBanner: false,
-          // home: PengaturanScreen(),
-          home: EventPage(),
+          home: PengaturanScreen(),
         );
       },
       // child: LoginScreen(),

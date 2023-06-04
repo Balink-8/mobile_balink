@@ -45,7 +45,7 @@ class DetailTentangKamiScreen extends StatelessWidget {
                               Expanded(
                                 child: Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.import_contacts,
                                     ),
                                     SizedBox(width: 6.w),
@@ -63,7 +63,7 @@ class DetailTentangKamiScreen extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              KetentuanLayananScreen()));
+                                              const KetentuanLayananScreen()));
                                 },
                                 child: Icon(
                                   Icons.arrow_forward_ios,
@@ -78,7 +78,7 @@ class DetailTentangKamiScreen extends StatelessWidget {
                               Expanded(
                                 child: Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.copyright,
                                     ),
                                     SizedBox(width: 6.w),
@@ -96,7 +96,7 @@ class DetailTentangKamiScreen extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              KebijakanHakCiptaScreen()));
+                                              const KebijakanHakCiptaScreen()));
                                 },
                                 child: Icon(
                                   Icons.arrow_forward_ios,
