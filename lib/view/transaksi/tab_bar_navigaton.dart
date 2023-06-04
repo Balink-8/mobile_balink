@@ -34,9 +34,9 @@ class _TabBarNavigationState extends State<TabBarNavigation>
     super.dispose();
   }
 
-  Color getTabColor(int index) {
-    return _selectedTabIndex == index ? Colors.red : Colors.blue;
-  }
+  // Color getTabColor(int index) {
+  //   return _selectedTabIndex == index ? Colors.red : Colors.blue;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +100,7 @@ class _TabBarNavigationState extends State<TabBarNavigation>
                       children: [
                         Image.asset(
                           'assets/icon/bottom_navigasi_icon/cart.png',
-                          color: getTabColor(2),
+                          color: blackColor,
                         ),
                         // Icon(Icons.shopify_outlined),
                         SizedBox(
