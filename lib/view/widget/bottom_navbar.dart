@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/event/eventPage/event.dart';
 import 'package:mobile_balink/view/home/home_screen.dart';
 import 'package:mobile_balink/view/profile/profile_screen.dart';
-import 'package:mobile_balink/view/shopping/sopping_page/shop_page.dart';
+import 'package:mobile_balink/view/shopping/shopping_page/shop_page.dart';
 
 class NavbarBawah extends StatefulWidget {
   const NavbarBawah({super.key});

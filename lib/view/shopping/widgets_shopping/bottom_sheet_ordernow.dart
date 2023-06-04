@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../config/theme.dart';
-import '../sopping_page/list_gambar.dart';
+import '../shopping_page/list_gambar.dart';
 
 class BottomSheetOrderNow extends StatelessWidget {
   const BottomSheetOrderNow({Key? key, required this.index}) : super(key: key);
