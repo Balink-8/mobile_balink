@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/view/checkout/berhasil_bayar.dart';
+import 'package:mobile_balink/view/checkout/choose_bank.dart';
 
 class CheckoutShopPage extends StatelessWidget {
   const CheckoutShopPage({super.key});
@@ -348,40 +350,45 @@ class CheckoutShopPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                        height: 28,
-                        width: 37,
-                        decoration: BoxDecoration(
-                          color:
-                              forthColor, // Replace with your desired background color
-                          borderRadius: BorderRadius.circular(
-                              6.0), // Replace with your desired border radius
-                        ),
-                        // color: thirdColor,
-                        child: Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Text(
-                            'TRF',
-                            style: poppinsKecil.copyWith(
-                                color: blackColor, fontWeight: FontWeight.w400),
+            GestureDetector(
+              onTap: () {
+                chooseBankBottomSheet(context);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                          height: 28,
+                          width: 37,
+                          decoration: BoxDecoration(
+                            color:
+                                forthColor, // Replace with your desired background color
+                            borderRadius: BorderRadius.circular(
+                                6.0), // Replace with your desired border radius
                           ),
-                        )),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text('Transfer Bank',
-                        style: poppinsKecil.copyWith(
-                            color: blackColor, fontWeight: FontWeight.w400)),
-                  ],
-                ),
-                const Icon(Icons.arrow_forward_ios,
-                    size: 12, color: Color.fromRGBO(89, 90, 89, 1))
-              ],
+                          // color: thirdColor,
+                          child: Center(
+                            child: Text(
+                              'TRF',
+                              style: poppinsKecil.copyWith(
+                                  color: blackColor,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          )),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text('Transfer Bank',
+                          style: poppinsKecil.copyWith(
+                              color: blackColor, fontWeight: FontWeight.w400)),
+                    ],
+                  ),
+                  const Icon(Icons.arrow_forward_ios,
+                      size: 12, color: Color.fromRGBO(89, 90, 89, 1))
+                ],
+              ),
             ),
             SizedBox(
               height: 143.h,
@@ -419,17 +426,25 @@ class CheckoutShopPage extends StatelessWidget {
                 //     //     builder: (context) => ())
                 //     )
               },
-              child: Container(
-                width: 360.w,
-                height: 48.h,
-                decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Center(
-                  child: Text(
-                    'Buat Pesanan',
-                    style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BerhasilBayarPage()));
+                },
+                child: Container(
+                  width: 360.w,
+                  height: 48.h,
+                  decoration: BoxDecoration(
+                    color: secondaryColor,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Buat Pesanan',
+                      style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),
@@ -473,6 +488,21 @@ class CheckoutShopPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Future<dynamic> chooseBankBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      // isScrollControlled: true,
+      // backgroundColor: const Color.fromRGBO(239, 252, 252, 1),
+      // constraints: BoxConstraints(maxHeight: double.infinity),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(10),
+        ),
+      ),
+      builder: (context) => const ChooseBankSheet(),
     );
   }
 }
