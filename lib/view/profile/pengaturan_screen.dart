@@ -17,6 +17,7 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: whiteColor,
         title: Text(
           'Pengaturan',
@@ -53,7 +54,7 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
                               Expanded(
                                 child: Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.shield_outlined,
                                     ),
                                     SizedBox(width: 6.w),
@@ -68,10 +69,12 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              KebijakanPrivasiScreen()));
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const KebijakanPrivasiScreen(),
+                                    ),
+                                  );
                                 },
                                 child: Icon(
                                   Icons.arrow_forward_ios,
@@ -86,7 +89,7 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
                               Expanded(
                                 child: Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.error_outline,
                                     ),
                                     SizedBox(width: 6.w),
@@ -101,10 +104,12 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              DetailTentangKamiScreen()));
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const DetailTentangKamiScreen(),
+                                    ),
+                                  );
                                 },
                                 child: Icon(
                                   Icons.arrow_forward_ios,
@@ -144,7 +149,7 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
                               Expanded(
                                 child: Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.logout,
                                     ),
                                     SizedBox(width: 6.w),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/theme.dart';
-import '../sopping_page/detail_shop_card.dart';
-import '../sopping_page/list_gambar.dart';
+import '../shopping_page/detail_shop_card.dart';
+import '../shopping_page/list_gambar.dart';
 
 class ShoppingCard extends StatelessWidget {
   const ShoppingCard({Key? key}) : super(key: key);

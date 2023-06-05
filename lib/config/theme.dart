@@ -9,6 +9,10 @@ Color forthColor = const Color(0xffEFEDED);
 Color fifthColor = const Color(0xffF7F5F5);
 Color whiteColor = Colors.white;
 Color blackColor = Colors.black;
+Color putihColor = const Color(0xffFFFDFC);
+Color abuColor = const Color(0xff868686);
+Color greyColor = const Color(0xffEBEBEB);
+Color abuAColor = const Color(0xffD9D9D9);
 
 TextStyle poppinsKecil =
     GoogleFonts.poppins(fontSize: 12.sp, color: whiteColor);
