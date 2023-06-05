@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/theme.dart';
+import '../widgets_shopping/order_now.dart';
+import '../widgets_shopping/shopping_card.dart';
+import '../widgets_shopping/keranjang.dart';
 import 'list_gambar.dart';
 
 class DetailCard extends StatelessWidget {
@@ -69,19 +72,12 @@ class DetailCard extends StatelessWidget {
                             color: Colors.black,
                           ),
                           onPressed: () {
-                            // Aksi ketika tombol berbagi ditekan
-                          },
-                        ),
-                      ),
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: IconButton(
-                          icon: Image.asset(
-                            'assets/titik3.png',
-                            color: Colors.black,
-                          ),
-                          onPressed: () {
-                            // Aksi ketika tombol unduh ditekan
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Keranjang(index: index),
+                              ),
+                            );
                           },
                         ),
                       ),
@@ -98,14 +94,12 @@ class DetailCard extends StatelessWidget {
                   Text(
                     nameCategory[index],
                     style: poppinsKecil.copyWith(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black),
+                        fontWeight: FontWeight.w400, color: Colors.black),
                   ),
                   Text(
                     'Rp. 90.000',
                     style: poppinsKecil.copyWith(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                         color: Colors.black),
                   ),
@@ -115,9 +109,7 @@ class DetailCard extends StatelessWidget {
                   Text(
                     '162 Terjual',
                     style: poppinsKecil.copyWith(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black),
+                        fontWeight: FontWeight.w400, color: Colors.black),
                   ),
                   SizedBox(
                     height: 15.h,
@@ -125,9 +117,7 @@ class DetailCard extends StatelessWidget {
                   Text(
                     'Ongkir',
                     style: poppinsKecil.copyWith(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black),
+                        fontWeight: FontWeight.w700, color: Colors.black),
                   ),
                   Row(
                     children: [
@@ -138,9 +128,7 @@ class DetailCard extends StatelessWidget {
                       Text(
                         'Ongkos kirim Rp. 5.000 - Rp. 10.000',
                         style: poppinsKecil.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
+                            fontWeight: FontWeight.w400, color: Colors.black),
                       )
                     ],
                   ),
@@ -150,22 +138,115 @@ class DetailCard extends StatelessWidget {
                   Text(
                     'Garansi',
                     style: poppinsKecil.copyWith(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black),
+                        fontWeight: FontWeight.w700, color: Colors.black),
                   ),
                   Text(
                     'Terima pesanan dengan aman atau uang Anda akan kami kembalikan',
                     style: poppinsKecil.copyWith(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w100,
-                        color: Colors.black38),
+                        fontWeight: FontWeight.w100, color: Colors.black38),
                   ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Text(
+                    'Deskripsi',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w700, color: Colors.black),
+                  ),
+                  Text(
+                    'Endek adalah kain tenun tradisional Bali yang sudah ada pada zaman dahulu. Kain endek Bali dibuat sistem tenun ikat, yakni dengan mengikat benang pakan dan benang lungsi.',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100,
+                        color: Colors.black,
+                        overflow: TextOverflow.clip),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    'Ready Warna :',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  Text(
+                    'Ungu Wine',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  Text(
+                    'Ungu Terong',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  Text(
+                    'Biru',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  Text(
+                    'Hitam',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Text(
+                    'Kategori Produk',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w700, color: Colors.black),
+                  ),
+                  Text(
+                    'Kerajinan',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w100, color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Row(
+                    children: [
+                      Image.asset(
+                        'assets/location.png',
+                        width: 20.w,
+                        height: 20.h,
+                      ),
+                      SizedBox(
+                        width: 16.w,
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Lokasi',
+                              style: poppinsKecil.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black),
+                            ),
+                            Text(
+                              'Jl. Pudak, Gianyar, Kec. Gianyar, Kabupaten Gianyar',
+                              style: poppinsKecil.copyWith(
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  const ShoppingCard(),
                 ],
               ),
             )
           ],
         ),
+      ),
+      bottomNavigationBar: OrderNow(
+        index: index,
       ),
     );
   }

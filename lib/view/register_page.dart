@@ -11,6 +11,13 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  TextEditingController usernameRegister = TextEditingController();
+  TextEditingController noTeleponRegister = TextEditingController();
+  TextEditingController passwordRegister = TextEditingController();
+  TextEditingController confirmPasswordRegister = TextEditingController();
+
+  bool showPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +26,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             children: [
               Container(
-                height: 180.h,
+                height: 120.h,
                 width: 400.w,
                 color: secondaryColor,
                 child: Padding(
@@ -48,8 +55,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(height: 30),
               Center(
                 child: Image.asset(
-                  'assets/logo-2.png',
-                  width: 200.w,
+                  'assets/logo.png',
+                  width: 70.w,
                 ),
               ),
               SizedBox(height: 30),
@@ -66,51 +73,155 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       style: poppinsKecil.copyWith(
                           fontSize: 12, color: blackColor),
                     ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Username@gmail.com',
-                        border: OutlineInputBorder(),
+                    Container(
+                      width: 320.w,
+                      height: 48.h,
+                      decoration: BoxDecoration(
+                          color: whiteColor,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.w))),
+                      child: TextFormField(
+                        controller: usernameRegister,
+                        decoration: InputDecoration(
+                          hintText: 'username / username@gmail.com',
+                          hintStyle: poppinsKecil.copyWith(
+                              color: Colors.grey, fontSize: 12.sp),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.w)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                            color: secondaryColor,
+                          )),
+                        ),
                       ),
-                      style: poppinsKecil,
                     ),
                     SizedBox(height: 12),
                     Text(
-                      'Email atau Username',
+                      'Nomor Telepon',
                       style: poppinsKecil.copyWith(
                           fontSize: 12, color: blackColor),
                     ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Username@gmail.com',
-                        border: OutlineInputBorder(),
+                    Container(
+                      width: 320.w,
+                      height: 48.h,
+                      decoration: BoxDecoration(
+                          color: whiteColor,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.w))),
+                      child: TextFormField(
+                        controller: noTeleponRegister,
+                        decoration: InputDecoration(
+                          hintText: '+62',
+                          hintStyle: poppinsKecil.copyWith(
+                              color: Colors.grey, fontSize: 12.sp),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.w)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                            color: secondaryColor,
+                          )),
+                        ),
                       ),
-                      style: poppinsKecil,
                     ),
                     SizedBox(height: 12),
                     Text(
-                      'Email atau Username',
+                      'Password',
                       style: poppinsKecil.copyWith(
                           fontSize: 12, color: blackColor),
                     ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Username@gmail.com',
-                        border: OutlineInputBorder(),
+                    Container(
+                      width: 320.w,
+                      height: 48.h,
+                      decoration: BoxDecoration(
+                          color: whiteColor,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.w))),
+                      child: TextFormField(
+                        controller: passwordRegister,
+                        obscureText: showPassword,
+                        decoration: InputDecoration(
+                          suffixIcon: GestureDetector(
+                              onTap: () {
+                                if (showPassword) {
+                                  setState(() {
+                                    showPassword = false;
+                                  });
+                                } else {
+                                  setState(() {
+                                    showPassword = true;
+                                  });
+                                }
+                              },
+                              child: showPassword
+                                  ? Icon(Icons.visibility,
+                                      color: secondaryColor)
+                                  : Icon(Icons.visibility_off,
+                                      color: secondaryColor)),
+                          hintText: 'Password',
+                          hintStyle: poppinsKecil.copyWith(
+                              color: Colors.grey, fontSize: 12.sp),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.w)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                            color: secondaryColor,
+                          )),
+                        ),
                       ),
-                      style: poppinsKecil,
                     ),
                     SizedBox(height: 12),
                     Text(
-                      'Email atau Username',
+                      'Confirm Password',
                       style: poppinsKecil.copyWith(
                           fontSize: 12, color: blackColor),
                     ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Username@gmail.com',
-                        border: OutlineInputBorder(),
+                    Container(
+                      width: 320.w,
+                      height: 48.h,
+                      decoration: BoxDecoration(
+                          color: whiteColor,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.w))),
+                      child: TextFormField(
+                        controller: confirmPasswordRegister,
+                        obscureText: showPassword,
+                        decoration: InputDecoration(
+                          suffixIcon: GestureDetector(
+                              onTap: () {
+                                if (showPassword) {
+                                  setState(() {
+                                    showPassword = false;
+                                  });
+                                } else {
+                                  setState(() {
+                                    showPassword = true;
+                                  });
+                                }
+                              },
+                              child: showPassword
+                                  ? Icon(Icons.visibility,
+                                      color: secondaryColor)
+                                  : Icon(Icons.visibility_off,
+                                      color: secondaryColor)),
+                          hintText: 'Confirm Password',
+                          hintStyle: poppinsKecil.copyWith(
+                              color: Colors.grey, fontSize: 12.sp),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.w)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                            color: secondaryColor,
+                          )),
+                        ),
                       ),
-                      style: poppinsKecil,
                     ),
                     SizedBox(height: 20),
                     GestureDetector(

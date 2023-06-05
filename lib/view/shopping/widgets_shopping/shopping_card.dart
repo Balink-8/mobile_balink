@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../config/theme.dart';
-import '../sopping_page/detail_shop_card.dart';
-import '../sopping_page/list_gambar.dart';
+import '../shopping_page/detail_shop_card.dart';
+import '../shopping_page/list_gambar.dart';
 
 class ShoppingCard extends StatelessWidget {
   const ShoppingCard({Key? key}) : super(key: key);
@@ -38,7 +37,7 @@ class ShoppingCard extends StatelessWidget {
                       category[index],
                       fit: BoxFit.cover,
                       width: 155.w,
-                      height: 65.h,
+                      height: 60.h,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8),
@@ -48,14 +47,13 @@ class ShoppingCard extends StatelessWidget {
                           Text(
                             nameCategory[index],
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.black),
                           ),
                           Text(
                             'Rp. 90.000',
                             style: poppinsKecil.copyWith(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.black),
                           ),
@@ -65,7 +63,6 @@ class ShoppingCard extends StatelessWidget {
                           Text(
                             '162 Terjual',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.black),
                           ),

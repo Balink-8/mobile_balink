@@ -4,6 +4,8 @@ import 'package:mobile_balink/view/checkout/berhasil_bayar.dart';
 import 'package:mobile_balink/view/checkout/checkout_shop.dart';
 import 'package:mobile_balink/view/checkout/upload_bukti_pembayaran.dart';
 import 'package:mobile_balink/view/login_page.dart';
+import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
+import 'package:mobile_balink/view/profile/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,9 +26,14 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.black),
           )),
           debugShowCheckedModeBanner: false,
-          home: CheckoutShopPage(),
+
+         
+
+          home: PengaturanScreen(),
+
         );
       },
+      // child: LoginScreen(),
     );
   }
 }

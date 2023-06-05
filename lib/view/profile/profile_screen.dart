@@ -1,19 +1,49 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobile_balink/view/profile/detail_profile_screen.dart';
+import 'package:mobile_balink/view/profile/edit_profile_screen.dart';
+import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
 
 import '../../config/theme.dart';
+import '../artikel/artikel_screen.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  File? image;
+  void pickImage() async {
+    FilePickerResult? result =
+        await FilePicker.platform.pickFiles(type: FileType.image);
+    if (result != null) {
+      File file = File(result.files.single.path!);
+      setState(() {
+        image = file;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF7F5F5),
+      resizeToAvoidBottomInset: false,
+      backgroundColor: const Color(0xffffffff),
       appBar: AppBar(
-        backgroundColor: const Color(0xffF7F5F5),
+        title: Text(
+          'Profile',
+          style: poppinsKecil.copyWith(
+            color: const Color(0xff000000),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: const Color(0xffffffff),
         elevation: 0,
       ),
       body: Column(
@@ -22,8 +52,9 @@ class ProfileScreen extends StatelessWidget {
           buildImageUser(context),
           SizedBox(height: 25.h),
           buildIdentitasUser(),
+          SizedBox(height: 25.h),
           buildTransaksiArtikel(),
-          buildSetting(),
+          buildSetting(context),
         ],
       ),
     );
@@ -32,13 +63,83 @@ class ProfileScreen extends StatelessWidget {
   GestureDetector buildImageUser(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return const DetailProfileScreen();
-            },
+        showModalBottomSheet(
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(20.0.r),
+            ),
           ),
+          builder: (context) {
+            return SizedBox(
+              height: 260.h,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    title: Center(
+                      child: Text(
+                        'Ambil Foto',
+                        style: poppinsKecil.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                          color: blackColor,
+                        ),
+                      ),
+                    ),
+                    onTap: () {},
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: Center(
+                      child: Text(
+                        'Pilih dari Galeri',
+                        style: poppinsKecil.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                          color: blackColor,
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      pickImage();
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: Center(
+                      child: Text(
+                        'Lihat foto',
+                        style: poppinsKecil.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                          color: blackColor,
+                        ),
+                      ),
+                    ),
+                    onTap: () {},
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: Center(
+                      child: Text(
+                        'Batal',
+                        style: poppinsKecil.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w100,
+                          color: const Color(0xff5E5E5E),
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
+            );
+          },
         );
       },
       child: Center(
@@ -67,105 +168,119 @@ class ProfileScreen extends StatelessWidget {
   Padding buildIdentitasUser() {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.r),
-          border: Border.all(
-            color: Colors.black,
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Tentang Anda',
+                style: GoogleFonts.poppins(
+                  fontSize: 12.sp,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const EditProfileScreen();
+                      },
+                    ),
+                  );
+                },
+                child: Text(
+                  'Edit',
+                  style: GoogleFonts.poppins(
+                    fontSize: 12.sp,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Email',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
+          SizedBox(height: 24.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Email',
+                style: GoogleFonts.poppins(
+                  fontSize: 12.sp,
+                ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    'user@example.com',
+                    style: GoogleFonts.poppins(
+                      fontSize: 12.sp,
+                    ),
                   ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'user@example.com',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
-                      ),
-                    ),
-                    SizedBox(width: 4.w),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.w,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const Divider(
-              thickness: 2,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'No. Hp',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
+                  SizedBox(width: 4.w),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 15.w,
                   ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 38.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'No. Hp',
+                style: GoogleFonts.poppins(
+                  fontSize: 12.sp,
                 ),
-                Row(
-                  children: [
-                    Text(
-                      '0823 1234 5678',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
-                      ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    '0823 1234 5678',
+                    style: GoogleFonts.poppins(
+                      fontSize: 12.sp,
                     ),
-                    SizedBox(width: 4.w),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.w,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const Divider(
-              thickness: 2,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Alamat',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
                   ),
+                  SizedBox(width: 4.w),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 15.w,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 38.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Alamat',
+                style: GoogleFonts.poppins(
+                  fontSize: 12.sp,
                 ),
-                Row(
-                  children: [
-                    Text(
-                      'Maluku',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
-                      ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Kec. Sukawati, Kabupaten Gianyar, Bali',
+                    style: GoogleFonts.poppins(
+                      fontSize: 12.sp,
                     ),
-                    SizedBox(width: 4.w),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.w,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
+                  ),
+                  SizedBox(width: 4.w),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 15.w,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -176,65 +291,82 @@ class ProfileScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 40,
-              vertical: 15,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r),
-              border: Border.all(
-                color: Colors.black.withOpacity(0.3),
+          GestureDetector(
+            child: Container(
+              height: 100.h,
+              width: 160.w,
+              decoration: BoxDecoration(
+                color: const Color(0xffF5F5F5),
+                borderRadius: BorderRadius.circular(10.r),
+                border: Border.all(
+                  color: Colors.black.withOpacity(0.3),
+                ),
               ),
-            ),
-            child: Center(
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: 40.w,
-                    child: Image.asset(
-                      'assets/icon/setting_icon/receipt_long.png',
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      child: Image.asset(
+                        'assets/icon/setting_icon/receipt_long.png',
+                        scale: 3.r,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 8.h),
-                  Text(
-                    'Transaksi',
-                    style: GoogleFonts.poppins(
-                      fontSize: 18.sp,
+                    SizedBox(height: 8.h),
+                    Text(
+                      'Transaksi',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 60,
-              vertical: 20,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r),
-              border: Border.all(
-                color: Colors.black.withOpacity(0.3),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const ArtikelScreen();
+                  },
+                ),
+              );
+            },
+            child: Container(
+              height: 100.h,
+              width: 160.w,
+              decoration: BoxDecoration(
+                color: const Color(0xffF5F5F5),
+                borderRadius: BorderRadius.circular(10.r),
+                border: Border.all(
+                  color: Colors.black.withOpacity(0.3),
+                ),
               ),
-            ),
-            child: Center(
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: 40.w,
-                    child: Image.asset(
-                      'assets/icon/setting_icon/newspaper.png',
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      // width: 40.w,
+                      child: Image.asset(
+                        'assets/icon/setting_icon/newspaper.png',
+                        scale: 3.r,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 8.h),
-                  Text(
-                    'Artikel',
-                    style: GoogleFonts.poppins(
-                      fontSize: 18.sp,
+                    SizedBox(height: 8.h),
+                    Text(
+                      'Artikel',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -243,43 +375,52 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Padding buildSetting() {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.r),
-          border: Border.all(
-            color: Colors.black,
+  Widget buildSetting(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return const PengaturanScreen();
+            },
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                SizedBox(
-                  width: 25.w,
-                  child: Image.asset(
-                    'assets/icon/setting_icon/settings.png',
+        );
+      },
+      child: Padding(
+        padding: EdgeInsets.all(16.r),
+        child: Container(
+          padding: EdgeInsets.all(12.r),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    width: 18.w,
+                    child: Image.asset(
+                      'assets/icon/setting_icon/settings.png',
+                    ),
                   ),
-                ),
-                SizedBox(width: 8.w),
-                Text(
-                  'Setting',
-                  style: poppinsKecil.copyWith(
-                    fontSize: 18.sp,
-                    color: blackColor,
+                  SizedBox(width: 8.w),
+                  Text(
+                    'Pengaturan',
+                    style: poppinsKecil.copyWith(
+                      fontSize: 14.sp,
+                      color: blackColor,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Icon(
-              Icons.arrow_forward_ios,
-              size: 25.w,
-            ),
-          ],
+                ],
+              ),
+              Icon(
+                Icons.arrow_forward_ios,
+                size: 18.w,
+              ),
+            ],
+          ),
         ),
       ),
     );

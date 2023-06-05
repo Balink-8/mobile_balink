@@ -35,3 +35,10 @@ List<String> nameCategory = [
   'Tas Kualitas Premium',
   'Topeng Bali Premium',
 ];
+
+List<String> categoryProduct = [
+  'Pakaian',
+  'Kerajinan',
+  'Tas',
+  'Topeng',
+];
