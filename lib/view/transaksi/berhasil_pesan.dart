@@ -85,7 +85,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
               ],
             ),
             SizedBox(height: 14.h),
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
             SizedBox(height: 10.h),
             Text(
               'Ringkasan Pesanan',
@@ -150,7 +150,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
               ],
             ),
             SizedBox(height: 6.h),
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
             SizedBox(height: 10.h),
             Text(
               'Rincian Pesanan',
@@ -201,7 +201,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
               ],
             ),
             SizedBox(height: 6.h),
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
             SizedBox(height: 10.h),
             Text(
               'Status Pembayaran',
@@ -223,8 +223,10 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
             SizedBox(height: 230.h),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => BatalPesanPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const BatalPesanPage()));
               },
               child: Container(
                 width: 360.w,

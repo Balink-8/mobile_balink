@@ -19,8 +19,8 @@ class _TransaksiEventPageState extends State<TransaksiEventPage> {
           top: 16,
         ),
         child: Column(children: [
-          // const Text('Transaksi Event Page'),
-          CardEventSuccess(),
+          const CardEventSuccess(),
+
           SizedBox(
             height: 13.h,
           ),

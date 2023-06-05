@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
-import 'package:mobile_balink/view/profile/profile_screen.dart';
-import 'view/transaksi/tab_bar_navigaton.dart';
+import 'view/transaksi/transaksi_widget/tab_bar_navigaton.dart';
 
 void main() {
   runApp(const MyApp());

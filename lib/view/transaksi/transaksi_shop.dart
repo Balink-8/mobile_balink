@@ -14,7 +14,7 @@ class TransaksiShopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           top: 16,
         ),
         child:
@@ -27,20 +27,19 @@ class TransaksiShopPage extends StatelessWidget {
             //   },
             // )
             Column(children: [
-          // const Text('Transaksi Shop Page'),
-          CardShopSuccess(),
+          const CardShopSuccess(),
           SizedBox(
             height: 13.h,
           ),
-          CardShopCancel(),
+          const CardShopCancel(),
           SizedBox(
             height: 13.h,
           ),
-          CardShopProccess(),
+          const CardShopProccess(),
           SizedBox(
             height: 13.h,
           ),
-          CardShopSend(),
+          const CardShopSend(),
         ]),
       ),
     );
@@ -57,7 +56,7 @@ class CardShopSuccess extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => BerhasilBayarPage()));
+            MaterialPageRoute(builder: (context) => const BerhasilBayarPage()));
       },
       child: SizedBox(
         height: 220.h,
@@ -191,8 +190,8 @@ class CardShopCancel extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => BatalPesanPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const BatalPesanPage()));
       },
       child: SizedBox(
         height: 220.h,
@@ -327,7 +326,7 @@ class CardShopProccess extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => ProsesPesananPage()));
+            MaterialPageRoute(builder: (context) => const ProsesPesananPage()));
       },
       child: SizedBox(
         height: 220.h,
@@ -462,7 +461,7 @@ class CardShopSend extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => KirimPesananPage()));
+            MaterialPageRoute(builder: (context) => const KirimPesananPage()));
       },
       child: SizedBox(
         height: 220.h,

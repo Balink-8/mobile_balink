@@ -33,7 +33,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                 Text(
                   'Total',
                   style: poppinsKecil.copyWith(
-                      color: Color.fromRGBO(89, 90, 89, 1)),
+                      color: const Color.fromRGBO(89, 90, 89, 1)),
                 ),
                 SizedBox(
                   width: 5.h,
@@ -53,7 +53,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                 Text(
                   'Metode pembayaran pilihan',
                   style: poppinsKecil.copyWith(
-                      color: Color.fromRGBO(89, 90, 89, 1)),
+                      color: const Color.fromRGBO(89, 90, 89, 1)),
                 ),
                 SizedBox(
                   width: 5.h,
@@ -170,7 +170,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
               ],
             ),
             SizedBox(height: 14.h),
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
             SizedBox(height: 10.h),
             Text(
               'Ringkasan Pesanan',
@@ -235,7 +235,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
               ],
             ),
             SizedBox(height: 6.h),
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
             SizedBox(height: 10.h),
             Text(
               'Rincian Pesanan',
@@ -293,7 +293,8 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                 width: 360.w,
                 height: 48.h,
                 decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromRGBO(134, 134, 134, 1)),
+                  border:
+                      Border.all(color: const Color.fromRGBO(134, 134, 134, 1)),
                   // color: secondaryColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
@@ -302,7 +303,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                     'Beli Sekarang',
                     style: poppinsKecil.copyWith(
                         fontWeight: FontWeight.w700,
-                        color: Color.fromRGBO(92, 80, 69, 1)),
+                        color: const Color.fromRGBO(92, 80, 69, 1)),
                   ),
                 ),
               ),

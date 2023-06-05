@@ -33,7 +33,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                 Text(
                   'Total',
                   style: poppinsKecil.copyWith(
-                      color: Color.fromRGBO(89, 90, 89, 1)),
+                      color: const Color.fromRGBO(89, 90, 89, 1)),
                 ),
                 SizedBox(
                   width: 5.h,
@@ -53,7 +53,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                 Text(
                   'Metode pembayaran pilihan',
                   style: poppinsKecil.copyWith(
-                      color: Color.fromRGBO(89, 90, 89, 1)),
+                      color: const Color.fromRGBO(89, 90, 89, 1)),
                 ),
                 SizedBox(
                   width: 5.h,
@@ -152,7 +152,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
               ],
             ),
             SizedBox(height: 14.h),
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
             SizedBox(height: 10.h),
             Text(
               'Ringkasan Pesanan',
@@ -217,7 +217,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
               ],
             ),
             SizedBox(height: 6.h),
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
             SizedBox(height: 10.h),
             Text(
               'Rincian Pesanan',
@@ -275,7 +275,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                 width: 360.w,
                 height: 48.h,
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(134, 134, 134, 1),
+                  color: const Color.fromRGBO(134, 134, 134, 1),
                   // color: secondaryColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
