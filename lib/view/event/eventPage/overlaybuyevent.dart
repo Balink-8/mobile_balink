@@ -159,12 +159,12 @@ class _BuyNowState extends State<BuyNow> {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const EventCo(),
-              ),
-            );
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => EventCo(),
+            //   ),
+            // );
           },
           child: Container(
               alignment: Alignment.center,

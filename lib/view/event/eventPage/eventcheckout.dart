@@ -3,10 +3,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_overlay.dart';
 
 class EventCo extends StatefulWidget {
-  const EventCo({super.key});
+  var jumlah;
+
+  var hargaTiket;
+
+  var total;
+
+  String metodePembayaran = "";
+
+  EventCo(
+      {super.key,
+      required this.total,
+      required this.hargaTiket,
+      required this.jumlah});
 
   @override
   State<EventCo> createState() => _EventCoState();
@@ -14,8 +27,8 @@ class EventCo extends StatefulWidget {
 
 class _EventCoState extends State<EventCo> {
   var kodePromo = "";
-
   var radioValue = '';
+  int hargaPengiriman = 1000;
 
   final _kodePromoController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -39,7 +52,7 @@ class _EventCoState extends State<EventCo> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                card_CO(),
+                card_CO(jumlah: jumlah),
                 SizedBox(height: 20.h),
                 // SizedBox(
                 //   height: 180,
@@ -111,7 +124,7 @@ class _EventCoState extends State<EventCo> {
                               color: abuColor),
                         ),
                         Text(
-                          'Rp340.000',
+                          'Rp$harga',
                           style: poppinsKecil.copyWith(
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
@@ -133,7 +146,7 @@ class _EventCoState extends State<EventCo> {
                               color: abuColor),
                         ),
                         Text(
-                          'Rp1.000',
+                          'Rp$hargaPengiriman',
                           style: poppinsKecil.copyWith(
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
@@ -177,7 +190,7 @@ class _EventCoState extends State<EventCo> {
                               color: abuColor),
                         ),
                         Text(
-                          'Rp341.000',
+                          'Rp${harga + hargaPengiriman}',
                           style: poppinsKecil.copyWith(
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
@@ -212,105 +225,124 @@ class _EventCoState extends State<EventCo> {
                       height: 15,
                     ),
                     Row(
-                      children: [
-                        Card(
-                          color: abuColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'TRF',
-                              style: poppinsKecil.copyWith(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: greyColor),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Transfer Bank',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: blackColor),
-                        ),
-                        const SizedBox(width: 200),
-                        IconButton(
-                          icon: Image.asset(
-                            'assets/icon/event_icon/back.png',
-                            width: 11,
-                            height: 11,
-                          ),
-                          onPressed: () {
-                            bsMetodePembayaran(context);
-                          },
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Card(
-                          color: abuColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'COD',
-                              style: poppinsKecil.copyWith(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: greyColor),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Bayar di Tempat',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: blackColor),
-                        ),
-                        const SizedBox(width: 180),
-                        IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const EventDetailScreen(),
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Card(
+                            color: abuColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'TRF',
+                                style: poppinsKecil.copyWith(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: greyColor),
                               ),
-                            );
-                          },
-                          icon: Image.asset(
-                            'assets/icon/event_icon/check_box_ksg.png',
-                            width: 18,
-                            height: 18,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 120.h,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Total (2 produk)',
+                          widget.metodePembayaran == ""
+                              ? Text(
+                                  'Transfer Bank',
+                                  style: poppinsKecil.copyWith(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: blackColor),
+                                )
+                              : Text(
+                                  widget.metodePembayaran,
+                                  style: poppinsKecil.copyWith(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: blackColor),
+                                ),
+                          const SizedBox(width: 180),
+                          widget.metodePembayaran == ""
+                              ? IconButton(
+                                  icon: Image.asset(
+                                    'assets/icon/event_icon/back.png',
+                                    width: 11,
+                                    height: 11,
+                                  ),
+                                  onPressed: () {
+                                    bsMetodePembayaran(context);
+                                  },
+                                )
+                              : IconButton(
+                                  icon: Image.asset(
+                                    'assets/icon/event_icon/radio.png',
+                                    width: 11,
+                                    height: 11,
+                                  ),
+                                  onPressed: () {
+                                    bsMetodePembayaran(context);
+                                  },
+                                )
+                        ])
+                  ],
+                ),
+                Row(
+                  children: [
+                    Card(
+                      color: abuColor,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'COD',
                           style: poppinsKecil.copyWith(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
-                              color: abuColor),
+                              color: greyColor),
                         ),
-                        Text(
-                          'Rp341.000',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              color: blackColor),
-                        ),
-                      ],
+                      ),
+                    ),
+                    Text(
+                      'Bayar di Tempat',
+                      style: poppinsKecil.copyWith(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: blackColor),
+                    ),
+                    const SizedBox(width: 180),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EventDetailScreen(),
+                          ),
+                        );
+                      },
+                      icon: Image.asset(
+                        'assets/icon/event_icon/check_box_ksg.png',
+                        width: 18,
+                        height: 18,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 120.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Total (2 produk)',
+                      style: poppinsKecil.copyWith(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: abuColor),
+                    ),
+                    Text(
+                      'Rp${harga + hargaPengiriman}',
+                      style: poppinsKecil.copyWith(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          color: blackColor),
                     ),
                   ],
                 ),
@@ -357,7 +389,10 @@ class _EventCoState extends State<EventCo> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const EventCo(),
+                            builder: (context) => EventCo(
+                                hargaTiket: hargaTiket,
+                                jumlah: jumlah,
+                                total: harga),
                           ),
                         );
                       },
@@ -417,6 +452,7 @@ class _EventCoState extends State<EventCo> {
                         onChanged: (String? value) {
                           setState(() {
                             radioValue = value ?? '';
+                            widget.metodePembayaran = value.toString();
                           });
                         }),
                   ],
@@ -461,6 +497,7 @@ class _EventCoState extends State<EventCo> {
                         onChanged: (String? value) {
                           setState(() {
                             radioValue = value ?? '';
+                            widget.metodePembayaran = value.toString();
                           });
                         }),
                   ],
@@ -470,12 +507,7 @@ class _EventCoState extends State<EventCo> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const EventCo(),
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
                   child: Container(
                     width: 360.w,

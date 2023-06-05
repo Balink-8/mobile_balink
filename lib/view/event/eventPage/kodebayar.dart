@@ -1,7 +1,10 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/eventPage/waitingpembayaran.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
 class kodeBayar extends StatefulWidget {
   const kodeBayar({super.key});
@@ -9,6 +12,8 @@ class kodeBayar extends StatefulWidget {
   @override
   State<kodeBayar> createState() => _kodeBayarState();
 }
+
+var nova = '2668 8001 9203 8388';
 
 class _kodeBayarState extends State<kodeBayar> {
   @override
@@ -54,7 +59,7 @@ class _kodeBayarState extends State<kodeBayar> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Total : Rp341.000',
+                  'Total : $harga',
                   style: poppinsKecil.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
@@ -107,7 +112,11 @@ class _kodeBayarState extends State<kodeBayar> {
                   ),
                   SizedBox(height: 4.h),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      FlutterClipboard.copy(nova).then((value) =>
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Berhasil Disalin'))));
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

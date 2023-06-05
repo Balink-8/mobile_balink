@@ -1,14 +1,25 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/eventPage/eventcheckout.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 
-class bsTicket extends StatelessWidget {
+class bsTicket extends StatefulWidget {
   const bsTicket({
     super.key,
   });
 
+  @override
+  State<bsTicket> createState() => _bsTicketState();
+}
+
+int jumlah = 0;
+int harga = 120000;
+int hargaTiket = 120000;
+
+class _bsTicketState extends State<bsTicket> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -152,7 +163,7 @@ class bsTicket extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Text(
-                                  'Rp 120.000',
+                                  'Rp$hargaTiket',
                                   style: poppinsKecil.copyWith(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w700,
@@ -164,10 +175,15 @@ class bsTicket extends StatelessWidget {
                               ],
                             ),
                             SizedBox(
-                              width: 147.w,
+                              width: 140.w,
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  jumlah = jumlah - 1;
+                                  harga = hargaTiket * jumlah;
+                                });
+                              },
                               icon: Image.asset(
                                 'assets/icon/event_icon/min.png',
                                 width: 11,
@@ -175,20 +191,25 @@ class bsTicket extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(
-                              width: 10,
+                              width: 8,
                             ),
                             Text(
-                              '1',
+                              jumlah.toString(),
                               style: poppinsKecil.copyWith(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,
                                   color: secondaryColor),
                             ),
                             const SizedBox(
-                              width: 10,
+                              width: 8,
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  jumlah = jumlah + 1;
+                                  harga = hargaTiket * jumlah;
+                                });
+                              },
                               icon: Image.asset(
                                 'assets/icon/event_icon/add.png',
                                 width: 11,
@@ -311,7 +332,7 @@ class bsTicket extends StatelessWidget {
                                 height: 5,
                               ),
                               Text(
-                                'Rp 120.000',
+                                'Rp$harga',
                                 style: poppinsKecil.copyWith(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
@@ -323,12 +344,18 @@ class bsTicket extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const EventCo(),
-                            ),
-                          );
+                          _showMyDialog(context);
+                          Timer(Duration(seconds: 3), () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => EventCo(
+                                    hargaTiket: hargaTiket,
+                                    jumlah: jumlah,
+                                    total: harga),
+                              ),
+                            );
+                          });
                         },
                         child: Container(
                             alignment: Alignment.center,
@@ -366,6 +393,27 @@ class bsTicket extends StatelessWidget {
               fontSize: 14, fontWeight: FontWeight.w700, color: whiteColor),
         ),
       ),
+    );
+  }
+
+  Future<void> _showMyDialog(context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          insetPadding: EdgeInsets.symmetric(horizontal: 140, vertical: 360),
+          titlePadding:
+              EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 0),
+          title: Image.asset(
+            'assets/icon/event_icon/memuat.png',
+            width: 22,
+            height: 22,
+          ),
+          content: SizedBox(
+              width: 106.w, height: 77.h, child: Center(child: Text('Memuat'))),
+        );
+      },
     );
   }
 }
