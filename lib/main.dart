@@ -8,7 +8,6 @@ import 'package:mobile_balink/view/login_page.dart';
 import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
 import 'package:mobile_balink/view/profile/profile_screen.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
