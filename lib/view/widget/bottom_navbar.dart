@@ -15,11 +15,11 @@ class NavbarBawah extends StatefulWidget {
 class _NavbarBawahState extends State<NavbarBawah> {
   int _selectedPage = 0;
 
-  static List<Widget> _widgethome = <Widget>[
-    HomePageScreen(),
-    EventPage(),
-    ShopScreen(),
-    ProfileScreen(),
+  final List<Widget> _widgethome = <Widget>[
+    const HomePageScreen(),
+    const EventPage(),
+    const ShopScreen(),
+    const ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -42,7 +42,7 @@ class _NavbarBawahState extends State<NavbarBawah> {
               child: _widgethome.elementAt(_selectedPage)),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
+            child: SizedBox(
               height: 62.h,
               width: 360.w,
               child: ClipRRect(

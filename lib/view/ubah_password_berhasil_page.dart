@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/view/login_page.dart';
 
 class BerhasilUbahPsw extends StatefulWidget {
   const BerhasilUbahPsw({super.key});
@@ -45,17 +46,26 @@ class _BerhasilUbahPswState extends State<BerhasilUbahPsw> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 SizedBox(height: 24.h),
-                Container(
-                  width: 360.w,
-                  height: 48.h,
-                  decoration: BoxDecoration(
-                    color: secondaryColor,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Sign In ke Balink',
-                      style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
+                  },
+                  child: Container(
+                    width: 360.w,
+                    height: 48.h,
+                    decoration: BoxDecoration(
+                      color: secondaryColor,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Sign In ke Balink',
+                        style:
+                            poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),

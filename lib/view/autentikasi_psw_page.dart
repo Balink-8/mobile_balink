@@ -123,9 +123,9 @@ class _AutenticationResetPswPageState extends State<AutenticationResetPswPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ResetPswPage()));
+                              builder: (context) => const ResetPswPage()));
                     },
-                    child: Text('testing saja nanti button ini dihapus'))
+                    child: const Text('testing saja nanti button ini dihapus'))
               ],
             ),
           ),

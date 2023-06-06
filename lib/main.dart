@@ -28,12 +28,7 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.black),
           )),
           debugShowCheckedModeBanner: false,
-
-         
-
-          home: PengaturanScreen(),
-
-
+          home: LoginScreen(),
         );
       },
       // child: LoginScreen(),

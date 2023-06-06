@@ -25,7 +25,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(10, 30, 20, 20),
+        padding: const EdgeInsets.fromLTRB(10, 30, 20, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -44,46 +44,39 @@ class _ResetPswPageState extends State<ResetPswPage> {
               'Password baru',
               style: poppinsKecil.copyWith(color: blackColor),
             ),
-            Container(
-              width: 360.w,
-              height: 48.h,
-              decoration: BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: BorderRadius.all(Radius.circular(10.w))),
-              child: TextFormField(
-                obscureText: showPassword,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.lock_outline,
-                    color: secondaryColor,
-                    size: 24,
-                  ),
-                  suffixIcon: GestureDetector(
-                      onTap: () {
-                        if (showPassword) {
-                          setState(() {
-                            showPassword = false;
-                          });
-                        } else {
-                          setState(() {
-                            showPassword = true;
-                          });
-                        }
-                      },
-                      child: showPassword
-                          ? Icon(Icons.visibility, color: secondaryColor)
-                          : Icon(Icons.visibility_off, color: secondaryColor)),
-                  hintText: 'Masukkan Password Baru',
-                  hintStyle: poppinsKecil.copyWith(
-                      color: Colors.grey, fontSize: 12.sp),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.w)),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                    color: secondaryColor,
-                  )),
+            TextFormField(
+              obscureText: showPassword,
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.lock_outline,
+                  color: secondaryColor,
+                  size: 24,
                 ),
+                suffixIcon: GestureDetector(
+                    onTap: () {
+                      if (showPassword) {
+                        setState(() {
+                          showPassword = false;
+                        });
+                      } else {
+                        setState(() {
+                          showPassword = true;
+                        });
+                      }
+                    },
+                    child: showPassword
+                        ? Icon(Icons.visibility, color: secondaryColor)
+                        : Icon(Icons.visibility_off, color: secondaryColor)),
+                hintText: 'Masukkan Password Baru',
+                hintStyle:
+                    poppinsKecil.copyWith(color: Colors.grey, fontSize: 12.sp),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.w)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                  color: secondaryColor,
+                )),
               ),
             ),
             SizedBox(height: 20.h),
@@ -137,7 +130,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
             GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => BerhasilUbahPsw()));
+                    MaterialPageRoute(builder: (context) => const BerhasilUbahPsw()));
               },
               child: Container(
                 width: 360.w,
