@@ -235,6 +235,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                               ),
                                             ),
                                             TextFormField(
+                                              autovalidateMode: AutovalidateMode
+                                                  .onUserInteraction,
+                                              validator: (v) {
+                                                if (v!.isEmpty) {
+                                                  return 'Isi email/username';
+                                                }
+                                                bool emailValid = RegExp(
+                                                        r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                                                    .hasMatch(v);
+                                                if (!emailValid) {
+                                                  return 'masukkan format email dengan benar';
+                                                }
+                                                return null;
+                                              },
+                                              keyboardType:
+                                                  TextInputType.emailAddress,
                                               controller:
                                                   emailResetPswController,
                                               decoration: InputDecoration(
@@ -384,7 +400,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const RegisterScreen()));
+                                      builder: (context) =>
+                                          const RegisterScreen()));
                             },
                             child: Text(
                               'Registrasi',

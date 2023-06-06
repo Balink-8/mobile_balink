@@ -24,9 +24,9 @@ class HomePageScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: secondaryColor,
                     // color: Colors.blueAccent[400],
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(10.0),
-                      bottomRight: Radius.circular(10.0),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10.0.r),
+                      bottomRight: Radius.circular(10.0.r),
                     )),
 
                 child: Padding(
@@ -37,18 +37,19 @@ class HomePageScreen extends StatelessWidget {
                           child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: TextFormField(
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                               filled: true,
                               enabled: false,
-                              fillColor: Color.fromRGBO(205, 203, 200, 0.2),
-                              prefixIcon: Icon(
+                              fillColor:
+                                  const Color.fromRGBO(205, 203, 200, 0.2),
+                              prefixIcon: const Icon(
                                 Icons.search,
                                 size: 14.67,
                                 color: Colors.white,
                               ),
                               border: OutlineInputBorder(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(8)))),
+                                      BorderRadius.all(Radius.circular(8.r)))),
                         ),
                       )),
                       Padding(
@@ -86,8 +87,8 @@ class HomePageScreen extends StatelessWidget {
                 child: Text(
                   'Event',
                   style: poppinsKecil.copyWith(
-                      fontSize: 16,
-                      color: Color.fromRGBO(48, 48, 48, 1),
+                      fontSize: 16.sp,
+                      color: const Color.fromRGBO(48, 48, 48, 1),
                       fontWeight: FontWeight.w600),
                 ),
               ),
@@ -105,8 +106,8 @@ class HomePageScreen extends StatelessWidget {
                           return eventCard();
                         },
                         separatorBuilder: (context, index) {
-                          return const SizedBox(
-                            width: 5,
+                          return SizedBox(
+                            width: 5.w,
                           );
                         },
                         itemCount: 5),
@@ -119,7 +120,7 @@ class HomePageScreen extends StatelessWidget {
                   'Shopping',
                   style: poppinsKecil.copyWith(
                       fontSize: 16.sp,
-                      color: Color.fromRGBO(48, 48, 48, 1),
+                      color: const Color.fromRGBO(48, 48, 48, 1),
                       fontWeight: FontWeight.w600),
                 ),
               ),
@@ -158,7 +159,7 @@ class HomePageScreen extends StatelessWidget {
                   'Promo',
                   style: poppinsKecil.copyWith(
                       fontSize: 16.sp,
-                      color: Color.fromRGBO(48, 48, 48, 1),
+                      color: const Color.fromRGBO(48, 48, 48, 1),
                       fontWeight: FontWeight.w600),
                 ),
               ),
@@ -245,7 +246,7 @@ class HomePageScreen extends StatelessWidget {
                       'Rp 34.000',
                       style: poppinsKecil.copyWith(
                           fontSize: 10.sp,
-                          color: Color.fromRGBO(48, 48, 48, 1),
+                          color: const Color.fromRGBO(48, 48, 48, 1),
                           fontWeight: FontWeight.w400,
                           decoration: TextDecoration.lineThrough),
                     ),
@@ -256,7 +257,7 @@ class HomePageScreen extends StatelessWidget {
                       'Rp 24.000',
                       style: poppinsKecil.copyWith(
                           fontSize: 11.sp,
-                          color: Color.fromRGBO(48, 48, 48, 1),
+                          color: const Color.fromRGBO(48, 48, 48, 1),
                           fontWeight: FontWeight.w700),
                     ),
                   ],
@@ -271,7 +272,7 @@ class HomePageScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.star,
                       size: 11,
                       color: Color.fromRGBO(194, 129, 62, 1),
@@ -283,14 +284,14 @@ class HomePageScreen extends StatelessWidget {
                       '4.9 | ',
                       style: poppinsKecil.copyWith(
                           fontSize: 11.sp,
-                          color: Color.fromRGBO(48, 48, 48, 1),
+                          color: const Color.fromRGBO(48, 48, 48, 1),
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
                       '23 Terjual',
                       style: poppinsKecil.copyWith(
                           fontSize: 11.sp,
-                          color: Color.fromRGBO(48, 48, 48, 1),
+                          color: const Color.fromRGBO(48, 48, 48, 1),
                           fontWeight: FontWeight.w400),
                     )
                   ],
@@ -395,12 +396,12 @@ class HomePageScreen extends StatelessWidget {
                     ),
                     // color: thirdColor,
                     child: Padding(
-                      padding: EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: Text(
                         '12 Jan 2023',
                         style: poppinsKecil.copyWith(
                             fontSize: 10.sp,
-                            color: Color.fromRGBO(247, 245, 245, 1),
+                            color: const Color.fromRGBO(247, 245, 245, 1),
                             fontWeight: FontWeight.w400),
                       ),
                     )),
@@ -416,7 +417,7 @@ class HomePageScreen extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_on_outlined,
                       color: Color.fromRGBO(194, 129, 62, 1),
                       size: 15,
