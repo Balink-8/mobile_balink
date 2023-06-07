@@ -11,7 +11,27 @@ class ResetPswPage extends StatefulWidget {
 }
 
 class _ResetPswPageState extends State<ResetPswPage> {
+  final formkey = GlobalKey<FormState>();
+
+  TextEditingController newPasswordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
+  bool newPassNotEmpty = false;
+  bool confirmPassNotEmpty = false;
+
   bool showPassword = true;
+  bool isValidated = true;
+
+  setEnableButton() {
+    setState(() {
+      if (newPassNotEmpty && confirmPassNotEmpty) {
+        isValidated = false;
+      } else {
+        isValidated = true;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,32 +45,47 @@ class _ResetPswPageState extends State<ResetPswPage> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(10, 30, 20, 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Password baru',
-              style: poppinsKecil.copyWith(
-                  color: blackColor, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10.h),
-            Text(
-              'Buat password yang kuat  untuk akun dengan email useremail@gmail.com',
-              style: poppinsKecil.copyWith(color: blackColor),
-            ),
-            SizedBox(height: 20.h),
-            Text(
-              'Password baru',
-              style: poppinsKecil.copyWith(color: blackColor),
-            ),
-            Container(
-              width: 360.w,
-              height: 48.h,
-              decoration: BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: BorderRadius.all(Radius.circular(10.w))),
-              child: TextFormField(
+        padding: const EdgeInsets.fromLTRB(10, 30, 20, 20),
+        child: Form(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Password baru',
+                style: poppinsKecil.copyWith(
+                    color: blackColor, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10.h),
+              Text(
+                'Buat password yang kuat  untuk akun dengan email useremail@gmail.com',
+                style: poppinsKecil.copyWith(color: blackColor),
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                'Password baru',
+                style: poppinsKecil.copyWith(color: blackColor),
+              ),
+              TextFormField(
+                onChanged: (v) {
+                  setState(() {
+                    if (v.isNotEmpty) {
+                      newPassNotEmpty = true;
+                    } else {
+                      newPassNotEmpty = false;
+                    }
+                    setEnableButton();
+                  });
+                },
+                controller: newPasswordController,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (v) {
+                  if (v!.isEmpty) {
+                    return 'Masukkan Password';
+                  } else if (v.length < 8) {
+                    return 'Password tidak boleh kurang dari 8';
+                  }
+                  return null;
+                },
                 obscureText: showPassword,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -85,19 +120,32 @@ class _ResetPswPageState extends State<ResetPswPage> {
                   )),
                 ),
               ),
-            ),
-            SizedBox(height: 20.h),
-            Text(
-              'Confirm password baru',
-              style: poppinsKecil.copyWith(color: blackColor),
-            ),
-            Container(
-              width: 360.w,
-              height: 48.h,
-              decoration: BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: BorderRadius.all(Radius.circular(10.w))),
-              child: TextFormField(
+              SizedBox(height: 20.h),
+              Text(
+                'Confirm password baru',
+                style: poppinsKecil.copyWith(color: blackColor),
+              ),
+              TextFormField(
+                onChanged: (v) {
+                  setState(() {
+                    if (v.isNotEmpty) {
+                      confirmPassNotEmpty = true;
+                    } else {
+                      confirmPassNotEmpty = false;
+                    }
+                    setEnableButton();
+                  });
+                },
+                controller: confirmPasswordController,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (v) {
+                  if (v!.isEmpty) {
+                    return 'Masukkan Password';
+                  } else if (v.length < 8) {
+                    return 'Password tidak boleh kurang dari 8';
+                  }
+                  return null;
+                },
                 obscureText: showPassword,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -132,31 +180,52 @@ class _ResetPswPageState extends State<ResetPswPage> {
                   )),
                 ),
               ),
-            ),
-            SizedBox(height: 30.h),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => BerhasilUbahPsw()));
-              },
-              child: Container(
-                width: 360.w,
-                height: 48.h,
-                decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Center(
-                  child: Text(
-                    'Selanjutnya',
-                    style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-            ),
-          ],
+              SizedBox(height: 30.h),
+              buttonResetPass(context, isValidated),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  Widget buttonResetPass(BuildContext context, bool enable) {
+    return enable
+        ? Container(
+            width: 360.w,
+            height: 48.h,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Center(
+              child: Text(
+                'Selanjutnya',
+                style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
+          )
+        : GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BerhasilUbahPsw()));
+            },
+            child: Container(
+              width: 360.w,
+              height: 48.h,
+              decoration: BoxDecoration(
+                color: secondaryColor,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: Text(
+                  'Selanjutnya',
+                  style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          );
   }
 }

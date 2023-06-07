@@ -10,7 +10,8 @@ class ChooseBankSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(16, 20, 16, 20),
-      height: 249.h,
+      height: 260.h,
+      width: 360.w,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -107,8 +108,33 @@ class ChooseBankSheet extends StatelessWidget {
                 'Bank Mandiri',
                 style: poppinsKecil.copyWith(
                     color: blackColor, fontWeight: FontWeight.w400),
-              )
+              ),
             ],
+          ),
+          SizedBox(
+            height: 32.h,
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => BerhasilBayarPage()));
+            },
+            child: Container(
+              width: 326.w,
+              height: 35.h,
+              decoration: BoxDecoration(
+                color: secondaryColor,
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: Center(
+                child: Text(
+                  'Oke',
+                  style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
           ),
         ],
       ),

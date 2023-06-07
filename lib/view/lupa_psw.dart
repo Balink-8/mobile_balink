@@ -58,9 +58,9 @@ class _LupaPasswordScreenState extends State<LupaPasswordScreen> {
             Text(
               'Jangan khawatir, kami akan mengirimkan pesan reset',
               style: poppinsKecil.copyWith(
-                  fontSize: 12, fontWeight: FontWeight.w500, color: blackColor),
+                  fontSize: 12.sp, fontWeight: FontWeight.w500, color: blackColor),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 30.h),
             Padding(
               padding: const EdgeInsets.only(
                 left: 30,
@@ -72,16 +72,16 @@ class _LupaPasswordScreenState extends State<LupaPasswordScreen> {
                   Text(
                     'Email atau Username',
                     style:
-                        poppinsKecil.copyWith(fontSize: 12, color: blackColor),
+                        poppinsKecil.copyWith(fontSize: 12.sp, color: blackColor),
                   ),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Username@gmail.com',
                       border: OutlineInputBorder(),
                     ),
                     style: poppinsKecil,
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 40.h),
                   GestureDetector(
                     onTap: () {},
                     child: Container(
@@ -99,7 +99,7 @@ class _LupaPasswordScreenState extends State<LupaPasswordScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -113,7 +113,7 @@ class _LupaPasswordScreenState extends State<LupaPasswordScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => RegisterScreen()));
+                                  builder: (context) => const RegisterScreen()));
                         },
                         child: Text(
                           'Sign Up',
