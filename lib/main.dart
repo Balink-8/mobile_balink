@@ -21,11 +21,7 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.black),
           )),
           debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-          home: LoginScreen(),
-=======
           home: const LoginScreen(),
->>>>>>> 9fc870faf05fd37595f99b67097cc6bc767cfb4b
         );
       },
       // child: LoginScreen(),
