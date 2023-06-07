@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 
-class card_CO extends StatelessWidget {
+class Card_CO extends StatelessWidget {
   var jumlah;
 
-  card_CO({super.key, required this.jumlah});
+  Card_CO({super.key, required this.jumlah});
 
   @override
   Widget build(BuildContext context) {

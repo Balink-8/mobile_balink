@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
-import 'package:mobile_balink/view/event/eventPage/eventcheckout.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 
 class BuyEvent extends StatefulWidget {

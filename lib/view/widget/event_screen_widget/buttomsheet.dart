@@ -110,7 +110,7 @@ class _bsTicketState extends State<bsTicket> {
                               ],
                             ),
                             SizedBox(
-                              width: 125.w,
+                              width: 120.w,
                             ),
                             IconButton(
                               onPressed: () {

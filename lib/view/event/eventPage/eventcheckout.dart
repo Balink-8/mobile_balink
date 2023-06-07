@@ -52,7 +52,7 @@ class _EventCoState extends State<EventCo> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                card_CO(jumlah: jumlah),
+                Card_CO(jumlah: jumlah),
                 SizedBox(height: 20.h),
                 // SizedBox(
                 //   height: 180,
@@ -364,7 +364,7 @@ class _EventCoState extends State<EventCo> {
         ),
       ),
       builder: (context) {
-        return Container(
+        return SizedBox(
           width: 360.w,
           height: 265.h,
           child: Padding(
