@@ -12,7 +12,7 @@ class BottomSheetOrderNow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 360.w,
-      height: 437.h,
+      height: 259.h,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(8),
@@ -48,115 +48,15 @@ class BottomSheetOrderNow extends StatelessWidget {
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w700, color: Colors.black),
                         ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Text(
+                          'Stok : 30 ',
+                          style: poppinsKecil.copyWith(
+                              fontWeight: FontWeight.w400, color: Colors.black),
+                        ),
                       ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 40.h,
-            ),
-            Text(
-              'Warna',
-              style: poppinsKecil.copyWith(
-                  fontWeight: FontWeight.w600, color: Colors.black),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: SizedBox(
-                    width: 30.w,
-                    height: 30.h,
-                    child: const ColoredBox(color: Colors.green),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: SizedBox(
-                    width: 30.w,
-                    height: 30.h,
-                    child: const ColoredBox(color: Colors.red),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: SizedBox(
-                    width: 30.w,
-                    height: 30.h,
-                    child: const ColoredBox(color: Colors.blue),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 40.h,
-            ),
-            Text(
-              'Ukuran',
-              style: poppinsKecil.copyWith(
-                  fontWeight: FontWeight.w600, color: Colors.black),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Container(
-                    width: 30.w,
-                    height: 30.h,
-                    decoration: const BoxDecoration(color: Colors.grey),
-                    child: Center(
-                      child: Text(
-                        'M',
-                        style: poppinsKecil.copyWith(
-                            fontWeight: FontWeight.w400, color: Colors.black),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Container(
-                    width: 30.w,
-                    height: 30.h,
-                    decoration: const BoxDecoration(color: Colors.grey),
-                    child: Center(
-                      child: Text(
-                        'L',
-                        style: poppinsKecil.copyWith(
-                            fontWeight: FontWeight.w400, color: Colors.black),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Container(
-                    width: 30.w,
-                    height: 30.h,
-                    decoration: const BoxDecoration(color: Colors.grey),
-                    child: Center(
-                      child: Text(
-                        'XL',
-                        style: poppinsKecil.copyWith(
-                            fontWeight: FontWeight.w400, color: Colors.black),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Container(
-                    width: 30.w,
-                    height: 30.h,
-                    decoration: const BoxDecoration(color: Colors.grey),
-                    child: Center(
-                      child: Text(
-                        'XXL',
-                        style: poppinsKecil.copyWith(
-                            fontWeight: FontWeight.w400, color: Colors.black),
-                      ),
                     ),
                   ),
                 ),
