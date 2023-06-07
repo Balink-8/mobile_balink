@@ -1,7 +1,12 @@
+import 'dart:async';
+
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/event/eventPage/successpay.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
 class WaitingPembayaran extends StatefulWidget {
   const WaitingPembayaran({super.key});
@@ -170,7 +175,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                         width: 237.w,
                       ),
                       Text(
-                        'x 2',
+                        'x $jumlah',
                         style: poppinsKecil.copyWith(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
@@ -312,7 +317,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             width: 135.w,
                           ),
                           Text(
-                            'Rp340.000',
+                            'Rp $harga',
                             style: poppinsKecil.copyWith(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
@@ -335,7 +340,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 color: abuColor),
                           ),
                           Text(
-                            'Rp1.000',
+                            'Rp $hargaPengiriman',
                             style: poppinsKecil.copyWith(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
@@ -381,7 +386,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 color: blackColor),
                           ),
                           Text(
-                            'Rp341.000',
+                            'Rp ${harga + hargaPengiriman}',
                             style: poppinsKecil.copyWith(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w700,
@@ -433,7 +438,13 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             ),
                             SizedBox(height: 4.h),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                FlutterClipboard.copy(nova).then((value) =>
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            content:
+                                                Text('Berhasil Disalin'))));
+                              },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -561,11 +572,13 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                   SizedBox(height: 100.h),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SuccessPayment(),
-                          ));
+                      _showMyDialog(context);
+                      Timer(const Duration(seconds: 3), () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SuccessPayment()));
+                      });
                     },
                     child: Container(
                       width: 360.w,
@@ -588,6 +601,30 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
           ),
         ),
       ),
+    );
+  }
+
+  Future<void> _showMyDialog(context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          insetPadding:
+              const EdgeInsets.symmetric(horizontal: 140, vertical: 360),
+          titlePadding:
+              const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 0),
+          title: Image.asset(
+            'assets/icon/event_icon/memuat.png',
+            width: 22,
+            height: 22,
+          ),
+          content: SizedBox(
+              width: 106.w,
+              height: 77.h,
+              child: const Center(child: Text('Memuat'))),
+        );
+      },
     );
   }
 }

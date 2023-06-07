@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
 class SuccessPayment extends StatefulWidget {
   const SuccessPayment({super.key});
@@ -131,7 +133,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                       width: 135.w,
                     ),
                     Text(
-                      'Rp340.000',
+                      'Rp $harga',
                       style: poppinsKecil.copyWith(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
@@ -154,7 +156,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           color: abuColor),
                     ),
                     Text(
-                      'Rp1.000',
+                      'Rp $hargaPengiriman',
                       style: poppinsKecil.copyWith(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
@@ -200,7 +202,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           color: blackColor),
                     ),
                     Text(
-                      'Rp341.000',
+                      'Rp ${harga + hargaPengiriman}',
                       style: poppinsKecil.copyWith(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
@@ -310,34 +312,31 @@ class _SuccessPaymentState extends State<SuccessPayment> {
             SizedBox(
               height: 10.h,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Status Pembayaran',
-                  style: poppinsKecil.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                      color: blackColor),
-                ),
-                SizedBox(
-                  height: 6.h,
-                ),
-                Container(
-                  width: 360.w,
-                  height: 48.h,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: forthColor),
-                  child: Center(
-                    child: Text(
-                      'Berhasil di bayar',
-                      style: poppinsKecil.copyWith(
-                          fontWeight: FontWeight.w700, color: secondaryColor),
-                    ),
+            Container(
+              width: 360.w,
+              height: 68.h,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: grenColor,
+                  border: Border.all(color: greenColor)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/icon/event_icon/done.png',
+                    width: 15.44.sp,
+                    height: 11.18,
                   ),
-                ),
-              ],
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    'LUNAS',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w700, color: greenColor),
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 200.h,
@@ -346,15 +345,25 @@ class _SuccessPaymentState extends State<SuccessPayment> {
               width: 360.w,
               height: 48.h,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: secondaryColor),
-              child: Center(
-                child: Text(
-                  'Oke',
+                borderRadius: BorderRadius.circular(8),
+                color: secondaryColor,
+              ),
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Image.asset(
+                  'assets/icon/event_icon/bill.png',
+                  width: 14.sp,
+                  height: 16,
+                ),
+                SizedBox(
+                  width: 7.w,
+                ),
+                Text(
+                  'Lihat Riwayat Transaksi',
                   style: poppinsKecil.copyWith(
                       fontWeight: FontWeight.w700, color: whiteColor),
                 ),
-              ),
+              ]),
             ),
           ],
         ),

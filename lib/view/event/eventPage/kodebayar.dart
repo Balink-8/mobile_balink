@@ -14,6 +14,7 @@ class kodeBayar extends StatefulWidget {
 }
 
 var nova = '2668 8001 9203 8388';
+int hargaPengiriman = 1000;
 
 class _kodeBayarState extends State<kodeBayar> {
   @override
@@ -59,7 +60,7 @@ class _kodeBayarState extends State<kodeBayar> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Total : $harga',
+                  'Total : ${harga + hargaPengiriman}',
                   style: poppinsKecil.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
@@ -115,7 +116,8 @@ class _kodeBayarState extends State<kodeBayar> {
                     onPressed: () {
                       FlutterClipboard.copy(nova).then((value) =>
                           ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Berhasil Disalin'))));
+                              const SnackBar(
+                                  content: Text('Berhasil Disalin'))));
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
