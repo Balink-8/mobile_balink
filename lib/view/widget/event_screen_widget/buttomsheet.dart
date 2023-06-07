@@ -33,7 +33,7 @@ class _bsTicketState extends State<bsTicket> {
             ),
           ),
           builder: (context) {
-            return Container(
+            return SizedBox(
               width: 360.w,
               height: 516.h,
               child: Column(
@@ -345,7 +345,7 @@ class _bsTicketState extends State<bsTicket> {
                       GestureDetector(
                         onTap: () {
                           _showMyDialog(context);
-                          Timer(Duration(seconds: 3), () {
+                          Timer(const Duration(seconds: 3), () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -402,16 +402,19 @@ class _bsTicketState extends State<bsTicket> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          insetPadding: EdgeInsets.symmetric(horizontal: 140, vertical: 360),
+          insetPadding:
+              const EdgeInsets.symmetric(horizontal: 140, vertical: 360),
           titlePadding:
-              EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 0),
+              const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 0),
           title: Image.asset(
             'assets/icon/event_icon/memuat.png',
             width: 22,
             height: 22,
           ),
           content: SizedBox(
-              width: 106.w, height: 77.h, child: Center(child: Text('Memuat'))),
+              width: 106.w,
+              height: 77.h,
+              child: const Center(child: Text('Memuat'))),
         );
       },
     );
