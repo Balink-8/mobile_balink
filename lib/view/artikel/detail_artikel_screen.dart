@@ -42,7 +42,7 @@ class DetailArtikelScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: Image.asset(
-                  'assets/icon/ogoh.png',
+                  'assets/ogoh.png',
                   scale: .8.r,
                 ),
               ),

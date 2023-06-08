@@ -23,7 +23,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
         ),
         backgroundColor: whiteColor,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(10, 20, 20, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
