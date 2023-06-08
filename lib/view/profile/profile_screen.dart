@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_balink/view/profile/edit_profile_screen.dart';
 import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
+import 'package:mobile_balink/view/transaksi/transaksi_widget/tab_bar_navigaton.dart';
 
 import '../../config/theme.dart';
 import '../artikel/artikel_screen.dart';
@@ -292,6 +293,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => TabBarNavigation()));
+            },
             child: Container(
               height: 100.h,
               width: 160.w,

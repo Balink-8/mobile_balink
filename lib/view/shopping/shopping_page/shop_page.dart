@@ -29,17 +29,25 @@ class _ShopScreenState extends State<ShopScreen> {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.all(8),
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                              hintText: 'Cari barang di Balink..',
-                              filled: true,
-                              enabled: false,
-                              prefixIcon: Icon(
-                                Icons.search,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(12),
+                          child: SizedBox(
+                            height: 36.h,
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                hintText: 'Cari barang di Balink..',
+                                hintStyle: poppinsKecil.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black38),
+                                filled: true,
+                                fillColor: Colors.white,
+                                enabled: false,
+                                prefixIcon: const Icon(
+                                  Icons.search,
+                                  color: Colors.black,
+                                ),
+                                border: const OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(12),
+                                  ),
                                 ),
                               ),
                             ),

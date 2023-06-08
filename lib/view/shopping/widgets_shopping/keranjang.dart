@@ -62,9 +62,6 @@ class _KeranjangState extends State<Keranjang> {
                         });
                       },
                     ),
-                    SizedBox(
-                      width: 10.w,
-                    ),
                     Image.network(
                       'https://images.unsplash.com/photo-1597633125184-9fd7e54f0ff7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80',
                       fit: BoxFit.cover,
@@ -132,9 +129,6 @@ class _KeranjangState extends State<Keranjang> {
                                           color: Colors.black),
                                     ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: 10.w,
                                 ),
                                 Text(
                                   'tersisa 30 buah',

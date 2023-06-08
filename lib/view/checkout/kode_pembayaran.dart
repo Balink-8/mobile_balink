@@ -143,7 +143,7 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
                   )
                 ],
               ),
-              SizedBox(height: 370.h),
+              SizedBox(height: 250.h),
               // GestureDetector(
               //   onTap: () {
               //     showModalBottomSheet(

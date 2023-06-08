@@ -47,7 +47,7 @@ class CheckoutShopPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset(
-                    'assets/icon/event_icon/location_on.png',
+                    'assets/icon/event_icon/location.png',
                     color: Colors.black,
                     width: 13,
                     height: 16,
@@ -178,21 +178,10 @@ class CheckoutShopPage extends StatelessWidget {
                 Text('Pesan',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.w700)),
-                Row(
-                  children: [
-                    Text('Opsional',
-                        style: poppinsKecil.copyWith(
-                            color: const Color.fromRGBO(89, 90, 89, 1),
-                            fontWeight: FontWeight.w400)),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 12,
-                      color: Color.fromRGBO(89, 90, 89, 1),
-                    )
-                  ],
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 12,
+                  color: Color.fromRGBO(89, 90, 89, 1),
                 ),
               ],
             ),
@@ -420,31 +409,22 @@ class CheckoutShopPage extends StatelessWidget {
             //BUTTON BUAT PESANAN
             GestureDetector(
               onTap: () {
-                // Navigator.push(
-                //     // context,
-                //     // MaterialPageRoute(
-                //     //     builder: (context) => ())
-                //     )
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BerhasilBayarPage()));
               },
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => BerhasilBayarPage()));
-                },
-                child: Container(
-                  width: 360.w,
-                  height: 48.h,
-                  decoration: BoxDecoration(
-                    color: secondaryColor,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Buat Pesanan',
-                      style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
-                    ),
+              child: Container(
+                width: 360.w,
+                height: 48.h,
+                decoration: BoxDecoration(
+                  color: secondaryColor,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Center(
+                  child: Text(
+                    'Buat Pesanan',
+                    style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
