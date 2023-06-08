@@ -30,15 +30,15 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                   child: Image.asset(
                     'assets/ogoh.png',
                     width: 310.w,
                     height: 167.h,
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 15.h,
                 ),
                 Align(
                   alignment: Alignment.topLeft,
@@ -46,34 +46,34 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     'Ogoh-Ogoh',
                     style: poppinsKecil.copyWith(
                         fontWeight: FontWeight.w700,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         color: blackColor),
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 15.h,
                 ),
                 Row(
                   children: [
                     Image.asset(
                       'assets/icon/event_icon/location.png',
-                      width: 10,
-                      height: 13,
+                      width: 10.w,
+                      height: 13.h,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: 10.w,
                     ),
                     Text(
                       'Denpasar, Bali',
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w400,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           color: blackColor),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 15.h,
                 ),
                 Column(
                   children: [
@@ -83,14 +83,14 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           padding: const EdgeInsets.all(10),
                           child: Image.asset(
                             'assets/icon/event_icon/ticket.png',
-                            width: 13,
-                            height: 10,
+                            width: 13.w,
+                            height: 10.h,
                           ),
                         ),
                         Text(
                           'Ticket',
                           style: poppinsKecil.copyWith(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
                         )
@@ -101,80 +101,80 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                       child: Text(
                         'Rp 50.000 - 120.000',
                         style: poppinsKecil.copyWith(
-                            fontSize: 18,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.w700,
                             color: blackColor),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 15.h,
                 ),
                 const DetailEv(),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 15.h,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    cardCalendar(),
+                    const cardCalendar(),
                     SizedBox(
-                      width: 10,
+                      width: 10.w,
                     ),
-                    cardClock(),
+                    const cardClock(),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 15.h,
                 ),
                 Row(
                   children: [
                     Image.asset(
                       'assets/icon/event_icon/net.png',
-                      width: 10,
-                      height: 13,
+                      width: 10.w,
+                      height: 13.h,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: 10.w,
                     ),
                     Text(
                       'Tentang Event',
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w400,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           color: blackColor),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
                 const CardTentangEvent(),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
                 Row(
                   children: [
                     Image.asset(
                       'assets/icon/event_icon/location.png',
-                      width: 10,
-                      height: 13,
+                      width: 10.w,
+                      height: 13.h,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: 10.w,
                     ),
                     Text(
                       'Detail Lokasi',
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w400,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           color: blackColor),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
@@ -185,15 +185,15 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     child: Text(
                       'Arahkan Saya Ke Lokasi Destinasi',
                       style: poppinsKecil.copyWith(
-                        fontSize: 12,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
                         color: whiteColor,
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
                 const bsTicket()
               ],

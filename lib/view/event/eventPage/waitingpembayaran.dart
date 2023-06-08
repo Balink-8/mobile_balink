@@ -41,7 +41,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                   Text(
                     'Metode pembayaran pilihan ',
                     style: poppinsKecil.copyWith(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
                         color: blackColor),
                   ),
@@ -51,7 +51,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                     style: poppinsKecil.copyWith(
                         color: blackColor,
                         fontWeight: FontWeight.w700,
-                        fontSize: 12),
+                        fontSize: 12.sp),
                   ),
                 ],
               ),
@@ -63,16 +63,16 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10.0.r),
                           child: Image.asset(
                             'assets/icon/event_icon/dummy/g1.png',
-                            width: 64,
-                            height: 64,
+                            width: 64.w,
+                            height: 64.h,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        width: 20,
+                      SizedBox(
+                        width: 20.w,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,39 +84,39 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                               child: Text(
                                 '29 Mei 2023',
                                 style: poppinsKecil.copyWith(
-                                    fontSize: 10,
+                                    fontSize: 10.sp,
                                     fontWeight: FontWeight.w400,
                                     color: secondaryColor),
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            height: 12,
+                          SizedBox(
+                            height: 12.h,
                           ),
                           Text(
                             'Ogoh - Ogoh',
                             style: poppinsKecil.copyWith(
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
                           ),
-                          const SizedBox(
-                            height: 12,
+                          SizedBox(
+                            height: 12.h,
                           ),
                           Row(
                             children: [
                               Image.asset(
                                 'assets/icon/event_icon/location.png',
-                                width: 10,
-                                height: 13,
+                                width: 10.w,
+                                height: 13.h,
                               ),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: 10.w,
                               ),
                               Text(
                                 'Denpasar',
                                 style: poppinsKecil.copyWith(
-                                    fontSize: 12,
+                                    fontSize: 12.sp,
                                     fontWeight: FontWeight.w400,
                                     color: blackColor),
                               ),
@@ -126,8 +126,8 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   Divider(),
                   SizedBox(
@@ -141,38 +141,38 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             children: [
                               Image.asset(
                                 'assets/icon/event_icon/ticket.png',
-                                width: 13,
-                                height: 11,
+                                width: 13.w,
+                                height: 11.h,
                               ),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: 10.w,
                               ),
                               Text(
                                 'Ticket',
                                 style: poppinsKecil.copyWith(
-                                    fontSize: 14,
+                                    fontSize: 14.sp,
                                     fontWeight: FontWeight.w400,
                                     color: blackColor),
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 10.sp,
                           ),
                           Text(
                             'Rp 120.000',
                             style: poppinsKecil.copyWith(
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 10.h,
                           ),
                         ],
                       ),
                       SizedBox(
-                        width: 237.w,
+                        width: 210.w,
                       ),
                       Text(
                         'x $jumlah',
@@ -181,15 +181,15 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             fontWeight: FontWeight.w700,
                             color: secondaryColor),
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: 10.w,
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: 10.h,
                   ),
-                  Divider(),
+                  const Divider(),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -199,7 +199,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       Text(
                         'Perincian Pesanan',
                         style: poppinsKecil.copyWith(
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w700,
                             color: blackColor),
                       ),
@@ -212,17 +212,17 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           Text(
                             'Nomor Pesanan',
                             style: poppinsKecil.copyWith(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: abuColor),
                           ),
                           SizedBox(
-                            width: 135.w,
+                            width: 100.w,
                           ),
                           Text(
                             '577889036123879654',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
                           ),
@@ -231,8 +231,8 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           ),
                           Image.asset(
                             'assets/icon/event_icon/copy.png',
-                            width: 14,
-                            height: 16,
+                            width: 14.w,
+                            height: 16.h,
                             color: abuAColor,
                           )
                         ],
@@ -247,14 +247,14 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           Text(
                             'Tanggal Pemesanan',
                             style: poppinsKecil.copyWith(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: abuColor),
                           ),
                           Text(
                             '29 April, 2023 6:52 AM',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
                           )
@@ -270,14 +270,14 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           Text(
                             'Metode Pembayaran',
                             style: poppinsKecil.copyWith(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: abuColor),
                           ),
                           Text(
                             'Bank Central Asia',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
                           )
@@ -295,7 +295,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       Text(
                         'Ringkasan Pesanan',
                         style: poppinsKecil.copyWith(
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w700,
                             color: blackColor),
                       ),
@@ -309,7 +309,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           Text(
                             'Subtotal',
                             style: poppinsKecil.copyWith(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: abuColor),
                           ),
@@ -319,7 +319,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           Text(
                             'Rp $harga',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
                           ),
@@ -335,14 +335,14 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           Text(
                             'Pengiriman',
                             style: poppinsKecil.copyWith(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: abuColor),
                           ),
                           Text(
                             'Rp $hargaPengiriman',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
                           )
@@ -358,14 +358,14 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           Text(
                             'Promo',
                             style: poppinsKecil.copyWith(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: abuColor),
                           ),
                           Text(
                             '-',
                             style: poppinsKecil.copyWith(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.red),
                           )
@@ -381,14 +381,14 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           Text(
                             'Total',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
                           ),
                           Text(
                             'Rp ${harga + hargaPengiriman}',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
                           ),
@@ -396,7 +396,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       )
                     ],
                   ),
-                  Divider(),
+                  const Divider(),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -406,7 +406,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       Text(
                         'Ringkasan Pesanan',
                         style: poppinsKecil.copyWith(
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w700,
                             color: blackColor),
                       ),
@@ -414,17 +414,17 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       Container(
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.r),
                             color: abuAColor),
                         width: 327.w,
-                        height: 108.h,
+                        height: 120.h,
                         padding: EdgeInsets.fromLTRB(97, 12, 97, 12),
                         child: Column(
                           children: [
                             Text(
                               'Bank Central Asia',
                               style: poppinsKecil.copyWith(
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w400,
                                   color: blackColor),
                             ),
@@ -432,7 +432,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             Text(
                               '2668 8001 9203 8388',
                               style: poppinsKecil.copyWith(
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w700,
                                   color: blackColor),
                             ),
@@ -441,7 +441,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                               onPressed: () {
                                 FlutterClipboard.copy(nova).then((value) =>
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                             content:
                                                 Text('Berhasil Disalin'))));
                               },
@@ -459,7 +459,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                   Text(
                                     'Copy Code',
                                     style: poppinsKecil.copyWith(
-                                        fontSize: 14,
+                                        fontSize: 14.sp,
                                         fontWeight: FontWeight.w400,
                                         color: blackColor),
                                   )
@@ -485,7 +485,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                         ),
                         builder: (context) {
                           return SizedBox(
-                            height: 280,
+                            height: 280.h,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisSize: MainAxisSize.min,
@@ -558,7 +558,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       height: 48.h,
                       decoration: BoxDecoration(
                         color: secondaryColor,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.r),
                       ),
                       child: Center(
                         child: Text(
@@ -577,7 +577,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SuccessPayment()));
+                                builder: (context) => const SuccessPayment()));
                       });
                     },
                     child: Container(
@@ -585,7 +585,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       height: 48.h,
                       decoration: BoxDecoration(
                         color: Colors.grey[500],
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.r),
                       ),
                       child: Center(
                         child: Text(
@@ -611,13 +611,13 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
       builder: (BuildContext context) {
         return AlertDialog(
           insetPadding:
-              const EdgeInsets.symmetric(horizontal: 140, vertical: 360),
+              EdgeInsets.symmetric(horizontal: 140.w, vertical: 360.h),
           titlePadding:
               const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 0),
           title: Image.asset(
             'assets/icon/event_icon/memuat.png',
-            width: 22,
-            height: 22,
+            width: 22.w,
+            height: 22.h,
           ),
           content: SizedBox(
               width: 106.w,

@@ -35,16 +35,16 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(17, 15, 17, 15),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(10.0.r),
                     child: Image.asset(
                       'assets/icon/event_icon/dummy/g1.png',
-                      width: 64,
-                      height: 64,
+                      width: 64.w,
+                      height: 64.h,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 20,
+                SizedBox(
+                  width: 20.w,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,39 +56,39 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                         child: Text(
                           '29 Mei 2023',
                           style: poppinsKecil.copyWith(
-                              fontSize: 10,
+                              fontSize: 10.sp,
                               fontWeight: FontWeight.w400,
                               color: secondaryColor),
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 12,
+                    SizedBox(
+                      height: 12.h,
                     ),
                     Text(
                       'Ogoh - Ogoh',
                       style: poppinsKecil.copyWith(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
                     ),
-                    const SizedBox(
-                      height: 12,
+                    SizedBox(
+                      height: 12.h,
                     ),
                     Row(
                       children: [
                         Image.asset(
                           'assets/icon/event_icon/location.png',
-                          width: 10,
-                          height: 13,
+                          width: 10.w,
+                          height: 13.h,
                         ),
-                        const SizedBox(
-                          width: 10,
+                        SizedBox(
+                          width: 10.w,
                         ),
                         Text(
                           'Denpasar',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
                         ),
@@ -98,8 +98,8 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             Divider(),
             SizedBox(
@@ -111,7 +111,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 Text(
                   'Ringkasan Pesanan',
                   style: poppinsKecil.copyWith(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                       color: blackColor),
                 ),
@@ -125,7 +125,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     Text(
                       'Subtotal',
                       style: poppinsKecil.copyWith(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
                     ),
@@ -135,7 +135,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     Text(
                       'Rp $harga',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
                     ),
@@ -151,14 +151,14 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     Text(
                       'Pengiriman',
                       style: poppinsKecil.copyWith(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
                     ),
                     Text(
                       'Rp $hargaPengiriman',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
                     )
@@ -174,14 +174,14 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     Text(
                       'Promo',
                       style: poppinsKecil.copyWith(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
                     ),
                     Text(
                       '-',
                       style: poppinsKecil.copyWith(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: Colors.red),
                     )
@@ -197,14 +197,14 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     Text(
                       'Total',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
                     ),
                     Text(
                       'Rp ${harga + hargaPengiriman}',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
                     ),
@@ -222,7 +222,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 Text(
                   'Perincian Pesanan',
                   style: poppinsKecil.copyWith(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                       color: blackColor),
                 ),
@@ -235,17 +235,17 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     Text(
                       'Nomor Pesanan',
                       style: poppinsKecil.copyWith(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
                     ),
                     SizedBox(
-                      width: 135.w,
+                      width: 100.w,
                     ),
                     Text(
                       '577889036123879654',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
                     ),
@@ -254,8 +254,8 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     ),
                     Image.asset(
                       'assets/icon/event_icon/copy.png',
-                      width: 14,
-                      height: 16,
+                      width: 14.w,
+                      height: 16.h,
                       color: abuAColor,
                     )
                   ],
@@ -270,14 +270,14 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     Text(
                       'Tanggal Pemesanan',
                       style: poppinsKecil.copyWith(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
                     ),
                     Text(
                       '29 April, 2023 6:52 AM',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
                     )
@@ -293,14 +293,14 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     Text(
                       'Metode Pembayaran',
                       style: poppinsKecil.copyWith(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
                     ),
                     Text(
                       'Bank Central Asia',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
                     )
@@ -308,7 +308,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 ),
               ],
             ),
-            Divider(),
+            const Divider(),
             SizedBox(
               height: 10.h,
             ),
@@ -324,8 +324,8 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 children: [
                   Image.asset(
                     'assets/icon/event_icon/done.png',
-                    width: 15.44.sp,
-                    height: 11.18,
+                    width: 15.44.w,
+                    height: 11.18.h,
                   ),
                   SizedBox(
                     height: 10.h,
@@ -339,7 +339,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
               ),
             ),
             SizedBox(
-              height: 200.h,
+              height: 180.h,
             ),
             Container(
               width: 360.w,
@@ -352,8 +352,8 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Image.asset(
                   'assets/icon/event_icon/bill.png',
-                  width: 14.sp,
-                  height: 16,
+                  width: 14.w,
+                  height: 16.h,
                 ),
                 SizedBox(
                   width: 7.w,

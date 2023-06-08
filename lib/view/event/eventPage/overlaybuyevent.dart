@@ -23,16 +23,16 @@ class _OverlayEventState extends State<BuyEvent> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(10.0.r),
                     child: Image.asset(
                       'assets/icon/event_icon/dummy/g1.png',
-                      width: 64,
-                      height: 64,
+                      width: 64.w,
+                      height: 64.h,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 20,
+                SizedBox(
+                  width: 20.w,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -44,39 +44,39 @@ class _OverlayEventState extends State<BuyEvent> {
                         child: Text(
                           '29 Mei 2023',
                           style: poppinsKecil.copyWith(
-                              fontSize: 10,
+                              fontSize: 10.sp,
                               fontWeight: FontWeight.w400,
                               color: secondaryColor),
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 12,
+                    SizedBox(
+                      height: 12.h,
                     ),
                     Text(
                       'Ogoh - Ogoh',
                       style: poppinsKecil.copyWith(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
                     ),
-                    const SizedBox(
-                      height: 12,
+                    SizedBox(
+                      height: 12.h,
                     ),
                     Row(
                       children: [
                         Image.asset(
                           'assets/icon/event_icon/location.png',
-                          width: 10,
-                          height: 13,
+                          width: 10.w,
+                          height: 13.h,
                         ),
-                        const SizedBox(
-                          width: 10,
+                        SizedBox(
+                          width: 10.w,
                         ),
                         Text(
                           'Lokasi Event',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
                         ),
@@ -84,8 +84,8 @@ class _OverlayEventState extends State<BuyEvent> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 90,
+                SizedBox(
+                  width: 90.w,
                 ),
                 IconButton(
                   onPressed: () {
@@ -98,14 +98,14 @@ class _OverlayEventState extends State<BuyEvent> {
                   },
                   icon: Image.asset(
                     'assets/icon/event_icon/close.png',
-                    width: 11,
-                    height: 11,
+                    width: 11.w,
+                    height: 11.h,
                   ),
                 ),
               ],
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
           ],
         ),
@@ -128,28 +128,28 @@ class _BuyNowState extends State<BuyNow> {
     return Row(
       children: [
         Container(
-          width: 190,
-          height: 60,
+          width: 190.w,
+          height: 60.h,
           color: fifthColor,
           child: Column(
             children: [
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: 10.h,
               ),
               Text(
                 'Total',
                 style: poppinsKecil.copyWith(
-                    fontSize: 10,
+                    fontSize: 10.sp,
                     fontWeight: FontWeight.w400,
                     color: blackColor),
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: 10.h,
               ),
               Text(
                 'Rp 120.000',
                 style: poppinsKecil.copyWith(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
                     color: blackColor),
               )
@@ -168,12 +168,12 @@ class _BuyNowState extends State<BuyNow> {
           child: Container(
               alignment: Alignment.center,
               width: 180.w,
-              height: 60,
+              height: 60.h,
               color: secondaryColor,
               child: Text(
                 'Beli Sekarang',
                 style: poppinsKecil.copyWith(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
                   color: fifthColor,
                 ),

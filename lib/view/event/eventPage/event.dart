@@ -29,17 +29,17 @@ class _EventPageState extends State<EventPage> {
                         Text(
                           '12 : 22',
                           style: poppinsKecil.copyWith(
-                              fontSize: 24,
+                              fontSize: 24.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
                         ),
-                        const SizedBox(
-                          height: 8,
+                        SizedBox(
+                          height: 8.h,
                         ),
                         Text(
                           'Senin, 29 Mei 2023',
                           style: poppinsKecil.copyWith(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
                         ),
@@ -49,21 +49,21 @@ class _EventPageState extends State<EventPage> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 40,
+            SizedBox(
+              height: 40.h,
             ),
             Padding(
               padding: EdgeInsets.only(left: 10, right: 10),
               child: SizedBox(
-                height: 600,
+                height: 600.h,
                 child: ListView.separated(
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return CardEvent();
                     },
                     separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        height: 10,
+                      return SizedBox(
+                        height: 10.h,
                       );
                     },
                     itemCount: 5),
