@@ -90,8 +90,8 @@ class _EventCoState extends State<EventCo> {
                                   borderRadius: BorderRadius.circular(10)),
                               hintText: 'Input Kode',
                               suffixIcon: Container(
-                                  width: 30,
-                                  height: 53,
+                                  width: 30.w,
+                                  height: 50.h,
                                   decoration: BoxDecoration(
                                       borderRadius: const BorderRadius.only(
                                           topRight: Radius.circular(10),

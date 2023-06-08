@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/view/event/eventPage/event.dart';
 import 'package:mobile_balink/view/login_page.dart';
 
 void main() {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.black),
           )),
           debugShowCheckedModeBanner: false,
-          home: const LoginScreen(),
+          // home: const LoginScreen(),
+          home: EventPage(),
         );
       },
       // child: LoginScreen(),

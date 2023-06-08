@@ -207,7 +207,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                         height: 6.h,
                       ),
                       Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             'Nomor Pesanan',
@@ -216,25 +216,26 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontWeight: FontWeight.w400,
                                 color: abuColor),
                           ),
-                          SizedBox(
-                            width: 100.w,
+                          Row(
+                            children: [
+                              Text(
+                                '577889036123879654',
+                                style: poppinsKecil.copyWith(
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w700,
+                                    color: blackColor),
+                              ),
+                              SizedBox(
+                                width: 3.w,
+                              ),
+                              Image.asset(
+                                'assets/icon/event_icon/copy.png',
+                                width: 14.w,
+                                height: 16.h,
+                                color: abuAColor,
+                              )
+                            ],
                           ),
-                          Text(
-                            '577889036123879654',
-                            style: poppinsKecil.copyWith(
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w700,
-                                color: blackColor),
-                          ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
-                          Image.asset(
-                            'assets/icon/event_icon/copy.png',
-                            width: 14.w,
-                            height: 16.h,
-                            color: abuAColor,
-                          )
                         ],
                       ),
                       SizedBox(
@@ -436,7 +437,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                   fontWeight: FontWeight.w700,
                                   color: blackColor),
                             ),
-                            SizedBox(height: 4.h),
+                            SizedBox(height: 3.h),
                             TextButton(
                               onPressed: () {
                                 FlutterClipboard.copy(nova).then((value) =>

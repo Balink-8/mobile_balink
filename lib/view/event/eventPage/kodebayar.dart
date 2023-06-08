@@ -34,24 +34,26 @@ class _kodeBayarState extends State<kodeBayar> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icon/event_icon/waiting.png',
-                  width: 24.w,
-                  height: 24.h,
-                ),
-                SizedBox(
-                  width: 6.w,
-                ),
-                Text(
-                  'Menunggu untuk pembayaran',
-                  style: poppinsKecil.copyWith(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14.sp,
-                      color: blackColor),
-                )
-              ],
+            Expanded(
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/icon/event_icon/waiting.png',
+                    width: 24.w,
+                    height: 24.h,
+                  ),
+                  SizedBox(
+                    width: 6.w,
+                  ),
+                  Text(
+                    'Menunggu untuk pembayaran',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14.sp,
+                        color: blackColor),
+                  )
+                ],
+              ),
             ),
             SizedBox(
               height: 26.h,
@@ -94,7 +96,7 @@ class _kodeBayarState extends State<kodeBayar> {
                   borderRadius: BorderRadius.circular(8.r),
                   color: abuAColor),
               width: 327.w,
-              height: 120.h,
+              height: 115.h,
               padding: const EdgeInsets.fromLTRB(97, 12, 97, 12),
               child: Column(
                 children: [
@@ -121,25 +123,27 @@ class _kodeBayarState extends State<kodeBayar> {
                               const SnackBar(
                                   content: Text('Berhasil Disalin'))));
                     },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/icon/event_icon/copy.png',
-                          width: 17.w,
-                          height: 20.h,
-                        ),
-                        SizedBox(
-                          width: 4.w,
-                        ),
-                        Text(
-                          'Copy Code',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
-                              color: blackColor),
-                        )
-                      ],
+                    child: Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icon/event_icon/copy.png',
+                            width: 17.w,
+                            height: 20.h,
+                          ),
+                          SizedBox(
+                            width: 4.w,
+                          ),
+                          Text(
+                            'Copy Code',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                                color: blackColor),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -188,7 +192,7 @@ class _kodeBayarState extends State<kodeBayar> {
               ],
             ),
             SizedBox(
-              height: 280.h,
+              height: 270.h,
             ),
             GestureDetector(
               onTap: () {
