@@ -47,7 +47,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         ),
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Processing Data')),
+                );
+              }
+            },
             child: Text(
               'Simpan',
               style: poppinsKecil.copyWith(
@@ -65,6 +71,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           child: Column(
             children: [
               TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'isi Email';
+                  } else if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                    return "Masukkan alamat email yang valid";
+                  }
+                  return null;
+                },
                 keyboardType: TextInputType.emailAddress,
                 controller: emailController,
                 autofocus: true,
@@ -94,6 +108,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               SizedBox(height: 20.h),
               TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'isi nomor telpon';
+                  } else if (value.length < 10 || value.length > 12) {
+                    return 'nomor tidak valid';
+                  }
+                  return null;
+                },
                 keyboardType: TextInputType.number,
                 controller: numberController,
                 autofocus: true,
@@ -123,6 +145,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               SizedBox(height: 20.h),
               TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'isi Alamat';
+                  }
+                  return null;
+                },
                 keyboardType: TextInputType.streetAddress,
                 controller: addressController,
                 autofocus: true,
