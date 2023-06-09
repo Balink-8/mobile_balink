@@ -22,10 +22,10 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.black),
           )),
           debugShowCheckedModeBanner: false,
-          home: const LoginScreen(),
+          home: child,
         );
       },
-      // child: LoginScreen(),
+      child: const LoginScreen(),
     );
   }
 }

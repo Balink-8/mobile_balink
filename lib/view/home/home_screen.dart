@@ -36,10 +36,10 @@ class HomePageScreen extends StatelessWidget {
                       Expanded(
                           child: Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: TextFormField(
-                          decoration: InputDecoration(
+                        child: Container(
+                          child: TextFormField(
+                            decoration: InputDecoration(
                               filled: true,
-                              enabled: false,
                               fillColor:
                                   const Color.fromRGBO(205, 203, 200, 0.2),
                               prefixIcon: const Icon(
@@ -49,17 +49,26 @@ class HomePageScreen extends StatelessWidget {
                               ),
                               border: OutlineInputBorder(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(8.r)))),
+                                      BorderRadius.all(Radius.circular(8.r))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.w)),
+                                  borderSide: BorderSide(
+                                    color: secondaryColor,
+                                  )),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.w)),
+                                  borderSide: BorderSide(
+                                    color: secondaryColor,
+                                  )),
+                            ),
+                          ),
                         ),
                       )),
                       Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child:
-                            // Icon(
-                            //   Icons.shop,
-                            //   color: primaryColor,
-                            // ),
-                            InkWell(
+                        child: InkWell(
                           onTap: () {
                             Navigator.push(
                                 context,
