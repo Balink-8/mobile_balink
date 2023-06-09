@@ -16,15 +16,14 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 800),
       builder: (_, child) {
         return MaterialApp(
-            title: 'Balink',
-            theme: ThemeData(
-                appBarTheme: const AppBarTheme(
-              iconTheme: IconThemeData(color: Colors.black),
-            )),
-            debugShowCheckedModeBanner: false,
-            home: const LoginScreen()
-            // home: const EventPage(),
-            );
+          title: 'Balink',
+          theme: ThemeData(
+              appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(color: Colors.black),
+          )),
+          debugShowCheckedModeBanner: false,
+          home: const LoginScreen(),
+        );
       },
       // child: LoginScreen(),
     );
