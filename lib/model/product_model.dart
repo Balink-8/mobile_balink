@@ -1,4 +1,4 @@
-class Datum {
+class Product {
   int id;
   String kategoriId;
   String nama;
@@ -6,7 +6,7 @@ class Datum {
   int harga;
   int stok;
 
-  Datum({
+  Product({
     required this.id,
     required this.kategoriId,
     required this.nama,
@@ -15,7 +15,7 @@ class Datum {
     required this.stok,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["ID"],
         kategoriId: json["kategori_id"],
         nama: json["nama"],

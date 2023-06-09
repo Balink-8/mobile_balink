@@ -22,7 +22,7 @@ class KebijakanHakCiptaScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+        padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,6 +39,7 @@ class KebijakanHakCiptaScreen extends StatelessWidget {
                 style: poppinsKecil.copyWith(
                   color: blackColor,
                 ),
+                textAlign: TextAlign.justify,
               ),
               SizedBox(height: 10.h),
               Text(
@@ -46,12 +47,14 @@ class KebijakanHakCiptaScreen extends StatelessWidget {
                 style: poppinsKecil.copyWith(
                   color: blackColor,
                 ),
+                textAlign: TextAlign.justify,
               ),
               Text(
                 'Keanekaragaman Budaya Bali. Bali adalah destinasi tempat wisata terpopuler di Indonesia, Bali memiliki keanekaragaman budaya yang unik dan menarik, termasuk seni, musik, tarian, dan tradisi agama. Keanekaragaman ini telah menarik minat wisatawan dari dalam maupun luar negeri untuk berkunjung ke Bali agar dapat mengenal kebudayaan Bali secara langsung.',
                 style: poppinsKecil.copyWith(
                   color: blackColor,
                 ),
+                textAlign: TextAlign.justify,
               ),
               SizedBox(height: 10.h),
               Text(
@@ -59,12 +62,14 @@ class KebijakanHakCiptaScreen extends StatelessWidget {
                 style: poppinsKecil.copyWith(
                   color: blackColor,
                 ),
+                textAlign: TextAlign.justify,
               ),
               Text(
                 'Bali memiliki berbagai event budaya dan produk lokal yang menarik, namun sulit bagi wisatawan dan masyarakat lokal untuk menemukan informasi tentang event dan produk lokal tersebut. Dengan adanya aplikasi mobile ini, pengguna dapat dengan mudah mengakses informasi tentang event dan produk lokal Bali di satu tempat yang terintegrasi.',
                 style: poppinsKecil.copyWith(
                   color: blackColor,
                 ),
+                textAlign: TextAlign.justify,
               ),
               SizedBox(height: 10.h),
               Text(
@@ -72,12 +77,14 @@ class KebijakanHakCiptaScreen extends StatelessWidget {
                 style: poppinsKecil.copyWith(
                   color: blackColor,
                 ),
+                textAlign: TextAlign.justify,
               ),
               Text(
                 'Wisatawan dari dalam dan luar negeri sangat tertarik untuk mengunjungi Bali, yang memungkinkan adanya potensi pasar yang besar untuk produk lokal Bali dan event budaya Bali. Dengan aplikasi mobile ini, produk lokal Bali dan event budaya Bali dapat diakses oleh lebih banyak wisatawan, sehingga dapat meningkatkan pendapatan pelaku usaha dan komunitas lokal Bali.',
                 style: poppinsKecil.copyWith(
                   color: blackColor,
                 ),
+                textAlign: TextAlign.justify,
               ),
             ],
           ),
