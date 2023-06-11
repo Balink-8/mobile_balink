@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:mobile_balink/view/checkout/checkout_shop.dart';
 import '../../../config/theme.dart';
 import '../shopping_page/list_gambar.dart';
 
@@ -129,7 +129,16 @@ class BottomSheetOrderNow extends StatelessWidget {
               width: 328.w,
               height: 35.h,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    (context),
+                    MaterialPageRoute(
+                      builder: (context) => CheckoutShopPage(
+                        index: index,
+                      ),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: secondaryColor,
                 ),

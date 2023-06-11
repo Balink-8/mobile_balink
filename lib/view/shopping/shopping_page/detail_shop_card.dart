@@ -5,13 +5,27 @@ import '../widgets_shopping/order_now.dart';
 import '../widgets_shopping/shopping_card.dart';
 import '../widgets_shopping/keranjang.dart';
 import 'list_gambar.dart';
+import 'package:badges/badges.dart' as badges;
 
-class DetailCard extends StatelessWidget {
+class DetailCard extends StatefulWidget {
   const DetailCard({Key? key, required this.index}) : super(key: key);
   final int index;
 
   @override
+  State<DetailCard> createState() => _DetailCardState();
+}
+
+class _DetailCardState extends State<DetailCard> {
+  final TextEditingController _searchController = TextEditingController();
+
+  final int _cartBadgeAmount = 1;
+  late bool _showCartBadge;
+  Color color = Colors.red;
+
+  @override
   Widget build(BuildContext context) {
+    _showCartBadge = _cartBadgeAmount > 0;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -22,13 +36,13 @@ class DetailCard extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 children: [
                   Image.network(
-                    category[index],
+                    category[widget.index],
                     width: 360.h,
                     height: 360.h,
                     fit: BoxFit.cover,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -49,23 +63,36 @@ class DetailCard extends StatelessWidget {
                             padding: const EdgeInsets.all(8),
                             child: SizedBox(
                               height: 36.h,
-                              child: TextFormField(
+                              child: TextField(
+                                controller: _searchController,
                                 decoration: InputDecoration(
-                                  hintText: 'Cari barang di Balink..',
-                                  hintStyle: poppinsKecil.copyWith(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black38),
                                   filled: true,
                                   fillColor: Colors.white,
-                                  enabled: false,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10.0.r),
+                                    ),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10.0.r),
+                                    ),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  contentPadding:
+                                      const EdgeInsets.symmetric(vertical: 8),
                                   prefixIcon: const Icon(
                                     Icons.search,
-                                    color: Colors.black,
+                                    color: Color(0xff868686),
                                   ),
-                                  border: const OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(12),
-                                    ),
+                                  hintText: 'Cari barang di balink ...',
+                                  hintStyle: poppinsKecil.copyWith(
+                                    color: const Color(0xff868686),
                                   ),
                                 ),
                               ),
@@ -74,20 +101,7 @@ class DetailCard extends StatelessWidget {
                         ),
                         CircleAvatar(
                           backgroundColor: Colors.white,
-                          child: IconButton(
-                            icon: const Icon(
-                              Icons.shopping_cart_outlined,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Keranjang(index: index),
-                                ),
-                              );
-                            },
-                          ),
+                          child: _shoppingCartBadge(),
                         ),
                       ],
                     ),
@@ -100,7 +114,7 @@ class DetailCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      nameCategory[index],
+                      nameCategory[widget.index],
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w400, color: Colors.black),
                     ),
@@ -205,7 +219,7 @@ class DetailCard extends StatelessWidget {
                           fontWeight: FontWeight.w700, color: Colors.black),
                     ),
                     Text(
-                      'Kerajinan',
+                      categoryProduct[widget.index],
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w100, color: Colors.black),
                     ),
@@ -255,7 +269,35 @@ class DetailCard extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: OrderNow(
-        index: index,
+        index: widget.index,
+      ),
+    );
+  }
+
+  Widget _shoppingCartBadge() {
+    return badges.Badge(
+      badgeAnimation: const badges.BadgeAnimation.slide(),
+      showBadge: _showCartBadge,
+      badgeStyle: badges.BadgeStyle(
+        badgeColor: color,
+      ),
+      badgeContent: Text(
+        _cartBadgeAmount.toString(),
+        style: const TextStyle(color: Colors.white),
+      ),
+      child: IconButton(
+        icon: const Icon(
+          Icons.shopping_cart_outlined,
+          color: Colors.black,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Keranjang(index: widget.index),
+            ),
+          );
+        },
       ),
     );
   }

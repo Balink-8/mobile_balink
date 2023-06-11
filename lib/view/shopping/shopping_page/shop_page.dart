@@ -12,6 +12,8 @@ class ShopScreen extends StatefulWidget {
 }
 
 class _ShopScreenState extends State<ShopScreen> {
+  final TextEditingController _searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,23 +33,34 @@ class _ShopScreenState extends State<ShopScreen> {
                           padding: const EdgeInsets.all(8),
                           child: SizedBox(
                             height: 36.h,
-                            child: TextFormField(
+                            child: TextField(
+                              controller: _searchController,
                               decoration: InputDecoration(
-                                hintText: 'Cari barang di Balink..',
-                                hintStyle: poppinsKecil.copyWith(
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.black38),
-                                filled: true,
-                                fillColor: Colors.white,
-                                enabled: false,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10.0.r),
+                                  ),
+                                  borderSide: const BorderSide(
+                                    color: Color(0xff868686),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10.0.r),
+                                  ),
+                                  borderSide: const BorderSide(
+                                    color: Color(0xff868686),
+                                  ),
+                                ),
+                                contentPadding:
+                                    const EdgeInsets.symmetric(vertical: 8),
                                 prefixIcon: const Icon(
                                   Icons.search,
-                                  color: Colors.black,
+                                  color: Color(0xff868686),
                                 ),
-                                border: const OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(12),
-                                  ),
+                                hintText: 'Cari barang di balink ...',
+                                hintStyle: poppinsKecil.copyWith(
+                                  color: const Color(0xff868686),
                                 ),
                               ),
                             ),

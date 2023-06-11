@@ -70,11 +70,11 @@ class HomePageScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(16.0),
                         child: InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const CheckoutShopPage()));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) =>
+                            //             const CheckoutShopPage()));
                           },
                           child: Image.asset(
                               'assets/icon/bottom_navigasi_icon/cart.png'),

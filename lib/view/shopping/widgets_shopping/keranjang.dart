@@ -17,41 +17,45 @@ class _KeranjangState extends State<Keranjang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffffffff),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(60.h),
+        child: AppBar(
+          leadingWidth: 32.w,
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: const Color(0xffffffff),
+          title: SizedBox(
+            height: 40.h,
+            child: Row(
+              children: [
+                Text(
+                  'Keranjang Saya (1)',
+                  style: poppinsKecil.copyWith(
+                      fontWeight: FontWeight.w400, color: Colors.black),
+                ),
+                SizedBox(
+                  width: 120.w,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Ubah',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w700, color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(Icons.arrow_back),
-                    ),
-                    Text(
-                      'Keranjang Saya (1)',
-                      style: poppinsKecil.copyWith(
-                          fontWeight: FontWeight.w400, color: Colors.black),
-                    ),
-                    SizedBox(
-                      width: 110.w,
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Ubah',
-                        style: poppinsKecil.copyWith(
-                            fontWeight: FontWeight.w700, color: Colors.black),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
                 Row(
                   children: [
                     Checkbox(
@@ -129,6 +133,9 @@ class _KeranjangState extends State<Keranjang> {
                                           color: Colors.black),
                                     ),
                                   ),
+                                ),
+                                SizedBox(
+                                  width: 5.h,
                                 ),
                                 Text(
                                   'tersisa 30 buah',

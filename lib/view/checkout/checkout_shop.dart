@@ -3,9 +3,11 @@ import 'package:mobile_balink/config/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/checkout/berhasil_bayar.dart';
 import 'package:mobile_balink/view/checkout/choose_bank.dart';
+import 'package:mobile_balink/view/shopping/shopping_page/list_gambar.dart';
 
 class CheckoutShopPage extends StatelessWidget {
-  const CheckoutShopPage({super.key});
+  const CheckoutShopPage({super.key, required this.index});
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +104,7 @@ class CheckoutShopPage extends StatelessWidget {
                     ),
                     // ),
                     child: Image.network(
-                      'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+                      category[index],
                       fit: BoxFit.cover,
 
                       // scale: 1.7,
@@ -116,7 +118,7 @@ class CheckoutShopPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Kemeja Endek Strait Motif Bali Premium',
+                      Text(nameCategory[index],
                           style: poppinsKecil.copyWith(
                               color: blackColor, fontWeight: FontWeight.w400)),
                       SizedBox(

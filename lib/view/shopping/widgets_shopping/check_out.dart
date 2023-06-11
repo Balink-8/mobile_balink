@@ -34,7 +34,7 @@ class _CheckOutState extends State<CheckOut> {
                 fontWeight: FontWeight.w400, color: Colors.black),
           ),
           SizedBox(
-            width: 40.w,
+            width: 30.w,
           ),
           Text(
             'Total',

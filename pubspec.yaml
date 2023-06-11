@@ -47,6 +47,7 @@ dependencies:
   pinput: ^2.2.31
   clipboard: ^0.1.3
   google_fonts: ^5.0.0
+  badges: ^3.1.1
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to
