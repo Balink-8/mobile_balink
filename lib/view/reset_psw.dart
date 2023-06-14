@@ -25,7 +25,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(10, 30, 20, 20),
+        padding: const EdgeInsets.fromLTRB(10, 30, 20, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -137,7 +137,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
             GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => BerhasilUbahPsw()));
+                    MaterialPageRoute(builder: (context) => const BerhasilUbahPsw()));
               },
               child: Container(
                 width: 360.w,
