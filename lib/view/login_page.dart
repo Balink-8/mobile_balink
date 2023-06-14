@@ -4,6 +4,11 @@ import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/register_page.dart';
 import 'package:mobile_balink/view/reset_psw.dart';
 import 'package:mobile_balink/view/widget/bottom_navbar.dart';
+import 'package:provider/provider.dart';
+
+import '../config/session.dart';
+import '../view_model/login_provider.dart';
+import '../view_model/user_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -32,6 +37,27 @@ class _LoginScreenState extends State<LoginScreen> {
         isValidated = true;
       }
     });
+  }
+
+  login() async {
+    String username = usernameController.text;
+    String password = passwordController.text;
+    var model = Provider.of<LoginProvider>(context, listen: false);
+    await model.login(email: username, password: password);
+    bool isSuccess =
+        Provider.of<LoginProvider>(context, listen: false).successLogin;
+    if (isSuccess) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const NavbarBawah()));
+      var user = await Session.getUser();
+      var token = await Session.getToken();
+      Provider.of<UserProvider>(context, listen: false).setToken(token);
+      Provider.of<UserProvider>(context, listen: false).setUser(user);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Gagal'),
+      ));
+    }
   }
 
   @override
@@ -441,8 +467,9 @@ class _LoginScreenState extends State<LoginScreen> {
           )
         : GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const NavbarBawah()));
+              login();
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => const NavbarBawah()));
             },
             child: Container(
               width: 360.w,

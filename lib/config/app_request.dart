@@ -14,7 +14,8 @@ class AppRequest {
 
   static Future<Map?> post(String url, Object? body) async {
     try {
-      var response = await http.post(Uri.parse(url), body: body);
+      var response = await http.post(Uri.parse(url),
+          headers: {'Content-Type': 'application/json'}, body: body);
       Map responseBody = jsonDecode(response.body);
       return responseBody;
     } catch (e) {
