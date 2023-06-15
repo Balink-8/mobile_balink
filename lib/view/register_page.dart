@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/login_page.dart';
+import 'package:mobile_balink/view_model/login_provider.dart';
+import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -311,7 +313,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const LoginScreen()));
+                                      builder: (context) =>
+                                          const LoginScreen()));
                             },
                             child: Text(
                               'Sign In',
@@ -334,6 +337,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   Widget buttonRegister(BuildContext context, bool enable) {
+    register() async {
+      String email = usernameRegister.text;
+      String password = passwordRegister.text;
+      String noTelp = noTeleponRegister.text;
+      var pRegister = Provider.of<LoginProvider>(context, listen: false)
+          .register(email: email, noTelp: noTelp, password: password);
+      bool isSuccesRegister =
+          Provider.of<LoginProvider>(context, listen: false).successRegister;
+      if (formkey.currentState!.validate()) {
+        if (email.isNotEmpty && password.isNotEmpty && noTelp.isNotEmpty) {
+          pRegister;
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('Berhasil Daftar Akun'),
+          ));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('Gagal Mendaftar'),
+          ));
+        }
+      }
+    }
+
     return enable
         ? Container(
             width: MediaQuery.of(context).size.width * 1,
@@ -351,8 +378,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
           )
         : GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()));
+              register();
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => const LoginScreen()));
             },
             child: Container(
               width: MediaQuery.of(context).size.width * 1,

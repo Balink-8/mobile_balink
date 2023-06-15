@@ -23,4 +23,22 @@ class SourceUser {
     print(responseBody['message']);
     return responseBody['status'];
   }
+
+  static Future<bool> register(
+      String email, String noTelp, String password) async {
+    Map? responseBody = await AppRequest.post(
+        Api.register,
+        jsonEncode({
+          'nama': '',
+          'foto_profile': '',
+          'email': email,
+          'password': password,
+          'no_telepon': noTelp,
+          'alamat': '',
+        }));
+
+    if (responseBody == null) return false;
+    if (responseBody['status'] == null) return false;
+    return responseBody['status'];
+  }
 }
