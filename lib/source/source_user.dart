@@ -3,7 +3,7 @@ import 'package:mobile_balink/config/session.dart';
 import 'package:mobile_balink/model/user_model.dart';
 
 import '../config/api.dart';
-import '../config/appRequest.dart';
+import '../config/app_request.dart';
 
 class SourceUser {
   static Future<bool> login(String username, String password) async {
