@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/config/session.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/view/login_page.dart';
 import 'package:mobile_balink/view/profile/detail_kebijakan_privasi.dart';
 import 'package:mobile_balink/view/profile/detail_tentang_kami.dart';
 
@@ -12,6 +14,15 @@ class PengaturanScreen extends StatefulWidget {
 }
 
 class _PengaturanScreenState extends State<PengaturanScreen> {
+  logout() async {
+    Session.clearUser();
+    Session.clearToken();
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+        (route) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -202,6 +213,9 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
                                                   ),
                                                 ),
                                               ),
+                                              onTap: () {
+                                                logout();
+                                              },
                                             ),
                                             const Divider(),
                                             ListTile(

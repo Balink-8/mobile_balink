@@ -351,8 +351,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text('Berhasil Daftar Akun'),
           ));
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginScreen()));
+          Navigator.pushAndRemoveUntil(
+              context, MaterialPageRoute(builder: (context)=> const LoginScreen()), (route) => false);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text('Gagal Mendaftar'),

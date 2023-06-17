@@ -34,15 +34,20 @@ class _LoginScreenState extends State<LoginScreen> {
       bool isSuccess =
           Provider.of<LoginProvider>(context, listen: false).successLogin;
       if (isSuccess) {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const NavbarBawah()));
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const NavbarBawah()),
+            (route) => false);
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Berhasil Login'),
+        ));
         var user = await Session.getUser();
         var token = await Session.getToken();
         Provider.of<UserProvider>(context, listen: false).setToken(token);
         Provider.of<UserProvider>(context, listen: false).setUser(user);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Gagal'),
+          content: Text('Email/Password salah'),
         ));
       }
     }
