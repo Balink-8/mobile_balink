@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/theme.dart';
+import '../../checkout/checkout_shop.dart';
 
 class CheckOut extends StatefulWidget {
   const CheckOut({Key? key}) : super(key: key);
@@ -57,11 +58,21 @@ class _CheckOutState extends State<CheckOut> {
             height: 50.h,
             decoration: BoxDecoration(color: secondaryColor),
             child: Center(
-              child: Text(
-                'Checkout (1)',
-                style: poppinsKecil.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+              child: TextButton(
+                onPressed: () {
+                  // Navigator.push(
+                  //   (context),
+                  //   MaterialPageRoute(
+                  //     builder: (context) => CheckoutShopPage(
+                  //       index: index,
+                  //     ),
+                  //   ),
+                  // );
+                },
+                child: Text('Checkout (1)',
+                    style: poppinsKecil.copyWith(
+                      fontWeight: FontWeight.w700,
+                    )),
               ),
             ),
           )
