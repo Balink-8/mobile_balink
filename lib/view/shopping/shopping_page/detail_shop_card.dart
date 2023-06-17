@@ -37,7 +37,7 @@ class _DetailCardState extends State<DetailCard> {
                 children: [
                   Image.network(
                     category[widget.index],
-                    width: 360.h,
+                    width: 360.w,
                     height: 360.h,
                     fit: BoxFit.cover,
                   ),
