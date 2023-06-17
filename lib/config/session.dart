@@ -37,4 +37,16 @@ class Session {
     }
     return '';
   }
+
+  static Future<bool> clearUser() async {
+    final pref = await SharedPreferences.getInstance();
+    bool succes = await pref.remove('user');
+    return succes;
+  }
+
+  static Future<bool> clearToken() async {
+    final pref = await SharedPreferences.getInstance();
+    bool succes = await pref.remove('token');
+    return succes;
+  }
 }

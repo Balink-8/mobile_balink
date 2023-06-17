@@ -20,15 +20,19 @@ class _SplashScreenState extends State<SplashScreen> {
     var token = await Session.getToken();
     if (token == '') {
       Timer(const Duration(seconds: 3), () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const LoginScreen()));
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const LoginScreen()),
+            (route) => false);
       });
     } else {
       Provider.of<UserProvider>(context, listen: false).setUser(user);
       Provider.of<UserProvider>(context, listen: false).setToken(token);
       Timer(const Duration(seconds: 3), () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const NavbarBawah()));
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const NavbarBawah()),
+            (route) => false);
       });
     }
   }
