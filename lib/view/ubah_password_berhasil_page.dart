@@ -47,6 +47,7 @@ class _BerhasilUbahPswState extends State<BerhasilUbahPsw> {
                 ),
                 SizedBox(height: 24.h),
                 GestureDetector(
+                  key: Key('buttonBerhasilUbahPass'),
                   onTap: () {
                     Navigator.push(
                         context,

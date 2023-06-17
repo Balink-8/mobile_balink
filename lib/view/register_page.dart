@@ -350,6 +350,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           )
         : GestureDetector(
+          key: Key('buttonRegisterKeLogin'),
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const LoginScreen()));

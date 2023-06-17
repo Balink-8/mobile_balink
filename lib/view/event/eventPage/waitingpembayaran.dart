@@ -572,6 +572,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                   ),
                   SizedBox(height: 100.h),
                   GestureDetector(
+                    key: Key('buttonPembayaranBerhasil'),
                     onTap: () {
                       _showMyDialog(context);
                       Timer(const Duration(seconds: 3), () {

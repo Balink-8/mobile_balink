@@ -23,6 +23,7 @@ class _bsTicketState extends State<bsTicket> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: Key('buttonPesanSekarang'),
       onTap: () {
         showModalBottomSheet(
           elevation: 0.9,
@@ -335,6 +336,7 @@ class _bsTicketState extends State<bsTicket> {
                           ),
                         ),
                         GestureDetector(
+                          key: Key('buttonBeliSekarang'),
                           onTap: () {
                             _showMyDialog(context);
                             Timer(const Duration(seconds: 3), () {

@@ -10,6 +10,7 @@ class CardEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: Key('buttonEventDetailScreen'),
       onTap: () {
         Navigator.push(
           context,

@@ -410,11 +410,12 @@ class CheckoutShopPage extends StatelessWidget {
 
             //BUTTON BUAT PESANAN
             GestureDetector(
+              key: Key('buttonBerhasilBayar'),
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => BerhasilBayarPage()));
+                        builder: (context) => const BerhasilBayarPage()));
               },
               child: Container(
                 width: 360.w,

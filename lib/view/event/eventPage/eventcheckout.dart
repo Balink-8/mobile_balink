@@ -546,6 +546,7 @@ class _BuatPesananState extends State<BuatPesanan> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: Key('buttonBuatPesanan'),
       onTap: () {
         Navigator.push(
           context,

@@ -195,6 +195,7 @@ class _kodeBayarState extends State<kodeBayar> {
               height: 270.h,
             ),
             GestureDetector(
+              key: Key('buttonLihatPesanan'),
               onTap: () {
                 Navigator.push(
                   context,

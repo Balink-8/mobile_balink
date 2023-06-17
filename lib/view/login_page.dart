@@ -182,6 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontSize: 12.sp, color: secondaryColor),
                           ),
                           InkWell(
+                            key: Key('buttonLupaPassword'),
                             onTap: () {
                               showModalBottomSheet(
                                 isScrollControlled: true,
@@ -277,6 +278,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             Align(
                                               alignment: Alignment.bottomCenter,
                                               child: GestureDetector(
+                                                key: Key('buttonResetPassword'),
                                                 onTap: () {
                                                   Navigator.push(
                                                       context,
@@ -310,6 +312,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             Align(
                                               alignment: Alignment.bottomCenter,
                                               child: GestureDetector(
+                                                key: Key("buttonLoginKembali"),
                                                 onTap: () {
                                                   Navigator.pop(context);
                                                 },
@@ -350,6 +353,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       color: secondaryColor),
                                                 ),
                                                 InkWell(
+                                                  key: Key('buttonRegister'),
                                                   onTap: () {
                                                     Navigator.push(
                                                         context,
@@ -396,6 +400,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontSize: 12.sp, color: secondaryColor),
                           ),
                           InkWell(
+                            key: Key('buttonLupaPassword'),
                             onTap: () {
                               Navigator.push(
                                   context,
@@ -440,6 +445,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           )
         : GestureDetector(
+            key: Key('buttonLogin'),
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const NavbarBawah()));

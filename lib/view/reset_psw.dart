@@ -206,6 +206,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
             ),
           )
         : GestureDetector(
+          key: Key('buttonResetPsw'),
             onTap: () {
               Navigator.push(
                   context,

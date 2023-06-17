@@ -209,19 +209,35 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   color: blackColor, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16.h),
-            Center(
+            Container(
+              width: 360.w,
+              height: 68.h,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: grenColor,
+                  border: Border.all(color: greenColor)),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Image.asset(
+                    'assets/icon/event_icon/done.png',
+                    width: 15.44.w,
+                    height: 11.18.h,
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   Text(
-                    '" Berhasil Dibayar "',
+                    'LUNAS',
                     style: poppinsKecil.copyWith(
-                        color: blackColor, fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w700, color: greenColor),
                   ),
                 ],
               ),
             ),
             SizedBox(height: 230.h),
             GestureDetector(
+              key: Key('buttonBatalPesan'),
               onTap: () {
                 Navigator.push(
                     context,
