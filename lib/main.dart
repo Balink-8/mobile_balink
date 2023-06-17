@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/splashscreen.dart';
+import 'package:mobile_balink/view_model/category_provider.dart';
 import 'package:mobile_balink/view_model/login_provider.dart';
 import 'package:mobile_balink/view_model/user_provider.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => UserProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CategoryProvider(),
         ),
       ],
       child: ScreenUtilInit(

@@ -12,6 +12,7 @@ class ShoppingCard extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
         itemCount: category.length,
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
