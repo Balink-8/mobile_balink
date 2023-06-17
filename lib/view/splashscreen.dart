@@ -49,9 +49,13 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+          key: const Key('screenSplashScreen'),
           bottom: false,
           child: Center(
-            child: Image.asset('assets/logo.png'),
+            child: Image.asset(
+              'assets/logo.png',
+              key: const Key('logo'),
+            ),
           )),
     );
   }
