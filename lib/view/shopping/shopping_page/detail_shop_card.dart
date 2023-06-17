@@ -37,7 +37,9 @@ class _DetailCardState extends State<DetailCard> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
+          key: const Key('scrollDetailShop'),
           child: Column(
+            key: const Key('layoutDetailShop'),
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
@@ -57,6 +59,7 @@ class _DetailCardState extends State<DetailCard> {
                         CircleAvatar(
                           backgroundColor: Colors.white,
                           child: IconButton(
+                            key: const Key('backButton'),
                             icon: const Icon(
                               Icons.arrow_back,
                               color: Colors.black,
@@ -72,6 +75,7 @@ class _DetailCardState extends State<DetailCard> {
                             child: SizedBox(
                               height: 36.h,
                               child: TextField(
+                                key: const Key('searchFieldDetailShop'),
                                 controller: _searchController,
                                 decoration: InputDecoration(
                                   filled: true,
@@ -122,14 +126,14 @@ class _DetailCardState extends State<DetailCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      // nameCategory[widget.index],
                       widget.detailProduct.nama,
+                      key: const Key('productName'),
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w400, color: Colors.black),
                     ),
                     Text(
-                      // 'Rp. 90.000',
                       'Rp ${widget.detailProduct.harga.toString()}',
+                      key: const Key('productPrice'),
                       style: poppinsKecil.copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
@@ -139,7 +143,8 @@ class _DetailCardState extends State<DetailCard> {
                       height: 15.h,
                     ),
                     Text(
-                      '162 Terjual',
+                      '${widget.detailProduct.stok.toString()} Terjual',
+                      // '162 Terjual',
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w400, color: Colors.black),
                     ),
@@ -187,7 +192,6 @@ class _DetailCardState extends State<DetailCard> {
                     ),
                     Text(
                       widget.detailProduct.deskripsi,
-                      // 'Endek adalah kain tenun tradisional Bali yang sudah ada pada zaman dahulu. Kain endek Bali dibuat sistem tenun ikat, yakni dengan mengikat benang pakan dan benang lungsi.',
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w100,
                           color: Colors.black,
@@ -282,12 +286,14 @@ class _DetailCardState extends State<DetailCard> {
       bottomNavigationBar: OrderNow(
         index: widget.index,
         productData: widget.detailProduct,
+        key: const Key('orderNow'),
       ),
     );
   }
 
   Widget _shoppingCartBadge() {
     return badges.Badge(
+      key: const Key('shoppingCartBadge'),
       badgeAnimation: const badges.BadgeAnimation.slide(),
       showBadge: _showCartBadge,
       badgeStyle: badges.BadgeStyle(

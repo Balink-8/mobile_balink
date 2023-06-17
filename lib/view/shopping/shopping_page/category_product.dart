@@ -5,9 +5,16 @@ import '../../../config/theme.dart';
 import '../widgets_shopping/shopping_card.dart';
 import 'list_gambar.dart';
 
-class CategoryProduct extends StatelessWidget {
+class CategoryProduct extends StatefulWidget {
   const CategoryProduct({Key? key, required this.index}) : super(key: key);
   final int index;
+
+  @override
+  State<CategoryProduct> createState() => _CategoryProductState();
+}
+
+class _CategoryProductState extends State<CategoryProduct> {
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,8 @@ class CategoryProduct extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 children: [
                   Image.network(
-                    category[index],
+                    key: Key('categoryImage_${widget.index}'),
+                    category[widget.index],
                     width: 360.h,
                     height: 135.h,
                     fit: BoxFit.cover,
@@ -48,23 +56,37 @@ class CategoryProduct extends StatelessWidget {
                             padding: const EdgeInsets.all(8),
                             child: SizedBox(
                               height: 36.h,
-                              child: TextFormField(
+                              child: TextField(
+                                key: const Key('searchFieldCategoryProduct'),
+                                controller: _searchController,
                                 decoration: InputDecoration(
-                                  hintText: 'Cari barang di Balink..',
-                                  hintStyle: poppinsKecil.copyWith(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black38),
                                   filled: true,
                                   fillColor: Colors.white,
-                                  enabled: false,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10.0.r),
+                                    ),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10.0.r),
+                                    ),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  contentPadding:
+                                      const EdgeInsets.symmetric(vertical: 8),
                                   prefixIcon: const Icon(
                                     Icons.search,
-                                    color: Colors.black,
+                                    color: Color(0xff868686),
                                   ),
-                                  border: const OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(12),
-                                    ),
+                                  hintText: 'Cari barang di balink ...',
+                                  hintStyle: poppinsKecil.copyWith(
+                                    color: const Color(0xff868686),
                                   ),
                                 ),
                               ),
@@ -72,6 +94,7 @@ class CategoryProduct extends StatelessWidget {
                           ),
                         ),
                         CircleAvatar(
+                          key: const Key('shoppingCartButton'),
                           backgroundColor: Colors.white,
                           child: IconButton(
                             icon: const Icon(
@@ -88,19 +111,20 @@ class CategoryProduct extends StatelessWidget {
                     bottom: 37,
                     left: 16,
                     child: Text(
-                      categoryProduct[index],
+                      categoryProduct[widget.index],
                       style: poppinsKecil.copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                       ),
+                      key: const Key('categoryTitle'),
                     ),
                   ),
                 ],
               ),
               const Padding(
                 padding: EdgeInsets.all(16),
-                child: ShoppingCard(),
-              )
+                child: ShoppingCard(key: Key('shoppingCard')),
+              ),
             ],
           ),
         ),

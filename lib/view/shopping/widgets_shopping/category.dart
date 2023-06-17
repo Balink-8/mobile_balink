@@ -36,6 +36,7 @@ class Category extends StatelessWidget {
                   Image.network(
                     category[index],
                     fit: BoxFit.cover,
+                    key: Key('categoryImage_$index'),
                   ),
                   Center(
                     child: Text(
@@ -44,6 +45,7 @@ class Category extends StatelessWidget {
                           fontSize: 12.sp,
                           color: Colors.white,
                           fontWeight: FontWeight.w500),
+                      key: Key('categoryName_$index'),
                     ),
                   )
                 ]),

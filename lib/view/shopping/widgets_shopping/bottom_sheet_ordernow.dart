@@ -35,6 +35,7 @@ class BottomSheetOrderNow extends StatelessWidget {
                   fit: BoxFit.cover,
                   width: 100.w,
                   height: 100.h,
+                  key: Key('bottomSheetProductImage_$index'),
                 ),
                 Expanded(
                   child: Padding(
@@ -43,16 +44,16 @@ class BottomSheetOrderNow extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          // nameCategory[index],
                           productInfo.nama,
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w400, color: Colors.black),
+                          key: Key('bottomSheetProductName_$index'),
                         ),
                         Text(
-                          // 'Rp. 90.000',
                           'Rp ${productInfo.harga.toString()}',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w700, color: Colors.black),
+                          key: Key('bottomSheetProductPrice_$index'),
                         ),
                         SizedBox(
                           height: 8.h,
@@ -61,6 +62,7 @@ class BottomSheetOrderNow extends StatelessWidget {
                           'Stok : ${productInfo.stok}',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w400, color: Colors.black),
+                          key: Key('bottomSheetProductStock_$index'),
                         ),
                       ],
                     ),
@@ -148,6 +150,7 @@ class BottomSheetOrderNow extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: secondaryColor,
                 ),
+                key: Key('bottomSheetBuyNowButton_$index'),
                 child: Text(
                   'Beli Sekarang',
                   style: poppinsKecil.copyWith(

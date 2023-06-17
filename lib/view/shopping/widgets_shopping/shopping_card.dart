@@ -20,6 +20,8 @@ class ShoppingCard extends StatelessWidget {
         itemCount: products.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
           mainAxisExtent: 270.h,
         ),
         itemBuilder: (BuildContext context, int index) {
@@ -36,6 +38,7 @@ class ShoppingCard extends StatelessWidget {
                 ),
               );
             },
+            key: Key('shoppingCard_$index'),
             child: Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5.0)),
@@ -48,7 +51,7 @@ class ShoppingCard extends StatelessWidget {
                       topRight: Radius.circular(5.0),
                     ),
                     child: Image.network(
-                      category[index],
+                      imageProduct[index],
                       fit: BoxFit.cover,
                       width: 155.w,
                       height: 150.h,
@@ -59,24 +62,24 @@ class ShoppingCard extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(16.0, 8, 16, 8),
                       child: Text(
                         productData.nama,
-                        // nameCategory[index],
                         maxLines: 2,
                         style: poppinsKecil.copyWith(
                             overflow: TextOverflow.ellipsis,
                             fontWeight: FontWeight.w400,
                             color: Colors.black),
+                        key: Key('shoppingCardProductName_$index'),
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0),
                     child: Text(
-                      // 'Rp. 90.000',
                       'Rp ${productData.harga.toString()}',
                       style: poppinsKecil.copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
                           color: Colors.black),
+                      key: Key('shoppingCardProductPrice_$index'),
                     ),
                   ),
                   SizedBox(
@@ -85,10 +88,10 @@ class ShoppingCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0, bottom: 8.0),
                     child: Text(
-                      // '162 Terjual',
                       '${productData.stok} Terjual',
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w400, color: Colors.black),
+                      key: Key('shoppingCardProductSold_$index'),
                     ),
                   ),
                 ],

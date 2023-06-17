@@ -23,36 +23,38 @@ class OrderNow extends StatelessWidget {
               height: 24,
               width: 24,
             ),
+            key: const Key('whatsappIconButton'),
           ),
           IconButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Icon(
-                            Icons.check,
-                            color: Colors.black,
-                            size: 30.0,
-                          ),
-                          SizedBox(height: 10.0.h),
-                          Text(
-                            'Barang berhasil dimasukkan ke keranjang',
-                            textAlign: TextAlign.center,
-                            style: poppinsKecil.copyWith(
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                );
-              },
-              icon: const Icon(Icons.shopping_cart_outlined)),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.check,
+                          color: Colors.black,
+                          size: 30.0,
+                        ),
+                        SizedBox(height: 10.0.h),
+                        Text(
+                          'Barang berhasil dimasukkan ke keranjang',
+                          textAlign: TextAlign.center,
+                          style: poppinsKecil.copyWith(
+                              fontWeight: FontWeight.w400, color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+            },
+            icon: const Icon(Icons.shopping_cart_outlined),
+            key: const Key('cartIconButton'),
+          ),
           Padding(
             padding: const EdgeInsets.only(left: 80, right: 20),
             child: TextButton(
@@ -65,6 +67,7 @@ class OrderNow extends StatelessWidget {
                   ),
                 );
               },
+              key: const Key('buyNowButton'),
               child: Text(
                 'Beli Sekarang',
                 style: poppinsKecil.copyWith(

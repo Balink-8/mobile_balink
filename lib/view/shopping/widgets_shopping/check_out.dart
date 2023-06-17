@@ -28,11 +28,13 @@ class _CheckOutState extends State<CheckOut> {
                 isChecked = newBool;
               });
             },
+            key: const Key('checkoutCheckbox'),
           ),
           Text(
             'Semua',
             style: poppinsKecil.copyWith(
                 fontWeight: FontWeight.w400, color: Colors.black),
+            key: const Key('checkoutLabel'),
           ),
           SizedBox(
             width: 30.w,
@@ -41,6 +43,7 @@ class _CheckOutState extends State<CheckOut> {
             'Total',
             style: poppinsKecil.copyWith(
                 fontWeight: FontWeight.w400, color: Colors.black),
+            key: const Key('checkoutTotalLabel'),
           ),
           SizedBox(
             width: 5.w,
@@ -49,6 +52,7 @@ class _CheckOutState extends State<CheckOut> {
             'Rp. 100.000',
             style: poppinsKecil.copyWith(
                 fontWeight: FontWeight.w700, color: Colors.black),
+            key: const Key('checkoutTotalAmount'),
           ),
           SizedBox(
             width: 16.w,
@@ -73,6 +77,7 @@ class _CheckOutState extends State<CheckOut> {
                     style: poppinsKecil.copyWith(
                       fontWeight: FontWeight.w700,
                     )),
+                key: const Key('checkoutButton'),
               ),
             ),
           )
