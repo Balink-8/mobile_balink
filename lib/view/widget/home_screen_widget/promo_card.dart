@@ -14,6 +14,7 @@ class PromoCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      key: const Key('cardPromoHome'),
       // margin: EdgeInsets.only(botom:20),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
       child: SizedBox(
@@ -33,6 +34,7 @@ class PromoCardWidget extends StatelessWidget {
                   ),
                   // ),
                   child: Image.network(
+                    key: const Key('imagePromoHome'),
                     'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
                     fit: BoxFit.cover,
                   ),
@@ -42,6 +44,7 @@ class PromoCardWidget extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(16.0, 8, 16, 8),
                   child: Text(
+                    key: const Key('productNameHome'),
                     // 'Daster Bali',
                     productData.nama,
                     maxLines: 2,
@@ -61,6 +64,7 @@ class PromoCardWidget extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
+                      key: const Key('hargaPotonganProdukHome'),
                       // 'Rp 34.000',
                       productData.harga.toString(),
                       style: poppinsKecil.copyWith(
@@ -73,6 +77,7 @@ class PromoCardWidget extends StatelessWidget {
                       width: 5.h,
                     ),
                     Text(
+                      key: const Key('hargaProdukHome'),
                       'Rp 24.000',
                       style: poppinsKecil.copyWith(
                           fontSize: 11.sp,

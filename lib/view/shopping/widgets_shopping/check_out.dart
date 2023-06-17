@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/theme.dart';
+import '../../checkout/checkout_shop.dart';
 
 class CheckOut extends StatefulWidget {
   const CheckOut({Key? key}) : super(key: key);
@@ -27,11 +28,13 @@ class _CheckOutState extends State<CheckOut> {
                 isChecked = newBool;
               });
             },
+            key: const Key('checkoutCheckbox'),
           ),
           Text(
             'Semua',
             style: poppinsKecil.copyWith(
                 fontWeight: FontWeight.w400, color: Colors.black),
+            key: const Key('checkoutLabel'),
           ),
           SizedBox(
             width: 30.w,
@@ -40,6 +43,7 @@ class _CheckOutState extends State<CheckOut> {
             'Total',
             style: poppinsKecil.copyWith(
                 fontWeight: FontWeight.w400, color: Colors.black),
+            key: const Key('checkoutTotalLabel'),
           ),
           SizedBox(
             width: 5.w,
@@ -48,6 +52,7 @@ class _CheckOutState extends State<CheckOut> {
             'Rp. 100.000',
             style: poppinsKecil.copyWith(
                 fontWeight: FontWeight.w700, color: Colors.black),
+            key: const Key('checkoutTotalAmount'),
           ),
           SizedBox(
             width: 16.w,
@@ -57,11 +62,22 @@ class _CheckOutState extends State<CheckOut> {
             height: 50.h,
             decoration: BoxDecoration(color: secondaryColor),
             child: Center(
-              child: Text(
-                'Checkout (1)',
-                style: poppinsKecil.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+              child: TextButton(
+                onPressed: () {
+                  // Navigator.push(
+                  //   (context),
+                  //   MaterialPageRoute(
+                  //     builder: (context) => CheckoutShopPage(
+                  //       index: index,
+                  //     ),
+                  //   ),
+                  // );
+                },
+                child: Text('Checkout (1)',
+                    style: poppinsKecil.copyWith(
+                      fontWeight: FontWeight.w700,
+                    )),
+                key: const Key('checkoutButton'),
               ),
             ),
           )

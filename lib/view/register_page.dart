@@ -44,6 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        key: const Key('screenRegister'),
         child: SingleChildScrollView(
           child: Form(
             key: formkey,
@@ -60,6 +61,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       children: [
                         Text(
                           'REGISTER',
+                          key: const Key('register'),
                           maxLines: 2,
                           style: poppinsKecil.copyWith(
                               fontSize: 16.sp, fontWeight: FontWeight.bold),
@@ -67,6 +69,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         SizedBox(height: 10.h),
                         Text(
                           'Lakukan Pendaftaran akun agar kamu dapat mengikuti perkembangan kami!',
+                          key: const Key('deskripsi'),
                           maxLines: 2,
                           style: poppinsKecil.copyWith(
                             fontSize: 14.sp,
@@ -80,6 +83,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Center(
                   child: Image.asset(
                     'assets/logo.png',
+                    key: const Key('logo'),
                     width: 70.w,
                   ),
                 ),
@@ -94,10 +98,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     children: [
                       Text(
                         'Email atau Username',
+                        key: const Key('email'),
                         style: poppinsKecil.copyWith(
                             fontSize: 12.sp, color: blackColor),
                       ),
                       TextFormField(
+                        key: const Key('textfieldEmail'),
                         onChanged: (v) {
                           setState(() {
                             if (v.isNotEmpty) {
@@ -140,10 +146,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       SizedBox(height: 12.h),
                       Text(
                         'Nomor Telepon',
+                        key: const Key('nomerTelepon'),
                         style: poppinsKecil.copyWith(
                             fontSize: 12.h, color: blackColor),
                       ),
                       TextFormField(
+                        key: const Key('textfieldNomerTelepon'),
                         onChanged: (v) {
                           setState(() {
                             if (v.isNotEmpty) {
@@ -184,10 +192,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       SizedBox(height: 12.h),
                       Text(
                         'Password',
+                        key: const Key('password'),
                         style: poppinsKecil.copyWith(
                             fontSize: 12.h, color: blackColor),
                       ),
                       TextFormField(
+                        key: const Key('textfieldPassword'),
                         onChanged: (v) {
                           setState(() {
                             if (v.isNotEmpty) {
@@ -224,8 +234,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               },
                               child: showPassword
                                   ? Icon(Icons.visibility,
+                                      key: const Key('iconVisibilityOn'),
                                       color: secondaryColor)
                                   : Icon(Icons.visibility_off,
+                                      key: const Key('iconVisibilityOff'),
                                       color: secondaryColor)),
                           hintText: 'Password',
                           hintStyle: poppinsKecil.copyWith(
@@ -243,10 +255,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       SizedBox(height: 12.h),
                       Text(
                         'Confirm Password',
+                        key: const Key('confirmPassword'),
                         style: poppinsKecil.copyWith(
                             fontSize: 12.sp, color: blackColor),
                       ),
                       TextFormField(
+                        key: const Key('textfieldConfirmPassword'),
                         onChanged: (v) {
                           if (v.isNotEmpty) {
                             confrimPasswordNotEmpty = true;
@@ -281,8 +295,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               },
                               child: showPassword
                                   ? Icon(Icons.visibility,
+                                      key: const Key('iconVisibilityOn'),
                                       color: secondaryColor)
                                   : Icon(Icons.visibility_off,
+                                      key: const Key('iconVisibilityOff'),
                                       color: secondaryColor)),
                           hintText: 'Confirm Password',
                           hintStyle: poppinsKecil.copyWith(
@@ -305,6 +321,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         children: [
                           Text(
                             'Sudah punya akun? ',
+                            key: const Key('sudahPunyaAkun'),
                             style: poppinsKecil.copyWith(
                                 fontSize: 12.sp, color: secondaryColor),
                           ),
@@ -318,6 +335,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             },
                             child: Text(
                               'Sign In',
+                              key: const Key('signIn'),
                               style: poppinsKecil.copyWith(
                                   fontWeight: FontWeight.bold,
                                   color: secondaryColor),
@@ -352,7 +370,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
             content: Text('Berhasil Daftar Akun'),
           ));
           Navigator.pushAndRemoveUntil(
-              context, MaterialPageRoute(builder: (context)=> const LoginScreen()), (route) => false);
+              context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()),
+              (route) => false);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text('Gagal Mendaftar'),
@@ -363,6 +383,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     return enable
         ? Container(
+            key: const Key('buttonRegister'),
             width: MediaQuery.of(context).size.width * 1,
             height: 48.h,
             decoration: BoxDecoration(
@@ -371,6 +392,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
             child: Center(
               child: Text(
+                key: const Key('register'),
                 'REGISTER',
                 style: poppinsKecil.copyWith(),
               ),
@@ -383,6 +405,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               //     MaterialPageRoute(builder: (context) => const LoginScreen()));
             },
             child: Container(
+              key: const Key('buttonRegister'),
               width: MediaQuery.of(context).size.width * 1,
               height: 48,
               decoration: BoxDecoration(
@@ -392,6 +415,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Center(
                 child: Text(
                   'REGISTER',
+                  key: const Key('register'),
                   style: poppinsKecil.copyWith(),
                 ),
               ),

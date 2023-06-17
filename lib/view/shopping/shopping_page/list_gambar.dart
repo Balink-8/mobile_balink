@@ -54,3 +54,16 @@ List<String> categoryProduct = [
   'Tas',
   'Topeng',
 ];
+
+List<String> imageProduct = [
+  'https://images.unsplash.com/photo-1647481045013-8efc5594369d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=428&q=80',
+  'https://images.unsplash.com/photo-1672716912467-fd99b71cf780?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+  'https://ecs7.tokopedia.net/img/cache/700/product-1/2018/6/17/2963550/2963550_e43602fc-77b0-4835-b703-df5342895c4a_960_712.jpg',
+  'https://images.unsplash.com/photo-1647481045013-8efc5594369d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=428&q=80',
+  'https://s2.bukalapak.com/img/2185012172/w-1000/Ukiran_Bali_relief_motif_Rangkaian_Bunga.jpg',
+  'https://images.unsplash.com/photo-1647481045013-8efc5594369d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=428&q=80',
+  'https://images.unsplash.com/photo-1647481045013-8efc5594369d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=428&q=80',
+  'https://images.unsplash.com/photo-1647481045013-8efc5594369d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=428&q=80',
+  'https://s3.bukalapak.com/img/8592688256/w-1000/kaos_ahha_baro.jpg',
+  'https://images.unsplash.com/photo-1596073419667-9d77d59f033f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80',
+];

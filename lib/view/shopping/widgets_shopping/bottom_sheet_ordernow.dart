@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/checkout/checkout_shop.dart';
 import '../../../config/theme.dart';
+import '../../../model/product_model.dart';
 import '../shopping_page/list_gambar.dart';
 
 class BottomSheetOrderNow extends StatelessWidget {
-  const BottomSheetOrderNow({Key? key, required this.index}) : super(key: key);
+  const BottomSheetOrderNow(
+      {Key? key, required this.index, required this.productInfo})
+      : super(key: key);
   final int index;
+  final Product productInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +35,7 @@ class BottomSheetOrderNow extends StatelessWidget {
                   fit: BoxFit.cover,
                   width: 100.w,
                   height: 100.h,
+                  key: Key('bottomSheetProductImage_$index'),
                 ),
                 Expanded(
                   child: Padding(
@@ -39,22 +44,25 @@ class BottomSheetOrderNow extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          nameCategory[index],
+                          productInfo.nama,
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w400, color: Colors.black),
+                          key: Key('bottomSheetProductName_$index'),
                         ),
                         Text(
-                          'Rp. 90.000',
+                          'Rp ${productInfo.harga.toString()}',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w700, color: Colors.black),
+                          key: Key('bottomSheetProductPrice_$index'),
                         ),
                         SizedBox(
                           height: 8.h,
                         ),
                         Text(
-                          'Stok : 30 ',
+                          'Stok : ${productInfo.stok}',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w400, color: Colors.black),
+                          key: Key('bottomSheetProductStock_$index'),
                         ),
                       ],
                     ),
@@ -142,6 +150,7 @@ class BottomSheetOrderNow extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: secondaryColor,
                 ),
+                key: Key('bottomSheetBuyNowButton_$index'),
                 child: Text(
                   'Beli Sekarang',
                   style: poppinsKecil.copyWith(

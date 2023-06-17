@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/session.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/register_page.dart';
-import 'package:mobile_balink/view/autentikasi_psw_page.dart';
+import 'package:mobile_balink/view/reset_psw.dart';
 import 'package:mobile_balink/view/widget/bottom_navbar.dart';
 import 'package:mobile_balink/view_model/login_provider.dart';
 import 'package:mobile_balink/view_model/user_provider.dart';
@@ -54,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       body: SafeArea(
+        key: const Key('screenLogin'),
         child: SingleChildScrollView(
           child: Stack(
             children: [
@@ -67,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Image.asset(
                           'assets/logo.png',
                           width: 70.w,
+                          key: const Key('logo'),
                         ),
                       )),
                   SizedBox(height: 10.h),
@@ -80,10 +82,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         Text(
                           'Email / Username',
+                          key: const Key('email'),
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp, color: blackColor),
                         ),
                         Container(
+                          key: const Key('textfieldEmail'),
                           width: 320.w,
                           height: 48.h,
                           decoration: BoxDecoration(
@@ -110,10 +114,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(height: 12.h),
                         Text(
                           'Password',
+                          key: const Key('password'),
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp, color: blackColor),
                         ),
                         Container(
+                          key: const Key('textfieldPassword'),
                           width: 320.w,
                           height: 48.h,
                           decoration: BoxDecoration(
@@ -161,6 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             login();
                           },
                           child: Container(
+                            key: const Key('buttonLogin'),
                             width: 360.w,
                             height: 48.h,
                             decoration: BoxDecoration(
@@ -182,11 +189,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Text(
                               'Lupa Password? ',
+                              key: const Key('lupaPassword'),
                               style: poppinsKecil.copyWith(
                                   fontSize: 12.sp, color: secondaryColor),
                             ),
                             InkWell(
                               onTap: () {
+                                const Key('bottomSheetLupaPassword');
                                 showModalBottomSheet(
                                   context: context,
                                   builder: (context) {
@@ -205,6 +214,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 children: [
                                                   Text(
                                                     'Lupa Password?',
+                                                    key: const Key(
+                                                        'lupaPassword'),
                                                     style:
                                                         poppinsKecil.copyWith(
                                                       color: blackColor,
@@ -216,6 +227,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   SizedBox(height: 6.h),
                                                   Text(
                                                     'Jangan kawatir, kami akan mengirimkan pesan reset.',
+                                                    key: const Key('textReset'),
                                                     style:
                                                         poppinsKecil.copyWith(
                                                       fontSize: 12.sp,
@@ -230,12 +242,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                             ),
                                             Text(
                                               'Email / Username',
+                                              key: const Key('email'),
                                               style: poppinsKecil.copyWith(
                                                 color: blackColor,
                                                 fontSize: 12.sp,
                                               ),
                                             ),
                                             Container(
+                                              key: const Key('textfieldEmail'),
                                               width: 320.w,
                                               height: 48.h,
                                               decoration: BoxDecoration(
@@ -272,14 +286,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                             Align(
                                               alignment: Alignment.bottomCenter,
                                               child: GestureDetector(
+                                                key: const Key('detector'),
                                                 onTap: () {
                                                   Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
                                                           builder: (context) =>
-                                                              const AutenticationResetPswPage()));
+                                                              const ResetPswPage()));
                                                 },
                                                 child: Container(
+                                                  key: const Key('buttonReset'),
                                                   width: 290.w,
                                                   height: 38.h,
                                                   decoration: BoxDecoration(
@@ -309,6 +325,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   Navigator.pop(context);
                                                 },
                                                 child: Container(
+                                                  key: const Key(
+                                                      'buttonLoginKembali'),
                                                   width: 290.w,
                                                   height: 38.h,
                                                   decoration: BoxDecoration(
@@ -340,6 +358,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                               children: [
                                                 Text(
                                                   'Kamu belum punya akun? ',
+                                                  key: const Key(
+                                                      'textKamuBelumPunyaAkun'),
                                                   style: poppinsKecil.copyWith(
                                                       fontSize: 12.sp,
                                                       color: secondaryColor),
@@ -354,6 +374,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   },
                                                   child: Text(
                                                     'Registrasi',
+                                                    key: const Key('register'),
                                                     style:
                                                         poppinsKecil.copyWith(
                                                             fontWeight:
@@ -373,6 +394,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                               child: Text(
                                 'Reset',
+                                key: const Key('reset'),
                                 style: poppinsKecil.copyWith(
                                     fontWeight: FontWeight.bold,
                                     color: secondaryColor),
@@ -386,6 +408,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Text(
                               'Belum punya akun? ',
+                              key: const Key('belumPunyaAkun'),
                               style: poppinsKecil.copyWith(
                                   fontSize: 12.sp, color: secondaryColor),
                             ),
@@ -413,9 +436,10 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Consumer<LoginProvider>(builder: (context, prov, child) {
                 if (prov.isLoading) {
-                  return Column(
+                  return const Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Center(child: CircularProgressIndicator()),
+                      Center(child: CircularProgressIndicator()),
                     ],
                   );
                 } else {

@@ -20,6 +20,7 @@ class CarouselView extends StatelessWidget {
               .map((item) => ClipRRect(
                     borderRadius: BorderRadius.circular(20.0),
                     child: Image.network(
+                      key: const Key('imageCarouselHome'),
                       item,
                       fit: BoxFit.cover,
                       height: 167,
