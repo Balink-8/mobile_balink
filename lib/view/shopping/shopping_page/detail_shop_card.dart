@@ -11,7 +11,12 @@ import 'list_gambar.dart';
 import 'package:badges/badges.dart' as badges;
 
 class DetailCard extends StatefulWidget {
-  const DetailCard({Key? key, required this.index}) : super(key: key);
+  final Product detailProduct;
+  const DetailCard({
+    Key? key,
+    required this.index,
+    required this.detailProduct,
+  }) : super(key: key);
   final int index;
 
   @override
@@ -111,141 +116,164 @@ class _DetailCardState extends State<DetailCard> {
                   ),
                 ],
               ),
-              Consumer<ProductProvider>(
-                builder: (context, provProduct, child) {
-                  final products = provProduct.listProduct;
-                  Product productData = products[widget.index];
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      // nameCategory[widget.index],
+                      widget.detailProduct.nama,
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w400, color: Colors.black),
+                    ),
+                    Text(
+                      // 'Rp. 90.000',
+                      'Rp ${widget.detailProduct.harga.toString()}',
+                      style: poppinsKecil.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    ),
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    Text(
+                      '162 Terjual',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w400, color: Colors.black),
+                    ),
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    Text(
+                      'Ongkir',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w700, color: Colors.black),
+                    ),
+                    Row(
                       children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Image.asset('assets/truck.png'),
+                        ),
                         Text(
-                          productData.nama,
+                          'Ongkos kirim Rp. 5.000 - Rp. 10.000',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w400, color: Colors.black),
-                        ),
-                        Text(
-                          'Rp ${productData.harga.toString()}',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black),
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Text(
-                          '${productData.stok} Terjual',
-                          style: poppinsKecil.copyWith(
-                              fontWeight: FontWeight.w400, color: Colors.black),
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Text(
-                          'Ongkir',
-                          style: poppinsKecil.copyWith(
-                              fontWeight: FontWeight.w700, color: Colors.black),
-                        ),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right: 8),
-                              child: Image.asset('assets/truck.png'),
-                            ),
-                            Text(
-                              'Ongkos kirim Rp. 5.000 - Rp. 10.000',
-                              style: poppinsKecil.copyWith(
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.black),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 5.h,
-                        ),
-                        Text(
-                          'Garansi',
-                          style: poppinsKecil.copyWith(
-                              fontWeight: FontWeight.w700, color: Colors.black),
-                        ),
-                        Text(
-                          'Terima pesanan dengan aman atau uang Anda akan kami kembalikan',
-                          style: poppinsKecil.copyWith(
-                              fontWeight: FontWeight.w100,
-                              color: Colors.black38),
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Text(
-                          'Deskripsi',
-                          style: poppinsKecil.copyWith(
-                              fontWeight: FontWeight.w700, color: Colors.black),
-                        ),
-                        Text(
-                          productData.deskripsi,
-                          style: poppinsKecil.copyWith(
-                              fontWeight: FontWeight.w100,
-                              color: Colors.black,
-                              overflow: TextOverflow.clip),
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Text(
-                          'Kategori Produk',
-                          style: poppinsKecil.copyWith(
-                              fontWeight: FontWeight.w700, color: Colors.black),
-                        ),
-                        Text(
-                          productData.kategoriId,
-                          style: poppinsKecil.copyWith(
-                              fontWeight: FontWeight.w100, color: Colors.black),
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Row(
-                          children: [
-                            Image.asset(
-                              'assets/location.png',
-                              width: 20.w,
-                              height: 20.h,
-                            ),
-                            SizedBox(
-                              width: 16.w,
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Lokasi',
-                                    style: poppinsKecil.copyWith(
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.black),
-                                  ),
-                                  Text(
-                                    'Jl. Pudak, Gianyar, Kec. Gianyar, Kabupaten Gianyar',
-                                    style: poppinsKecil.copyWith(
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        const ShoppingCard(),
+                        )
                       ],
                     ),
-                  );
-                },
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                    Text(
+                      'Garansi',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w700, color: Colors.black),
+                    ),
+                    Text(
+                      'Terima pesanan dengan aman atau uang Anda akan kami kembalikan',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w100, color: Colors.black38),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Text(
+                      'Deskripsi',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w700, color: Colors.black),
+                    ),
+                    Text(
+                      widget.detailProduct.deskripsi,
+                      // 'Endek adalah kain tenun tradisional Bali yang sudah ada pada zaman dahulu. Kain endek Bali dibuat sistem tenun ikat, yakni dengan mengikat benang pakan dan benang lungsi.',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w100,
+                          color: Colors.black,
+                          overflow: TextOverflow.clip),
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Text(
+                      'Ready Warna :',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w100, color: Colors.black),
+                    ),
+                    Text(
+                      'Ungu Wine',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w100, color: Colors.black),
+                    ),
+                    Text(
+                      'Ungu Terong',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w100, color: Colors.black),
+                    ),
+                    Text(
+                      'Biru',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w100, color: Colors.black),
+                    ),
+                    Text(
+                      'Hitam',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w100, color: Colors.black),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Text(
+                      'Kategori Produk',
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w700, color: Colors.black),
+                    ),
+                    Text(
+                      categoryProduct[widget.index],
+                      style: poppinsKecil.copyWith(
+                          fontWeight: FontWeight.w100, color: Colors.black),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Row(
+                      children: [
+                        Image.asset(
+                          'assets/location.png',
+                          width: 20.w,
+                          height: 20.h,
+                        ),
+                        SizedBox(
+                          width: 16.w,
+                        ),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Lokasi',
+                                style: poppinsKecil.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black),
+                              ),
+                              Text(
+                                'Jl. Pudak, Gianyar, Kec. Gianyar, Kabupaten Gianyar',
+                                style: poppinsKecil.copyWith(
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    const ShoppingCard(),
+                  ],
+                ),
               )
             ],
           ),
@@ -253,6 +281,7 @@ class _DetailCardState extends State<DetailCard> {
       ),
       bottomNavigationBar: OrderNow(
         index: widget.index,
+        productData: widget.detailProduct,
       ),
     );
   }

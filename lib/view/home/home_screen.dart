@@ -32,14 +32,18 @@ class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor,
+      key: const Key('homeScreen'),
+      backgroundColor: fifthColor,
       body: SafeArea(
         child: SingleChildScrollView(
+          key: const Key('scrollHomeScreen'),
           child: Column(
+            key: const Key('layoutHomeScreen'),
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // CarouselView(),
               Container(
+                key: const Key('containerAppBar'),
                 height: 74.h,
                 width: MediaQuery.of(context).size.width * 1,
                 // color: secondaryColor,
@@ -58,33 +62,32 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       Expanded(
                           child: Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor:
-                                  const Color.fromRGBO(205, 203, 200, 0.2),
-                              prefixIcon: const Icon(
-                                Icons.search,
-                                size: 14.67,
-                                color: Colors.white,
-                              ),
-                              border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(8.r))),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.w)),
-                                  borderSide: BorderSide(
-                                    color: secondaryColor,
-                                  )),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.w)),
-                                  borderSide: BorderSide(
-                                    color: secondaryColor,
-                                  )),
+                        child: TextField(
+                          key: const Key('textFieldSearchHome'),
+                          style: poppinsKecil,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: const Color.fromRGBO(205, 203, 200, 0.2),
+                            prefixIcon: const Icon(
+                              Icons.search,
+                              size: 14.67,
+                              color: Colors.white,
                             ),
+                            border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(8.r))),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.w)),
+                                borderSide: BorderSide(
+                                  color: secondaryColor,
+                                )),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.w)),
+                                borderSide: BorderSide(
+                                  color: secondaryColor,
+                                )),
                           ),
                         ),
                       )),
@@ -98,6 +101,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             //         builder: (context) =>
                             //             const CheckoutShopPage()));
                           },
+                          key: const Key('cartHome'),
                           child: Image.asset(
                               'assets/icon/bottom_navigasi_icon/cart.png'),
                         ),
@@ -109,7 +113,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
               SizedBox(
                 height: 22.h,
               ),
-              const CarouselView(),
+              const CarouselView(
+                key: Key('carouselViewHome'),
+              ),
               Padding(
                 padding: const EdgeInsets.only(
                   left: 25.0,
@@ -121,6 +127,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       fontSize: 16.sp,
                       color: const Color.fromRGBO(48, 48, 48, 1),
                       fontWeight: FontWeight.w600),
+                  key: const Key('titleEventHome'),
                 ),
               ),
               Padding(
@@ -134,10 +141,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     // height: 300,
                     // width: 94,
                     child: ListView.separated(
+                        key: const Key('listEvenHome'),
                         scrollDirection: Axis.horizontal,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          return EvenCardWidget();
+                          return const EvenCardWidget();
                         },
                         separatorBuilder: (context, index) {
                           return SizedBox(
@@ -151,6 +159,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, bottom: 14.0),
                 child: Text(
+                  key: const Key('titleShoppingHome'),
                   'Shopping',
                   style: poppinsKecil.copyWith(
                       fontSize: 16.sp,
@@ -166,6 +175,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     // height: 300,
                     // width: 94,
                     child: ListView.separated(
+                        key: const Key('listShoppingHome'),
                         scrollDirection: Axis.horizontal,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
@@ -183,6 +193,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, bottom: 14),
                 child: Text(
+                  key: const Key('titlePromoHome'),
                   'Promo',
                   style: poppinsKecil.copyWith(
                       fontSize: 16.sp,
@@ -198,6 +209,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     child: SizedBox(
                       height: 230.h,
                       child: ListView.separated(
+                          key: const Key('listPromoHome'),
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {

@@ -11,6 +11,7 @@ class EvenCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      key: const Key('cardEventHome'),
       // color: Color.fromRGBO(215, 245, 246, 1),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       child: Row(
@@ -24,6 +25,7 @@ class EvenCardWidget extends StatelessWidget {
                 height: 87.h,
                 width: 94.w,
                 child: Image.network(
+                  key: const Key('imageEventHome'),
                   'https://ticket.gwkbali.com/images/ticket/1200%20x%20900.png'
                   // 'https://f.ptcdn.info/298/073/000/qs7t6ibhscUkbPBmH8t-o.jpg',
                   ,
@@ -52,6 +54,7 @@ class EvenCardWidget extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Text(
+                        key: const Key('dateEventHome'),
                         '12 Jan 2023',
                         style: poppinsKecil.copyWith(
                             fontSize: 10.sp,
@@ -62,6 +65,7 @@ class EvenCardWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                   child: Text(
+                    key: const Key('titleEventHome'),
                     'Title Event',
                     style: poppinsKecil.copyWith(
                         fontSize: 16,
@@ -80,6 +84,7 @@ class EvenCardWidget extends StatelessWidget {
                       width: 6.67,
                     ),
                     Text(
+                      key: const Key('eventLocationHome'),
                       'Event Location',
                       style: poppinsKecil.copyWith(
                         fontSize: 12.sp,

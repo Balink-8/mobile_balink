@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/theme.dart';
+import '../../../model/product_model.dart';
 import 'bottom_sheet_ordernow.dart';
 
 class OrderNow extends StatelessWidget {
-  const OrderNow({Key? key, required this.index}) : super(key: key);
+  const OrderNow({Key? key, required this.index, required this.productData})
+      : super(key: key);
   final int index;
+  final Product productData;
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +59,10 @@ class OrderNow extends StatelessWidget {
               onPressed: () {
                 showModalBottomSheet(
                   context: context,
-                  builder: (BuildContext context) =>
-                      BottomSheetOrderNow(index: index),
+                  builder: (BuildContext context) => BottomSheetOrderNow(
+                    index: index,
+                    productInfo: productData,
+                  ),
                 );
               },
               child: Text(

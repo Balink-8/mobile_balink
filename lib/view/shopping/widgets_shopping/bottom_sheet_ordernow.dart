@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/checkout/checkout_shop.dart';
 import '../../../config/theme.dart';
+import '../../../model/product_model.dart';
 import '../shopping_page/list_gambar.dart';
 
 class BottomSheetOrderNow extends StatelessWidget {
-  const BottomSheetOrderNow({Key? key, required this.index}) : super(key: key);
+  const BottomSheetOrderNow(
+      {Key? key, required this.index, required this.productInfo})
+      : super(key: key);
   final int index;
+  final Product productInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +43,14 @@ class BottomSheetOrderNow extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          nameCategory[index],
+                          // nameCategory[index],
+                          productInfo.nama,
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w400, color: Colors.black),
                         ),
                         Text(
-                          'Rp. 90.000',
+                          // 'Rp. 90.000',
+                          'Rp ${productInfo.harga.toString()}',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w700, color: Colors.black),
                         ),
@@ -52,7 +58,7 @@ class BottomSheetOrderNow extends StatelessWidget {
                           height: 8.h,
                         ),
                         Text(
-                          'Stok : 30 ',
+                          'Stok : ${productInfo.stok}',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w400, color: Colors.black),
                         ),
