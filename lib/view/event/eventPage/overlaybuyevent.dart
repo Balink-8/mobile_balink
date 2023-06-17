@@ -3,8 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 
+import '../../../model/event_model.dart';
+
 class BuyEvent extends StatefulWidget {
-  const BuyEvent({super.key});
+  final Event? eventData;
+  const BuyEvent({super.key, required this.eventData});
 
   @override
   State<BuyEvent> createState() => _OverlayEventState();
@@ -92,7 +95,8 @@ class _OverlayEventState extends State<BuyEvent> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const EventDetailScreen(),
+                        builder: (context) =>
+                            EventDetailScreen(eventData: widget.eventData),
                       ),
                     );
                   },

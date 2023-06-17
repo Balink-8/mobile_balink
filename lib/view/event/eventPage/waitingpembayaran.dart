@@ -4,12 +4,16 @@ import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/event/eventPage/successpay.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
 class WaitingPembayaran extends StatefulWidget {
-  const WaitingPembayaran({super.key});
+  final Event? eventData;
+  final String bank;
+  const WaitingPembayaran(
+      {super.key, required this.eventData, required this.bank});
 
   @override
   State<WaitingPembayaran> createState() => _WaitingPembayaranState();
@@ -47,7 +51,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                   ),
                   SizedBox(width: 2.w),
                   Text(
-                    'Bank Central Asia',
+                    widget.bank,
                     style: poppinsKecil.copyWith(
                         color: blackColor,
                         fontWeight: FontWeight.w700,
@@ -82,7 +86,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                               padding: const EdgeInsets.only(
                                   left: 10, right: 10, top: 5, bottom: 5),
                               child: Text(
-                                '29 Mei 2023',
+                                widget.eventData!.tanggalMulai,
                                 style: poppinsKecil.copyWith(
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w400,
@@ -94,7 +98,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             height: 12.h,
                           ),
                           Text(
-                            'Ogoh - Ogoh',
+                            widget.eventData!.nama,
                             style: poppinsKecil.copyWith(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
@@ -114,7 +118,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 width: 10.w,
                               ),
                               Text(
-                                'Denpasar',
+                                widget.eventData!.lokasi,
                                 style: poppinsKecil.copyWith(
                                     fontSize: 12.sp,
                                     fontWeight: FontWeight.w400,
@@ -134,6 +138,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                     height: 10.h,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         children: [
@@ -160,7 +165,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             height: 10.sp,
                           ),
                           Text(
-                            'Rp 120.000',
+                            "Rp ${widget.eventData!.hargaTiket.toString()}",
                             style: poppinsKecil.copyWith(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
@@ -171,18 +176,12 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        width: 210.w,
-                      ),
                       Text(
                         'x $jumlah',
                         style: poppinsKecil.copyWith(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
                             color: secondaryColor),
-                      ),
-                      SizedBox(
-                        width: 10.w,
                       ),
                     ],
                   ),
@@ -276,7 +275,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 color: abuColor),
                           ),
                           Text(
-                            'Bank Central Asia',
+                            widget.bank,
                             style: poppinsKecil.copyWith(
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
@@ -423,7 +422,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                         child: Column(
                           children: [
                             Text(
-                              'Bank Central Asia',
+                              widget.bank,
                               style: poppinsKecil.copyWith(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w400,
@@ -576,9 +575,14 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       _showMyDialog(context);
                       Timer(const Duration(seconds: 3), () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SuccessPayment()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SuccessPayment(
+                              eventData: widget.eventData!,
+                              bank: widget.bank,
+                            ),
+                          ),
+                        );
                       });
                     },
                     child: Container(

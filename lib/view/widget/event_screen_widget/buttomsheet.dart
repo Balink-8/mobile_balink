@@ -6,10 +6,11 @@ import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/eventPage/eventcheckout.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 
+import '../../../model/event_model.dart';
+
 class bsTicket extends StatefulWidget {
-  const bsTicket({
-    super.key,
-  });
+  final Event? eventData;
+  const bsTicket({super.key, required this.eventData});
 
   @override
   State<bsTicket> createState() => _bsTicketState();
@@ -17,7 +18,6 @@ class bsTicket extends StatefulWidget {
 
 int jumlah = 0;
 int harga = 120000;
-int hargaTiket = 120000;
 
 class _bsTicketState extends State<bsTicket> {
   @override
@@ -54,11 +54,12 @@ class _bsTicketState extends State<bsTicket> {
                                     'assets/icon/event_icon/dummy/g1.png',
                                     width: 64,
                                     height: 64,
+                                    key: Key('gambar event'),
                                   ),
                                 ),
                               ),
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Card(
                                     child: Padding(
@@ -68,11 +69,12 @@ class _bsTicketState extends State<bsTicket> {
                                           top: 5,
                                           bottom: 5),
                                       child: Text(
-                                        '29 Mei 2023',
+                                        widget.eventData!.tanggalMulai,
                                         style: poppinsKecil.copyWith(
                                             fontSize: 10,
-                                            fontWeight: FontWeight.w400,
+                                            fontWeight: FontWeight.w500,
                                             color: secondaryColor),
+                                        key: Key('text tanggal mulai'),
                                       ),
                                     ),
                                   ),
@@ -80,11 +82,12 @@ class _bsTicketState extends State<bsTicket> {
                                     height: 12,
                                   ),
                                   Text(
-                                    'Ogoh - Ogoh',
+                                    widget.eventData!.nama,
                                     style: poppinsKecil.copyWith(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w700,
                                         color: blackColor),
+                                    key: Key('text event'),
                                   ),
                                   const SizedBox(
                                     height: 12,
@@ -95,16 +98,18 @@ class _bsTicketState extends State<bsTicket> {
                                         'assets/icon/event_icon/location.png',
                                         width: 10,
                                         height: 13,
+                                        key: Key('icon lokasi'),
                                       ),
                                       const SizedBox(
                                         width: 10,
                                       ),
                                       Text(
-                                        'Lokasi Event',
+                                        widget.eventData!.lokasi,
                                         style: poppinsKecil.copyWith(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,
                                             color: blackColor),
+                                        key: Key('text alamat'),
                                       ),
                                     ],
                                   ),
@@ -115,8 +120,9 @@ class _bsTicketState extends State<bsTicket> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                          const EventDetailScreen(),
+                                      builder: (context) => EventDetailScreen(
+                                        eventData: widget.eventData,
+                                      ),
                                     ),
                                   );
                                 },
@@ -124,13 +130,14 @@ class _bsTicketState extends State<bsTicket> {
                                   'assets/icon/event_icon/close.png',
                                   width: 11,
                                   height: 11,
+                                  key: Key('icon close'),
                                 ),
                               ),
                             ],
                           ),
-                          // const SizedBox(
-                          //   height: 30,
-                          // ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -142,6 +149,7 @@ class _bsTicketState extends State<bsTicket> {
                                         'assets/icon/event_icon/ticket.png',
                                         width: 13,
                                         height: 11,
+                                        key: Key('icon tiket'),
                                       ),
                                       const SizedBox(
                                         width: 10,
@@ -152,6 +160,7 @@ class _bsTicketState extends State<bsTicket> {
                                             fontSize: 14,
                                             fontWeight: FontWeight.w400,
                                             color: blackColor),
+                                        key: Key('label tiket'),
                                       ),
                                     ],
                                   ),
@@ -159,11 +168,12 @@ class _bsTicketState extends State<bsTicket> {
                                     height: 10,
                                   ),
                                   Text(
-                                    'Rp$hargaTiket',
+                                    "Rp ${widget.eventData!.hargaTiket.toString()}",
                                     style: poppinsKecil.copyWith(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w700,
                                         color: blackColor),
+                                    key: Key('text harga'),
                                   ),
                                   const SizedBox(
                                     height: 10,
@@ -176,13 +186,15 @@ class _bsTicketState extends State<bsTicket> {
                                     onPressed: () {
                                       setState(() {
                                         jumlah = jumlah - 1;
-                                        harga = hargaTiket * jumlah;
+                                        harga = widget.eventData!.hargaTiket *
+                                            jumlah;
                                       });
                                     },
                                     icon: Image.asset(
                                       'assets/icon/event_icon/min.png',
                                       width: 11,
                                       height: 11,
+                                      key: Key('icon minus'),
                                     ),
                                   ),
                                   Text(
@@ -191,113 +203,27 @@ class _bsTicketState extends State<bsTicket> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: secondaryColor),
+                                    key: Key('label jumlah'),
                                   ),
                                   IconButton(
                                     onPressed: () {
                                       setState(() {
                                         jumlah = jumlah + 1;
-                                        harga = hargaTiket * jumlah;
+                                        harga = widget.eventData!.hargaTiket *
+                                            jumlah;
                                       });
                                     },
                                     icon: Image.asset(
                                       'assets/icon/event_icon/add.png',
                                       width: 11,
                                       height: 11,
+                                      key: Key('icon tambah'),
                                     ),
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                          // const SizedBox(
-                          //   height: 15,
-                          // ),
-                          // Row(
-                          //   children: [
-                          //     IconButton(
-                          //       onPressed: () {},
-                          //       icon: Image.asset(
-                          //         'assets/icon/event_icon/check_box_ksg.png',
-                          //         width: 14,
-                          //         height: 14,
-                          //       ),
-                          //     ),
-                          //     const SizedBox(
-                          //       width: 15,
-                          //     ),
-                          //     Column(
-                          //       children: [
-                          //         Row(
-                          //           children: [
-                          //             Image.asset(
-                          //               'assets/icon/event_icon/ticket.png',
-                          //               width: 13,
-                          //               height: 11,
-                          //             ),
-                          //             const SizedBox(
-                          //               width: 10,
-                          //             ),
-                          //             Text(
-                          //               'Anak-Anak',
-                          //               style: poppinsKecil.copyWith(
-                          //                   fontSize: 14,
-                          //                   fontWeight: FontWeight.w400,
-                          //                   color: blackColor),
-                          //             ),
-                          //           ],
-                          //         ),
-                          //         const SizedBox(
-                          //           height: 10,
-                          //         ),
-                          //         Text(
-                          //           'Rp  50.000',
-                          //           style: poppinsKecil.copyWith(
-                          //               fontSize: 16,
-                          //               fontWeight: FontWeight.w700,
-                          //               color: blackColor),
-                          //         ),
-                          //         const SizedBox(
-                          //           height: 10,
-                          //         ),
-                          //       ],
-                          //     ),
-                          //     SizedBox(
-                          //       width: 85.w,
-                          //     ),
-                          //     IconButton(
-                          //       onPressed: () {},
-                          //       icon: Image.asset(
-                          //         'assets/icon/event_icon/min.png',
-                          //         width: 11,
-                          //         height: 11,
-                          //       ),
-                          //     ),
-                          //     const SizedBox(
-                          //       width: 10,
-                          //     ),
-                          //     Text(
-                          //       '2',
-                          //       style: poppinsKecil.copyWith(
-                          //           fontSize: 14,
-                          //           fontWeight: FontWeight.w700,
-                          //           color: secondaryColor),
-                          //     ),
-                          //     const SizedBox(
-                          //       width: 10,
-                          //     ),
-                          //     IconButton(
-                          //       onPressed: () {},
-                          //       icon: Image.asset(
-                          //         'assets/icon/event_icon/add.png',
-                          //         width: 11,
-                          //         height: 11,
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                          // SizedBox(
-                          //   height: 170.h,
-                          // )
                         ],
                       ),
                     ),
@@ -319,16 +245,18 @@ class _bsTicketState extends State<bsTicket> {
                                       fontSize: 10,
                                       fontWeight: FontWeight.w400,
                                       color: blackColor),
+                                  key: Key('label total'),
                                 ),
                                 const SizedBox(
                                   height: 5,
                                 ),
                                 Text(
-                                  'Rp$harga',
+                                  'Rp ${widget.eventData!.hargaTiket * jumlah} ',
                                   style: poppinsKecil.copyWith(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w700,
                                       color: blackColor),
+                                  key: Key('text harga total'),
                                 )
                               ],
                             ),
@@ -342,27 +270,30 @@ class _bsTicketState extends State<bsTicket> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => EventCo(
-                                      hargaTiket: hargaTiket,
+                                      hargaTiket: widget.eventData!.hargaTiket,
                                       jumlah: jumlah,
-                                      total: harga),
+                                      total: harga,
+                                      eventData: widget.eventData),
                                 ),
                               );
                             });
                           },
                           child: Container(
-                              alignment: Alignment.center,
-                              width: 150.w,
-                              height: 60,
-                              color: secondaryColor,
-                              child: Text(
-                                'Beli Sekarang',
-                                style: poppinsKecil.copyWith(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  color: fifthColor,
-                                ),
-                              )),
-                        )
+                            alignment: Alignment.center,
+                            width: 150.w,
+                            height: 60,
+                            color: secondaryColor,
+                            child: Text(
+                              'Beli Sekarang',
+                              style: poppinsKecil.copyWith(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
+                                color: fifthColor,
+                              ),
+                              key: Key('label beli sekarang'),
+                            ),
+                          ),
+                        ),
                       ],
                     )
                   ],
@@ -384,6 +315,7 @@ class _bsTicketState extends State<bsTicket> {
           'Pesan Sekarang',
           style: poppinsKecil.copyWith(
               fontSize: 14, fontWeight: FontWeight.w700, color: whiteColor),
+          key: Key('label text pesan sekarang'),
         ),
       ),
     );
@@ -403,11 +335,16 @@ class _bsTicketState extends State<bsTicket> {
             'assets/icon/event_icon/memuat.png',
             width: 22,
             height: 22,
+            key: Key('icon loading'),
           ),
           content: SizedBox(
               width: 106.w,
               height: 77.h,
-              child: const Center(child: Text('Memuat'))),
+              child: const Center(
+                  child: Text(
+                'Memuat',
+                key: Key('text memuat'),
+              ))),
         );
       },
     );

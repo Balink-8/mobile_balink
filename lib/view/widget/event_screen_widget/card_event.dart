@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 
+import '../../../model/event_model.dart';
+
 class CardEvent extends StatelessWidget {
+  final Event eventData;
   const CardEvent({
     super.key,
+    required this.eventData,
   });
 
   @override
@@ -14,7 +18,7 @@ class CardEvent extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const EventDetailScreen(),
+            builder: (context) => EventDetailScreen(eventData: eventData),
           ),
         );
       },
@@ -27,6 +31,7 @@ class CardEvent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ClipRRect(
+                key: const Key('gambar event'),
                 borderRadius: BorderRadius.circular(10.0),
                 child: Image.asset(
                   'assets/icon/event_icon/dummy/g1.png',
@@ -40,6 +45,7 @@ class CardEvent extends StatelessWidget {
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
                   height: 10,
@@ -52,11 +58,12 @@ class CardEvent extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      '29 Mei 2023',
+                      eventData.tanggalMulai,
                       style: poppinsKecil.copyWith(
                           fontSize: 11,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
+                      key: Key('text tanggal'),
                     ),
                   ),
                 ),
@@ -64,11 +71,12 @@ class CardEvent extends StatelessWidget {
                   height: 12,
                 ),
                 Text(
-                  'Ogoh - Ogoh',
+                  eventData.nama,
                   style: poppinsKecil.copyWith(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
+                  key: const Key('text nama event'),
                 ),
                 const SizedBox(
                   height: 12,
@@ -79,16 +87,18 @@ class CardEvent extends StatelessWidget {
                       'assets/icon/event_icon/location.png',
                       width: 10,
                       height: 13,
+                      key: Key('icon lokasi'),
                     ),
                     const SizedBox(
                       width: 10,
                     ),
                     Text(
-                      'Denpasar, Bali',
+                      eventData.lokasi,
                       style: poppinsKecil.copyWith(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
+                      key: Key('text lokasi'),
                     ),
                   ],
                 ),

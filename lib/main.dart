@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/splashscreen.dart';
+import 'package:mobile_balink/view_model/event_provider.dart';
 import 'package:mobile_balink/view_model/login_provider.dart';
 import 'package:mobile_balink/view_model/product_provider.dart';
 import 'package:mobile_balink/view_model/user_provider.dart';
@@ -25,7 +26,10 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => ProductProvider(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => EventProvider(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 800),

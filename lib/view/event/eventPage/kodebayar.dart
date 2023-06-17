@@ -3,11 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/waitingpembayaran.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
 class kodeBayar extends StatefulWidget {
-  const kodeBayar({super.key});
+  final Event eventData;
+  final String bank;
+  const kodeBayar({
+    super.key,
+    required this.eventData,
+    required this.bank,
+  });
 
   @override
   State<kodeBayar> createState() => _kodeBayarState();
@@ -101,7 +108,7 @@ class _kodeBayarState extends State<kodeBayar> {
               child: Column(
                 children: [
                   Text(
-                    'Bank Central Asia',
+                    widget.bank,
                     style: poppinsKecil.copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
@@ -183,7 +190,7 @@ class _kodeBayarState extends State<kodeBayar> {
                   width: 11.w,
                 ),
                 Text(
-                  'Bank Central Asia',
+                  widget.bank,
                   style: poppinsKecil.copyWith(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
@@ -199,7 +206,8 @@ class _kodeBayarState extends State<kodeBayar> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const WaitingPembayaran(),
+                    builder: (context) => WaitingPembayaran(
+                        eventData: widget.eventData, bank: widget.bank),
                   ),
                 );
               },

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
 class SuccessPayment extends StatefulWidget {
-  const SuccessPayment({super.key});
+  final Event? eventData;
+  final String bank;
+  const SuccessPayment(
+      {super.key, required this.eventData, required this.bank});
 
   @override
   State<SuccessPayment> createState() => _SuccessPaymentState();
@@ -54,7 +58,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                         padding: const EdgeInsets.only(
                             left: 10, right: 10, top: 5, bottom: 5),
                         child: Text(
-                          '29 Mei 2023',
+                          widget.eventData!.tanggalMulai,
                           style: poppinsKecil.copyWith(
                               fontSize: 10.sp,
                               fontWeight: FontWeight.w400,
@@ -66,7 +70,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                       height: 12.h,
                     ),
                     Text(
-                      'Ogoh - Ogoh',
+                      widget.eventData!.nama,
                       style: poppinsKecil.copyWith(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
@@ -86,7 +90,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           width: 10.w,
                         ),
                         Text(
-                          'Denpasar',
+                          widget.eventData!.lokasi,
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
@@ -299,7 +303,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           color: abuColor),
                     ),
                     Text(
-                      'Bank Central Asia',
+                      widget.bank,
                       style: poppinsKecil.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_aboutEvent.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_calendar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_clock.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_detailevent.dart';
+import 'package:provider/provider.dart';
+import '../../../view_model/event_provider.dart';
 
 class EventDetailScreen extends StatefulWidget {
-  const EventDetailScreen({super.key});
+  final Event? eventData;
+  const EventDetailScreen({super.key, required this.eventData});
 
   @override
   State<EventDetailScreen> createState() => _EventDetailScreenState();
@@ -21,6 +25,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
       appBar: AppBar(
         backgroundColor: whiteColor,
         foregroundColor: blackColor,
+        key: Key('appbar screen detail'),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -35,6 +40,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     'assets/ogoh.png',
                     width: 310.w,
                     height: 167.h,
+                    key: Key('gambar event'),
                   ),
                 ),
                 SizedBox(
@@ -43,11 +49,12 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'Ogoh-Ogoh',
+                    widget.eventData!.nama,
                     style: poppinsKecil.copyWith(
                         fontWeight: FontWeight.w700,
                         fontSize: 16.sp,
                         color: blackColor),
+                    key: Key('text nama event'),
                   ),
                 ),
                 SizedBox(
@@ -59,16 +66,18 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                       'assets/icon/event_icon/location.png',
                       width: 10.w,
                       height: 13.h,
+                      key: Key('icon lokasi'),
                     ),
                     SizedBox(
                       width: 10.w,
                     ),
                     Text(
-                      'Denpasar, Bali',
+                      widget.eventData!.lokasi,
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w400,
                           fontSize: 12.sp,
                           color: blackColor),
+                      key: Key('text lokasi'),
                     ),
                   ],
                 ),
@@ -85,6 +94,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                             'assets/icon/event_icon/ticket.png',
                             width: 13.w,
                             height: 10.h,
+                            key: Key('icon tiket'),
                           ),
                         ),
                         Text(
@@ -93,17 +103,19 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
+                          key: Key('text tiket'),
                         )
                       ],
                     ),
                     Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        'Rp 50.000 - 120.000',
+                        "Rp ${widget.eventData!.hargaTiket.toString()}",
                         style: poppinsKecil.copyWith(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w700,
                             color: blackColor),
+                        key: Key('text harga'),
                       ),
                     ),
                   ],
@@ -111,18 +123,15 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 SizedBox(
                   height: 15.h,
                 ),
-                const DetailEv(),
+                DetailEv(eventData: widget.eventData!),
                 SizedBox(
                   height: 15.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const cardCalendar(),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    const cardClock(),
+                    cardCalendar(eventData: widget.eventData!),
+                    cardClock(eventData: widget.eventData!),
                   ],
                 ),
                 SizedBox(
@@ -134,6 +143,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                       'assets/icon/event_icon/net.png',
                       width: 10.w,
                       height: 13.h,
+                      key: Key('icon net'),
                     ),
                     SizedBox(
                       width: 10.w,
@@ -144,12 +154,14 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           fontWeight: FontWeight.w400,
                           fontSize: 12.sp,
                           color: blackColor),
+                      key: Key('label tentang event'),
                     ),
                   ],
                 ),
                 SizedBox(
                   height: 10.h,
                 ),
+                // GET DATA DARI ARTIKEL
                 const CardTentangEvent(),
                 SizedBox(
                   height: 10.h,
@@ -160,6 +172,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                       'assets/icon/event_icon/location.png',
                       width: 10.w,
                       height: 13.h,
+                      key: Key('icon lokasi'),
                     ),
                     SizedBox(
                       width: 10.w,
@@ -170,6 +183,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           fontWeight: FontWeight.w400,
                           fontSize: 12.sp,
                           color: blackColor),
+                      key: Key('label lokasi'),
                     ),
                   ],
                 ),
@@ -189,13 +203,16 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                         fontWeight: FontWeight.w500,
                         color: whiteColor,
                       ),
+                      key: Key('label lokasi destinasi'),
                     ),
                   ),
                 ),
                 SizedBox(
                   height: 10.h,
                 ),
-                const bsTicket()
+                bsTicket(
+                  eventData: widget.eventData,
+                )
               ],
             ),
           ),
