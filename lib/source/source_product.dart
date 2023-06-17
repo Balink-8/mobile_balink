@@ -3,7 +3,7 @@ import 'package:mobile_balink/model/product_model.dart';
 
 import '../config/appRequest.dart';
 
-class ApiProduct {
+class SourceProduct {
   static Future<List<Product>> getProduct() async {
     Map? responseBody = await AppRequest.gets(Api.produk);
     if (responseBody == null) return [];
