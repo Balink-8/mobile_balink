@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/view/event/eventPage/event.dart';
-import 'package:mobile_balink/view/login_page.dart';
+import 'package:mobile_balink/view/splashscreen.dart';
+import 'package:mobile_balink/view_model/event_provider.dart';
+import 'package:mobile_balink/view_model/login_provider.dart';
+import 'package:mobile_balink/view_model/product_provider.dart';
+import 'package:mobile_balink/view_model/user_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,20 +16,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(360, 800),
-      builder: (_, child) {
-        return MaterialApp(
-          title: 'Balink',
-          theme: ThemeData(
-              appBarTheme: const AppBarTheme(
-            iconTheme: IconThemeData(color: Colors.black),
-          )),
-          debugShowCheckedModeBanner: false,
-          home: child,
-        );
-      },
-      child: const LoginScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => LoginProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProductProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => EventProvider(),
+        ),
+      ],
+      child: ScreenUtilInit(
+        designSize: const Size(360, 800),
+        builder: (_, child) {
+          return const MaterialApp(
+            title: 'Balink',
+            debugShowCheckedModeBanner: false,
+            home: SplashScreen(),
+          );
+        },
+      ),
     );
   }
 }

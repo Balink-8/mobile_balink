@@ -47,16 +47,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
         backgroundColor: const Color(0xffffffff),
         elevation: 0,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          buildImageUser(context),
-          SizedBox(height: 25.h),
-          buildIdentitasUser(),
-          SizedBox(height: 25.h),
-          buildTransaksiArtikel(),
-          buildSetting(context),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            buildImageUser(context),
+            SizedBox(height: 25.h),
+            buildIdentitasUser(),
+            SizedBox(height: 25.h),
+            buildTransaksiArtikel(),
+            buildSetting(context),
+          ],
+        ),
       ),
     );
   }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/model/event_model.dart';
 
 class cardClock extends StatelessWidget {
-  const cardClock({
-    super.key,
-  });
+  final Event eventData;
+  const cardClock({super.key, required this.eventData});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +22,7 @@ class cardClock extends StatelessWidget {
                   'assets/icon/event_icon/alarmm.png',
                   width: 11,
                   height: 12,
+                  key: Key('icon jam'),
                 ),
                 const SizedBox(
                   width: 5,
@@ -32,15 +33,39 @@ class cardClock extends StatelessWidget {
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
+                  key: Key('text waktu'),
                 )
               ],
             ),
             const SizedBox(height: 5),
-            Text('18:00',
-                style: poppinsKecil.copyWith(
-                    fontSize: 14,
+            Column(
+              children: [
+                Text(
+                  eventData.waktuMulai,
+                  style: poppinsKecil.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: blackColor),
+                  key: Key('text waktu mulai'),
+                ),
+                Text(
+                  '-',
+                  style: poppinsKecil.copyWith(
                     fontWeight: FontWeight.w700,
-                    color: blackColor))
+                    color: blackColor,
+                  ),
+                  key: Key('label garis hubung'),
+                ),
+                Text(
+                  eventData.waktuSelesai,
+                  style: poppinsKecil.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: blackColor),
+                  key: Key('text waktu selesai'),
+                ),
+              ],
+            )
           ],
         ),
       ),

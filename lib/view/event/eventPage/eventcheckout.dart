@@ -5,8 +5,14 @@ import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_overlay.dart';
+import 'package:provider/provider.dart';
+
+import '../../../model/event_model.dart';
+import '../../../view_model/event_provider.dart';
 
 class EventCo extends StatefulWidget {
+  final Event? eventData;
+
   var jumlah;
 
   var hargaTiket;
@@ -19,7 +25,8 @@ class EventCo extends StatefulWidget {
       {super.key,
       required this.total,
       required this.hargaTiket,
-      required this.jumlah});
+      required this.jumlah,
+      required this.eventData});
 
   @override
   State<EventCo> createState() => _EventCoState();
@@ -33,6 +40,8 @@ class _EventCoState extends State<EventCo> {
   final _kodePromoController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
+  bool? isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +52,9 @@ class _EventCoState extends State<EventCo> {
           'Checkout',
           style: poppinsKecil.copyWith(
               fontWeight: FontWeight.w700, fontSize: 14, color: blackColor),
+          key: const Key('label checkout'),
         ),
+        key: const Key('app bar checkout'),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -52,22 +63,8 @@ class _EventCoState extends State<EventCo> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Card_CO(jumlah: jumlah),
+                Card_CO(jumlah: jumlah, eventData: widget.eventData!),
                 SizedBox(height: 20.h),
-                // SizedBox(
-                //   height: 180,
-                //   child: ListView.separated(
-                //       scrollDirection: Axis.vertical,
-                //       itemBuilder: (context, index) {
-                //         return const card_CO();
-                //       },
-                //       separatorBuilder: (context, index) {
-                //         return const SizedBox(
-                //           height: 5,
-                //         );
-                //       },
-                //       itemCount: 2),
-                // ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -77,29 +74,36 @@ class _EventCoState extends State<EventCo> {
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
+                      key: const Key('label kode promo'),
                     ),
                     SizedBox(
                       height: 5.h,
                     ),
                     Form(
-                        key: _formKey,
-                        child: TextFormField(
-                          controller: _kodePromoController..text = kodePromo,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              hintText: 'Input Kode',
-                              suffixIcon: Container(
-                                  width: 30.w,
-                                  height: 50.h,
-                                  decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10)),
-                                      color: abuAColor),
-                                  child: Image.asset(
-                                      'assets/icon/event_icon/key.png'))),
-                        )),
+                      key: _formKey,
+                      child: TextFormField(
+                        key: const Key('textform field input kode promo'),
+                        controller: _kodePromoController..text = kodePromo,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          hintText: 'Input Kode',
+                          suffixIcon: Container(
+                            width: 30.w,
+                            height: 50.h,
+                            decoration: BoxDecoration(
+                                borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(10),
+                                    bottomRight: Radius.circular(10)),
+                                color: abuAColor),
+                            child: Image.asset(
+                              'assets/icon/event_icon/key.png',
+                              key: const Key('icon kunci'),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -109,6 +113,7 @@ class _EventCoState extends State<EventCo> {
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
+                      key: const Key('label ringkasan pesanan'),
                     ),
                     const SizedBox(
                       height: 10,
@@ -122,13 +127,15 @@ class _EventCoState extends State<EventCo> {
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
                               color: abuColor),
+                          key: const Key('label subtotal'),
                         ),
                         Text(
-                          'Rp$harga',
+                          'Rp${widget.eventData!.hargaTiket * jumlah}',
                           style: poppinsKecil.copyWith(
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
                               color: blackColor),
+                          key: Key('text harga subtotal'),
                         ),
                       ],
                     ),
@@ -144,6 +151,7 @@ class _EventCoState extends State<EventCo> {
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
                               color: abuColor),
+                          key: Key('label pengiriman'),
                         ),
                         Text(
                           'Rp$hargaPengiriman',
@@ -151,6 +159,7 @@ class _EventCoState extends State<EventCo> {
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
                               color: blackColor),
+                          key: Key('text harga pengiriman '),
                         ),
                       ],
                     ),
@@ -166,6 +175,7 @@ class _EventCoState extends State<EventCo> {
                               fontSize: 10,
                               fontWeight: FontWeight.w400,
                               color: abuColor),
+                          key: Key('label promo'),
                         ),
                         Text(
                           '-',
@@ -173,6 +183,7 @@ class _EventCoState extends State<EventCo> {
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
                               color: blackColor),
+                          key: Key('text promo'),
                         ),
                       ],
                     ),
@@ -188,6 +199,7 @@ class _EventCoState extends State<EventCo> {
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
                               color: abuColor),
+                          key: Key('label total'),
                         ),
                         Text(
                           'Rp${harga + hargaPengiriman}',
@@ -195,6 +207,7 @@ class _EventCoState extends State<EventCo> {
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
                               color: blackColor),
+                          key: Key('text total harga'),
                         ),
                       ],
                     ),
@@ -208,6 +221,7 @@ class _EventCoState extends State<EventCo> {
                           'assets/icon/event_icon/dollar.png',
                           width: 20,
                           height: 20,
+                          key: const Key('icon dollar'),
                         ),
                         const SizedBox(
                           width: 10,
@@ -218,6 +232,7 @@ class _EventCoState extends State<EventCo> {
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
                               color: blackColor),
+                          key: const Key('label metode pembayaran'),
                         )
                       ],
                     ),
@@ -225,45 +240,54 @@ class _EventCoState extends State<EventCo> {
                       height: 15,
                     ),
                     Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Card(
-                            color: abuColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'TRF',
-                                style: poppinsKecil.copyWith(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: greyColor),
-                              ),
+                          SizedBox(
+                            width: 170.w,
+                            child: Row(
+                              children: [
+                                Card(
+                                  color: abuColor,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'TRF',
+                                      style: poppinsKecil.copyWith(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          color: greyColor),
+                                      key: Key('label trf'),
+                                    ),
+                                  ),
+                                ),
+                                widget.metodePembayaran == ""
+                                    ? Text(
+                                        'Transfer Bank',
+                                        style: poppinsKecil.copyWith(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: blackColor),
+                                        key: Key('label transfer bank'),
+                                      )
+                                    : Text(
+                                        widget.metodePembayaran,
+                                        style: poppinsKecil.copyWith(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: blackColor),
+                                      ),
+                              ],
                             ),
                           ),
-                          widget.metodePembayaran == ""
-                              ? Text(
-                                  'Transfer Bank',
-                                  style: poppinsKecil.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: blackColor),
-                                )
-                              : Text(
-                                  widget.metodePembayaran,
-                                  style: poppinsKecil.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: blackColor),
-                                ),
-                          const SizedBox(width: 180),
                           widget.metodePembayaran == ""
                               ? IconButton(
                                   icon: Image.asset(
                                     'assets/icon/event_icon/back.png',
                                     width: 11,
                                     height: 11,
+                                    key: Key('icon untk pilih bank'),
                                   ),
                                   onPressed: () {
                                     bsMetodePembayaran(context);
@@ -274,6 +298,7 @@ class _EventCoState extends State<EventCo> {
                                     'assets/icon/event_icon/radio.png',
                                     width: 11,
                                     height: 11,
+                                    key: Key('icon pilih bank'),
                                   ),
                                   onPressed: () {
                                     bsMetodePembayaran(context);
@@ -283,45 +308,49 @@ class _EventCoState extends State<EventCo> {
                   ],
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Card(
-                      color: abuColor,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'COD',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: greyColor),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'Bayar di Tempat',
-                      style: poppinsKecil.copyWith(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: blackColor),
-                    ),
-                    const SizedBox(width: 180),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const EventDetailScreen(),
+                    SizedBox(
+                      width: 150.w,
+                      child: Row(
+                        children: [
+                          Card(
+                            color: abuColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'COD',
+                                style: poppinsKecil.copyWith(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: greyColor),
+                                key: Key('label COD'),
+                              ),
+                            ),
                           ),
-                        );
-                      },
-                      icon: Image.asset(
-                        'assets/icon/event_icon/check_box_ksg.png',
-                        width: 18,
-                        height: 18,
+                          Text(
+                            'Bayar di Tempat',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                color: blackColor),
+                            key: Key('text bayar di tempat'),
+                          ),
+                        ],
                       ),
                     ),
+                    Checkbox(
+                        activeColor: Colors.white,
+                        checkColor: Colors.black,
+                        value: isChecked,
+                        onChanged: (newBool) {
+                          setState(() {
+                            isChecked = newBool;
+                          });
+                        },
+                        key: Key('checkbox')),
                   ],
                 ),
                 SizedBox(
@@ -336,6 +365,7 @@ class _EventCoState extends State<EventCo> {
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
+                      key: Key('label total produk'),
                     ),
                     Text(
                       'Rp${harga + hargaPengiriman}',
@@ -343,6 +373,7 @@ class _EventCoState extends State<EventCo> {
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
+                      key: Key('text total hargaa'),
                     ),
                   ],
                 ),
@@ -351,7 +382,10 @@ class _EventCoState extends State<EventCo> {
           ),
         ),
       ),
-      bottomNavigationBar: const BuatPesanan(),
+      bottomNavigationBar: BuatPesanan(
+          key: Key('buttom navigator buat pesanan'),
+          eventData: widget.eventData!,
+          metodePembayaran: widget.metodePembayaran),
     );
   }
 
@@ -366,13 +400,14 @@ class _EventCoState extends State<EventCo> {
       builder: (context) {
         return SizedBox(
           width: 360.w,
-          height: 265.h,
+          height: 300.h,
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'Metode Pembayaran',
@@ -380,9 +415,7 @@ class _EventCoState extends State<EventCo> {
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
-                    ),
-                    const SizedBox(
-                      width: 200,
+                      key: Key('label metode pmbyrn'),
                     ),
                     IconButton(
                       onPressed: () {
@@ -390,9 +423,10 @@ class _EventCoState extends State<EventCo> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => EventCo(
-                                hargaTiket: hargaTiket,
+                                hargaTiket: widget.eventData!.hargaTiket,
                                 jumlah: jumlah,
-                                total: harga),
+                                total: harga,
+                                eventData: widget.eventData),
                           ),
                         );
                       },
@@ -400,6 +434,7 @@ class _EventCoState extends State<EventCo> {
                         'assets/icon/event_icon/close.png',
                         width: 11,
                         height: 11,
+                        key: Key('icon close'),
                       ),
                     ),
                   ],
@@ -411,41 +446,49 @@ class _EventCoState extends State<EventCo> {
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
+                  key: Key('label trf bank'),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Card(
-                      color: abuColor,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'BCA',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: greyColor),
-                        ),
+                    SizedBox(
+                      width: 170.w,
+                      child: Row(
+                        children: [
+                          Card(
+                            color: abuColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'BCA',
+                                style: poppinsKecil.copyWith(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: greyColor),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(
+                            'Bank Central Asia',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                color: blackColor),
+                            key: Key('label bank bca'),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'Bank Central Asia',
-                      style: poppinsKecil.copyWith(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: blackColor),
-                    ),
-                    SizedBox(
-                      width: 150.w,
-                    ),
                     Radio(
+                        key: Key('radio button bca'),
                         value: 'Bank Central Asia',
                         groupValue: radioValue,
                         activeColor: blackColor,
@@ -457,40 +500,47 @@ class _EventCoState extends State<EventCo> {
                         }),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 10.h,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Card(
-                      color: abuColor,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Mandiri',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: greyColor),
-                        ),
+                    SizedBox(
+                      width: 170.w,
+                      child: Row(
+                        children: [
+                          Card(
+                            color: abuColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Mandiri',
+                                style: poppinsKecil.copyWith(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: greyColor),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Bank Mandiri',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                color: blackColor),
+                            key: Key('label bank mandiri'),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'Bank Mandiri',
-                      style: poppinsKecil.copyWith(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: blackColor),
-                    ),
-                    SizedBox(
-                      width: 155.w,
-                    ),
                     Radio(
+                        key: Key('radio button bank mandiri'),
                         value: 'Bank Mandiri',
                         groupValue: radioValue,
                         activeColor: blackColor,
@@ -503,13 +553,14 @@ class _EventCoState extends State<EventCo> {
                   ],
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 15.h,
                 ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
                   },
                   child: Container(
+                    key: Key('button selanjutnya'),
                     width: 360.w,
                     height: 35.h,
                     decoration: BoxDecoration(
@@ -522,6 +573,7 @@ class _EventCoState extends State<EventCo> {
                             fontSize: 11,
                             fontWeight: FontWeight.w700,
                             color: whiteColor),
+                        key: Key('label selanjutnya'),
                       ),
                     ),
                   ),
@@ -536,7 +588,10 @@ class _EventCoState extends State<EventCo> {
 }
 
 class BuatPesanan extends StatefulWidget {
-  const BuatPesanan({super.key});
+  final Event? eventData;
+  final String metodePembayaran;
+  const BuatPesanan(
+      {super.key, required this.eventData, required this.metodePembayaran});
 
   @override
   State<BuatPesanan> createState() => _BuatPesananState();
@@ -551,11 +606,13 @@ class _BuatPesananState extends State<BuatPesanan> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const kodeBayar(),
+            builder: (context) => kodeBayar(
+                eventData: widget.eventData!, bank: widget.metodePembayaran),
           ),
         );
       },
       child: Container(
+        key: const Key('button buat pesanan'),
         color: secondaryColor,
         alignment: Alignment.center,
         height: 53,
@@ -563,6 +620,7 @@ class _BuatPesananState extends State<BuatPesanan> {
           'Buat Pesanan',
           style: poppinsKecil.copyWith(
               fontSize: 14, fontWeight: FontWeight.w700, color: whiteColor),
+          key: const Key('labell buat pesanan'),
         ),
       ),
     );

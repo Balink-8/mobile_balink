@@ -1,4 +1,5 @@
-class User {
+class UserClass {
+  int? id;
   String? nama;
   String? fotoProfile;
   String? email;
@@ -7,7 +8,8 @@ class User {
   String? alamat;
   String? role;
 
-  User({
+  UserClass({
+    this.id,
     this.nama,
     this.fotoProfile,
     this.email,
@@ -17,7 +19,8 @@ class User {
     this.role,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
+  factory UserClass.fromJson(Map<String, dynamic> json) => UserClass(
+        id: json["ID"],
         nama: json["nama"],
         fotoProfile: json["foto_profile"],
         email: json["email"],
@@ -28,6 +31,7 @@ class User {
       );
 
   Map<String, dynamic> toJson() => {
+        "ID": id,
         "nama": nama,
         "foto_profile": fotoProfile,
         "email": email,

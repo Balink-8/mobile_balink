@@ -17,14 +17,18 @@ class _ShopScreenState extends State<ShopScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('shopPage'),
       body: SafeArea(
         child: SingleChildScrollView(
+          key: const Key('scrollShopPage'),
           child: Column(
+            key: const Key('layoutShopPage'),
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: SizedBox(
+                  key: const Key('SizedBoxAppBar'),
                   height: 55.h,
                   child: Row(
                     children: [
@@ -34,6 +38,7 @@ class _ShopScreenState extends State<ShopScreen> {
                           child: SizedBox(
                             height: 36.h,
                             child: TextField(
+                              key: const Key('searchFieldShopPage'),
                               controller: _searchController,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -67,10 +72,20 @@ class _ShopScreenState extends State<ShopScreen> {
                           ),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Icon(
-                          Icons.local_mall_outlined,
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: InkWell(
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) =>
+                            //             const CheckoutShopPage()));
+                          },
+                          key: const Key('cartShop'),
+                          child: const Icon(
+                            Icons.local_mall_outlined,
+                          ),
                         ),
                       ),
                     ],
@@ -91,6 +106,7 @@ class _ShopScreenState extends State<ShopScreen> {
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
                           color: Colors.black),
+                      key: const Key('titleKategori'),
                     ),
                     SizedBox(
                       height: 4.h,
@@ -113,6 +129,7 @@ class _ShopScreenState extends State<ShopScreen> {
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
                           color: Colors.black),
+                      key: const Key('titleTerlaris'),
                     ),
                     SizedBox(
                       height: 10.h,

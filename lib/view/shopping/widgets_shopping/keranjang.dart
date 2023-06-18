@@ -33,6 +33,7 @@ class _KeranjangState extends State<Keranjang> {
                   'Keranjang Saya (1)',
                   style: poppinsKecil.copyWith(
                       fontWeight: FontWeight.w400, color: Colors.black),
+                  key: const Key('keranjangTitle'),
                 ),
                 SizedBox(
                   width: 120.w,
@@ -43,6 +44,7 @@ class _KeranjangState extends State<Keranjang> {
                     'Ubah',
                     style: poppinsKecil.copyWith(
                         fontWeight: FontWeight.w700, color: Colors.black),
+                    key: const Key('ubahButton'),
                   ),
                 ),
               ],
@@ -65,12 +67,14 @@ class _KeranjangState extends State<Keranjang> {
                           isChecked = newBool;
                         });
                       },
+                      key: const Key('checkbox'),
                     ),
                     Image.network(
                       'https://images.unsplash.com/photo-1597633125184-9fd7e54f0ff7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80',
                       fit: BoxFit.cover,
                       width: 100.w,
                       height: 100.h,
+                      key: const Key('productImage'),
                     ),
                     Expanded(
                       child: Padding(
@@ -83,12 +87,14 @@ class _KeranjangState extends State<Keranjang> {
                               style: poppinsKecil.copyWith(
                                   fontWeight: FontWeight.w400,
                                   color: Colors.black),
+                              key: const Key('productName'),
                             ),
                             Text(
                               'Rp. 90.000',
                               style: poppinsKecil.copyWith(
                                   fontWeight: FontWeight.w700,
                                   color: Colors.black),
+                              key: const Key('productPrice'),
                             ),
                             Row(
                               children: [
@@ -142,6 +148,7 @@ class _KeranjangState extends State<Keranjang> {
                                   style: poppinsKecil.copyWith(
                                       fontWeight: FontWeight.w400,
                                       color: Colors.black),
+                                  key: const Key('productAvailability'),
                                 )
                               ],
                             )
@@ -160,6 +167,7 @@ class _KeranjangState extends State<Keranjang> {
                       fontWeight: FontWeight.w400,
                       color: Colors.black,
                       overflow: TextOverflow.clip),
+                  key: const Key('freeShippingText'),
                 ),
               ],
             ),

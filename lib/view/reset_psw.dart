@@ -36,15 +36,18 @@ class _ResetPswPageState extends State<ResetPswPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        key: const Key('appbar'),
         backgroundColor: whiteColor,
         foregroundColor: blackColor,
         title: Text(
           'Ubah Password',
+          key: const Key('ubahPassword'),
           style: poppinsKecil.copyWith(
               color: blackColor, fontWeight: FontWeight.bold),
         ),
       ),
       body: Padding(
+        key: const Key('screenResetPsw'),
         padding: const EdgeInsets.fromLTRB(10, 30, 20, 20),
         child: Form(
           child: Column(
@@ -52,20 +55,24 @@ class _ResetPswPageState extends State<ResetPswPage> {
             children: [
               Text(
                 'Password baru',
+                key: const Key('passwordBaru'),
                 style: poppinsKecil.copyWith(
                     color: blackColor, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10.h),
               Text(
                 'Buat password yang kuat  untuk akun dengan email useremail@gmail.com',
+                key: const Key('deskripsi'),
                 style: poppinsKecil.copyWith(color: blackColor),
               ),
               SizedBox(height: 20.h),
               Text(
                 'Password baru',
+                key: const Key('passwordBaru'),
                 style: poppinsKecil.copyWith(color: blackColor),
               ),
               TextFormField(
+                key: const Key('textfieldPasswordBaru'),
                 onChanged: (v) {
                   setState(() {
                     if (v.isNotEmpty) {
@@ -106,8 +113,16 @@ class _ResetPswPageState extends State<ResetPswPage> {
                         }
                       },
                       child: showPassword
-                          ? Icon(Icons.visibility, color: secondaryColor)
-                          : Icon(Icons.visibility_off, color: secondaryColor)),
+                          ? Icon(
+                              Icons.visibility,
+                              color: secondaryColor,
+                              key: const Key('iconVisibilityOn'),
+                            )
+                          : Icon(
+                              Icons.visibility_off,
+                              color: secondaryColor,
+                              key: const Key('iconVisibilityOff'),
+                            )),
                   hintText: 'Masukkan Password Baru',
                   hintStyle: poppinsKecil.copyWith(
                       color: Colors.grey, fontSize: 12.sp),
@@ -123,9 +138,11 @@ class _ResetPswPageState extends State<ResetPswPage> {
               SizedBox(height: 20.h),
               Text(
                 'Confirm password baru',
+                key: const Key('confirmPasswordBaru'),
                 style: poppinsKecil.copyWith(color: blackColor),
               ),
               TextFormField(
+                key: const Key('textfieldConfirmPasswordBaru'),
                 onChanged: (v) {
                   setState(() {
                     if (v.isNotEmpty) {
@@ -166,8 +183,16 @@ class _ResetPswPageState extends State<ResetPswPage> {
                         }
                       },
                       child: showPassword
-                          ? Icon(Icons.visibility, color: secondaryColor)
-                          : Icon(Icons.visibility_off, color: secondaryColor)),
+                          ? Icon(
+                              Icons.visibility,
+                              color: secondaryColor,
+                              key: const Key('iconVisibilityOn'),
+                            )
+                          : Icon(
+                              Icons.visibility_off,
+                              color: secondaryColor,
+                              key: const Key('iconVisibilityOff'),
+                            )),
                   hintText: 'Masukkan Password Baru',
                   hintStyle: poppinsKecil.copyWith(
                       color: Colors.grey, fontSize: 12.sp),
@@ -192,6 +217,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
   Widget buttonResetPass(BuildContext context, bool enable) {
     return enable
         ? Container(
+            key: const Key('buttonResetPass'),
             width: 360.w,
             height: 48.h,
             decoration: BoxDecoration(
@@ -201,6 +227,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
             child: Center(
               child: Text(
                 'Selanjutnya',
+                key: const Key('selanjutnya'),
                 style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
               ),
             ),
@@ -214,6 +241,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
                       builder: (context) => const BerhasilUbahPsw()));
             },
             child: Container(
+              key: const Key('buttonResetPass'),
               width: 360.w,
               height: 48.h,
               decoration: BoxDecoration(
@@ -223,6 +251,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
               child: Center(
                 child: Text(
                   'Selanjutnya',
+                  key: const Key('selanjutnya'),
                   style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),

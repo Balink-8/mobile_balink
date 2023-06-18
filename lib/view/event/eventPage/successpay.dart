@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
 class SuccessPayment extends StatefulWidget {
-  const SuccessPayment({super.key});
+  final Event? eventData;
+  final String bank;
+  const SuccessPayment(
+      {super.key, required this.eventData, required this.bank});
 
   @override
   State<SuccessPayment> createState() => _SuccessPaymentState();
@@ -22,11 +26,14 @@ class _SuccessPaymentState extends State<SuccessPayment> {
             color: blackColor,
             fontWeight: FontWeight.bold,
           ),
+          key: const Key('label berhasil dipesan'),
         ),
         backgroundColor: whiteColor,
         foregroundColor: blackColor,
+        key: const Key('appbar berhasil dipesan'),
       ),
       body: Padding(
+        key: const Key('Screen berhasil dipesan'),
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
@@ -40,6 +47,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                       'assets/icon/event_icon/dummy/g1.png',
                       width: 64.w,
                       height: 64.h,
+                      key: Key('gambar icon'),
                     ),
                   ),
                 ),
@@ -54,11 +62,12 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                         padding: const EdgeInsets.only(
                             left: 10, right: 10, top: 5, bottom: 5),
                         child: Text(
-                          '29 Mei 2023',
+                          widget.eventData!.tanggalMulai,
                           style: poppinsKecil.copyWith(
                               fontSize: 10.sp,
                               fontWeight: FontWeight.w400,
                               color: secondaryColor),
+                          key: Key('label tanggal mulai'),
                         ),
                       ),
                     ),
@@ -66,11 +75,12 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                       height: 12.h,
                     ),
                     Text(
-                      'Ogoh - Ogoh',
+                      widget.eventData!.nama,
                       style: poppinsKecil.copyWith(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
+                      key: Key('label nama event'),
                     ),
                     SizedBox(
                       height: 12.h,
@@ -81,16 +91,18 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           'assets/icon/event_icon/location.png',
                           width: 10.w,
                           height: 13.h,
+                          key: const Key('icon lokasi'),
                         ),
                         SizedBox(
                           width: 10.w,
                         ),
                         Text(
-                          'Denpasar',
+                          widget.eventData!.lokasi,
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
+                          key: Key(' text lokasi'),
                         ),
                       ],
                     ),
@@ -114,6 +126,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                       color: blackColor),
+                  key: const Key('label ringkas pesanan'),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -128,17 +141,17 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
+                      key: const Key('label rsubtotal'),
                     ),
                     SizedBox(
                       width: 135.w,
                     ),
-                    Text(
-                      'Rp $harga',
-                      style: poppinsKecil.copyWith(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w400,
-                          color: blackColor),
-                    ),
+                    Text('Rp $harga',
+                        style: poppinsKecil.copyWith(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w400,
+                            color: blackColor),
+                        key: Key('label total')),
                   ],
                 ),
                 SizedBox(
@@ -154,6 +167,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
+                      key: const Key('label pengiriman'),
                     ),
                     Text(
                       'Rp $hargaPengiriman',
@@ -161,6 +175,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
+                      key: Key('label harga ongkir'),
                     )
                   ],
                 ),
@@ -177,6 +192,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
+                      key: const Key('label promo'),
                     ),
                     Text(
                       '-',
@@ -184,6 +200,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: Colors.red),
+                      key: Key('label harga promo'),
                     )
                   ],
                 ),
@@ -200,6 +217,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
+                      key: const Key('label total'),
                     ),
                     Text(
                       'Rp ${harga + hargaPengiriman}',
@@ -207,6 +225,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
+                      key: Key('label total harga'),
                     ),
                   ],
                 )
@@ -225,6 +244,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                       color: blackColor),
+                  key: const Key('label rincian pesanan'),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -238,6 +258,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
+                      key: const Key('label nomor pesanan'),
                     ),
                     Row(
                       children: [
@@ -247,6 +268,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
                               color: blackColor),
+                          key: Key('nomor pesanan'),
                         ),
                         SizedBox(
                           width: 3.w,
@@ -256,6 +278,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           width: 14.w,
                           height: 16.h,
                           color: abuAColor,
+                          key: const Key('icon copy'),
                         )
                       ],
                     ),
@@ -274,6 +297,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
+                      key: const Key('label tanggal pesanan'),
                     ),
                     Text(
                       '29 April, 2023 6:52 AM',
@@ -281,6 +305,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
+                      key: Key('tanggal pesanan'),
                     )
                   ],
                 ),
@@ -297,13 +322,15 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
+                      key: const Key('label metode bayar'),
                     ),
                     Text(
-                      'Bank Central Asia',
+                      widget.bank,
                       style: poppinsKecil.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
+                      key: Key('metode bayar'),
                     )
                   ],
                 ),
@@ -314,6 +341,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
               height: 10.h,
             ),
             Container(
+              key: const Key('box lunas'),
               width: 360.w,
               height: 68.h,
               decoration: BoxDecoration(
@@ -325,6 +353,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 children: [
                   Image.asset(
                     'assets/icon/event_icon/done.png',
+                    key: const Key('icon berhasil'),
                     width: 15.44.w,
                     height: 11.18.h,
                   ),
@@ -335,14 +364,16 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     'LUNAS',
                     style: poppinsKecil.copyWith(
                         fontWeight: FontWeight.w700, color: greenColor),
+                    key: const Key('label lunas'),
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: 180.h,
+              height: 150.h,
             ),
             Container(
+              key: const Key('button lihat transaksi'),
               width: 360.w,
               height: 48.h,
               decoration: BoxDecoration(
@@ -355,6 +386,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                   'assets/icon/event_icon/bill.png',
                   width: 14.w,
                   height: 16.h,
+                  key: const Key('icon bill'),
                 ),
                 SizedBox(
                   width: 7.w,
@@ -363,6 +395,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                   'Lihat Riwayat Transaksi',
                   style: poppinsKecil.copyWith(
                       fontWeight: FontWeight.w700, color: whiteColor),
+                  key: const Key('label riwayat transaksi'),
                 ),
               ]),
             ),
