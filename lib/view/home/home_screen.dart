@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/widget/home_screen_widget/promo_card.dart';
+import 'package:mobile_balink/view_model/event_provider.dart';
 import 'package:mobile_balink/view_model/product_provider.dart';
 import 'package:provider/provider.dart';
 import '../../config/theme.dart';
@@ -23,6 +25,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
     Future.microtask(
       () => Provider.of<ProductProvider>(context, listen: false).getProduct(),
+    );
+    Future.microtask(
+      () => Provider.of<EventProvider>(context, listen: false).getEvent(),
     );
   }
 
@@ -127,32 +132,39 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   key: const Key('titleEventHome'),
                 ),
               ),
-              Padding(
-                  padding: const EdgeInsets.only(
-                    left: 25.0,
-                    right: 25.0,
-                    bottom: 17,
-                  ),
-                  child: SizedBox(
-                    height: 120.h,
-                    // height: 300,
-                    // width: 94,
-                    child: ListView.separated(
-                        key: const Key('listEvenHome'),
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return const EvenCardWidget();
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            width: 5.w,
-                          );
-                        },
-                        itemCount: 5),
-                  )
-                  // eventCard(),
-                  ),
+              Consumer<EventProvider>(builder: (context, provEvent, child) {
+                final events = provEvent.listEvent;
+                return Padding(
+                    padding: const EdgeInsets.only(
+                      left: 25.0,
+                      right: 25.0,
+                      bottom: 17,
+                    ),
+                    child: SizedBox(
+                      height: 120.h,
+                      // height: 300,
+                      // width: 94,
+                      child: ListView.separated(
+                          key: const Key('listEvenHome'),
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            Event eventData = events[index];
+                            return EvenCardWidget(
+                              eventDataHome: eventData,
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return SizedBox(
+                              width: 5.w,
+                            );
+                          },
+                          itemCount: events.length),
+                    )
+                    // eventCard(),
+                    );
+              }),
+
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, bottom: 14.0),
                 child: Text(

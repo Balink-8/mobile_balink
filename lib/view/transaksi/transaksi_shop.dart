@@ -54,6 +54,7 @@ class CardShopSuccess extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: const Key('navigationBerhasilBayarPage'),
       onTap: () {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const BerhasilBayarPage()));
@@ -62,6 +63,7 @@ class CardShopSuccess extends StatelessWidget {
         height: 220.h,
         width: 330.w,
         child: Card(
+          key: const Key('cardShopBerhasil'),
           // margin: const EdgeInsets.fromLTRB(6, 16, 6, 20),
           // color: Color.fromRGBO(215, 245, 246, 1),
           shape:
@@ -83,6 +85,7 @@ class CardShopSuccess extends StatelessWidget {
                     // color: thirdColor,
                     child: Center(
                       child: Text(
+                        key: const Key('statusShopTransaksi'),
                         'Berhasil dipesan',
                         style: poppinsKecil.copyWith(
                             color: blackColor, fontWeight: FontWeight.w400),
@@ -99,6 +102,7 @@ class CardShopSuccess extends StatelessWidget {
                         height: 120.h,
                         width: 120.w,
                         child: Image.network(
+                          key: const Key('imageShopTransaksi'),
                           'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80'
                           // 'https://f.ptcdn.info/298/073/000/qs7t6ibhscUkbPBmH8t-o.jpg',
                           ,
@@ -115,6 +119,7 @@ class CardShopSuccess extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(right: 6.0),
                           child: Text(
+                            key: const Key('namaProdukTransaksi'),
                             'Kemeja Endek Strait Motif Bali Premium',
                             style: poppinsKecil.copyWith(
                                 fontSize: 14,
@@ -133,6 +138,7 @@ class CardShopSuccess extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
+                              key: const Key('hargaProdukTransaksi'),
                               'Rp 90.000',
                               style: poppinsKecil.copyWith(
                                   fontSize: 12,
@@ -155,13 +161,14 @@ class CardShopSuccess extends StatelessWidget {
                           height: 14.h,
                         ),
                         Text(
-                          'Event Berlangsung',
+                          'Dipesan pada',
                           style: poppinsKecil.copyWith(
                             fontSize: 12,
                             color: Colors.grey,
                           ),
                         ),
                         Text(
+                          key: const Key('tanggalPemesananProduk'),
                           '29 Mei 2023',
                           style: poppinsKecil.copyWith(
                               fontSize: 12,

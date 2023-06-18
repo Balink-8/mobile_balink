@@ -14,6 +14,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        key: const Key('screenPesananDikirim'),
         title: Text(
           'Dikirim',
           style: poppinsKecil.copyWith(
@@ -59,6 +60,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                   width: 5.h,
                 ),
                 Text(
+                  key: const Key('metodePembayaranDikirim'),
                   'Bank Central Asia',
                   style: poppinsKecil.copyWith(
                       fontWeight: FontWeight.w700, color: blackColor),
@@ -81,7 +83,9 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                   const SizedBox(
                     width: 5,
                   ),
-                  Text('Pesanan Outbond - Denpasar',
+                  Text(
+                      key: const Key('alamatPemesananDikirim'),
+                      'Pesanan Outbond - Denpasar',
                       style: poppinsKecil.copyWith(
                           color: const Color.fromRGBO(89, 90, 89, 1),
                           fontWeight: FontWeight.w400)),
@@ -109,6 +113,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                     ),
                     // ),
                     child: Image.network(
+                      key: const Key('imageProdukDikirim'),
                       'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
                       fit: BoxFit.cover,
 
@@ -123,7 +128,9 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Kemeja Endek Strait Motif Bali Premium',
+                      Text(
+                          key: const Key('namaProdukDikirim'),
+                          'Kemeja Endek Strait Motif Bali Premium',
                           style: poppinsKecil.copyWith(
                               color: blackColor, fontWeight: FontWeight.w400)),
                       const SizedBox(
@@ -133,11 +140,14 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
+                            key: const Key('hargaProdukDikirim'),
                             'Rp 90.0000',
                             style: poppinsKecil.copyWith(
                                 color: blackColor, fontWeight: FontWeight.w400),
                           ),
-                          Text('1x',
+                          Text(
+                              key: const Key('totalProdukDikirim'),
+                              '1x',
                               style: poppinsKecil.copyWith(
                                   color: blackColor,
                                   fontWeight: FontWeight.w400))
@@ -196,6 +206,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('promoProdukDikirim'),
                   '-',
                   style: poppinsKecil.copyWith(color: Colors.red),
                 ),
@@ -210,6 +221,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                       color: blackColor, fontWeight: FontWeight.bold),
                 ),
                 Text(
+                  key: const Key('totalHargaProdukDikirim'),
                   'Rp. 100.000',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.bold),
@@ -233,6 +245,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('noPesananDikirim'),
                   '577889036123879654',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.bold),
@@ -248,6 +261,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('tanggalPemesananDikirim'),
                   '29 April 2023, 6:15 AM',
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
@@ -270,6 +284,7 @@ class _KirimPesananPageState extends State<KirimPesananPage> {
             SizedBox(height: 6.h),
             SizedBox(height: 230.h),
             GestureDetector(
+              key: const Key('buttonCancelPesanan'),
               onTap: () {},
               child: Container(
                 width: 360.w,
