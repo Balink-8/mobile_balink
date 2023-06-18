@@ -20,7 +20,7 @@ class ItemArtikelWidget extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return DetailArtikelScreen(artikel: dataArtikel);
+              return DetailArtikelScreen(id: dataArtikel.id);
             },
           ),
         );
@@ -64,7 +64,7 @@ class ItemArtikelWidget extends StatelessWidget {
                         SizedBox(
                           width: 180.w,
                           child: Text(
-                            dataArtikel.isi,
+                            dataArtikel.deskripsi,
                             style: poppinsKecil.copyWith(
                               color: const Color(0xff000000),
                               fontWeight: FontWeight.normal,

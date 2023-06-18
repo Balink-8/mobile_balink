@@ -2,26 +2,26 @@ class Artikel {
   int id;
   String gambar;
   String judul;
-  String isi;
+  String deskripsi;
 
   Artikel({
     required this.id,
     required this.gambar,
     required this.judul,
-    required this.isi,
+    required this.deskripsi,
   });
 
   factory Artikel.fromJson(Map<String, dynamic> json) => Artikel(
         id: json["ID"] ?? 0,
         gambar: json["gambar"] ?? "",
         judul: json["judul"] ?? "",
-        isi: json["isi"] ?? "",
+        deskripsi: json["deskripsi"] ?? "",
       );
 
   Map<String, dynamic> toJson() => {
         "ID": id,
         "gambar": gambar,
         "judul": judul,
-        "isi": isi,
+        "deskripsi": deskripsi,
       };
 }

@@ -14,13 +14,12 @@ class SourceArtikel {
     throw Exception('Gagal Get Artikel');
   }
 
-  // static Future<Artikel?> getArtikelById(int id) async {
-  //   Map? responseBody = await AppRequest.gets('$Api.artikel/$id}');
-  //   if (responseBody == null) return null;
-  //   if (responseBody.isNotEmpty) {
-  //     Artikel artikel = responseBody['data']['data'];
-  //     return artikel = Artikel.fromJson(responseBody);
-  //   }
-  //   return null;
-  // }
+  static Future<Artikel?> getArtikelById(int id) async {
+    Map? responseBody = await AppRequest.gets('${Api.artikel}/$id');
+    if (responseBody == null) return null;
+    if (responseBody.isNotEmpty) {
+      return Artikel.fromJson(responseBody['data']);
+    }
+    throw Exception('Gagal Get Artikel');
+  }
 }
