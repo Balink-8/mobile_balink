@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 
-class DetailArtikelScreen extends StatelessWidget {
-  const DetailArtikelScreen({super.key});
+import '../../model/artikel_model.dart';
+import '../../view_model/artikel_provider.dart';
+
+class DetailArtikelScreen extends StatefulWidget {
+  const DetailArtikelScreen({
+    super.key,
+    required this.artikel,
+  });
+  final Datum artikel;
+
+  @override
+  State<DetailArtikelScreen> createState() => _DetailArtikelScreenState();
+}
+
+class _DetailArtikelScreenState extends State<DetailArtikelScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(
+      () => Provider.of<ArtikelProvider>(context, listen: false).getArtikel(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +44,7 @@ class DetailArtikelScreen extends StatelessWidget {
               ),
             ),
             child: Text(
-              'Ogoh - Ogoh',
+              widget.artikel.judul,
               style: poppinsKecil.copyWith(
                 color: blackColor,
                 fontSize: 16.sp,
@@ -42,7 +63,7 @@ class DetailArtikelScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: Image.asset(
-                  'assets/ogoh.png',
+                  widget.artikel.gambar,
                   scale: .8.r,
                 ),
               ),
@@ -53,7 +74,7 @@ class DetailArtikelScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ReadMoreText(
-                      'Judul: Festival Ogoh-ogoh di Bali: Pesta Budaya yang Mempesona Pendahuluan: Bali, pulau dewata yang terkenal dengan keindahan alamnya, juga memiliki kekayaan budaya yang memikat. Salah satu perayaan budaya yang paling menarik di Bali adalah Festival Ogoh-ogoh. Festival ini merupakan perayaan tahunan yang diadakan menjelang Hari Raya Nyepi, yang merupakan tahun baru Saka (kalender Bali). Dalam artikel ini, kita akan menjelajahi Festival Ogoh-ogoh di Bali, mengungkap keindahan dan maknanya yang dalam. Latar Belakang Festival Ogoh-ogoh: Festival Ogoh-ogoh di Bali merupakan perayaan yang bermakna religius dan memiliki tujuan tertentu. Ogoh-ogoh adalah patung raksasa yang dibuat dari anyaman bambu, kertas, dan bahan-bahan lainnya. Patung ini melambangkan roh jahat atau setan dalam mitologi Hindu Bali. Festival ini diadakan untuk mengusir roh-roh jahat tersebut sebelum Hari Raya Nyepi dimulai, yang merupakan hari kesunyian dan meditasi bagi umat Hindu Bali. Prosesi Festival: Festival Ogoh-ogoh diawali dengan pembuatan patung ogoh-ogoh oleh kelompok masyarakat atau banjar setempat.',
+                      widget.artikel.isi,
                       trimLines: 10,
                       trimMode: TrimMode.Line,
                       trimCollapsedText: ' READ MORE',

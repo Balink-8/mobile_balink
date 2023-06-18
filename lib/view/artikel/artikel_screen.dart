@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/view_model/artikel_provider.dart';
+import 'package:provider/provider.dart';
 
+import '../../model/artikel_model.dart';
 import 'widgets/item_artikel_widget.dart';
 
 class ArtikelScreen extends StatefulWidget {
@@ -12,6 +15,14 @@ class ArtikelScreen extends StatefulWidget {
 }
 
 class _ArtikelScreenState extends State<ArtikelScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(
+      () => Provider.of<ArtikelProvider>(context, listen: false).getArtikel(),
+    );
+  }
+
   final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -59,10 +70,16 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           ),
         ),
       ),
-      body: ListView.builder(
-        itemCount: 6,
-        itemBuilder: (context, index) {
-          return const ItemArtikelWidget();
+      body: Consumer<ArtikelProvider>(
+        builder: (context, value, child) {
+          final artikel = value.listArtikel;
+          return ListView.builder(
+            itemCount: artikel.length,
+            itemBuilder: (context, index) {
+              Datum dataArtikel = artikel[index];
+              return ItemArtikelWidget(dataArtikel: dataArtikel);
+            },
+          );
         },
       ),
     );
