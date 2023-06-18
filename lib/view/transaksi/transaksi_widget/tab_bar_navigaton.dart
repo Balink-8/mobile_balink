@@ -37,10 +37,12 @@ class _TabBarNavigationState extends State<TabBarNavigation>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('transaksiScreen'),
       appBar: AppBar(
         backgroundColor: whiteColor,
         elevation: 0,
         title: Text(
+          key: const Key('transaksiTitle'),
           'Transaksi',
           style: poppinsKecil.copyWith(
               color: blackColor, fontSize: 16, fontWeight: FontWeight.w700),
@@ -59,6 +61,7 @@ class _TabBarNavigationState extends State<TabBarNavigation>
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
               ),
               child: TabBar(
+                key: const Key('tabBarTransaksi'),
                 controller: _tabController,
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
@@ -69,6 +72,7 @@ class _TabBarNavigationState extends State<TabBarNavigation>
                 unselectedLabelColor: blackColor,
                 tabs: [
                   Tab(
+                    key: const Key('eventTabTransaksi'),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -77,12 +81,14 @@ class _TabBarNavigationState extends State<TabBarNavigation>
                           width: 11.w,
                         ),
                         const Text(
+                          key: Key('eventTabTitleTransaksi'),
                           'Event',
                         )
                       ],
                     ),
                   ),
                   Tab(
+                    key: const Key('shopTabTransaksi'),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -94,6 +100,7 @@ class _TabBarNavigationState extends State<TabBarNavigation>
                           width: 11.w,
                         ),
                         const Text(
+                          key: Key('shopTabTitleTransaksi'),
                           'Shopping',
                         )
                       ],
@@ -104,10 +111,15 @@ class _TabBarNavigationState extends State<TabBarNavigation>
             ),
             Expanded(
               child: TabBarView(
+                key: const Key('tabBarViewTransaksi'),
                 controller: _tabController,
                 children: const [
-                  TransaksiEventPage(),
-                  TransaksiShopPage(),
+                  TransaksiEventPage(
+                    key: Key('eventTabViewTransaksi'),
+                  ),
+                  TransaksiShopPage(
+                    key: Key('shopTabViewTransaksi'),
+                  ),
                 ],
               ),
             ),

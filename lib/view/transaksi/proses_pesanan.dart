@@ -13,6 +13,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('screenPesananDiproses'),
       appBar: AppBar(
         title: Text(
           'Diproses',
@@ -59,6 +60,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                   width: 5.h,
                 ),
                 Text(
+                  key: const Key('metodePembayaranDiproses'),
                   'Bank Central Asia',
                   style: poppinsKecil.copyWith(
                       fontWeight: FontWeight.w700, color: blackColor),
@@ -96,6 +98,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                           height: 6.h,
                         ),
                         Text(
+                            key: const Key('alamatPengirimanProses'),
                             'Jl. Mengaling, Celuk, Kec. Sukawati, Kabupaten Gianyar, Bali',
                             style: poppinsKecil.copyWith(
                                 color: const Color.fromRGBO(89, 90, 89, 1),
@@ -127,6 +130,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                     ),
                     // ),
                     child: Image.network(
+                      key: const Key('imageProdukProses'),
                       'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
                       fit: BoxFit.cover,
 
@@ -141,7 +145,9 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Kemeja Endek Strait Motif Bali Premium',
+                      Text(
+                          key: const Key('namaProdukProses'),
+                          'Kemeja Endek Strait Motif Bali Premium',
                           style: poppinsKecil.copyWith(
                               color: blackColor, fontWeight: FontWeight.w400)),
                       const SizedBox(
@@ -151,11 +157,14 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
+                            key: const Key('hargaProdukProses'),
                             'Rp 90.0000',
                             style: poppinsKecil.copyWith(
                                 color: blackColor, fontWeight: FontWeight.w400),
                           ),
-                          Text('1x',
+                          Text(
+                              key: const Key('totalPesananProses'),
+                              '1x',
                               style: poppinsKecil.copyWith(
                                   color: blackColor,
                                   fontWeight: FontWeight.w400))
@@ -214,6 +223,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('promoProdukProses'),
                   '-',
                   style: poppinsKecil.copyWith(color: Colors.red),
                 ),
@@ -228,6 +238,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                       color: blackColor, fontWeight: FontWeight.bold),
                 ),
                 Text(
+                  key: const Key('totalHargaPesananProses'),
                   'Rp. 100.000',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.bold),
@@ -251,6 +262,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('noPesananProses'),
                   '577889036123879654',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.bold),
@@ -266,6 +278,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('tanggalPemesananProses'),
                   '29 April 2023, 6:15 AM',
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
@@ -280,6 +293,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('metodePembayaranProses'),
                   'Bank Central Asia',
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
@@ -288,6 +302,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
             SizedBox(height: 6.h),
             SizedBox(height: 230.h),
             GestureDetector(
+              key: const Key('buttonCancelPesananProses'),
               onTap: () {},
               child: Container(
                 width: 360.w,

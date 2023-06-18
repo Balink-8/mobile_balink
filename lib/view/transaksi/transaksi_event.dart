@@ -14,6 +14,7 @@ class _TransaksiEventPageState extends State<TransaksiEventPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('screenTransaksiEvent'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(
           top: 16,
@@ -169,6 +170,7 @@ class CardEventSuccess extends StatelessWidget {
       height: 220.h,
       width: 330.w,
       child: Card(
+        key: const Key('cardEventTransaksi'),
         // margin: const EdgeInsets.fromLTRB(6, 16, 6, 16),
         // color: Color.fromRGBO(215, 245, 246, 1),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.0)),
@@ -193,6 +195,7 @@ class CardEventSuccess extends StatelessWidget {
                   // color: thirdColor,
                   child: Center(
                     child: Text(
+                      key: const Key('statusEventTransaksi'),
                       'Berhasil dipesan',
                       style: poppinsKecil.copyWith(
                           color: blackColor, fontWeight: FontWeight.w400),
@@ -210,6 +213,7 @@ class CardEventSuccess extends StatelessWidget {
                       height: 120.h,
                       width: 120.w,
                       child: Image.network(
+                        key: const Key('imageEventTransaksi'),
                         'https://ticket.gwkbali.com/images/ticket/1200%20x%20900.png'
                         // 'https://f.ptcdn.info/298/073/000/qs7t6ibhscUkbPBmH8t-o.jpg',
                         ,
@@ -233,6 +237,7 @@ class CardEventSuccess extends StatelessWidget {
                         // color: thirdColor,
                       ),
                       Text(
+                        key: const Key('namaEventTransaksi'),
                         'Festival Ogoh - Ogoh',
                         style: poppinsKecil.copyWith(
                             fontSize: 16,
@@ -240,6 +245,7 @@ class CardEventSuccess extends StatelessWidget {
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
+                        key: const Key('lokasiEventTransaksi'),
                         'Denpasar, Bali',
                         style: poppinsKecil.copyWith(
                             fontSize: 14,
@@ -250,6 +256,7 @@ class CardEventSuccess extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
+                            key: const Key('hargaEventTransaksi'),
                             'Rp 90.000',
                             style: poppinsKecil.copyWith(
                                 fontSize: 14,
@@ -279,6 +286,7 @@ class CardEventSuccess extends StatelessWidget {
                         ),
                       ),
                       Text(
+                        key: const Key('tanggalEventTransaksi'),
                         '29 Mei 2023',
                         style: poppinsKecil.copyWith(
                             fontSize: 14,
