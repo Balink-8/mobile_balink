@@ -12,7 +12,7 @@ class DetailArtikelScreen extends StatefulWidget {
     super.key,
     required this.artikel,
   });
-  final Datum artikel;
+  final Artikel artikel;
 
   @override
   State<DetailArtikelScreen> createState() => _DetailArtikelScreenState();
@@ -63,7 +63,7 @@ class _DetailArtikelScreenState extends State<DetailArtikelScreen> {
               SizedBox(
                 width: double.infinity,
                 child: Image.asset(
-                  widget.artikel.gambar,
+                  'assets/ogoh.png',
                   scale: .8.r,
                 ),
               ),

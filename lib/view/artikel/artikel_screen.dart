@@ -76,7 +76,7 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
           return ListView.builder(
             itemCount: artikel.length,
             itemBuilder: (context, index) {
-              Datum dataArtikel = artikel[index];
+              Artikel dataArtikel = artikel[index];
               return ItemArtikelWidget(dataArtikel: dataArtikel);
             },
           );

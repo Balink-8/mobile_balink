@@ -10,7 +10,7 @@ class ItemArtikelWidget extends StatelessWidget {
     super.key,
     required this.dataArtikel,
   });
-  final Datum dataArtikel;
+  final Artikel dataArtikel;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class ItemArtikelWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Image.asset(
-                    dataArtikel.gambar,
+                    'assets/festival.png',
                     scale: 0.7.r,
                   ),
                   SizedBox(width: 4.w),

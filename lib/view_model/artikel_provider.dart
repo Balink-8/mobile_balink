@@ -7,13 +7,13 @@ class ArtikelProvider extends ChangeNotifier {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  List<Datum> _listArtikel = [];
+  List<Artikel> _listArtikel = [];
   List get listArtikel => _listArtikel;
 
   Future<void> getArtikel() async {
     _isLoading = true;
     notifyListeners();
-    List<Datum> artikel = await SourceArtikel.getArtikel();
+    List<Artikel> artikel = await SourceArtikel.getArtikel();
     _listArtikel = artikel;
     notifyListeners();
     _isLoading = false;
