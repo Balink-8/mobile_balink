@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/view/checkout/checkout_shop.dart';
 import 'package:mobile_balink/view/widget/home_screen_widget/promo_card.dart';
 import 'package:mobile_balink/view_model/product_provider.dart';
 import 'package:provider/provider.dart';
@@ -11,9 +10,7 @@ import '../widget/home_screen_widget/event_card.dart';
 import '../widget/home_screen_widget/shopping_card_widget.dart';
 
 class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({
-    super.key,
-  });
+  const HomePageScreen({super.key});
 
   @override
   State<HomePageScreen> createState() => _HomePageScreenState();

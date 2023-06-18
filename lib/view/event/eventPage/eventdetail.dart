@@ -190,20 +190,23 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 SizedBox(
                   height: 10.h,
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: secondaryColor),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: whiteColor,
+                        border: Border.all(color: secondaryColor)),
+                    alignment: Alignment.center,
+                    width: 328.w,
+                    height: 40,
                     child: Text(
                       'Arahkan Saya Ke Lokasi Destinasi',
                       style: poppinsKecil.copyWith(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        color: whiteColor,
-                      ),
-                      key: Key('label lokasi destinasi'),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: secondaryColor),
+                      key: Key('label text lokasi destiinasi'),
                     ),
                   ),
                 ),
@@ -211,6 +214,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 10.h,
                 ),
                 bsTicket(
+                  key: const Key('buttomsheet pembelian tiket'),
                   eventData: widget.eventData,
                 )
               ],

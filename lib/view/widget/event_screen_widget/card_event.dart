@@ -31,7 +31,7 @@ class CardEvent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ClipRRect(
-                key: const Key('gambar event'),
+                key: Key('gambar event'),
                 borderRadius: BorderRadius.circular(10.0),
                 child: Image.asset(
                   'assets/icon/event_icon/dummy/g1.png',

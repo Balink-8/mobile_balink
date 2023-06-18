@@ -34,7 +34,9 @@ class _kodeBayarState extends State<kodeBayar> {
           'Kode Pembayaran',
           style: poppinsKecil.copyWith(
               fontWeight: FontWeight.w400, fontSize: 14.sp, color: blackColor),
+          key: const Key('label kode pembayaran'),
         ),
+        key: const Key('app bar kode pembayaran'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -48,6 +50,7 @@ class _kodeBayarState extends State<kodeBayar> {
                     'assets/icon/event_icon/waiting.png',
                     width: 24.w,
                     height: 24.h,
+                    key: const Key('icon jam'),
                   ),
                   SizedBox(
                     width: 6.w,
@@ -58,6 +61,7 @@ class _kodeBayarState extends State<kodeBayar> {
                         fontWeight: FontWeight.w400,
                         fontSize: 14.sp,
                         color: blackColor),
+                    key: const Key('label menunggu pembayaran'),
                   )
                 ],
               ),
@@ -74,6 +78,7 @@ class _kodeBayarState extends State<kodeBayar> {
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
                       color: blackColor),
+                  key: Key('text total harga'),
                 ),
                 Text(
                   'Pembayaran dalam 24 jam sebelumn No. Virtual Account expired',
@@ -81,6 +86,7 @@ class _kodeBayarState extends State<kodeBayar> {
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
+                  key: const Key('label text'),
                 )
               ],
             ),
@@ -93,6 +99,7 @@ class _kodeBayarState extends State<kodeBayar> {
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                   color: blackColor),
+              key: const Key('label VA'),
             ),
             SizedBox(
               height: 5.h,
@@ -103,7 +110,7 @@ class _kodeBayarState extends State<kodeBayar> {
                   borderRadius: BorderRadius.circular(8.r),
                   color: abuAColor),
               width: 327.w,
-              height: 115.h,
+              height: 120.h,
               padding: const EdgeInsets.fromLTRB(97, 12, 97, 12),
               child: Column(
                 children: [
@@ -113,6 +120,7 @@ class _kodeBayarState extends State<kodeBayar> {
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
                         color: blackColor),
+                    key: Key('text nama bank'),
                   ),
                   SizedBox(height: 4.h),
                   Text(
@@ -121,9 +129,11 @@ class _kodeBayarState extends State<kodeBayar> {
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         color: blackColor),
+                    key: Key('text no va'),
                   ),
                   SizedBox(height: 4.h),
                   TextButton(
+                    key: Key('text button copy'),
                     onPressed: () {
                       FlutterClipboard.copy(nova).then((value) =>
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -138,6 +148,7 @@ class _kodeBayarState extends State<kodeBayar> {
                             'assets/icon/event_icon/copy.png',
                             width: 17.w,
                             height: 20.h,
+                            key: const Key('icon copy'),
                           ),
                           SizedBox(
                             width: 4.w,
@@ -148,6 +159,7 @@ class _kodeBayarState extends State<kodeBayar> {
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
+                            key: const Key('label copy code'),
                           )
                         ],
                       ),
@@ -165,6 +177,7 @@ class _kodeBayarState extends State<kodeBayar> {
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                   color: blackColor),
+              key: const Key('label bank'),
             ),
             SizedBox(
               height: 4.h,
@@ -178,11 +191,12 @@ class _kodeBayarState extends State<kodeBayar> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'BCA',
+                      'TRF',
                       style: poppinsKecil.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
+                      key: const Key('label trf'),
                     ),
                   ),
                 ),
@@ -195,6 +209,7 @@ class _kodeBayarState extends State<kodeBayar> {
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
+                  key: Key('label bank yang dipilih'),
                 ),
               ],
             ),
@@ -212,6 +227,7 @@ class _kodeBayarState extends State<kodeBayar> {
                 );
               },
               child: Container(
+                key: const Key('button lihat pesanan'),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.r),
                   color: secondaryColor,
@@ -225,6 +241,7 @@ class _kodeBayarState extends State<kodeBayar> {
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                       color: whiteColor),
+                  key: Key('label lihat pesanan'),
                 ),
               ),
             ),
