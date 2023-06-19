@@ -233,7 +233,7 @@ class _bsTicketState extends State<bsTicket> {
                       children: [
                         Container(
                           width: 150.w,
-                          height: 60.h,
+                          height: 50.h,
                           color: fifthColor,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -330,7 +330,7 @@ class _bsTicketState extends State<bsTicket> {
       builder: (BuildContext context) {
         return AlertDialog(
           insetPadding:
-              const EdgeInsets.symmetric(horizontal: 140, vertical: 360),
+              const EdgeInsets.symmetric(horizontal: 150, vertical: 360),
           titlePadding:
               const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 0),
           title: Image.asset(
