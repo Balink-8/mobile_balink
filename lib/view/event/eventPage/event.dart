@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/model/artikel_model.dart';
 import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_event.dart';
 import 'package:mobile_balink/view_model/event_provider.dart';
@@ -75,9 +76,7 @@ class _EventPageState extends State<EventPage> {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       Event eventData = events[index];
-                      return CardEvent(
-                        eventData: eventData,
-                      );
+                      return CardEvent(eventData: eventData);
                     },
                     separatorBuilder: (context, index) {
                       return SizedBox(

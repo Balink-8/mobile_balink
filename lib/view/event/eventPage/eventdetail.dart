@@ -85,11 +85,12 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 15.h,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.only(right: 10),
                           child: Image.asset(
                             'assets/icon/event_icon/ticket.png',
                             width: 13.w,
@@ -121,7 +122,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 24.h,
                 ),
                 DetailEv(eventData: widget.eventData!),
                 SizedBox(
@@ -162,7 +163,9 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 10.h,
                 ),
                 // GET DATA DARI ARTIKEL
-                const CardTentangEvent(),
+                CardTentangEvent(
+                  eventData: widget.eventData!,
+                ),
                 SizedBox(
                   height: 10.h,
                 ),
@@ -211,7 +214,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 10.h,
+                  height: 25.h,
                 ),
                 bsTicket(
                   key: const Key('buttomsheet pembelian tiket'),

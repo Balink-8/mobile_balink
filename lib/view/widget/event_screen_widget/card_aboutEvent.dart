@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/model/artikel_model.dart';
+import 'package:mobile_balink/model/event_model.dart';
+import 'package:mobile_balink/view/artikel/artikel_screen.dart';
 
 class CardTentangEvent extends StatelessWidget {
-  const CardTentangEvent({
-    super.key,
-  });
+  final Event eventData;
+  const CardTentangEvent({super.key, required this.eventData});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      color: fifthColor,
-      shadowColor: secondaryColor,
+    int artikel_id;
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ArtikelScreen(),
+          ),
+        );
+      },
       child: Row(
         children: [
           Padding(
@@ -32,14 +41,14 @@ class CardTentangEvent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                'Ogoh - Ogoh',
+                eventData.nama,
                 style: poppinsKecil.copyWith(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                     color: blackColor),
               ),
               Text(
-                'Lets make some happy little...',
+                eventData.artikelId,
                 style: poppinsKecil.copyWith(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
