@@ -7,24 +7,17 @@ import '../../../model/product_model.dart';
 import '../../../view_model/product_provider.dart';
 import '../shopping_page/detail_shop_card.dart';
 
-class ShoppingCard extends StatelessWidget {
-  const ShoppingCard({Key? key}) : super(key: key);
+class Recomendation extends StatelessWidget {
+  const Recomendation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Consumer<ProductProvider>(builder: (context, provProduct, child) {
       final products = provProduct.listProduct;
-      final searchText = provProduct.searchText;
-
-      List filteredProducts = products
-          .where((product) =>
-              product.nama.toLowerCase().contains(searchText.toLowerCase()))
-          .toList();
-
       return GridView.builder(
-        shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: filteredProducts.length,
+        shrinkWrap: true,
+        itemCount: products.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 8,
@@ -32,7 +25,7 @@ class ShoppingCard extends StatelessWidget {
           mainAxisExtent: 270.h,
         ),
         itemBuilder: (BuildContext context, int index) {
-          Product productData = filteredProducts[index];
+          Product productData = products[index];
           return InkWell(
             onTap: () {
               Navigator.push(

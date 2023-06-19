@@ -22,4 +22,15 @@ class SourceProduct {
   // Future<List<Product>> getProduct()async{
   //   var
   // }
+
+  static Future<List<Product>> getProductByName(String productName) async {
+    Map? responseBody =
+        await AppRequest.gets('${Api.produk}?name=$productName');
+    if (responseBody == null) return [];
+    if (responseBody.isNotEmpty) {
+      List list = responseBody['data']['data'];
+      return list.map((e) => Product.fromJson(e)).toList();
+    }
+    throw Exception('Gagal Get Products by Name');
+  }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/shopping/widgets_shopping/category.dart';
 import 'package:mobile_balink/view/shopping/widgets_shopping/shopping_card.dart';
+import 'package:mobile_balink/view_model/product_provider.dart';
+import 'package:provider/provider.dart';
 import '../../../config/theme.dart';
 
 class ShopScreen extends StatefulWidget {
@@ -15,7 +17,16 @@ class _ShopScreenState extends State<ShopScreen> {
   final TextEditingController _searchController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    final provider = Provider.of<ProductProvider>(context, listen: false);
+    provider.getProduct();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ProductProvider>(context);
+
     return Scaffold(
       key: const Key('shopPage'),
       body: SafeArea(
@@ -68,6 +79,9 @@ class _ShopScreenState extends State<ShopScreen> {
                                   color: const Color(0xff868686),
                                 ),
                               ),
+                              onChanged: (value) {
+                                provider.search(value);
+                              },
                             ),
                           ),
                         ),

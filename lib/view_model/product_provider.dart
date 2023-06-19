@@ -9,6 +9,8 @@ class ProductProvider extends ChangeNotifier {
   List<Product> _listProduct = [];
   List get listProduct => _listProduct;
 
+  String searchText = '';
+
   Future<void> getProduct() async {
     _isLoading = true;
     notifyListeners();
@@ -27,5 +29,21 @@ class ProductProvider extends ChangeNotifier {
     //   _isLoading = false;
 
     // }
+  }
+
+  updatedata() {
+    if (searchText.isEmpty) {
+      _listProduct;
+    } else {
+      _listProduct
+          .where((e) => e.nama.toLowerCase().startsWith(searchText))
+          .toList();
+    }
+    notifyListeners();
+  }
+
+  search(String nama) {
+    searchText = nama;
+    updatedata();
   }
 }
