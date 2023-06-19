@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 
 import '../../../model/event_model.dart';
@@ -20,8 +21,8 @@ class DetailEv extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           key: Key('label deskripsi'),
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: 10.h,
         ),
         Text(
           eventData.deskripsi,
@@ -31,8 +32,8 @@ class DetailEv extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           key: Key('text deskripsi'),
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: 10.h,
         )
       ],
     );

@@ -190,7 +190,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       Text(
                         'x $jumlah',
                         style: poppinsKecil.copyWith(
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w700,
                             color: secondaryColor),
                         key: Key('label jumlah tiket'),

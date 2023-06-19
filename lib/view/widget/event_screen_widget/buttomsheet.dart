@@ -52,8 +52,8 @@ class _bsTicketState extends State<bsTicket> {
                                   borderRadius: BorderRadius.circular(10.0),
                                   child: Image.asset(
                                     'assets/icon/event_icon/dummy/g1.png',
-                                    width: 64,
-                                    height: 64,
+                                    width: 64.w,
+                                    height: 64.h,
                                     key: Key('gambar event'),
                                   ),
                                 ),
@@ -71,42 +71,42 @@ class _bsTicketState extends State<bsTicket> {
                                       child: Text(
                                         widget.eventData!.tanggalMulai,
                                         style: poppinsKecil.copyWith(
-                                            fontSize: 10,
+                                            fontSize: 10.sp,
                                             fontWeight: FontWeight.w500,
                                             color: secondaryColor),
                                         key: Key('text tanggal mulai'),
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 12,
+                                  SizedBox(
+                                    height: 12.h,
                                   ),
                                   Text(
                                     widget.eventData!.nama,
                                     style: poppinsKecil.copyWith(
-                                        fontSize: 16,
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.w700,
                                         color: blackColor),
                                     key: Key('text event'),
                                   ),
-                                  const SizedBox(
-                                    height: 12,
+                                  SizedBox(
+                                    height: 12.h,
                                   ),
                                   Row(
                                     children: [
                                       Image.asset(
                                         'assets/icon/event_icon/location.png',
-                                        width: 10,
-                                        height: 13,
+                                        width: 10.w,
+                                        height: 13.h,
                                         key: Key('icon lokasi'),
                                       ),
-                                      const SizedBox(
-                                        width: 10,
+                                      SizedBox(
+                                        width: 10.w,
                                       ),
                                       Text(
                                         widget.eventData!.lokasi,
                                         style: poppinsKecil.copyWith(
-                                            fontSize: 12,
+                                            fontSize: 12.sp,
                                             fontWeight: FontWeight.w400,
                                             color: blackColor),
                                         key: Key('text alamat'),
@@ -128,8 +128,8 @@ class _bsTicketState extends State<bsTicket> {
                                 },
                                 icon: Image.asset(
                                   'assets/icon/event_icon/close.png',
-                                  width: 11,
-                                  height: 11,
+                                  width: 11.w,
+                                  height: 11.h,
                                   key: Key('icon close'),
                                 ),
                               ),
@@ -147,36 +147,36 @@ class _bsTicketState extends State<bsTicket> {
                                     children: [
                                       Image.asset(
                                         'assets/icon/event_icon/ticket.png',
-                                        width: 13,
-                                        height: 11,
+                                        width: 13.w,
+                                        height: 11.h,
                                         key: Key('icon tiket'),
                                       ),
-                                      const SizedBox(
-                                        width: 10,
+                                      SizedBox(
+                                        width: 10.w,
                                       ),
                                       Text(
                                         'Tiket',
                                         style: poppinsKecil.copyWith(
-                                            fontSize: 14,
+                                            fontSize: 14.sp,
                                             fontWeight: FontWeight.w400,
                                             color: blackColor),
                                         key: Key('label tiket'),
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: 10.h,
                                   ),
                                   Text(
                                     "Rp ${widget.eventData!.hargaTiket.toString()}",
                                     style: poppinsKecil.copyWith(
-                                        fontSize: 16,
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.w700,
                                         color: blackColor),
                                     key: Key('text harga'),
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: 10.h,
                                   ),
                                 ],
                               ),
@@ -192,15 +192,15 @@ class _bsTicketState extends State<bsTicket> {
                                     },
                                     icon: Image.asset(
                                       'assets/icon/event_icon/min.png',
-                                      width: 11,
-                                      height: 11,
+                                      width: 11.w,
+                                      height: 11.h,
                                       key: Key('icon minus'),
                                     ),
                                   ),
                                   Text(
                                     jumlah.toString(),
                                     style: poppinsKecil.copyWith(
-                                        fontSize: 14,
+                                        fontSize: 14.sp,
                                         fontWeight: FontWeight.w700,
                                         color: secondaryColor),
                                     key: Key('label jumlah'),
@@ -215,8 +215,8 @@ class _bsTicketState extends State<bsTicket> {
                                     },
                                     icon: Image.asset(
                                       'assets/icon/event_icon/add.png',
-                                      width: 11,
-                                      height: 11,
+                                      width: 11.w,
+                                      height: 11.h,
                                       key: Key('icon tambah'),
                                     ),
                                   ),
@@ -242,18 +242,18 @@ class _bsTicketState extends State<bsTicket> {
                                 Text(
                                   'Total',
                                   style: poppinsKecil.copyWith(
-                                      fontSize: 10,
+                                      fontSize: 10.sp,
                                       fontWeight: FontWeight.w400,
                                       color: blackColor),
                                   key: Key('label total'),
                                 ),
-                                const SizedBox(
-                                  height: 5,
+                                SizedBox(
+                                  height: 5.h,
                                 ),
                                 Text(
                                   'Rp ${widget.eventData!.hargaTiket * jumlah} ',
                                   style: poppinsKecil.copyWith(
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       fontWeight: FontWeight.w700,
                                       color: blackColor),
                                   key: Key('text harga total'),
@@ -281,12 +281,12 @@ class _bsTicketState extends State<bsTicket> {
                           child: Container(
                             alignment: Alignment.center,
                             width: 150.w,
-                            height: 60,
+                            height: 60.h,
                             color: secondaryColor,
                             child: Text(
                               'Beli Sekarang',
                               style: poppinsKecil.copyWith(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w700,
                                 color: fifthColor,
                               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 
@@ -20,30 +21,30 @@ class cardClock extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/icon/event_icon/alarmm.png',
-                  width: 11,
-                  height: 12,
+                  width: 11.w,
+                  height: 12.h,
                   key: Key('icon jam'),
                 ),
-                const SizedBox(
-                  width: 5,
+                SizedBox(
+                  width: 5.w,
                 ),
                 Text(
                   'Waktu',
                   style: poppinsKecil.copyWith(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
                   key: Key('text waktu'),
                 )
               ],
             ),
-            const SizedBox(height: 5),
+            SizedBox(height: 5.h),
             Column(
               children: [
                 Text(
                   eventData.waktuMulai,
                   style: poppinsKecil.copyWith(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                       color: blackColor),
                   key: Key('text waktu mulai'),
@@ -59,7 +60,7 @@ class cardClock extends StatelessWidget {
                 Text(
                   eventData.waktuSelesai,
                   style: poppinsKecil.copyWith(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                       color: blackColor),
                   key: Key('text waktu selesai'),
