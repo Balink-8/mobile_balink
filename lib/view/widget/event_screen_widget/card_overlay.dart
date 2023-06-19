@@ -32,30 +32,30 @@ class Card_CO extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/icon/event_icon/ticket.png',
-                        width: 13,
-                        height: 11,
+                        width: 13.w,
+                        height: 11.h,
                         key: Key('icon tiket'),
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: 10.w,
                       ),
                       Text(
                         'Tiket',
                         style: poppinsKecil.copyWith(
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
                             color: blackColor),
                         key: Key('label tiket'),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: 10.h,
                   ),
                   Text(
                     "Rp ${eventData.hargaTiket.toString()}",
                     style: poppinsKecil.copyWith(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         color: blackColor),
                     key: Key('harga tiket'),
@@ -66,7 +66,9 @@ class Card_CO extends StatelessWidget {
             Text(
               'x $jumlah',
               style: poppinsKecil.copyWith(
-                  fontSize: 12, fontWeight: FontWeight.w400, color: blackColor),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                  color: blackColor),
               key: Key('label jumlah tiket'),
             ),
           ],

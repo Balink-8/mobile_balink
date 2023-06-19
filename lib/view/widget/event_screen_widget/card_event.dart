@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 
@@ -36,20 +37,20 @@ class CardEvent extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
                 child: Image.asset(
                   'assets/icon/event_icon/dummy/g1.png',
-                  width: 64,
-                  height: 64,
+                  width: 64.w,
+                  height: 64.h,
                 ),
               ),
             ),
-            const SizedBox(
-              width: 24,
+            SizedBox(
+              width: 24.w,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
                 Card(
                   shape: OutlineInputBorder(
@@ -61,50 +62,50 @@ class CardEvent extends StatelessWidget {
                     child: Text(
                       eventData.tanggalMulai,
                       style: poppinsKecil.copyWith(
-                          fontSize: 11,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
                       key: Key('text tanggal'),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: 12.h,
                 ),
                 Text(
                   eventData.nama,
                   style: poppinsKecil.copyWith(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
                   key: const Key('text nama event'),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: 12.h,
                 ),
                 Row(
                   children: [
                     Image.asset(
                       'assets/icon/event_icon/location.png',
-                      width: 10,
-                      height: 13,
+                      width: 10.w,
+                      height: 13.h,
                       key: Key('icon lokasi'),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: 10.w,
                     ),
                     Text(
                       eventData.lokasi,
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
                       key: Key('text lokasi'),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 )
               ],
             )

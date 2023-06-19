@@ -199,11 +199,11 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                         border: Border.all(color: secondaryColor)),
                     alignment: Alignment.center,
                     width: 328.w,
-                    height: 40,
+                    height: 40.h,
                     child: Text(
                       'Arahkan Saya Ke Lokasi Destinasi',
                       style: poppinsKecil.copyWith(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: secondaryColor),
                       key: Key('label text lokasi destiinasi'),

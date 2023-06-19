@@ -51,7 +51,7 @@ class _EventCoState extends State<EventCo> {
         title: Text(
           'Checkout',
           style: poppinsKecil.copyWith(
-              fontWeight: FontWeight.w700, fontSize: 14, color: blackColor),
+              fontWeight: FontWeight.w700, fontSize: 14.sp, color: blackColor),
           key: const Key('label checkout'),
         ),
         key: const Key('app bar checkout'),
@@ -71,7 +71,7 @@ class _EventCoState extends State<EventCo> {
                     Text(
                       'Kode Promo',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
                       key: const Key('label kode promo'),
@@ -104,19 +104,19 @@ class _EventCoState extends State<EventCo> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Text(
                       'Ringkasan Pesanan',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
                       key: const Key('label ringkasan pesanan'),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -124,7 +124,7 @@ class _EventCoState extends State<EventCo> {
                         Text(
                           'Subtotal',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: abuColor),
                           key: const Key('label subtotal'),
@@ -132,15 +132,15 @@ class _EventCoState extends State<EventCo> {
                         Text(
                           'Rp${widget.eventData!.hargaTiket * jumlah}',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
                               color: blackColor),
                           key: Key('text harga subtotal'),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,7 +148,7 @@ class _EventCoState extends State<EventCo> {
                         Text(
                           'Pengiriman',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: abuColor),
                           key: Key('label pengiriman'),
@@ -156,15 +156,15 @@ class _EventCoState extends State<EventCo> {
                         Text(
                           'Rp$hargaPengiriman',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
                               color: blackColor),
                           key: Key('text harga pengiriman '),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,7 +172,7 @@ class _EventCoState extends State<EventCo> {
                         Text(
                           'Promo',
                           style: poppinsKecil.copyWith(
-                              fontSize: 10,
+                              fontSize: 10.sp,
                               fontWeight: FontWeight.w400,
                               color: abuColor),
                           key: Key('label promo'),
@@ -180,15 +180,15 @@ class _EventCoState extends State<EventCo> {
                         Text(
                           '-',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
                               color: blackColor),
                           key: Key('text promo'),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -196,7 +196,7 @@ class _EventCoState extends State<EventCo> {
                         Text(
                           'Total',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
                               color: abuColor),
                           key: Key('label total'),
@@ -204,40 +204,40 @@ class _EventCoState extends State<EventCo> {
                         Text(
                           'Rp${harga + hargaPengiriman}',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
                               color: blackColor),
                           key: Key('text total harga'),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: 30.h,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Image.asset(
                           'assets/icon/event_icon/dollar.png',
-                          width: 20,
-                          height: 20,
+                          width: 20.w,
+                          height: 20.h,
                           key: const Key('icon dollar'),
                         ),
-                        const SizedBox(
-                          width: 10,
+                        SizedBox(
+                          width: 10.w,
                         ),
                         Text(
                           'Metode Pembayaran',
                           style: poppinsKecil.copyWith(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
                               color: blackColor),
                           key: const Key('label metode pembayaran'),
                         )
                       ],
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: 15.h,
                     ),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -255,7 +255,7 @@ class _EventCoState extends State<EventCo> {
                                     child: Text(
                                       'TRF',
                                       style: poppinsKecil.copyWith(
-                                          fontSize: 12,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w400,
                                           color: greyColor),
                                       key: Key('label trf'),
@@ -266,7 +266,7 @@ class _EventCoState extends State<EventCo> {
                                     ? Text(
                                         'Transfer Bank',
                                         style: poppinsKecil.copyWith(
-                                            fontSize: 12,
+                                            fontSize: 12.sp,
                                             fontWeight: FontWeight.w400,
                                             color: blackColor),
                                         key: Key('label transfer bank'),
@@ -274,7 +274,7 @@ class _EventCoState extends State<EventCo> {
                                     : Text(
                                         widget.metodePembayaran,
                                         style: poppinsKecil.copyWith(
-                                            fontSize: 12,
+                                            fontSize: 12.sp,
                                             fontWeight: FontWeight.w400,
                                             color: blackColor),
                                       ),
@@ -285,8 +285,8 @@ class _EventCoState extends State<EventCo> {
                               ? IconButton(
                                   icon: Image.asset(
                                     'assets/icon/event_icon/back.png',
-                                    width: 11,
-                                    height: 11,
+                                    width: 11.w,
+                                    height: 11.h,
                                     key: Key('icon untk pilih bank'),
                                   ),
                                   onPressed: () {
@@ -296,8 +296,8 @@ class _EventCoState extends State<EventCo> {
                               : IconButton(
                                   icon: Image.asset(
                                     'assets/icon/event_icon/radio.png',
-                                    width: 11,
-                                    height: 11,
+                                    width: 11.w,
+                                    height: 11.h,
                                     key: Key('icon pilih bank'),
                                   ),
                                   onPressed: () {
@@ -323,7 +323,7 @@ class _EventCoState extends State<EventCo> {
                               child: Text(
                                 'COD',
                                 style: poppinsKecil.copyWith(
-                                    fontSize: 12,
+                                    fontSize: 12.sp,
                                     fontWeight: FontWeight.w400,
                                     color: greyColor),
                                 key: Key('label COD'),
@@ -333,7 +333,7 @@ class _EventCoState extends State<EventCo> {
                           Text(
                             'Bayar di Tempat',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
                             key: Key('text bayar di tempat'),
@@ -362,7 +362,7 @@ class _EventCoState extends State<EventCo> {
                     Text(
                       'Total (2 produk)',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
                       key: Key('label total produk'),
@@ -370,7 +370,7 @@ class _EventCoState extends State<EventCo> {
                     Text(
                       'Rp${harga + hargaPengiriman}',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
                       key: Key('text total hargaa'),
@@ -412,7 +412,7 @@ class _EventCoState extends State<EventCo> {
                     Text(
                       'Metode Pembayaran',
                       style: poppinsKecil.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
                       key: Key('label metode pmbyrn'),
@@ -432,24 +432,24 @@ class _EventCoState extends State<EventCo> {
                       },
                       icon: Image.asset(
                         'assets/icon/event_icon/close.png',
-                        width: 11,
-                        height: 11,
+                        width: 11.w,
+                        height: 11.h,
                         key: Key('icon close'),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Text(
                   'Transfer Bank',
                   style: poppinsKecil.copyWith(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
                   key: Key('label trf bank'),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 15.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -467,7 +467,7 @@ class _EventCoState extends State<EventCo> {
                               child: Text(
                                 'BCA',
                                 style: poppinsKecil.copyWith(
-                                    fontSize: 12,
+                                    fontSize: 12.sp,
                                     fontWeight: FontWeight.w400,
                                     color: greyColor),
                               ),
@@ -479,7 +479,7 @@ class _EventCoState extends State<EventCo> {
                           Text(
                             'Bank Central Asia',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
                             key: Key('label bank bca'),
@@ -519,19 +519,19 @@ class _EventCoState extends State<EventCo> {
                               child: Text(
                                 'Mandiri',
                                 style: poppinsKecil.copyWith(
-                                    fontSize: 12,
+                                    fontSize: 12.sp,
                                     fontWeight: FontWeight.w400,
                                     color: greyColor),
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 10.w,
                           ),
                           Text(
                             'Bank Mandiri',
                             style: poppinsKecil.copyWith(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
                             key: Key('label bank mandiri'),
@@ -570,7 +570,7 @@ class _EventCoState extends State<EventCo> {
                       child: Text(
                         'Selanjutnya',
                         style: poppinsKecil.copyWith(
-                            fontSize: 11,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w700,
                             color: whiteColor),
                         key: Key('label selanjutnya'),
@@ -615,11 +615,11 @@ class _BuatPesananState extends State<BuatPesanan> {
         key: const Key('button buat pesanan'),
         color: secondaryColor,
         alignment: Alignment.center,
-        height: 53,
+        height: 53.h,
         child: Text(
           'Buat Pesanan',
           style: poppinsKecil.copyWith(
-              fontSize: 14, fontWeight: FontWeight.w700, color: whiteColor),
+              fontSize: 14.sp, fontWeight: FontWeight.w700, color: whiteColor),
           key: const Key('labell buat pesanan'),
         ),
       ),

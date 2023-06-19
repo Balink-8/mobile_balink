@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 
 class CardTentangEvent extends StatelessWidget {
@@ -20,13 +21,13 @@ class CardTentangEvent extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
               child: Image.asset(
                 'assets/logo.png',
-                width: 94,
-                height: 87,
+                width: 94.w,
+                height: 87.h,
               ),
             ),
           ),
-          const SizedBox(
-            width: 24,
+          SizedBox(
+            width: 24.w,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -34,14 +35,14 @@ class CardTentangEvent extends StatelessWidget {
               Text(
                 'Ogoh - Ogoh',
                 style: poppinsKecil.copyWith(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
                     color: blackColor),
               ),
               Text(
                 'Lets make some happy little...',
                 style: poppinsKecil.copyWith(
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
                     color: blackColor),
               )

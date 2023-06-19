@@ -33,7 +33,7 @@ class _EventPageState extends State<EventPage> {
           child: Column(children: [
             Stack(
               children: [
-                Image.asset('assets/laut.png', width: 360.w, height: 150),
+                Image.asset('assets/laut.png', width: 360.w, height: 150.h),
                 Padding(
                   padding: const EdgeInsets.only(top: 40),
                   child: Center(
