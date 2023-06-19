@@ -4,4 +4,5 @@ class Api {
   static const String register = '$baseUrl/user_register';
   static const String produk = '$baseUrl/produk';
   static const String event = '$baseUrl/event';
+  static const String artikel = '$baseUrl/artikel';
 }

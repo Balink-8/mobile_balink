@@ -13,8 +13,10 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('screenPesananCancel'),
       appBar: AppBar(
         title: Text(
+          key: const Key('titlePesananCancel'),
           'Dibatalkan',
           style: poppinsKecil.copyWith(
             color: blackColor,
@@ -51,6 +53,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
             Row(
               children: [
                 Text(
+                  key: const Key('metodePembayaran'),
                   'Metode pembayaran pilihan',
                   style: poppinsKecil.copyWith(
                       color: const Color.fromRGBO(89, 90, 89, 1)),
@@ -96,6 +99,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                           height: 6.h,
                         ),
                         Text(
+                            key: const Key('alamatPengirimanCancel'),
                             'Jl. Mengaling, Celuk, Kec. Sukawati, Kabupaten Gianyar, Bali',
                             style: poppinsKecil.copyWith(
                                 color: const Color.fromRGBO(89, 90, 89, 1),
@@ -127,6 +131,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                     ),
                     // ),
                     child: Image.network(
+                      key: const Key('imageProdukCancel'),
                       'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
                       fit: BoxFit.cover,
 
@@ -142,6 +147,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Kemeja Endek Strait Motif Bali Premium',
+                          key: const Key('namaProdukCancel'),
                           style: poppinsKecil.copyWith(
                               color: blackColor, fontWeight: FontWeight.w400)),
                       const SizedBox(
@@ -151,11 +157,14 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
+                            key: const Key('hargaProdukCancel'),
                             'Rp 90.0000',
                             style: poppinsKecil.copyWith(
                                 color: blackColor, fontWeight: FontWeight.w400),
                           ),
-                          Text('1x',
+                          Text(
+                              key: const Key('totalProdukCancel'),
+                              '1x',
                               style: poppinsKecil.copyWith(
                                   color: blackColor,
                                   fontWeight: FontWeight.w400))
@@ -214,6 +223,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('promoCancel'),
                   '-',
                   style: poppinsKecil.copyWith(color: Colors.red),
                 ),
@@ -228,6 +238,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                       color: blackColor, fontWeight: FontWeight.bold),
                 ),
                 Text(
+                  key: const Key('totalHargaCancel'),
                   'Rp. 100.000',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.bold),
@@ -251,6 +262,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('noPesananCancel'),
                   '577889036123879654',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.bold),
@@ -266,6 +278,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('tanggalPemesananCancel'),
                   '29 April 2023, 6:15 AM',
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
@@ -280,6 +293,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('metodePembayaranCancel'),
                   'Bank Central Asia',
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
@@ -288,6 +302,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
             SizedBox(height: 6.h),
             SizedBox(height: 230.h),
             GestureDetector(
+              key: const Key('buttonBeliSekarangCancel'),
               onTap: () {},
               child: Container(
                 width: 360.w,
