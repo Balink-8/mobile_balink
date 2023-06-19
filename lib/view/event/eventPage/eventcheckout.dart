@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
-import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_overlay.dart';
-import 'package:provider/provider.dart';
 
 import '../../../model/event_model.dart';
-import '../../../view_model/event_provider.dart';
 
 class EventCo extends StatefulWidget {
   final Event? eventData;
@@ -525,8 +522,8 @@ class _EventCoState extends State<EventCo> {
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 10.w,
                           ),
                           Text(
                             'Bank Mandiri',

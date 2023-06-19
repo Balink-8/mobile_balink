@@ -37,6 +37,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
         key: Key('appbar screen detail'),
       ),
       body: SafeArea(
+        key: const Key('screen event detail'),
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -172,8 +173,11 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 10.h,
                 ),
                 // GET DATA DARI ARTIKEL
-                CardTentangEvent(
-                  eventData: widget.eventData!,
+                SizedBox(
+                  height: 100.h,
+                  child: CardTentangEvent(
+                    eventData: widget.eventData!,
+                  ),
                 ),
                 SizedBox(
                   height: 10.h,
