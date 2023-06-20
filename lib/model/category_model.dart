@@ -1,42 +1,23 @@
 class Category {
-  final DataCategory data;
-  final String message;
-  final bool status;
+  int id;
+  String nama;
+  String deskripsi;
 
   Category({
-    required this.data,
-    required this.message,
-    required this.status,
+    required this.id,
+    required this.nama,
+    required this.deskripsi,
   });
 
-  factory Category.fromJson(Map<String, dynamic> json) {
-    return Category(
-      data: DataCategory.fromJson(json['data']),
-      message: json['message'],
-      status: json['status'],
-    );
-  }
-}
+  factory Category.fromJson(Map<String, dynamic> json) => Category(
+        id: json["ID"],
+        nama: json["nama"],
+        deskripsi: json["deskripsi"],
+      );
 
-class DataCategory {
-  final List<dynamic> data;
-  final int dataShown;
-  final int page;
-  final int totalData;
-
-  DataCategory({
-    required this.data,
-    required this.dataShown,
-    required this.page,
-    required this.totalData,
-  });
-
-  factory DataCategory.fromJson(Map<String, dynamic> json) {
-    return DataCategory(
-      data: json['data'],
-      dataShown: json['data_shown'],
-      page: json['page'],
-      totalData: json['total_data'],
-    );
-  }
+  Map<String, dynamic> toJson() => {
+        "ID": id,
+        "nama": nama,
+        "deskripsi": deskripsi,
+      };
 }

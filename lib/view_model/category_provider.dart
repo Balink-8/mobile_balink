@@ -1,36 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_balink/model/category_model.dart';
 
-class CategoryProvider with ChangeNotifier {
-  List<dynamic> _data = [];
-  int _dataShown = 0;
-  int _page = 1;
-  int _totalData = 0;
-  String _message = '';
-  bool _status = false;
+import '../source/source_category.dart';
 
-  List<dynamic> get data => _data;
-  int get dataShown => _dataShown;
-  int get page => _page;
-  int get totalData => _totalData;
-  String get message => _message;
-  bool get status => _status;
+class CategoryProvider extends ChangeNotifier {
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
 
-  void updateCategoryData(
-      List<dynamic> data, int dataShown, int page, int totalData) {
-    _data = data;
-    _dataShown = dataShown;
-    _page = page;
-    _totalData = totalData;
+  List<Category> _listCategory = [];
+  List get listCategory => _listCategory;
+
+  Future<void> getCategory() async {
+    _isLoading = true;
     notifyListeners();
-  }
-
-  void updateMessage(String message) {
-    _message = message;
+    List<Category> categorys = await SourceCategory.getCategory();
+    _listCategory = categorys;
     notifyListeners();
-  }
-
-  void updateStatus(bool status) {
-    _status = status;
+    _isLoading = false;
     notifyListeners();
   }
 }
