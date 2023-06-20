@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/model/category_model.dart';
 import 'package:mobile_balink/model/event_model.dart';
+import 'package:mobile_balink/view/shopping/shopping_page/category_product.dart';
+import 'package:mobile_balink/view/shopping/shopping_page/detail_shop_card.dart';
 import 'package:mobile_balink/view/widget/home_screen_widget/promo_card.dart';
+import 'package:mobile_balink/view_model/category_provider.dart';
 import 'package:mobile_balink/view_model/event_provider.dart';
 import 'package:mobile_balink/view_model/product_provider.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +32,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
     );
     Future.microtask(
       () => Provider.of<EventProvider>(context, listen: false).getEvent(),
+    );
+    Future.microtask(
+      () => Provider.of<CategoryProvider>(context, listen: false).getCategory(),
     );
   }
 
@@ -176,27 +183,47 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       fontWeight: FontWeight.w600),
                 ),
               ),
-              Padding(
-                  padding: const EdgeInsets.only(
-                      left: 25.0, right: 25.0, bottom: 17),
-                  child: SizedBox(
-                    height: 87.h,
-                    // height: 300,
-                    // width: 94,
-                    child: ListView.separated(
-                        key: const Key('listShoppingHome'),
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return const ShoppingCardWidget();
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            width: 5.w,
-                          );
-                        },
-                        itemCount: 5),
-                  )),
+              Consumer<CategoryProvider>(
+                builder: (context, provCategory, child) {
+                  final shoppings = provCategory.listCategory;
+                  return Padding(
+                      padding: const EdgeInsets.only(
+                          left: 25.0, right: 25.0, bottom: 17),
+                      child: SizedBox(
+                        height: 87.h,
+                        // height: 300,
+                        // width: 94,
+                        child: ListView.separated(
+                            key: const Key('listShoppingHome'),
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              CategoryModel categoryData = shoppings[index];
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              CategoryProduct(index: index)));
+                                },
+                                child: ShoppingCardWidget(
+                                  categoryDataHome: categoryData,
+                                ),
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return SizedBox(
+                                width: 5.w,
+                              );
+                            },
+                            itemCount: shoppings.length),
+                      ));
+                },
+              ),
+              // (
+              //   // child:
+              // ),
 
               //PROMO CARD
               Padding(
@@ -223,7 +250,17 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             Product productData = products[index];
-                            return PromoCardWidget(productData: productData);
+                            return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DetailCard(
+                                              index: index,
+                                              detailProduct: productData)));
+                                },
+                                child:
+                                    PromoCardWidget(productData: productData));
                           },
                           separatorBuilder: (context, index) {
                             return SizedBox(

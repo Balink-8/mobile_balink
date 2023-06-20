@@ -13,7 +13,6 @@ class ProductProvider extends ChangeNotifier {
 
   Future<void> getProduct() async {
     _isLoading = true;
-    notifyListeners();
     List<Product> products = await SourceProduct.getProduct();
     _listProduct = products;
     notifyListeners();

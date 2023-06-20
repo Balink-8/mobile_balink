@@ -18,8 +18,8 @@ class EvenCardWidget extends StatelessWidget {
       // color: Color.fromRGBO(215, 245, 246, 1),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       child: SizedBox(
-        height: 120.h,
-        width: 300.w,
+        // height: 120.h,
+        width: 270.w,
         child: Row(
           children: [
             // CarouselView(),
@@ -41,74 +41,83 @@ class EvenCardWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 15.0,
-                right: 35.0,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                      height: 25.h,
-                      width: 110.w,
-                      decoration: BoxDecoration(
-                        color:
-                            thirdColor, // Replace with your desired background color
-                        borderRadius: BorderRadius.circular(
-                            4.0), // Replace with your desired border radius
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 15.0,
+                  right: 35.0,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                        height: 25.h,
+                        width: 110.w,
+                        decoration: BoxDecoration(
+                          color:
+                              thirdColor, // Replace with your desired background color
+                          borderRadius: BorderRadius.circular(
+                              4.0), // Replace with your desired border radius
+                        ),
+                        // color: thirdColor,
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Center(
+                            child: Text(
+                              key: const Key('dateEventHome'),
+                              eventDataHome.tanggalMulai,
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              // '12 Jan 2023',
+                              style: poppinsKecil.copyWith(
+                                  overflow: TextOverflow.ellipsis,
+                                  fontSize: 10.sp,
+                                  color: const Color.fromRGBO(247, 245, 245, 1),
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Text(
+                        key: const Key('titleEventHome'),
+                        eventDataHome.nama,
+                        // 'Title Event',
+                        maxLines: 1,
+                        style: poppinsKecil.copyWith(
+                            overflow: TextOverflow.ellipsis,
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600),
                       ),
-                      // color: thirdColor,
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Center(
+                    ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.location_on_outlined,
+                          color: Color.fromRGBO(194, 129, 62, 1),
+                          size: 15,
+                        ),
+                        const SizedBox(
+                          width: 6.67,
+                        ),
+                        Expanded(
                           child: Text(
-                            key: const Key('dateEventHome'),
-                            eventDataHome.tanggalMulai,
-                            // '12 Jan 2023',
+                            key: const Key('eventLocationHome'),
+                            eventDataHome.lokasi,
+                            maxLines: 1,
+                            // 'Event Location',
                             style: poppinsKecil.copyWith(
-                                fontSize: 10.sp,
-                                color: const Color.fromRGBO(247, 245, 245, 1),
-                                fontWeight: FontWeight.w400),
+                              overflow: TextOverflow.ellipsis,
+                              fontSize: 12.sp,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
-                      )),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      key: const Key('titleEventHome'),
-                      eventDataHome.nama,
-                      // 'Title Event',
-                      maxLines: 1,
-                      style: poppinsKecil.copyWith(
-                          overflow: TextOverflow.ellipsis,
-                          fontSize: 16,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600),
+                      ],
                     ),
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.location_on_outlined,
-                        color: Color.fromRGBO(194, 129, 62, 1),
-                        size: 15,
-                      ),
-                      const SizedBox(
-                        width: 6.67,
-                      ),
-                      Text(
-                        key: const Key('eventLocationHome'),
-                        eventDataHome.lokasi,
-                        // 'Event Location',
-                        style: poppinsKecil.copyWith(
-                          fontSize: 12.sp,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
             )
           ],
