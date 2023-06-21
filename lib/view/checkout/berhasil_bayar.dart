@@ -14,6 +14,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: blackColor,
         title: Text(
           'Berhasil Dipesan',
           style: poppinsKecil.copyWith(
@@ -211,10 +212,34 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
             Center(
               child: Column(
                 children: [
-                  Text(
-                    '" Berhasil Dibayar "',
-                    style: poppinsKecil.copyWith(
-                        color: blackColor, fontWeight: FontWeight.bold),
+                  Container(
+                    key: const Key('box lunas'),
+                    width: 360.w,
+                    height: 68.h,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: grenColor,
+                        border: Border.all(color: greenColor)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/icon/event_icon/done.png',
+                          key: const Key('icon berhasil'),
+                          width: 15.44.w,
+                          height: 11.18.h,
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Text(
+                          'LUNAS',
+                          style: poppinsKecil.copyWith(
+                              fontWeight: FontWeight.w700, color: greenColor),
+                          key: const Key('label lunas'),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
