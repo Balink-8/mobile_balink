@@ -13,6 +13,21 @@ class Keranjang extends StatefulWidget {
 
 class _KeranjangState extends State<Keranjang> {
   bool? isChecked = false;
+  int quantity = 1;
+
+  void increaseQuantity() {
+    setState(() {
+      quantity++;
+    });
+  }
+
+  void decreaseQuantity() {
+    setState(() {
+      if (quantity > 1) {
+        quantity--;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,9 +118,26 @@ class _KeranjangState extends State<Keranjang> {
                                   height: 20.h,
                                   decoration: const BoxDecoration(
                                       color: Colors.white30),
+                                  child: InkWell(
+                                    onTap: decreaseQuantity,
+                                    child: Center(
+                                      child: Text(
+                                        '-',
+                                        style: poppinsKecil.copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.black),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 20.w,
+                                  height: 20.h,
+                                  decoration: const BoxDecoration(
+                                      color: Colors.white30),
                                   child: Center(
                                     child: Text(
-                                      '-',
+                                      quantity.toString(),
                                       style: poppinsKecil.copyWith(
                                           fontWeight: FontWeight.w400,
                                           color: Colors.black),
@@ -117,26 +149,15 @@ class _KeranjangState extends State<Keranjang> {
                                   height: 20.h,
                                   decoration: const BoxDecoration(
                                       color: Colors.white30),
-                                  child: Center(
-                                    child: Text(
-                                      '1',
-                                      style: poppinsKecil.copyWith(
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 20.w,
-                                  height: 20.h,
-                                  decoration: const BoxDecoration(
-                                      color: Colors.white30),
-                                  child: Center(
-                                    child: Text(
-                                      '+',
-                                      style: poppinsKecil.copyWith(
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black),
+                                  child: InkWell(
+                                    onTap: increaseQuantity,
+                                    child: Center(
+                                      child: Text(
+                                        '+',
+                                        style: poppinsKecil.copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.black),
+                                      ),
                                     ),
                                   ),
                                 ),
