@@ -68,13 +68,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      Expanded(
+                      Flexible(
                           child: Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 13.0),
                         child: TextField(
                           key: const Key('textFieldSearchHome'),
                           style: poppinsKecil,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(vertical: 5.0),
                             filled: true,
                             fillColor: const Color.fromRGBO(205, 203, 200, 0.2),
                             prefixIcon: const Icon(
@@ -166,12 +168,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               width: 5.w,
                             );
                           },
-                          itemCount: events.length),
+                          itemCount: events.length >= 5 ? 5 : events.length),
                     )
                     // eventCard(),
                     );
               }),
-
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, bottom: 14.0),
                 child: Text(
@@ -267,7 +268,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               width: 5.w,
                             );
                           },
-                          itemCount: products.length),
+                          itemCount:
+                              products.length >= 5 ? 5 : products.length),
                     ));
               }),
             ],
