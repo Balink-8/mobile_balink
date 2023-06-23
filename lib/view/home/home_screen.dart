@@ -13,6 +13,7 @@ import '../../config/theme.dart';
 import '../../model/product_model.dart';
 import '../widget/home_screen_widget/carousel_welcome.dart';
 import '../widget/home_screen_widget/event_card.dart';
+import '../widget/home_screen_widget/search_home.dart';
 import '../widget/home_screen_widget/shopping_card_widget.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -68,35 +69,49 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      Expanded(
+                      Flexible(
                           child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: TextField(
-                          key: const Key('textFieldSearchHome'),
-                          style: poppinsKecil,
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: const Color.fromRGBO(205, 203, 200, 0.2),
-                            prefixIcon: const Icon(
-                              Icons.search,
-                              size: 14.67,
-                              color: Colors.white,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 13.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SearchHomeWidget()));
+                          },
+                          child: TextField(
+                            key: const Key('textFieldSearchHome'),
+                            style: poppinsKecil,
+                            decoration: InputDecoration(
+                              enabled: false,
+                              contentPadding:
+                                  EdgeInsets.symmetric(vertical: 5.0),
+                              filled: true,
+                              fillColor:
+                                  const Color.fromRGBO(205, 203, 200, 0.2),
+                              prefixIcon: const Icon(
+                                Icons.search,
+                                size: 14.67,
+                                color: Colors.white,
+                              ),
+                              border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8.r))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.w)),
+                                  borderSide: BorderSide(
+                                    color: secondaryColor,
+                                  )),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.w)),
+                                  borderSide: BorderSide(
+                                    color: secondaryColor,
+                                  )),
                             ),
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.r))),
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10.w)),
-                                borderSide: BorderSide(
-                                  color: secondaryColor,
-                                )),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10.w)),
-                                borderSide: BorderSide(
-                                  color: secondaryColor,
-                                )),
                           ),
                         ),
                       )),
@@ -166,12 +181,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               width: 5.w,
                             );
                           },
-                          itemCount: events.length),
+                          itemCount: events.length >= 5 ? 5 : events.length),
                     )
                     // eventCard(),
                     );
               }),
-
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, bottom: 14.0),
                 child: Text(
@@ -267,7 +281,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               width: 5.w,
                             );
                           },
-                          itemCount: products.length),
+                          itemCount:
+                              products.length >= 5 ? 5 : products.length),
                     ));
               }),
             ],

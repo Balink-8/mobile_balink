@@ -15,6 +15,7 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: blackColor,
         elevation: 0,
         title: Text(
           'Kode Pembayaran',
@@ -244,7 +245,7 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => BuktiPembayaranPage()));
+                          builder: (context) => const BuktiPembayaranPage()));
                 },
                 child: Container(
                   width: 360.w,

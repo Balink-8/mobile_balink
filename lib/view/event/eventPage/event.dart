@@ -37,7 +37,8 @@ class _EventPageState extends State<EventPage> {
                 Image.asset(
                   'assets/laut.png',
                   width: 360.w,
-                  height: 150,
+                  height: 150.h,
+                  fit: BoxFit.cover,
                   key: Key('gambar'),
                 ),
                 Padding(

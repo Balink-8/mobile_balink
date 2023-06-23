@@ -5,12 +5,33 @@ import '../../../config/theme.dart';
 import '../../../model/product_model.dart';
 import '../shopping_page/list_gambar.dart';
 
-class BottomSheetOrderNow extends StatelessWidget {
+class BottomSheetOrderNow extends StatefulWidget {
   const BottomSheetOrderNow(
       {Key? key, required this.index, required this.productInfo})
       : super(key: key);
   final int index;
   final Product productInfo;
+
+  @override
+  State<BottomSheetOrderNow> createState() => _BottomSheetOrderNowState();
+}
+
+class _BottomSheetOrderNowState extends State<BottomSheetOrderNow> {
+  int quantity = 1;
+
+  void increaseQuantity() {
+    setState(() {
+      quantity++;
+    });
+  }
+
+  void decreaseQuantity() {
+    setState(() {
+      if (quantity > 1) {
+        quantity--;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +52,11 @@ class BottomSheetOrderNow extends StatelessWidget {
             Row(
               children: [
                 Image.network(
-                  category[index],
+                  imageProduct[widget.index],
                   fit: BoxFit.cover,
                   width: 100.w,
                   height: 100.h,
-                  key: Key('bottomSheetProductImage_$index'),
+                  key: Key('bottomSheetProductImage_${widget.index}'),
                 ),
                 Expanded(
                   child: Padding(
@@ -44,25 +65,25 @@ class BottomSheetOrderNow extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          productInfo.nama,
+                          widget.productInfo.nama,
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w400, color: Colors.black),
-                          key: Key('bottomSheetProductName_$index'),
+                          key: Key('bottomSheetProductName_${widget.index}'),
                         ),
                         Text(
-                          'Rp ${productInfo.harga.toString()}',
+                          'Rp ${widget.productInfo.harga.toString()}',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w700, color: Colors.black),
-                          key: Key('bottomSheetProductPrice_$index'),
+                          key: Key('bottomSheetProductPrice_${widget.index}'),
                         ),
                         SizedBox(
                           height: 8.h,
                         ),
                         Text(
-                          'Stok : ${productInfo.stok}',
+                          'Stok : ${widget.productInfo.stok}',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w400, color: Colors.black),
-                          key: Key('bottomSheetProductStock_$index'),
+                          key: Key('bottomSheetProductStock_${widget.index}'),
                         ),
                       ],
                     ),
@@ -89,11 +110,14 @@ class BottomSheetOrderNow extends StatelessWidget {
                     width: 30.w,
                     height: 30.h,
                     decoration: const BoxDecoration(color: Colors.white30),
-                    child: Center(
-                      child: Text(
-                        '-',
-                        style: poppinsKecil.copyWith(
-                            fontWeight: FontWeight.w400, color: Colors.black),
+                    child: InkWell(
+                      onTap: decreaseQuantity,
+                      child: Center(
+                        child: Text(
+                          '-',
+                          style: poppinsKecil.copyWith(
+                              fontWeight: FontWeight.w400, color: Colors.black),
+                        ),
                       ),
                     ),
                   ),
@@ -106,7 +130,7 @@ class BottomSheetOrderNow extends StatelessWidget {
                     decoration: const BoxDecoration(color: Colors.white30),
                     child: Center(
                       child: Text(
-                        '1',
+                        quantity.toString(),
                         style: poppinsKecil.copyWith(
                             fontWeight: FontWeight.w400, color: Colors.black),
                       ),
@@ -119,11 +143,14 @@ class BottomSheetOrderNow extends StatelessWidget {
                     width: 30.w,
                     height: 30.h,
                     decoration: const BoxDecoration(color: Colors.white30),
-                    child: Center(
-                      child: Text(
-                        '+',
-                        style: poppinsKecil.copyWith(
-                            fontWeight: FontWeight.w400, color: Colors.black),
+                    child: InkWell(
+                      onTap: increaseQuantity,
+                      child: Center(
+                        child: Text(
+                          '+',
+                          style: poppinsKecil.copyWith(
+                              fontWeight: FontWeight.w400, color: Colors.black),
+                        ),
                       ),
                     ),
                   ),
@@ -142,7 +169,7 @@ class BottomSheetOrderNow extends StatelessWidget {
                     (context),
                     MaterialPageRoute(
                       builder: (context) => CheckoutShopPage(
-                        index: index,
+                        index: widget.index,
                       ),
                     ),
                   );
@@ -150,7 +177,7 @@ class BottomSheetOrderNow extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: secondaryColor,
                 ),
-                key: Key('bottomSheetBuyNowButton_$index'),
+                key: Key('bottomSheetBuyNowButton_${widget.index}'),
                 child: Text(
                   'Beli Sekarang',
                   style: poppinsKecil.copyWith(
