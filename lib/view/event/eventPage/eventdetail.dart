@@ -50,6 +50,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   child: Image.network(
                     'https://lovebali.baliprov.go.id/storage/events/img-167470828763d2053fbe0c3.jpg',
                     // 'assets/ogoh.png',
+                    // '${Api.event}${eventData.gambar}',
                     width: 310.w,
                     height: 167.h,
                     key: Key('gambar event'),

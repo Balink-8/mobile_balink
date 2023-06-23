@@ -52,6 +52,7 @@ class _bsTicketState extends State<bsTicket> {
                                   borderRadius: BorderRadius.circular(10.0),
                                   child: Image.asset(
                                     'assets/icon/event_icon/dummy/g1.png',
+                                    //  '${Api.event}${eventData.gambar}',
                                     width: 64.w,
                                     height: 64.h,
                                     key: Key('gambar event'),
