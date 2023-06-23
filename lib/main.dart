@@ -40,12 +40,6 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => CategoryProvider(),
         ),
-        // ChangeNotifierProvider(
-        //   create: (context) => PromoProvider(),
-        // ),
-        // ChangeNotifierProvider(
-        //   create: (context) => CartProvider(),
-        // ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 800),
