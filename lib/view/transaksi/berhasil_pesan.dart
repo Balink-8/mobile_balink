@@ -14,6 +14,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('screenPesananBerhasil'),
       appBar: AppBar(
         title: Text(
           'Berhasil Dipesan',
@@ -42,6 +43,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                     ),
                     // ),
                     child: Image.network(
+                      key: const Key('imageProdukBerhasil'),
                       'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
                       fit: BoxFit.cover,
 
@@ -56,7 +58,9 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Kemeja Endek Strait Motif Bali Premium',
+                      Text(
+                          key: const Key('namaProdukBerhasil'),
+                          'Kemeja Endek Strait Motif Bali Premium',
                           style: poppinsKecil.copyWith(
                               color: blackColor, fontWeight: FontWeight.w400)),
                       const SizedBox(
@@ -66,11 +70,14 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
+                            key: const Key('hargaProdukBerhasil'),
                             'Rp 90.0000',
                             style: poppinsKecil.copyWith(
                                 color: blackColor, fontWeight: FontWeight.w400),
                           ),
-                          Text('1x',
+                          Text(
+                              key: const Key('totalProdukBerhasil'),
+                              '1x',
                               style: poppinsKecil.copyWith(
                                   color: blackColor,
                                   fontWeight: FontWeight.w400))
@@ -129,6 +136,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('promoProdukBerhasil'),
                   '-',
                   style: poppinsKecil.copyWith(color: Colors.red),
                 ),
@@ -143,6 +151,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                       color: blackColor, fontWeight: FontWeight.bold),
                 ),
                 Text(
+                  key: const Key('totalHargaProdukBerhasil'),
                   'Rp. 100.000',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.bold),
@@ -166,6 +175,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('noPesananBerhasil'),
                   '577889036123879654',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.bold),
@@ -181,6 +191,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('tanggalPemesanan'),
                   '29 April 2023, 6:15 AM',
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
@@ -195,6 +206,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
+                  key: const Key('metodePembayranBerhasil'),
                   'Bank Central Asia',
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
@@ -228,7 +240,9 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                     height: 10.h,
                   ),
                   Text(
-                    'LUNAS',
+
+                    key: const Key('statusPembayaran'),
+                    '" Berhasil Dibayar "',
                     style: poppinsKecil.copyWith(
                         fontWeight: FontWeight.w700, color: greenColor),
                   ),
@@ -237,7 +251,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
             ),
             SizedBox(height: 230.h),
             GestureDetector(
-              key: Key('buttonBatalPesan'),
+              key: const Key('buttonCancelPesanan'),
               onTap: () {
                 Navigator.push(
                     context,

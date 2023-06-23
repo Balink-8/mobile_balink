@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
-import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_overlay.dart';
-import 'package:provider/provider.dart';
 
 import '../../../model/event_model.dart';
-import '../../../view_model/event_provider.dart';
 
 class EventCo extends StatefulWidget {
   final Event? eventData;
@@ -39,8 +36,6 @@ class _EventCoState extends State<EventCo> {
 
   final _kodePromoController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
-  bool? isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -307,52 +302,6 @@ class _EventCoState extends State<EventCo> {
                         ])
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 150.w,
-                      child: Row(
-                        children: [
-                          Card(
-                            color: abuColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'COD',
-                                style: poppinsKecil.copyWith(
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: greyColor),
-                                key: Key('label COD'),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'Bayar di Tempat',
-                            style: poppinsKecil.copyWith(
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                                color: blackColor),
-                            key: Key('text bayar di tempat'),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Checkbox(
-                        activeColor: Colors.white,
-                        checkColor: Colors.black,
-                        value: isChecked,
-                        onChanged: (newBool) {
-                          setState(() {
-                            isChecked = newBool;
-                          });
-                        },
-                        key: Key('checkbox')),
-                  ],
-                ),
                 SizedBox(
                   height: 120.h,
                 ),
@@ -570,7 +519,7 @@ class _EventCoState extends State<EventCo> {
                       child: Text(
                         'Selanjutnya',
                         style: poppinsKecil.copyWith(
-                            fontSize: 12.sp,
+                            fontSize: 11.sp,
                             fontWeight: FontWeight.w700,
                             color: whiteColor),
                         key: Key('label selanjutnya'),

@@ -538,7 +538,17 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                       key: const Key('label ambil foto'),
                                     ),
                                   ),
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => SuccessPayment(
+                                          eventData: widget.eventData!,
+                                          bank: widget.bank,
+                                        ),
+                                      ),
+                                    );
+                                  },
                                 ),
                                 const Divider(),
                                 ListTile(
@@ -611,15 +621,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                     onTap: () {
                       _showMyDialog(context);
                       Timer(const Duration(seconds: 3), () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SuccessPayment(
-                              eventData: widget.eventData!,
-                              bank: widget.bank,
-                            ),
-                          ),
-                        );
+                        Navigator.pop(context);
                       });
                     },
                     child: Container(

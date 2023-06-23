@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_balink/view/profile/edit_profile_screen.dart';
 import 'package:mobile_balink/view/profile/pengaturan_screen.dart';
 import 'package:mobile_balink/view/transaksi/transaksi_widget/tab_bar_navigaton.dart';
+import 'package:mobile_balink/view_model/user_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../config/theme.dart';
 import '../artikel/artikel_screen.dart';
@@ -29,6 +31,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         image = file;
       });
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(
+        () => Provider.of<UserProvider>(context, listen: false).getUser);
   }
 
   @override
@@ -171,11 +180,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Padding buildIdentitasUser() {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+      child: Consumer<UserProvider>(builder: (context, prov, child) {
+        return Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
               Text(
                 'Tentang Anda',
                 style: GoogleFonts.poppins(
@@ -200,92 +211,110 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     fontSize: 12.sp,
                   ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 24.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Email',
-                style: GoogleFonts.poppins(
-                  fontSize: 12.sp,
-                ),
-              ),
-              Row(
-                children: [
-                  Text(
-                    'user@example.com',
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const EditProfileScreen();
+                        },
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Edit',
                     style: GoogleFonts.poppins(
                       fontSize: 12.sp,
                     ),
                   ),
-                  SizedBox(width: 4.w),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 15.w,
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 38.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'No. Hp',
-                style: GoogleFonts.poppins(
-                  fontSize: 12.sp,
                 ),
-              ),
-              Row(
-                children: [
-                  Text(
-                    '0823 1234 5678',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12.sp,
-                    ),
+              ],
+            ),
+            SizedBox(height: 24.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Email',
+                  style: GoogleFonts.poppins(
+                    fontSize: 12.sp,
                   ),
-                  SizedBox(width: 4.w),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 15.w,
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 38.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Alamat',
-                style: GoogleFonts.poppins(
-                  fontSize: 12.sp,
                 ),
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Kec. Sukawati, Kabupaten Gianyar, Bali',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12.sp,
+                Row(
+                  children: [
+                    Text(
+                      prov.getUser.email ?? 'Belum Mengisi Email',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12.sp,
+                      ),
                     ),
+                    SizedBox(width: 4.w),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 15.w,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 38.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'No. Hp',
+                  style: GoogleFonts.poppins(
+                    fontSize: 12.sp,
                   ),
-                  SizedBox(width: 4.w),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 15.w,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      prov.getUser.noTelepon ?? 'Belum mengisi Nomer HP',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12.sp,
+                      ),
+                    ),
+                    SizedBox(width: 4.w),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 15.w,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 38.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Alamat',
+                  style: GoogleFonts.poppins(
+                    fontSize: 12.sp,
                   ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      prov.getUser.alamat ?? 'Belum mengisi Alamat',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12.sp,
+                      ),
+                    ),
+                    SizedBox(width: 4.w),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 15.w,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        );
+      }),
     );
   }
 
@@ -297,8 +326,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TabBarNavigation()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const TabBarNavigation()));
             },
             child: Container(
               height: 100.h,

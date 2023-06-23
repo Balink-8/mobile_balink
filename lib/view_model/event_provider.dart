@@ -10,6 +10,8 @@ class EventProvider extends ChangeNotifier {
   List<Event> _listEvent = [];
   List get listEvent => _listEvent;
 
+  String searchEventText = '';
+
   Future<void> getEvent() async {
     _isLoading = true;
     notifyListeners();
@@ -19,4 +21,23 @@ class EventProvider extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
+
+  resultSearchEvent() {
+    if (searchEventText.isEmpty) {
+      _listEvent;
+    } else {
+      _listEvent
+          .where((element) =>
+              element.nama.toLowerCase().startsWith(searchEventText))
+          .toList();
+    }
+    notifyListeners();
+  }
+
+  searchEventHome(String namaEvent) {
+    searchEventText = namaEvent;
+    resultSearchEvent();
+  }
+
+  where(Function(dynamic event) param0) {}
 }

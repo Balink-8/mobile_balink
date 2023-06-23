@@ -14,6 +14,7 @@ class CheckoutShopPage extends StatelessWidget {
     return Scaffold(
       // backgroundColor: primaryColor,
       appBar: AppBar(
+        foregroundColor: blackColor,
         backgroundColor: whiteColor,
         elevation: 0,
         title: Text(

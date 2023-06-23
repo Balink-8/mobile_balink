@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/model/category_model.dart';
+import 'package:mobile_balink/model/event_model.dart';
+import 'package:mobile_balink/view/shopping/shopping_page/category_product.dart';
+import 'package:mobile_balink/view/shopping/shopping_page/detail_shop_card.dart';
+import 'package:mobile_balink/view/shopping/widgets_shopping/keranjang.dart';
 import 'package:mobile_balink/view/widget/home_screen_widget/promo_card.dart';
+import 'package:mobile_balink/view_model/category_provider.dart';
+import 'package:mobile_balink/view_model/event_provider.dart';
 import 'package:mobile_balink/view_model/product_provider.dart';
 import 'package:provider/provider.dart';
 import '../../config/theme.dart';
 import '../../model/product_model.dart';
+import '../../model/promo_model.dart';
+import '../../view_model/promo_provider.dart';
 import '../widget/home_screen_widget/carousel_welcome.dart';
 import '../widget/home_screen_widget/event_card.dart';
+import '../widget/home_screen_widget/search_home.dart';
 import '../widget/home_screen_widget/shopping_card_widget.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -24,6 +34,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
     Future.microtask(
       () => Provider.of<ProductProvider>(context, listen: false).getProduct(),
     );
+    Future.microtask(
+      () => Provider.of<EventProvider>(context, listen: false).getEvent(),
+    );
+    Future.microtask(
+      () => Provider.of<CategoryProvider>(context, listen: false).getCategory(),
+    );
+    // Future.microtask(
+    //   () => Provider.of<PromoProvider>(context, listen: false).getPromo(),
+    // );
   }
 
   @override
@@ -56,35 +75,49 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      Expanded(
+                      Flexible(
                           child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: TextField(
-                          key: const Key('textFieldSearchHome'),
-                          style: poppinsKecil,
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: const Color.fromRGBO(205, 203, 200, 0.2),
-                            prefixIcon: const Icon(
-                              Icons.search,
-                              size: 14.67,
-                              color: Colors.white,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 13.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SearchHomeWidget()));
+                          },
+                          child: TextField(
+                            key: const Key('textFieldSearchHome'),
+                            style: poppinsKecil,
+                            decoration: InputDecoration(
+                              enabled: false,
+                              contentPadding:
+                                  EdgeInsets.symmetric(vertical: 5.0),
+                              filled: true,
+                              fillColor:
+                                  const Color.fromRGBO(205, 203, 200, 0.2),
+                              prefixIcon: const Icon(
+                                Icons.search,
+                                size: 14.67,
+                                color: Colors.white,
+                              ),
+                              border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8.r))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.w)),
+                                  borderSide: BorderSide(
+                                    color: secondaryColor,
+                                  )),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.w)),
+                                  borderSide: BorderSide(
+                                    color: secondaryColor,
+                                  )),
                             ),
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.r))),
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10.w)),
-                                borderSide: BorderSide(
-                                  color: secondaryColor,
-                                )),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10.w)),
-                                borderSide: BorderSide(
-                                  color: secondaryColor,
-                                )),
                           ),
                         ),
                       )),
@@ -92,11 +125,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         padding: const EdgeInsets.all(16.0),
                         child: InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) =>
-                            //             const CheckoutShopPage()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Keranjang(
+                                          index: 0,
+                                        )));
                           },
                           key: const Key('cartHome'),
                           child: Image.asset(
@@ -127,32 +161,38 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   key: const Key('titleEventHome'),
                 ),
               ),
-              Padding(
-                  padding: const EdgeInsets.only(
-                    left: 25.0,
-                    right: 25.0,
-                    bottom: 17,
-                  ),
-                  child: SizedBox(
-                    height: 120.h,
-                    // height: 300,
-                    // width: 94,
-                    child: ListView.separated(
-                        key: const Key('listEvenHome'),
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return const EvenCardWidget();
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            width: 5.w,
-                          );
-                        },
-                        itemCount: 5),
-                  )
-                  // eventCard(),
-                  ),
+              Consumer<EventProvider>(builder: (context, provEvent, child) {
+                final events = provEvent.listEvent;
+                return Padding(
+                    padding: const EdgeInsets.only(
+                      left: 25.0,
+                      right: 25.0,
+                      bottom: 17,
+                    ),
+                    child: SizedBox(
+                      height: 120.h,
+                      // height: 300,
+                      // width: 94,
+                      child: ListView.separated(
+                          key: const Key('listEvenHome'),
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            Event eventData = events[index];
+                            return EvenCardWidget(
+                              eventDataHome: eventData,
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return SizedBox(
+                              width: 5.w,
+                            );
+                          },
+                          itemCount: events.length >= 5 ? 5 : events.length),
+                    )
+                    // eventCard(),
+                    );
+              }),
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, bottom: 14.0),
                 child: Text(
@@ -164,27 +204,47 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       fontWeight: FontWeight.w600),
                 ),
               ),
-              Padding(
-                  padding: const EdgeInsets.only(
-                      left: 25.0, right: 25.0, bottom: 17),
-                  child: SizedBox(
-                    height: 87.h,
-                    // height: 300,
-                    // width: 94,
-                    child: ListView.separated(
-                        key: const Key('listShoppingHome'),
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return const ShoppingCardWidget();
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            width: 5.w,
-                          );
-                        },
-                        itemCount: 5),
-                  )),
+              Consumer<CategoryProvider>(
+                builder: (context, provCategory, child) {
+                  final shoppings = provCategory.listCategory;
+                  return Padding(
+                      padding: const EdgeInsets.only(
+                          left: 25.0, right: 25.0, bottom: 17),
+                      child: SizedBox(
+                        height: 87.h,
+                        // height: 300,
+                        // width: 94,
+                        child: ListView.separated(
+                            key: const Key('listShoppingHome'),
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              CategoryModel categoryData = shoppings[index];
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              CategoryProduct(index: index)));
+                                },
+                                child: ShoppingCardWidget(
+                                  categoryDataHome: categoryData,
+                                ),
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return SizedBox(
+                                width: 5.w,
+                              );
+                            },
+                            itemCount: shoppings.length),
+                      ));
+                },
+              ),
+              // (
+              //   // child:
+              // ),
 
               //PROMO CARD
               Padding(
@@ -198,6 +258,46 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       fontWeight: FontWeight.w600),
                 ),
               ),
+              // Consumer2<ProductProvider, PromoProvider>(
+              //     builder: (context, provProduct, provPromo, child) {
+              //   final products = provProduct.listProduct;
+              //   final promo = provPromo.listPromo;
+              //   return Padding(
+              //       padding: const EdgeInsets.only(
+              //           left: 25.0, right: 25.0, bottom: 17),
+              //       child: SizedBox(
+              //         height: 230.h,
+              //         child: ListView.separated(
+              //             key: const Key('listPromoHome'),
+              //             scrollDirection: Axis.horizontal,
+              //             shrinkWrap: true,
+              //             itemBuilder: (context, index) {
+              //               Product productData = products[index];
+              //               Promo promoData = promo[1];
+              //               return GestureDetector(
+              //                   onTap: () {
+              //                     Navigator.push(
+              //                         context,
+              //                         MaterialPageRoute(
+              //                             builder: (context) => DetailCard(
+              //                                 index: index,
+              //                                 detailProduct: productData)));
+              //                   },
+              //                   child: PromoCardWidget(
+              //                     productData: productData,
+              //                     promoDataHome: promoData,
+              //                   ));
+              //             },
+              //             separatorBuilder: (context, index) {
+              //               return SizedBox(
+              //                 width: 5.w,
+              //               );
+              //             },
+              //             itemCount: products.length + promo.length >= 5
+              //                 ? 5
+              //                 : products.length),
+              //       ));
+              // })
               Consumer<ProductProvider>(builder: (context, provProduct, child) {
                 final products = provProduct.listProduct;
                 return Padding(
@@ -211,14 +311,25 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             Product productData = products[index];
-                            return PromoCardWidget(productData: productData);
+                            return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DetailCard(
+                                              index: index,
+                                              detailProduct: productData)));
+                                },
+                                child:
+                                    PromoCardWidget(productData: productData));
                           },
                           separatorBuilder: (context, index) {
                             return SizedBox(
                               width: 5.w,
                             );
                           },
-                          itemCount: products.length),
+                          itemCount:
+                              products.length >= 5 ? 5 : products.length),
                     ));
               }),
             ],

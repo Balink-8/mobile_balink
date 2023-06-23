@@ -43,28 +43,26 @@ class _kodeBayarState extends State<kodeBayar> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Row(
-                children: [
-                  Image.asset(
-                    'assets/icon/event_icon/waiting.png',
-                    width: 24.w,
-                    height: 24.h,
-                    key: const Key('icon jam'),
-                  ),
-                  SizedBox(
-                    width: 6.w,
-                  ),
-                  Text(
-                    'Menunggu untuk pembayaran',
-                    style: poppinsKecil.copyWith(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14.sp,
-                        color: blackColor),
-                    key: const Key('label menunggu pembayaran'),
-                  )
-                ],
-              ),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icon/event_icon/waiting.png',
+                  width: 24.w,
+                  height: 24.h,
+                  key: const Key('icon jam'),
+                ),
+                SizedBox(
+                  width: 6.w,
+                ),
+                Text(
+                  'Menunggu untuk pembayaran',
+                  style: poppinsKecil.copyWith(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14.sp,
+                      color: blackColor),
+                  key: const Key('label menunggu pembayaran'),
+                )
+              ],
             ),
             SizedBox(
               height: 26.h,
@@ -140,29 +138,27 @@ class _kodeBayarState extends State<kodeBayar> {
                               const SnackBar(
                                   content: Text('Berhasil Disalin'))));
                     },
-                    child: Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/icon/event_icon/copy.png',
-                            width: 17.w,
-                            height: 20.h,
-                            key: const Key('icon copy'),
-                          ),
-                          SizedBox(
-                            width: 4.w,
-                          ),
-                          Text(
-                            'Copy Code',
-                            style: poppinsKecil.copyWith(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: blackColor),
-                            key: const Key('label copy code'),
-                          )
-                        ],
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/icon/event_icon/copy.png',
+                          width: 17.w,
+                          height: 20.h,
+                          key: const Key('icon copy'),
+                        ),
+                        SizedBox(
+                          width: 4.w,
+                        ),
+                        Text(
+                          'Copy Code',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                              color: blackColor),
+                          key: const Key('label copy code'),
+                        )
+                      ],
                     ),
                   ),
                 ],
@@ -214,7 +210,7 @@ class _kodeBayarState extends State<kodeBayar> {
               ],
             ),
             SizedBox(
-              height: 270.h,
+              height: 250.h,
             ),
             GestureDetector(
               key: Key('buttonLihatPesanan'),

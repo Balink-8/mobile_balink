@@ -7,6 +7,7 @@ import 'package:mobile_balink/view/widget/event_screen_widget/card_aboutEvent.da
 import 'package:mobile_balink/view/widget/event_screen_widget/card_calendar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_clock.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_detailevent.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/maps.dart';
 import 'package:provider/provider.dart';
 import '../../../view_model/event_provider.dart';
 
@@ -20,6 +21,15 @@ class EventDetailScreen extends StatefulWidget {
 
 class _EventDetailScreenState extends State<EventDetailScreen> {
   @override
+  void initState() {
+    super.initState();
+
+    Future.microtask(
+      () => Provider.of<EventProvider>(context, listen: false).getEvent(),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -28,6 +38,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
         key: Key('appbar screen detail'),
       ),
       body: SafeArea(
+        key: const Key('screen event detail'),
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -36,8 +47,10 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.r),
-                  child: Image.asset(
-                    'assets/ogoh.png',
+                  child: Image.network(
+                    'https://lovebali.baliprov.go.id/storage/events/img-167470828763d2053fbe0c3.jpg',
+                    // 'assets/ogoh.png',
+                    // '${Api.event}${eventData.gambar}',
                     width: 310.w,
                     height: 167.h,
                     key: Key('gambar event'),
@@ -85,11 +98,12 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 15.h,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.only(right: 10),
                           child: Image.asset(
                             'assets/icon/event_icon/ticket.png',
                             width: 13.w,
@@ -121,7 +135,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 24.h,
                 ),
                 DetailEv(eventData: widget.eventData!),
                 SizedBox(
@@ -162,7 +176,12 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 10.h,
                 ),
                 // GET DATA DARI ARTIKEL
-                const CardTentangEvent(),
+                SizedBox(
+                  height: 100.h,
+                  child: CardTentangEvent(
+                    eventData: widget.eventData!,
+                  ),
+                ),
                 SizedBox(
                   height: 10.h,
                 ),
@@ -191,7 +210,15 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 10.h,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Maps(
+                                eventData: widget.eventData!,
+                              )),
+                    );
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
@@ -211,7 +238,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 10.h,
+                  height: 25.h,
                 ),
                 bsTicket(
                   key: const Key('buttomsheet pembelian tiket'),

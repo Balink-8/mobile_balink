@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/view_model/product_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:mobile_balink/view/shopping/shopping_page/recomendation.dart';
 import '../../../config/theme.dart';
 import '../../../model/product_model.dart';
 import '../widgets_shopping/order_now.dart';
-import '../widgets_shopping/shopping_card.dart';
 import '../widgets_shopping/keranjang.dart';
 import 'list_gambar.dart';
 import 'package:badges/badges.dart' as badges;
@@ -46,7 +44,7 @@ class _DetailCardState extends State<DetailCard> {
                 alignment: Alignment.topLeft,
                 children: [
                   Image.network(
-                    category[widget.index],
+                    imageProduct[widget.index],
                     width: 360.w,
                     height: 360.h,
                     fit: BoxFit.cover,
@@ -144,7 +142,6 @@ class _DetailCardState extends State<DetailCard> {
                     ),
                     Text(
                       '${widget.detailProduct.stok.toString()} Terjual',
-                      // '162 Terjual',
                       style: poppinsKecil.copyWith(
                           fontWeight: FontWeight.w400, color: Colors.black),
                     ),
@@ -275,7 +272,7 @@ class _DetailCardState extends State<DetailCard> {
                     SizedBox(
                       height: 20.h,
                     ),
-                    const ShoppingCard(),
+                    const Recomendation(),
                   ],
                 ),
               )

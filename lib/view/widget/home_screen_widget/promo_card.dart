@@ -3,12 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../config/theme.dart';
 import '../../../model/product_model.dart';
+import '../../../model/promo_model.dart';
 
 class PromoCardWidget extends StatelessWidget {
   final Product productData;
+  // final Promo promoDataHome;
   const PromoCardWidget({
     super.key,
     required this.productData,
+    // required this.promoDataHome,
   });
 
   @override
@@ -66,7 +69,8 @@ class PromoCardWidget extends StatelessWidget {
                     Text(
                       key: const Key('hargaPotonganProdukHome'),
                       // 'Rp 34.000',
-                      productData.harga.toString(),
+                      // productData.harga.toString(),
+                      'Rp ${productData.harga.toString()}',
                       style: poppinsKecil.copyWith(
                           fontSize: 10.sp,
                           color: const Color.fromRGBO(48, 48, 48, 1),
@@ -78,7 +82,9 @@ class PromoCardWidget extends StatelessWidget {
                     ),
                     Text(
                       key: const Key('hargaProdukHome'),
-                      'Rp 24.000',
+                      // 'Rp 24.000',
+                      // 'Rp ${(productData.harga - promoDataHome.potonganHarga).toString()}',
+                      'Rp ${(productData.harga - (productData.harga * 0.2)).toStringAsFixed(0)}',
                       style: poppinsKecil.copyWith(
                           fontSize: 11.sp,
                           color: const Color.fromRGBO(48, 48, 48, 1),

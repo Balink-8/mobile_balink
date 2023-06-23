@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/splashscreen.dart';
+import 'package:mobile_balink/view_model/artikel_provider.dart';
+import 'package:mobile_balink/view_model/cart_provider.dart';
+import 'package:mobile_balink/view_model/category_provider.dart';
 import 'package:mobile_balink/view_model/event_provider.dart';
 import 'package:mobile_balink/view_model/login_provider.dart';
 import 'package:mobile_balink/view_model/product_provider.dart';
+import 'package:mobile_balink/view_model/promo_provider.dart';
 import 'package:mobile_balink/view_model/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -29,6 +33,12 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => EventProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ArtikelProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CategoryProvider(),
         ),
       ],
       child: ScreenUtilInit(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/model/artikel_model.dart';
 
 import '../../../config/theme.dart';
 import '../detail_artikel_screen.dart';
@@ -7,7 +8,9 @@ import '../detail_artikel_screen.dart';
 class ItemArtikelWidget extends StatelessWidget {
   const ItemArtikelWidget({
     super.key,
+    required this.dataArtikel,
   });
+  final Artikel dataArtikel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class ItemArtikelWidget extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const DetailArtikelScreen();
+              return DetailArtikelScreen(id: dataArtikel.id);
             },
           ),
         );
@@ -51,7 +54,7 @@ class ItemArtikelWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Ogoh - Ogoh',
+                          dataArtikel.judul,
                           style: poppinsKecil.copyWith(
                             color: const Color(0xff000000),
                             fontWeight: FontWeight.bold,
@@ -62,7 +65,7 @@ class ItemArtikelWidget extends StatelessWidget {
                         SizedBox(
                           width: 180.w,
                           child: Text(
-                            'Festival Ogoh-ogoh di Bali merupakan perayaan yang bermakna religius dan memiliki tujuan tertentu. Ogoh-ogoh adalah patung raksasa yang dibuat dari anyaman bambu, kertas, dan bahan-bahan lainnya. Patung ini melambangkan roh jahat atau setan dalam mitologi Hindu Bali. Festival ini diadakan untuk mengusir roh-roh jahat tersebut sebelum Hari Raya Nyepi dimulai, yang merupakan hari kesunyian dan meditasi bagi umat Hindu Bali.',
+                            dataArtikel.deskripsi,
                             style: poppinsKecil.copyWith(
                               color: const Color(0xff000000),
                               fontWeight: FontWeight.normal,

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_event.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/realtime.dart';
 import 'package:mobile_balink/view_model/event_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -30,32 +31,27 @@ class _EventPageState extends State<EventPage> {
         key: Key('safearea screen event'),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Column(children: [
+          child: Column(key: Key('columnGambardanListEvent'), children: [
             Stack(
               children: [
-                Image.asset('assets/laut.png', width: 360.w, height: 150.h),
+
+                Image.network(
+                  'https://www.rentalmobilbali.net/wp-content/uploads/2016/05/10-Tempat-Wisata-Favorit-Wisatawan-Indonesia-Di-Bali-Unggulan.jpg',
+                  width: 360.w,
+                  height: 150.h,
+                  fit: BoxFit.cover,
+                  key: Key('gambar'),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 40),
                   child: Center(
                     child: Column(
                       children: [
-                        Text(
-                          '12 : 22',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w400,
-                              color: blackColor),
-                        ),
+                        RealTimeScreen(),
                         SizedBox(
                           height: 8.h,
                         ),
-                        Text(
-                          'Senin, 29 Mei 2023',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                              color: blackColor),
-                        ),
+                        Calendar()
                       ],
                     ),
                   ),
@@ -75,9 +71,7 @@ class _EventPageState extends State<EventPage> {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       Event eventData = events[index];
-                      return CardEvent(
-                        eventData: eventData,
-                      );
+                      return CardEvent(eventData: eventData);
                     },
                     separatorBuilder: (context, index) {
                       return SizedBox(

@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:mobile_balink/config/session.dart';
 import 'package:mobile_balink/model/user_model.dart';
 
@@ -37,6 +38,23 @@ class SourceUser {
           'alamat': '',
         }));
 
+    if (responseBody == null) return false;
+    if (responseBody['status'] == null) return false;
+    return responseBody['status'];
+  }
+
+  static Future<bool> edit(UserClass user) async {
+    Map? responseBody = await AppRequest.puts(
+      '${Api.user}/${user.id}',
+      jsonEncode({
+        'nama': '',
+        'foto_profile': '',
+        'email': user.email,
+        'password': '',
+        'no_telepon': user.noTelepon,
+        'alamat': user.alamat,
+      }),
+    );
     if (responseBody == null) return false;
     if (responseBody['status'] == null) return false;
     return responseBody['status'];
