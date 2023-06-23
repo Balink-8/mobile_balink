@@ -321,6 +321,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             Align(
                                               alignment: Alignment.bottomCenter,
                                               child: GestureDetector(
+                                                key: Key("buttonLoginKembali"),
                                                 onTap: () {
                                                   Navigator.pop(context);
                                                 },
@@ -365,6 +366,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       color: secondaryColor),
                                                 ),
                                                 InkWell(
+                                                  key: Key('buttonRegister'),
                                                   onTap: () {
                                                     Navigator.push(
                                                         context,
@@ -452,5 +454,44 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  Widget buttonLogin(BuildContext context, bool enable) {
+    return enable
+        ? Container(
+            width: 360.w,
+            height: 48.h,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Center(
+              child: Text(
+                'LOG IN',
+                style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
+          )
+        : GestureDetector(
+            key: Key('buttonLogin'),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const NavbarBawah()));
+            },
+            child: Container(
+              width: 360.w,
+              height: 48.h,
+              decoration: BoxDecoration(
+                color: secondaryColor,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: Text(
+                  'LOG IN',
+                  style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          );
   }
 }

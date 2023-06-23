@@ -14,6 +14,7 @@ class CardEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: Key('buttonEventDetailScreen'),
       onTap: () {
         Navigator.push(
           context,
@@ -73,7 +74,7 @@ class CardEvent extends StatelessWidget {
                 Text(
                   eventData.nama,
                   style: poppinsKecil.copyWith(
-                      fontSize: 12.h,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
                   key: const Key('text nama event'),
@@ -89,8 +90,8 @@ class CardEvent extends StatelessWidget {
                       height: 13.h,
                       key: Key('icon lokasi'),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: 10.w,
                     ),
                     Text(
                       eventData.lokasi,

@@ -43,6 +43,7 @@ class ChooseBankSheet extends StatelessWidget {
             height: 8.h,
           ),
           GestureDetector(
+            key: Key('buttonKodePembayaran'),
             onTap: () {
               Navigator.push(
                   context,

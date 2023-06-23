@@ -46,7 +46,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
         title: Text(
           'Checkout',
           style: poppinsKecil.copyWith(
-              fontWeight: FontWeight.w700, fontSize: 14, color: blackColor),
+              fontWeight: FontWeight.w700, fontSize: 14.sp, color: blackColor),
           key: const Key('label checkout'),
         ),
         key: const Key('app bar checkout'),
@@ -207,7 +207,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       ],
                     ),
                     SizedBox(
-                      height: 30.sp,
+                      height: 30.h,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -550,6 +550,7 @@ class _BuatPesananState extends State<BuatPesanan> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: Key('buttonBuatPesanan'),
       onTap: () {
         Navigator.push(
           context,

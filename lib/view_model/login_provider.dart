@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_balink/model/user_model.dart';
 
 import '../source/source_user.dart';
 
@@ -11,6 +12,9 @@ class LoginProvider extends ChangeNotifier {
 
   bool _successRegister = false;
   bool get successRegister => _successRegister;
+
+  bool _succesEdit = false;
+  bool get succesEdit => _succesEdit;
 
   Future<void> login({required String email, required String password}) async {
     _isLoading = true;
@@ -28,6 +32,15 @@ class LoginProvider extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     _successRegister = await SourceUser.register(email, noTelp, password);
+    notifyListeners();
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> edit(UserClass user) async {
+    _isLoading = true;
+    notifyListeners();
+    _succesEdit = await SourceUser.edit(user);
     notifyListeners();
     _isLoading = false;
     notifyListeners();

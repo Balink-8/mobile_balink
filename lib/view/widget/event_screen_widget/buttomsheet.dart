@@ -23,6 +23,7 @@ class _bsTicketState extends State<bsTicket> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: Key('buttonPesanSekarang'),
       onTap: () {
         showModalBottomSheet(
           elevation: 0.9,
@@ -233,7 +234,7 @@ class _bsTicketState extends State<bsTicket> {
                       children: [
                         Container(
                           width: 150.w,
-                          height: 60.h,
+                          height: 50.h,
                           color: fifthColor,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -264,6 +265,7 @@ class _bsTicketState extends State<bsTicket> {
                           ),
                         ),
                         GestureDetector(
+                          key: Key('buttonBeliSekarang'),
                           onTap: () {
                             _showMyDialog(context);
                             Timer(const Duration(seconds: 3), () {
@@ -312,11 +314,11 @@ class _bsTicketState extends State<bsTicket> {
         ),
         alignment: Alignment.center,
         width: 328.w,
-        height: 40,
+        height: 40.h,
         child: Text(
           'Pesan Sekarang',
           style: poppinsKecil.copyWith(
-              fontSize: 14, fontWeight: FontWeight.w700, color: whiteColor),
+              fontSize: 14.sp, fontWeight: FontWeight.w700, color: whiteColor),
           key: Key('label text pesan sekarang'),
         ),
       ),
@@ -330,13 +332,13 @@ class _bsTicketState extends State<bsTicket> {
       builder: (BuildContext context) {
         return AlertDialog(
           insetPadding:
-              const EdgeInsets.symmetric(horizontal: 140, vertical: 360),
+              const EdgeInsets.symmetric(horizontal: 150, vertical: 360),
           titlePadding:
               const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 0),
           title: Image.asset(
             'assets/icon/event_icon/memuat.png',
-            width: 22,
-            height: 22,
+            width: 22.w,
+            height: 22.h,
             key: Key('icon loading'),
           ),
           content: SizedBox(

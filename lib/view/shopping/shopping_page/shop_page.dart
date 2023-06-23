@@ -5,6 +5,7 @@ import 'package:mobile_balink/view/shopping/widgets_shopping/shopping_card.dart'
 import 'package:mobile_balink/view_model/product_provider.dart';
 import 'package:provider/provider.dart';
 import '../../../config/theme.dart';
+import '../../../view_model/category_provider.dart';
 
 class ShopScreen extends StatefulWidget {
   const ShopScreen({Key? key}) : super(key: key);
@@ -19,8 +20,13 @@ class _ShopScreenState extends State<ShopScreen> {
   @override
   void initState() {
     super.initState();
-    final provider = Provider.of<ProductProvider>(context, listen: false);
-    provider.getProduct();
+
+    Future.microtask(
+      () => Provider.of<ProductProvider>(context, listen: false).getProduct(),
+    );
+    Future.microtask(
+      () => Provider.of<CategoryProvider>(context, listen: false).getCategory(),
+    );
   }
 
   @override
