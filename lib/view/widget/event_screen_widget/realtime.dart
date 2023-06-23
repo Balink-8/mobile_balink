@@ -14,23 +14,6 @@ class RealTimeScreen extends StatefulWidget {
 }
 
 class _RealTimeScreentate extends State<RealTimeScreen> {
-  // String currentTime = '';
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   getCurrentTime();
-  // }
-
-  // void getCurrentTime() {
-  //   String formattedTime = DateFormat('HH:mm:ss').format(DateTime.now());
-  //   setState(() {
-  //     currentTime = formattedTime;
-  //   });
-  //   // Update jam setiap detik
-  //   Future.delayed(Duration(seconds: 1), getCurrentTime);
-  // }
-
   String currentTime = '';
 
   @override
@@ -63,7 +46,7 @@ class _RealTimeScreentate extends State<RealTimeScreen> {
     return Text(
       currentTime,
       style: poppinsKecil.copyWith(
-          fontSize: 24.sp, fontWeight: FontWeight.w400, color: blackColor),
+          fontSize: 24.sp, fontWeight: FontWeight.w400, color: whiteColor),
     );
   }
 }
@@ -76,23 +59,6 @@ class Calendar extends StatefulWidget {
 }
 
 class _CalendarState extends State<Calendar> {
-  // String currentDate = '';
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   getCurrentDate();
-  // }
-
-  // void getCurrentDate() {
-  //   String formattedDate = DateFormat('EEEE, MMMM d, y').format(DateTime.now());
-  //   setState(() {
-  //     currentDate = formattedDate;
-  //   });
-
-  //   Future.delayed(Duration(seconds: 1), getCurrentDate);
-  // }
-
   String currentDate = '';
 
   @override
@@ -125,7 +91,7 @@ class _CalendarState extends State<Calendar> {
     return Text(
       currentDate,
       style: poppinsKecil.copyWith(
-          fontSize: 24.sp, fontWeight: FontWeight.w400, color: blackColor),
+          fontSize: 24.sp, fontWeight: FontWeight.w400, color: whiteColor),
     );
   }
 }

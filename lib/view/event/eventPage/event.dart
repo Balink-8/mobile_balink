@@ -34,8 +34,8 @@ class _EventPageState extends State<EventPage> {
           child: Column(key: Key('columnGambardanListEvent'), children: [
             Stack(
               children: [
-                Image.asset(
-                  'assets/laut.png',
+                Image.network(
+                  'https://www.rentalmobilbali.net/wp-content/uploads/2016/05/10-Tempat-Wisata-Favorit-Wisatawan-Indonesia-Di-Bali-Unggulan.jpg',
                   width: 360.w,
                   height: 150.h,
                   fit: BoxFit.cover,

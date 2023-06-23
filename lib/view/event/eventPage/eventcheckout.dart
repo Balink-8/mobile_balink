@@ -37,8 +37,6 @@ class _EventCoState extends State<EventCo> {
   final _kodePromoController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  bool? isChecked = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -176,7 +174,6 @@ class _EventCoState extends State<EventCo> {
                         ),
                         Text(
                           '-',
-                          // 'Rp${widget.eventData!.,
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
