@@ -45,4 +45,13 @@ class ProductProvider extends ChangeNotifier {
     searchText = nama;
     updatedata();
   }
+
+  Future<void> getProductById(int id) async {
+    _isLoading = true;
+    List<Product> products = await SourceProduct.getProductById(id);
+    _listProduct = products;
+    notifyListeners();
+    _isLoading = false;
+    notifyListeners();
+  }
 }
