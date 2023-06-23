@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/model/user_model.dart';
+import 'package:mobile_balink/view/profile/profile_screen.dart';
+import 'package:mobile_balink/view_model/login_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../config/theme.dart';
 
@@ -48,11 +52,42 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         actions: [
           TextButton(
             onPressed: () {
-              if (formKey.currentState!.validate()) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Processing Data')),
+              edit() async {
+                String email = emailController.text;
+                String numPhone = numberController.text;
+                String address = addressController.text;
+                var uEdit =
+                    Provider.of<LoginProvider>(context, listen: false).edit(
+                  UserClass(
+                    email: email,
+                    noTelepon: numPhone,
+                    alamat: address,
+                  ),
                 );
+                if (formKey.currentState!.validate()) {
+                  if (email.isNotEmpty &&
+                      numPhone.isNotEmpty &&
+                      address.isNotEmpty) {
+                    uEdit;
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Profile Berhasil di Edit'),
+                      ),
+                    );
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProfileScreen()),
+                        (route) => false);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Gagal Edit'),
+                    ));
+                  }
+                }
               }
+
+              edit();
             },
             child: Text(
               'Simpan',
