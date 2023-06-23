@@ -7,6 +7,7 @@ import 'package:mobile_balink/view/widget/event_screen_widget/card_aboutEvent.da
 import 'package:mobile_balink/view/widget/event_screen_widget/card_calendar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_clock.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_detailevent.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/maps.dart';
 import 'package:provider/provider.dart';
 import '../../../view_model/event_provider.dart';
 
@@ -46,8 +47,10 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.r),
-                  child: Image.asset(
-                    'assets/ogoh.png',
+                  child: Image.network(
+                    'https://lovebali.baliprov.go.id/storage/events/img-167470828763d2053fbe0c3.jpg',
+                    // 'assets/ogoh.png',
+                    // '${Api.event}${eventData.gambar}',
                     width: 310.w,
                     height: 167.h,
                     key: Key('gambar event'),
@@ -207,7 +210,15 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 10.h,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Maps(
+                                eventData: widget.eventData!,
+                              )),
+                    );
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),

@@ -10,32 +10,32 @@ class DetailEv extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Deskripsi',
-          style: poppinsKecil.copyWith(
-              fontSize: 12, fontWeight: FontWeight.w700, color: blackColor),
-          maxLines: 5,
-          overflow: TextOverflow.ellipsis,
-          key: Key('label deskripsi'),
-        ),
-        SizedBox(
-          height: 10.h,
-        ),
-        Text(
-          eventData.deskripsi,
-          style: poppinsKecil.copyWith(
-              fontSize: 12, fontWeight: FontWeight.w400, color: blackColor),
-          maxLines: 5,
-          overflow: TextOverflow.ellipsis,
-          key: Key('text deskripsi'),
-        ),
-        SizedBox(
-          height: 10.h,
-        )
-      ],
+    return Align(
+      alignment: Alignment.topLeft,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Deskripsi',
+            style: poppinsKecil.copyWith(
+                fontSize: 12, fontWeight: FontWeight.w700, color: blackColor),
+            maxLines: 5,
+            overflow: TextOverflow.ellipsis,
+            key: Key('label deskripsi'),
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          Text(
+            eventData.deskripsi,
+            style: poppinsKecil.copyWith(
+                fontSize: 12, fontWeight: FontWeight.w400, color: blackColor),
+            maxLines: 5,
+            overflow: TextOverflow.ellipsis,
+            key: Key('text deskripsi'),
+          ),
+        ],
+      ),
     );
   }
 }

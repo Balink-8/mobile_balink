@@ -6,7 +6,6 @@ import 'package:mobile_balink/view/widget/event_screen_widget/card_event.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/realtime.dart';
 import 'package:mobile_balink/view_model/event_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class EventPage extends StatefulWidget {
   const EventPage({super.key});
@@ -35,8 +34,8 @@ class _EventPageState extends State<EventPage> {
           child: Column(key: Key('columnGambardanListEvent'), children: [
             Stack(
               children: [
-                Image.asset(
-                  'assets/laut.png',
+                Image.network(
+                  'https://www.rentalmobilbali.net/wp-content/uploads/2016/05/10-Tempat-Wisata-Favorit-Wisatawan-Indonesia-Di-Bali-Unggulan.jpg',
                   width: 360.w,
                   height: 150.h,
                   fit: BoxFit.cover,

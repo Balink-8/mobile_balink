@@ -6,6 +6,7 @@ import 'package:mobile_balink/view_model/category_provider.dart';
 import 'package:mobile_balink/view_model/event_provider.dart';
 import 'package:mobile_balink/view_model/login_provider.dart';
 import 'package:mobile_balink/view_model/product_provider.dart';
+import 'package:mobile_balink/view_model/promo_provider.dart';
 import 'package:mobile_balink/view_model/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => CategoryProvider(),
         ),
+        // ChangeNotifierProvider(
+        //   create: (context) => PromoProvider(),
+        // ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 800),

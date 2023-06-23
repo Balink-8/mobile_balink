@@ -18,6 +18,7 @@ class Card_CO extends StatelessWidget {
         children: [
           Image.asset(
             'assets/icon/event_icon/dummy/g1.png',
+            // '${Api.event}${eventData.gambar}',
             width: 50.w,
             height: 50.h,
             key: Key('gambar event'),

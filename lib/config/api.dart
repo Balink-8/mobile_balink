@@ -7,4 +7,5 @@ class Api {
   static const String event = '$baseUrl/event';
   static const String artikel = '$baseUrl/artikel';
   static const String kategori = '$baseUrl/kategori_produk';
+  static const String promo = '$baseUrl/promo';
 }

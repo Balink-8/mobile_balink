@@ -17,7 +17,7 @@ class bsTicket extends StatefulWidget {
 }
 
 int jumlah = 0;
-int harga = 120000;
+int harga = harga;
 
 class _bsTicketState extends State<bsTicket> {
   @override
@@ -52,6 +52,7 @@ class _bsTicketState extends State<bsTicket> {
                                   borderRadius: BorderRadius.circular(10.0),
                                   child: Image.asset(
                                     'assets/icon/event_icon/dummy/g1.png',
+                                    //  '${Api.event}${eventData.gambar}',
                                     width: 64.w,
                                     height: 64.h,
                                     key: Key('gambar event'),
@@ -186,8 +187,6 @@ class _bsTicketState extends State<bsTicket> {
                                     onPressed: () {
                                       setState(() {
                                         jumlah = jumlah - 1;
-                                        harga = widget.eventData!.hargaTiket *
-                                            jumlah;
                                       });
                                     },
                                     icon: Image.asset(
@@ -209,8 +208,6 @@ class _bsTicketState extends State<bsTicket> {
                                     onPressed: () {
                                       setState(() {
                                         jumlah = jumlah + 1;
-                                        harga = widget.eventData!.hargaTiket *
-                                            jumlah;
                                       });
                                     },
                                     icon: Image.asset(

@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
+import 'package:mobile_balink/view/transaksi/transaksi_event.dart';
+import 'package:mobile_balink/view/transaksi/transaksi_widget/tab_bar_navigaton.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
 class SuccessPayment extends StatefulWidget {
@@ -372,32 +374,40 @@ class _SuccessPaymentState extends State<SuccessPayment> {
             SizedBox(
               height: 150.h,
             ),
-            Container(
-              key: const Key('button lihat transaksi'),
-              width: 360.w,
-              height: 48.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: secondaryColor,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TransaksiEventPage()),
+                );
+              },
+              child: Container(
+                key: const Key('button lihat transaksi'),
+                width: 360.w,
+                height: 48.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: secondaryColor,
+                ),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Image.asset(
+                    'assets/icon/event_icon/bill.png',
+                    width: 14.w,
+                    height: 16.h,
+                    key: const Key('icon bill'),
+                  ),
+                  SizedBox(
+                    width: 7.w,
+                  ),
+                  Text(
+                    'Lihat Riwayat Transaksi',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w700, color: whiteColor),
+                    key: const Key('label riwayat transaksi'),
+                  ),
+                ]),
               ),
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Image.asset(
-                  'assets/icon/event_icon/bill.png',
-                  width: 14.w,
-                  height: 16.h,
-                  key: const Key('icon bill'),
-                ),
-                SizedBox(
-                  width: 7.w,
-                ),
-                Text(
-                  'Lihat Riwayat Transaksi',
-                  style: poppinsKecil.copyWith(
-                      fontWeight: FontWeight.w700, color: whiteColor),
-                  key: const Key('label riwayat transaksi'),
-                ),
-              ]),
             ),
           ],
         ),
