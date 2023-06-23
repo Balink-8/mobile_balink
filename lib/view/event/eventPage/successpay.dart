@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
-import 'package:mobile_balink/view/transaksi/transaksi_event.dart';
 import 'package:mobile_balink/view/transaksi/transaksi_widget/tab_bar_navigaton.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/realtime.dart';
 
 class SuccessPayment extends StatefulWidget {
   final Event? eventData;
@@ -148,7 +148,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     SizedBox(
                       width: 135.w,
                     ),
-                    Text('Rp $harga',
+                    Text('Rp ${total}',
                         style: poppinsKecil.copyWith(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
@@ -222,7 +222,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                       key: const Key('label total'),
                     ),
                     Text(
-                      'Rp ${harga + hargaPengiriman}',
+                      'Rp ${total + hargaPengiriman}',
                       style: poppinsKecil.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w700,
@@ -302,7 +302,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                       key: const Key('label tanggal pesanan'),
                     ),
                     Text(
-                      '29 April, 2023 6:52 AM',
+                      '29 April 2023 6:52 AM',
                       style: poppinsKecil.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
@@ -378,7 +378,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TransaksiEventPage()),
+                  MaterialPageRoute(builder: (context) => TabBarNavigation()),
                 );
               },
               child: Container(

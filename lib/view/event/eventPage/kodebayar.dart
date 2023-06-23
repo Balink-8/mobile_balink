@@ -1,11 +1,10 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/waitingpembayaran.dart';
-import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
+import '../../widget/event_screen_widget/buttomsheet.dart';
 
 class kodeBayar extends StatefulWidget {
   final Event eventData;
@@ -71,7 +70,7 @@ class _kodeBayarState extends State<kodeBayar> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Total : ${harga + hargaPengiriman}',
+                  'Total : ${total + hargaPengiriman}',
                   style: poppinsKecil.copyWith(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w700,

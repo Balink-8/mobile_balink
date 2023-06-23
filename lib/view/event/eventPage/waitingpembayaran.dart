@@ -339,7 +339,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             width: 135.w,
                           ),
                           Text(
-                            'Rp $harga',
+                            'Rp ${total}',
                             style: poppinsKecil.copyWith(
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
@@ -414,7 +414,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             key: const Key('label total'),
                           ),
                           Text(
-                            'Rp ${harga + hargaPengiriman}',
+                            'Rp ${total + hargaPengiriman}',
                             style: poppinsKecil.copyWith(
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w700,

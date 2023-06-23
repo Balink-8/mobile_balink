@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
-
-import '../../../config/api.dart';
 import '../../../model/event_model.dart';
 
 class CardEvent extends StatelessWidget {
@@ -35,16 +33,7 @@ class CardEvent extends StatelessWidget {
               child: ClipRRect(
                 key: Key('gambar event'),
                 borderRadius: BorderRadius.circular(10.0),
-                child:
-                    // Image.asset(
-                    //   'assets/icon/event_icon/dummy/g1.png',
-                    //   // '${Api.event}${eventData.gambar}',
-                    //   width: 64.w,
-                    //   height: 64.h,
-                    // )
-                    Image.network(
-                  // 'assets/icon/event_icon/dummy/g1.png',
-                  // '${Api.event}${eventData.gambar}',
+                child: Image.network(
                   'https://www.rentalmobilbali.net/wp-content/uploads/2016/05/10-Tempat-Wisata-Favorit-Wisatawan-Indonesia-Di-Bali-Unggulan.jpg',
                   width: 64.w,
                   height: 64.h,

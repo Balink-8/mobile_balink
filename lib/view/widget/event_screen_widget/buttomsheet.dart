@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
-import 'package:mobile_balink/view/event/eventPage/eventcheckout.dart';
+import 'package:mobile_balink/view/event/eventPage/checkout.dart';
 import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 
 import '../../../model/event_model.dart';
@@ -17,7 +17,7 @@ class bsTicket extends StatefulWidget {
 }
 
 int jumlah = 0;
-int harga = harga;
+int total = 0;
 
 class _bsTicketState extends State<bsTicket> {
   @override
@@ -35,7 +35,7 @@ class _bsTicketState extends State<bsTicket> {
           builder: (context) {
             return SizedBox(
               width: 360.w,
-              height: 516.h,
+              height: 450.h,
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
@@ -187,6 +187,8 @@ class _bsTicketState extends State<bsTicket> {
                                     onPressed: () {
                                       setState(() {
                                         jumlah = jumlah - 1;
+                                        total = widget.eventData!.hargaTiket *
+                                            jumlah;
                                       });
                                     },
                                     icon: Image.asset(
@@ -208,6 +210,8 @@ class _bsTicketState extends State<bsTicket> {
                                     onPressed: () {
                                       setState(() {
                                         jumlah = jumlah + 1;
+                                        total = widget.eventData!.hargaTiket *
+                                            jumlah;
                                       });
                                     },
                                     icon: Image.asset(
@@ -266,11 +270,12 @@ class _bsTicketState extends State<bsTicket> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => EventCo(
-                                      hargaTiket: widget.eventData!.hargaTiket,
-                                      jumlah: jumlah,
-                                      total: harga,
-                                      eventData: widget.eventData),
+                                  builder: (context) => EventCheckOut(
+                                    total: total,
+                                    hargaTiket: widget.eventData!.hargaTiket,
+                                    jumlah: widget.eventData,
+                                    eventData: widget.eventData,
+                                  ),
                                 ),
                               );
                             });

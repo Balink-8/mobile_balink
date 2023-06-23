@@ -7,7 +7,7 @@ import 'package:mobile_balink/view/widget/event_screen_widget/card_overlay.dart'
 
 import '../../../model/event_model.dart';
 
-class EventCo extends StatefulWidget {
+class EventCheckOut extends StatefulWidget {
   final Event? eventData;
 
   var jumlah;
@@ -18,7 +18,7 @@ class EventCo extends StatefulWidget {
 
   String metodePembayaran = "";
 
-  EventCo(
+  EventCheckOut(
       {super.key,
       required this.total,
       required this.hargaTiket,
@@ -26,13 +26,13 @@ class EventCo extends StatefulWidget {
       required this.eventData});
 
   @override
-  State<EventCo> createState() => _EventCoState();
+  State<EventCheckOut> createState() => _EventCheckOutState();
 }
 
-class _EventCoState extends State<EventCo> {
+class _EventCheckOutState extends State<EventCheckOut> {
   var kodePromo = "";
   var radioValue = '';
-  int hargaPengiriman = 1000;
+  var hargaPengiriman = 1000;
 
   final _kodePromoController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -125,7 +125,7 @@ class _EventCoState extends State<EventCo> {
                           key: const Key('label subtotal'),
                         ),
                         Text(
-                          'Rp${widget.eventData!.hargaTiket * jumlah}',
+                          'Rp${widget.total}',
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
@@ -197,7 +197,7 @@ class _EventCoState extends State<EventCo> {
                           key: Key('label total'),
                         ),
                         Text(
-                          'Rp${harga + hargaPengiriman}',
+                          'Rp${widget.total + hargaPengiriman}',
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
@@ -317,7 +317,7 @@ class _EventCoState extends State<EventCo> {
                       key: Key('label total produk'),
                     ),
                     Text(
-                      'Rp${harga + hargaPengiriman}',
+                      'Rp${widget.total + hargaPengiriman}',
                       style: poppinsKecil.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w700,
@@ -371,10 +371,10 @@ class _EventCoState extends State<EventCo> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => EventCo(
+                            builder: (context) => EventCheckOut(
                                 hargaTiket: widget.eventData!.hargaTiket,
                                 jumlah: jumlah,
-                                total: harga,
+                                total: total,
                                 eventData: widget.eventData),
                           ),
                         );
