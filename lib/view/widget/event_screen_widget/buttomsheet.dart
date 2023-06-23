@@ -17,7 +17,7 @@ class bsTicket extends StatefulWidget {
 }
 
 int jumlah = 0;
-int harga = 120000;
+int harga = harga;
 
 class _bsTicketState extends State<bsTicket> {
   @override
@@ -186,8 +186,6 @@ class _bsTicketState extends State<bsTicket> {
                                     onPressed: () {
                                       setState(() {
                                         jumlah = jumlah - 1;
-                                        harga = widget.eventData!.hargaTiket *
-                                            jumlah;
                                       });
                                     },
                                     icon: Image.asset(
@@ -209,8 +207,6 @@ class _bsTicketState extends State<bsTicket> {
                                     onPressed: () {
                                       setState(() {
                                         jumlah = jumlah + 1;
-                                        harga = widget.eventData!.hargaTiket *
-                                            jumlah;
                                       });
                                     },
                                     icon: Image.asset(

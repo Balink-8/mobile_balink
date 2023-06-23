@@ -176,6 +176,7 @@ class _EventCoState extends State<EventCo> {
                         ),
                         Text(
                           '-',
+                          // 'Rp${widget.eventData!.,
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
@@ -302,52 +303,6 @@ class _EventCoState extends State<EventCo> {
                                   },
                                 )
                         ])
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 150.w,
-                      child: Row(
-                        children: [
-                          Card(
-                            color: abuColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'COD',
-                                style: poppinsKecil.copyWith(
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: greyColor),
-                                key: Key('label COD'),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'Bayar di Tempat',
-                            style: poppinsKecil.copyWith(
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                                color: blackColor),
-                            key: Key('text bayar di tempat'),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Checkbox(
-                        activeColor: Colors.white,
-                        checkColor: Colors.black,
-                        value: isChecked,
-                        onChanged: (newBool) {
-                          setState(() {
-                            isChecked = newBool;
-                          });
-                        },
-                        key: Key('checkbox')),
                   ],
                 ),
                 SizedBox(

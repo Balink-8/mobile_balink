@@ -6,7 +6,6 @@ import 'package:mobile_balink/view/widget/event_screen_widget/card_event.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/realtime.dart';
 import 'package:mobile_balink/view_model/event_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class EventPage extends StatefulWidget {
   const EventPage({super.key});

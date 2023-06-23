@@ -36,6 +36,7 @@ class CardEvent extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
                 child: Image.asset(
                   'assets/icon/event_icon/dummy/g1.png',
+                  // eventData.gambar,
                   width: 64.w,
                   height: 64.h,
                 ),
