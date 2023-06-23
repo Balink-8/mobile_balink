@@ -8,6 +8,9 @@ import 'package:mobile_balink/view/artikel/artikel_screen.dart';
 import 'package:mobile_balink/view/artikel/detail_artikel_screen.dart';
 import 'package:mobile_balink/view_model/artikel_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:mobile_balink/view/artikel/detail_artikel_screen.dart';
+import 'package:mobile_balink/view/artikel/widgets/item_artikel_widget.dart';
+
 
 import '../../../view_model/event_provider.dart';
 
@@ -43,6 +46,7 @@ class _CardTentangEventState extends State<CardTentangEvent> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ClipRRect(
+
               borderRadius: BorderRadius.circular(10.0),
               child: Image.asset(
                 'assets/logo.png',

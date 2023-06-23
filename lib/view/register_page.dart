@@ -399,6 +399,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           )
         : GestureDetector(
+          key: Key('buttonRegisterKeLogin'),
             onTap: () {
               register();
               // Navigator.push(context,
