@@ -186,29 +186,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-
-              Text(
-                'Tentang Anda',
-                style: GoogleFonts.poppins(
-                  fontSize: 12.sp,
-                ),
-              ),
-              GestureDetector(
-                key: Key('buttonEditProfile'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const EditProfileScreen();
-                      },
-                    ),
-                  );
-                },
-                child: Text(
-                  'Edit',
+                Text(
+                  'Tentang Anda',
                   style: GoogleFonts.poppins(
                     fontSize: 12.sp,
+                  ),
+                ),
+                GestureDetector(
+                  key: Key('buttonEditProfile'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const EditProfileScreen();
+                        },
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Edit',
+                    style: GoogleFonts.poppins(
+                      fontSize: 12.sp,
+                    ),
                   ),
                 ),
                 GestureDetector(

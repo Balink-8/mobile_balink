@@ -234,10 +234,10 @@ class _bsTicketState extends State<bsTicket> {
                       children: [
                         Container(
                           width: 150.w,
-                          height: 50.h,
+                          height: 60.h,
                           color: fifthColor,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(5.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -249,9 +249,9 @@ class _bsTicketState extends State<bsTicket> {
                                       color: blackColor),
                                   key: Key('label total'),
                                 ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
+                                // SizedBox(
+                                //   height: 5.h,
+                                // ),
                                 Text(
                                   'Rp ${widget.eventData!.hargaTiket * jumlah} ',
                                   style: poppinsKecil.copyWith(
@@ -332,7 +332,7 @@ class _bsTicketState extends State<bsTicket> {
       builder: (BuildContext context) {
         return AlertDialog(
           insetPadding:
-              const EdgeInsets.symmetric(horizontal: 150, vertical: 360),
+              const EdgeInsets.symmetric(horizontal: 140, vertical: 360),
           titlePadding:
               const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 0),
           title: Image.asset(
