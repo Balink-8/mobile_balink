@@ -34,10 +34,13 @@ class CardEvent extends StatelessWidget {
               child: ClipRRect(
                 key: Key('gambar event'),
                 borderRadius: BorderRadius.circular(10.0),
-                child: Image.network(
-                  'https://www.rentalmobilbali.net/wp-content/uploads/2016/05/10-Tempat-Wisata-Favorit-Wisatawan-Indonesia-Di-Bali-Unggulan.jpg',
-                  width: 64.w,
-                  height: 64.h,
+                child: SizedBox(
+                  height: 87.h,
+                  width: 94.w,
+                  child: Image.network(
+                    'https://www.rentalmobilbali.net/wp-content/uploads/2016/05/10-Tempat-Wisata-Favorit-Wisatawan-Indonesia-Di-Bali-Unggulan.jpg',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
