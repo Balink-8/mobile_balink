@@ -115,7 +115,7 @@ class _CategoryProductState extends State<CategoryProduct> {
                     bottom: 37,
                     left: 16,
                     child: Text(
-                      widget.categoryData.nama,
+                      widget.categoryData.nama!,
                       style: poppinsKecil.copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,

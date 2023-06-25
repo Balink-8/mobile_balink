@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/view/widget/bottom_navbar.dart';
 
 import '../../model/product_model.dart';
 import '../shopping/shopping_page/list_gambar.dart';
@@ -12,11 +15,13 @@ class BerhasilBayarPage extends StatefulWidget {
       required this.productBerhasil,
       required this.index,
       required this.quantity,
-      required this.bank});
+      required this.bank,
+      required this.image});
   final Product productBerhasil;
   final int index;
   final int quantity;
   final String bank;
+  final File image;
 
   @override
   State<BerhasilBayarPage> createState() => _BerhasilBayarPageState();
@@ -219,10 +224,44 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
             SizedBox(height: 6.h),
             const Divider(thickness: 1),
             SizedBox(height: 10.h),
-            Text(
-              'Status Pembayaran',
-              style: poppinsKecil.copyWith(
-                  color: blackColor, fontWeight: FontWeight.bold),
+            // Text(
+            //   'Status Pembayaran',
+            //   style: poppinsKecil.copyWith(
+            //       color: blackColor, fontWeight: FontWeight.bold),
+            // ),
+            Container(
+              decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(8.r),
+                  color: abuAColor),
+              width: 327.w,
+              height: 390.h,
+              padding: const EdgeInsets.only(
+                top: 12,
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    widget.image != null
+                        ? SizedBox(
+                            height: 350,
+                            width: 350,
+                            child: Image.file(
+                              widget.image,
+                              // fit: BoxFit.cover,
+                            ),
+                          )
+                        : Center(
+                            child: InkWell(
+                              child: Text('Belum ada gambar'),
+                            ),
+                          ),
+                    const SizedBox(height: 50),
+                  ],
+                ),
+              ),
             ),
             SizedBox(height: 16.h),
             Center(
@@ -249,7 +288,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                           height: 10.h,
                         ),
                         Text(
-                          'LUNAS',
+                          'BERHASIL PESANAN',
                           style: poppinsKecil.copyWith(
                               fontWeight: FontWeight.w700, color: greenColor),
                           key: const Key('label lunas'),
@@ -263,11 +302,11 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
             SizedBox(height: 230.h),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const TabBarNavigation()),
-                );
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NavbarBawah()),
+                    (route) => false);
               },
               child: Container(
                 key: const Key('button lihat transaksi'),

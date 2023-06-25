@@ -44,6 +44,7 @@ class _DetailArtikelScreenState extends State<DetailArtikelScreen> {
           return Scaffold(
             backgroundColor: const Color(0xffffffff),
             appBar: AppBar(
+              foregroundColor: blackColor,
               backgroundColor: const Color(0xffffffff),
               elevation: 0,
               title: Align(

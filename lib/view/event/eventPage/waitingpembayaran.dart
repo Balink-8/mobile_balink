@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
@@ -20,6 +22,18 @@ class WaitingPembayaran extends StatefulWidget {
 }
 
 class _WaitingPembayaranState extends State<WaitingPembayaran> {
+  File? image;
+
+  Future getImage() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? imagePicker =
+        await picker.pickImage(source: ImageSource.gallery);
+    image = File(imagePicker!.path);
+    // ignore: avoid_print
+    print(image);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +74,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                         color: blackColor,
                         fontWeight: FontWeight.w700,
                         fontSize: 12.sp),
-                    key: const Key('label bank yang dipilih'),
+                    key: Key('label bank yang dipilih'),
                   ),
                 ],
               ),
@@ -77,7 +91,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             'assets/icon/event_icon/dummy/g1.png',
                             width: 64.w,
                             height: 64.h,
-                            key: const Key('gambar event'),
+                            key: Key('gambar event'),
                           ),
                         ),
                       ),
@@ -97,7 +111,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w400,
                                     color: secondaryColor),
-                                key: const Key('label tanggal mulai'),
+                                key: Key('label tanggal mulai'),
                               ),
                             ),
                           ),
@@ -110,7 +124,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
-                            key: const Key('label nama event'),
+                            key: Key('label nama event'),
                           ),
                           SizedBox(
                             height: 12.h,
@@ -132,7 +146,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                     fontSize: 12.sp,
                                     fontWeight: FontWeight.w400,
                                     color: blackColor),
-                                key: const Key('text lokasi'),
+                                key: Key('text lokasi'),
                               ),
                             ],
                           ),
@@ -143,7 +157,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  const Divider(),
+                  Divider(),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -157,7 +171,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                               Image.asset('assets/icon/event_icon/ticket.png',
                                   width: 13.w,
                                   height: 11.h,
-                                  key: const Key('icon tiket')),
+                                  key: Key('icon tiket')),
                               SizedBox(
                                 width: 10.w,
                               ),
@@ -180,7 +194,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
-                            key: const Key('label harga tiket'),
+                            key: Key('label harga tiket'),
                           ),
                           SizedBox(
                             height: 10.h,
@@ -193,7 +207,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w700,
                             color: secondaryColor),
-                        key: const Key('label jumlah tiket'),
+                        key: Key('label jumlah tiket'),
                       ),
                     ],
                   ),
@@ -227,7 +241,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: abuColor),
-                            key: const Key('label nomor pesanan'),
+                            key: Key('label nomor pesanan'),
                           ),
                           Row(
                             children: [
@@ -237,7 +251,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                     fontSize: 12.sp,
                                     fontWeight: FontWeight.w700,
                                     color: blackColor),
-                                key: const Key('text no pesanan'),
+                                key: Key('text no pesanan'),
                               ),
                               SizedBox(
                                 width: 3.w,
@@ -247,7 +261,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 width: 14.w,
                                 height: 16.h,
                                 color: abuAColor,
-                                key: const Key('icon copy'),
+                                key: Key('icon copy'),
                               )
                             ],
                           ),
@@ -274,7 +288,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: const Key('text tanggal pesanan'),
+                            key: Key('text tanggal pesanan'),
                           )
                         ],
                       ),
@@ -299,13 +313,13 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: const Key('bank yang dipilih'),
+                            key: Key('bank yang dipilih'),
                           )
                         ],
                       ),
                     ],
                   ),
-                  const Divider(),
+                  Divider(),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -339,13 +353,38 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             width: 135.w,
                           ),
                           Text(
-                            'Rp $total',
+                            'Rp ${total}',
                             style: poppinsKecil.copyWith(
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: const Key('text harga subtotal'),
+                            key: Key('text harga subtotal'),
                           ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 6.h,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Pengiriman',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                                color: abuColor),
+                            key: const Key('label pengiriman'),
+                          ),
+                          Text(
+                            'Rp $hargaPengiriman',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: blackColor),
+                            key: Key('text ongkir'),
+                          )
                         ],
                       ),
                       SizedBox(
@@ -369,7 +408,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.red),
-                            key: const Key('promo'),
+                            key: Key('promo'),
                           )
                         ],
                       ),
@@ -394,7 +433,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
-                            key: const Key('text total harga'),
+                            key: Key('text total harga'),
                           ),
                         ],
                       )
@@ -435,7 +474,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w400,
                                   color: blackColor),
-                              key: const Key('bank yang dipilih'),
+                              key: Key('bank yang dipilih'),
                             ),
                             SizedBox(height: 4.h),
                             Text(
@@ -444,11 +483,11 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w700,
                                   color: blackColor),
-                              key: const Key('label no.va'),
+                              key: Key('label no.va'),
                             ),
                             SizedBox(height: 3.h),
                             TextButton(
-                              key: const Key('salinTextVa'),
+                              key: Key('salinTextVa'),
                               onPressed: () {
                                 FlutterClipboard.copy(nova).then((value) =>
                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -484,94 +523,155 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 24.h,
+                  SizedBox(height: 10.h),
+                  Row(
+                    children: [
+                      Text(
+                        'Bukti Pembayaran',
+                        style: poppinsKecil.copyWith(
+                            color: blackColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14.sp),
+                      ),
+                    ],
                   ),
+                  SizedBox(height: 10.h),
+                  Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(8.r),
+                        color: abuAColor),
+                    width: 327.w,
+                    height: 390.h,
+                    padding: const EdgeInsets.only(
+                      top: 12,
+                    ),
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          image != null
+                              ? SizedBox(
+                                  height: 350,
+                                  width: 350,
+                                  child: Image.file(
+                                    image!,
+                                    // fit: BoxFit.cover,
+                                  ),
+                                )
+                              : Center(
+                                  child: InkWell(
+                                    child: Text('Belum ada gambar'),
+                                    onTap: () async {
+                                      showModalBottomSheet(
+                                        context: context,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.vertical(
+                                            top: Radius.circular(20.0.r),
+                                          ),
+                                        ),
+                                        builder: (context) {
+                                          return SizedBox(
+                                            height: 280.h,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                ListTile(
+                                                  title: Center(
+                                                    child: Text(
+                                                      'Ambil Foto',
+                                                      style:
+                                                          poppinsKecil.copyWith(
+                                                        fontSize: 18.sp,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: blackColor,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  onTap: () {},
+                                                ),
+                                                const Divider(),
+                                                ListTile(
+                                                  title: Center(
+                                                    child: Text(
+                                                      'Pilih dari Galeri',
+                                                      style:
+                                                          poppinsKecil.copyWith(
+                                                        fontSize: 18.sp,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: blackColor,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  onTap: () async {
+                                                    await getImage();
+                                                  },
+                                                ),
+                                                const Divider(),
+                                                ListTile(
+                                                  title: Center(
+                                                    child: Text(
+                                                      'Lihat foto',
+                                                      style:
+                                                          poppinsKecil.copyWith(
+                                                        fontSize: 18.sp,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: blackColor,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  onTap: () {},
+                                                ),
+                                                const Divider(),
+                                                ListTile(
+                                                  title: Center(
+                                                    child: Text(
+                                                      'Batal',
+                                                      style:
+                                                          poppinsKecil.copyWith(
+                                                        fontSize: 18.sp,
+                                                        fontWeight:
+                                                            FontWeight.w100,
+                                                        color: const Color(
+                                                            0xff5E5E5E),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  onTap: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
+                                ),
+                          const SizedBox(height: 50),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 16.h),
                   GestureDetector(
                     onTap: () {
-                      showModalBottomSheet(
-                        context: context,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(20.0.r),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SuccessPayment(
+                            image: image!,
+                            eventData: widget.eventData!,
+                            bank: widget.bank,
                           ),
                         ),
-                        builder: (context) {
-                          return SizedBox(
-                            height: 280.h,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                ListTile(
-                                  title: Center(
-                                    child: Text(
-                                      'Ambil Foto',
-                                      style: poppinsKecil.copyWith(
-                                        fontSize: 18.sp,
-                                        fontWeight: FontWeight.w600,
-                                        color: blackColor,
-                                      ),
-                                      key: const Key('label ambil foto'),
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => SuccessPayment(
-                                          eventData: widget.eventData!,
-                                          bank: widget.bank,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                                const Divider(),
-                                ListTile(
-                                  title: Center(
-                                    child: Text('Pilih dari Galeri',
-                                        style: poppinsKecil.copyWith(
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.w600,
-                                          color: blackColor,
-                                        ),
-                                        key: const Key('label pilih galeri')),
-                                  ),
-                                  onTap: () {},
-                                ),
-                                const Divider(),
-                                ListTile(
-                                  title: Center(
-                                    child: Text('Lihat foto',
-                                        style: poppinsKecil.copyWith(
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.w600,
-                                          color: blackColor,
-                                        ),
-                                        key: const Key('label lihat foto')),
-                                  ),
-                                  onTap: () {},
-                                ),
-                                const Divider(),
-                                ListTile(
-                                  title: Center(
-                                    child: Text('Batal',
-                                        style: poppinsKecil.copyWith(
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.w100,
-                                          color: const Color(0xff5E5E5E),
-                                        ),
-                                        key: const Key('label batal')),
-                                  ),
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                              ],
-                            ),
-                          );
-                        },
                       );
                     },
                     child: Container(
