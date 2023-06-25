@@ -35,7 +35,6 @@ class EventCheckOut extends StatefulWidget {
 class _EventCheckOutState extends State<EventCheckOut> {
   var kodePromo = "";
   var radioValue = '';
-  var hargaPengiriman = 1000;
 
   final _kodePromoController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -143,31 +142,6 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 10.h,
                     ),
                     Row(
-                      key: const Key('pengiriman'),
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Pengiriman',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                              color: abuColor),
-                          key: const Key('label pengiriman'),
-                        ),
-                        Text(
-                          'Rp$hargaPengiriman',
-                          style: poppinsKecil.copyWith(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w500,
-                              color: blackColor),
-                          key: const Key('text harga pengiriman '),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Row(
                       key: const Key('promoo'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -205,7 +179,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                           key: const Key('label total'),
                         ),
                         Text(
-                          'Rp${widget.total + hargaPengiriman}',
+                          'Rp${widget.total}',
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
@@ -328,7 +302,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       key: const Key('label total produk'),
                     ),
                     Text(
-                      'Rp${widget.total + hargaPengiriman}',
+                      'Rp${widget.total}',
                       style: poppinsKecil.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w700,

@@ -1,16 +1,23 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/transaksi/transaksi_widget/tab_bar_navigaton.dart';
+import 'package:mobile_balink/view/widget/bottom_navbar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
 class SuccessPayment extends StatefulWidget {
   final Event? eventData;
   final String bank;
+  final File image;
   const SuccessPayment(
-      {super.key, required this.eventData, required this.bank});
+      {super.key,
+      required this.eventData,
+      required this.bank,
+      required this.image});
 
   @override
   State<SuccessPayment> createState() => _SuccessPaymentState();
@@ -165,31 +172,6 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Pengiriman',
-                        style: poppinsKecil.copyWith(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                            color: abuColor),
-                        key: const Key('label pengiriman'),
-                      ),
-                      Text(
-                        'Rp $hargaPengiriman',
-                        style: poppinsKecil.copyWith(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: blackColor),
-                        key: const Key('label harga ongkir'),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 6.h,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
                         'Promo',
                         style: poppinsKecil.copyWith(
                             fontSize: 14.sp,
@@ -223,7 +205,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                         key: const Key('label total'),
                       ),
                       Text(
-                        'Rp ${total + hargaPengiriman}',
+                        'Rp ${total}',
                         style: poppinsKecil.copyWith(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w700,
@@ -340,6 +322,41 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 ],
               ),
               const Divider(),
+              SizedBox(height: 10.h),
+              Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(8.r),
+                    color: abuAColor),
+                width: 327.w,
+                height: 390.h,
+                padding: const EdgeInsets.only(
+                  top: 12,
+                ),
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      widget.image != null
+                          ? SizedBox(
+                              height: 350,
+                              width: 350,
+                              child: Image.file(
+                                widget.image,
+                                // fit: BoxFit.cover,
+                              ),
+                            )
+                          : Center(
+                              child: InkWell(
+                                child: Text('Belum ada gambar'),
+                              ),
+                            ),
+                      const SizedBox(height: 50),
+                    ],
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 10.h,
               ),
@@ -373,14 +390,15 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 ),
               ),
               SizedBox(
-                height: 150.h,
+                height: 160.h,
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const TabBarNavigation()),
-                  );
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NavbarBawah()),
+                      (route) => false);
                 },
                 child: Container(
                   key: const Key('buttonLihatTransaksi'),

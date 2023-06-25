@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../config/theme.dart';
 import '../../../model/product_model.dart';
 import 'bottom_sheet_ordernow.dart';
@@ -12,12 +13,22 @@ class OrderNow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    sendMessage() async {
+      String text = 'https://wa.me/6281357311456?text=Haloo';
+      var url = Uri.parse(text);
+      await canLaunchUrl(url)
+          ? await launchUrl(url, mode: LaunchMode.externalApplication)
+          : throw 'Could not launch $url';
+    }
+
     return Padding(
       padding: const EdgeInsets.only(left: 40, right: 40),
       child: Row(
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              sendMessage();
+            },
             icon: Image.asset(
               'assets/whatsapp.png',
               height: 24,

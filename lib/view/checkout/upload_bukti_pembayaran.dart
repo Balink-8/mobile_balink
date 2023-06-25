@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/shopping/shopping_page/list_gambar.dart';
 
@@ -28,7 +30,19 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
   int ongkir = 10000;
   String metodePembayaran = "";
 
+  var nova = '2668 8001 9203 8388';
+
   File? image;
+
+  Future getImage() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? imagePicker =
+        await picker.pickImage(source: ImageSource.gallery);
+    image = File(imagePicker!.path);
+    // ignore: avoid_print
+    print(image);
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +55,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        foregroundColor: blackColor,
         backgroundColor: whiteColor,
       ),
       body: SingleChildScrollView(
@@ -179,8 +194,8 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                             style: poppinsKecil.copyWith(
                                 color: blackColor,
                                 fontWeight: FontWeight.w400)),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 10.h,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -200,8 +215,8 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    width: 5,
+                  SizedBox(
+                    width: 5.h,
                   ),
                 ],
               ),
@@ -331,130 +346,207 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                     color: blackColor, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10.h),
-              Center(
+              Container(
+                key: const Key('boxRincianVa'),
+                decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(8.r),
+                    color: abuAColor),
+                width: 327.w,
+                height: 120.h,
+                padding: const EdgeInsets.only(
+                  top: 12,
+                ),
                 child: Column(
                   children: [
                     Text(
                       widget.bank,
-                      // 'Bank Central Asia',
-                      style: poppinsKecil.copyWith(color: blackColor),
+                      style: poppinsKecil.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w400,
+                          color: blackColor),
+                      key: const Key('bank yang dipilih'),
                     ),
+                    SizedBox(height: 4.h),
                     Text(
                       '2668 8001 9203 8388',
                       style: poppinsKecil.copyWith(
-                          color: blackColor, fontWeight: FontWeight.bold),
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w700,
+                          color: blackColor),
+                      key: const Key('label no.va'),
                     ),
-                    SizedBox(height: 8.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.content_copy,
-                          size: 20.w,
-                        ),
-                        SizedBox(width: 8.w),
-                        Text(
-                          'Copy Code',
-                          style: poppinsKecil.copyWith(color: blackColor),
-                        ),
-                      ],
+                    SizedBox(height: 3.h),
+                    TextButton(
+                      key: const Key('salinTextVa'),
+                      onPressed: () {
+                        FlutterClipboard.copy(nova).then((value) =>
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text('Berhasil Disalin'))));
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icon/event_icon/copy.png',
+                            width: 17.w,
+                            height: 20.h,
+                            key: const Key('iconCopy'),
+                          ),
+                          SizedBox(
+                            width: 4.w,
+                          ),
+                          Text(
+                            'Copy Code',
+                            style: poppinsKecil.copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                                color: blackColor),
+                            key: const Key('labelCopy '),
+                          )
+                        ],
+                      ),
                     ),
-                    Divider(
-                      thickness: 90.h,
-                    )
                   ],
+                ),
+              ),
+              SizedBox(height: 10.h),
+              Text(
+                'Bukti Pembayaran',
+                style: poppinsKecil.copyWith(
+                    color: blackColor, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10.h),
+              Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(8.r),
+                    color: abuAColor),
+                width: 327.w,
+                height: 390.h,
+                padding: const EdgeInsets.only(
+                  top: 12,
+                ),
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      image != null
+                          ? SizedBox(
+                              height: 350,
+                              width: 350,
+                              child: Image.file(
+                                image!,
+                                // fit: BoxFit.cover,
+                              ),
+                            )
+                          : Center(
+                              child: InkWell(
+                                child: Text('Belum ada gambar'),
+                                onTap: () async {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(20.0.r),
+                                      ),
+                                    ),
+                                    builder: (context) {
+                                      return SizedBox(
+                                        height: 280.h,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            ListTile(
+                                              title: Center(
+                                                child: Text(
+                                                  'Ambil Foto',
+                                                  style: poppinsKecil.copyWith(
+                                                    fontSize: 18.sp,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: blackColor,
+                                                  ),
+                                                ),
+                                              ),
+                                              onTap: () {},
+                                            ),
+                                            const Divider(),
+                                            ListTile(
+                                              title: Center(
+                                                child: Text(
+                                                  'Pilih dari Galeri',
+                                                  style: poppinsKecil.copyWith(
+                                                    fontSize: 18.sp,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: blackColor,
+                                                  ),
+                                                ),
+                                              ),
+                                              onTap: () async {
+                                                await getImage();
+                                              },
+                                            ),
+                                            const Divider(),
+                                            ListTile(
+                                              title: Center(
+                                                child: Text(
+                                                  'Lihat foto',
+                                                  style: poppinsKecil.copyWith(
+                                                    fontSize: 18.sp,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: blackColor,
+                                                  ),
+                                                ),
+                                              ),
+                                              onTap: () {},
+                                            ),
+                                            const Divider(),
+                                            ListTile(
+                                              title: Center(
+                                                child: Text(
+                                                  'Batal',
+                                                  style: poppinsKecil.copyWith(
+                                                    fontSize: 18.sp,
+                                                    fontWeight: FontWeight.w100,
+                                                    color:
+                                                        const Color(0xff5E5E5E),
+                                                  ),
+                                                ),
+                                              ),
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                      const SizedBox(height: 50),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: 16.h),
               GestureDetector(
                 onTap: () {
-                  showModalBottomSheet(
-                    context: context,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(20.0.r),
-                      ),
-                    ),
-                    builder: (context) {
-                      return SizedBox(
-                        height: 280.h,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ListTile(
-                              title: Center(
-                                child: Text(
-                                  'Ambil Foto',
-                                  style: poppinsKecil.copyWith(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: blackColor,
-                                  ),
-                                ),
-                              ),
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => BerhasilBayarPage(
-                                              productBerhasil:
-                                                  widget.productMembayar,
-                                              bank: widget.bank,
-                                              index: widget.index,
-                                              quantity: widget.quantity,
-                                            )));
-                              },
-                            ),
-                            const Divider(),
-                            ListTile(
-                              title: Center(
-                                child: Text(
-                                  'Pilih dari Galeri',
-                                  style: poppinsKecil.copyWith(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: blackColor,
-                                  ),
-                                ),
-                              ),
-                              onTap: () {},
-                            ),
-                            const Divider(),
-                            ListTile(
-                              title: Center(
-                                child: Text(
-                                  'Lihat foto',
-                                  style: poppinsKecil.copyWith(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: blackColor,
-                                  ),
-                                ),
-                              ),
-                              onTap: () {},
-                            ),
-                            const Divider(),
-                            ListTile(
-                              title: Center(
-                                child: Text(
-                                  'Batal',
-                                  style: poppinsKecil.copyWith(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w100,
-                                    color: const Color(0xff5E5E5E),
-                                  ),
-                                ),
-                              ),
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  );
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BerhasilBayarPage(
+                                image: image!,
+                                productBerhasil: widget.productMembayar,
+                                bank: widget.bank,
+                                index: widget.index,
+                                quantity: widget.quantity,
+                              )));
                 },
                 child: Container(
                   width: 360.w,

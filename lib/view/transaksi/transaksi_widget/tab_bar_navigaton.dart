@@ -39,6 +39,7 @@ class _TabBarNavigationState extends State<TabBarNavigation>
     return Scaffold(
       key: const Key('transaksiScreen'),
       appBar: AppBar(
+        foregroundColor: blackColor,
         backgroundColor: whiteColor,
         elevation: 0,
         title: Text(

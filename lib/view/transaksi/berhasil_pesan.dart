@@ -16,6 +16,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
     return Scaffold(
       key: const Key('screenPesananBerhasil'),
       appBar: AppBar(
+        foregroundColor: blackColor,
         title: Text(
           'Berhasil Dipesan',
           style: poppinsKecil.copyWith(
@@ -238,6 +239,11 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   ),
                   SizedBox(
                     height: 10.h,
+                  ),
+                  Text(
+                    'Lunas',
+                    style: poppinsKecil.copyWith(
+                        color: greenColor, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),

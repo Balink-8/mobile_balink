@@ -48,7 +48,7 @@ class Category extends StatelessWidget {
                     ),
                     Center(
                       child: Text(
-                        categoryData.nama,
+                        categoryData.nama!,
                         // categoryProduct[index],
                         textAlign: TextAlign.center,
                         style: poppinsKecil.copyWith(

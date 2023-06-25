@@ -15,6 +15,7 @@ class _BatalPesanPageState extends State<BatalPesanPage> {
     return Scaffold(
       key: const Key('screenPesananCancel'),
       appBar: AppBar(
+        foregroundColor: blackColor,
         title: Text(
           key: const Key('titlePesananCancel'),
           'Dibatalkan',

@@ -15,6 +15,7 @@ class _ProsesPesananPageState extends State<ProsesPesananPage> {
     return Scaffold(
       key: const Key('screenPesananDiproses'),
       appBar: AppBar(
+        foregroundColor: blackColor,
         title: Text(
           'Diproses',
           style: poppinsKecil.copyWith(

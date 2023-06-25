@@ -15,7 +15,7 @@ class ItemArtikelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      key: const Key('buttonDetailArtikel'),
+      key: Key('buttonDetailArtikel'),
       onTap: () {
         Navigator.push(
           context,

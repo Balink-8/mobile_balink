@@ -34,7 +34,7 @@ class ShoppingCardWidget extends StatelessWidget {
               child: Text(
                 key: const Key('titleShoppingHome'),
                 // 'Pakaian',
-                categoryDataHome.nama,
+                categoryDataHome.nama!,
                 textAlign: TextAlign.center,
                 style: poppinsKecil.copyWith(
                     fontSize: 12.sp,
