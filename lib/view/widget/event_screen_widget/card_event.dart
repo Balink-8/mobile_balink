@@ -80,7 +80,7 @@ class CardEvent extends StatelessWidget {
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
-                  key: const Key('text nama event'),
+                  key: const Key('textNamaEvent'),
                 ),
                 SizedBox(
                   height: 12.h,

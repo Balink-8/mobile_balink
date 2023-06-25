@@ -35,10 +35,10 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
       appBar: AppBar(
         backgroundColor: whiteColor,
         foregroundColor: blackColor,
-        key: Key('appbar screen detail'),
+        key: const Key('appbarScreenDetail'),
       ),
       body: SafeArea(
-        key: const Key('screen event detail'),
+        key: const Key('screenEventDetail'),
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -51,7 +51,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     'assets/ogoh.png',
                     width: 310.w,
                     height: 167.h,
-                    key: Key('gambar event'),
+                    key: const Key('gambarEvent'),
                   ),
                 ),
                 SizedBox(
@@ -65,7 +65,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                         fontWeight: FontWeight.w700,
                         fontSize: 16.sp,
                         color: blackColor),
-                    key: Key('text nama event'),
+                    key: const Key('textNamaEvent'),
                   ),
                 ),
                 SizedBox(
@@ -77,7 +77,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                       'assets/icon/event_icon/location.png',
                       width: 10.w,
                       height: 13.h,
-                      key: Key('icon lokasi'),
+                      key: const Key('iconLokasi'),
                     ),
                     SizedBox(
                       width: 10.w,
@@ -88,7 +88,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           fontWeight: FontWeight.w400,
                           fontSize: 12.sp,
                           color: blackColor),
-                      key: Key('text lokasi'),
+                      key: const Key('textLokasi'),
                     ),
                   ],
                 ),
@@ -96,6 +96,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 15.h,
                 ),
                 Column(
+                  key: const Key('columnTiket'),
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
@@ -106,7 +107,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                             'assets/icon/event_icon/ticket.png',
                             width: 13.w,
                             height: 10.h,
-                            key: Key('icon tiket'),
+                            key: Key('iconTiket'),
                           ),
                         ),
                         Text(
@@ -115,7 +116,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
-                          key: Key('text tiket'),
+                          key: Key('texTiket'),
                         )
                       ],
                     ),
@@ -127,7 +128,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w700,
                             color: blackColor),
-                        key: Key('text harga'),
+                        key: Key('textHarga'),
                       ),
                     ),
                   ],
@@ -140,6 +141,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 15.h,
                 ),
                 Row(
+                  key: const Key('tanggalDanWaktu'),
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(child: cardCalendar(eventData: widget.eventData!)),
@@ -150,12 +152,13 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 15.h,
                 ),
                 Row(
+                  key: const Key('layoutTentangEvent'),
                   children: [
                     Image.asset(
                       'assets/icon/event_icon/net.png',
                       width: 10.w,
                       height: 13.h,
-                      key: Key('icon net'),
+                      key: Key('iconNet'),
                     ),
                     SizedBox(
                       width: 10.w,
@@ -166,7 +169,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           fontWeight: FontWeight.w400,
                           fontSize: 12.sp,
                           color: blackColor),
-                      key: Key('label tentang event'),
+                      key: const Key('labelTentangEvent'),
                     ),
                   ],
                 ),
@@ -184,6 +187,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 10.h,
                 ),
                 Row(
+                  key: Key('lokasiEventMaps'),
                   children: [
                     Image.asset(
                       'assets/icon/event_icon/location.png',
@@ -215,6 +219,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     await launchUrl(mapsUrl);
                   },
                   child: Container(
+                    key: const Key('screenMaps'),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         color: whiteColor,
@@ -228,7 +233,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: secondaryColor),
-                      key: Key('label text lokasi destiinasi'),
+                      key: const Key('labelTextDestiinasi'),
                     ),
                   ),
                 ),
@@ -236,7 +241,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 25.h,
                 ),
                 bsTicket(
-                  key: const Key('buttomsheet pembelian tiket'),
+                  key: const Key('buttomsheetPembelianTiket'),
                   eventData: widget.eventData,
                 )
               ],

@@ -40,6 +40,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('appbarCheckout'),
       appBar: AppBar(
         backgroundColor: whiteColor,
         foregroundColor: blackColor,
@@ -47,12 +48,12 @@ class _EventCheckOutState extends State<EventCheckOut> {
           'Checkout',
           style: poppinsKecil.copyWith(
               fontWeight: FontWeight.w700, fontSize: 14.sp, color: blackColor),
-          key: const Key('label checkout'),
+          key: const Key('labelCheckout'),
         ),
-        key: const Key('app bar checkout'),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
+          key: const Key('screenCheckout'),
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
@@ -77,7 +78,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                     Form(
                       key: _formKey,
                       child: TextFormField(
-                        key: const Key('textform field input kode promo'),
+                        key: const Key('textformFieldKodePromo'),
                         controller: _kodePromoController..text = kodePromo,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -93,7 +94,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                                 color: abuAColor),
                             child: Image.asset(
                               'assets/icon/event_icon/key.png',
-                              key: const Key('icon kunci'),
+                              key: const Key('iconKunci'),
                             ),
                           ),
                         ),
@@ -108,12 +109,13 @@ class _EventCheckOutState extends State<EventCheckOut> {
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
-                      key: const Key('label ringkasan pesanan'),
+                      key: const Key('labelRingkasanPesanan'),
                     ),
                     SizedBox(
                       height: 10.h,
                     ),
                     Row(
+                      key: const Key('subtotal'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -122,7 +124,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: abuColor),
-                          key: const Key('label subtotal'),
+                          key: const Key('labelSubtotal'),
                         ),
                         Text(
                           'Rp${widget.total}',
@@ -138,6 +140,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 10.h,
                     ),
                     Row(
+                      key: Key('pengiriman'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -162,6 +165,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 10.h,
                     ),
                     Row(
+                      key: Key('promoo'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -186,6 +190,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 10.h,
                     ),
                     Row(
+                      key: Key('Total'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -210,6 +215,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 30.h,
                     ),
                     Row(
+                      key: Key('metodePembayaran'),
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Image.asset(
@@ -235,6 +241,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 15.h,
                     ),
                     Row(
+                        key: Key('selectBank'),
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
@@ -306,6 +313,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                   height: 120.h,
                 ),
                 Row(
+                  key: Key('totalSeluruh'),
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -332,7 +340,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
         ),
       ),
       bottomNavigationBar: BuatPesanan(
-          key: Key('buttom navigator buat pesanan'),
+          key: Key('buttomNavigatorPesanan'),
           eventData: widget.eventData!,
           metodePembayaran: widget.metodePembayaran),
     );

@@ -5,7 +5,6 @@ import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/transaksi/transaksi_widget/tab_bar_navigaton.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
-import 'package:mobile_balink/view/widget/event_screen_widget/realtime.dart';
 
 class SuccessPayment extends StatefulWidget {
   final Event? eventData;
@@ -32,9 +31,10 @@ class _SuccessPaymentState extends State<SuccessPayment> {
         ),
         backgroundColor: whiteColor,
         foregroundColor: blackColor,
-        key: const Key('appbar berhasil dipesan'),
+        key: const Key('appbarBerhasilDipesan'),
       ),
       body: SingleChildScrollView(
+        key: const Key('screenSuccsesPayment'),
         child: Padding(
           key: const Key('Screen berhasil dipesan'),
           padding: EdgeInsets.all(16),
@@ -105,7 +105,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: Key(' text lokasi'),
+                            key: Key('textLokasi'),
                           ),
                         ],
                       ),
@@ -129,7 +129,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         color: blackColor),
-                    key: const Key('label ringkas pesanan'),
+                    key: const Key('labelRingkasPesanan'),
                   ),
                   SizedBox(
                     height: 6.h,
@@ -154,7 +154,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
-                          key: Key('label total')),
+                          key: Key('labelTotal')),
                     ],
                   ),
                   SizedBox(
@@ -383,7 +383,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                   );
                 },
                 child: Container(
-                  key: const Key('button lihat transaksi'),
+                  key: const Key('buttonLihatTransaksi'),
                   width: 360.w,
                   height: 48.h,
                   decoration: BoxDecoration(
@@ -397,7 +397,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                           'assets/icon/event_icon/bill.png',
                           width: 14.w,
                           height: 16.h,
-                          key: const Key('icon bill'),
+                          key: const Key('iconBill'),
                         ),
                         SizedBox(
                           width: 7.w,

@@ -35,9 +35,10 @@ class _kodeBayarState extends State<kodeBayar> {
               fontWeight: FontWeight.w400, fontSize: 14.sp, color: blackColor),
           key: const Key('label kode pembayaran'),
         ),
-        key: const Key('app bar kode pembayaran'),
+        key: const Key('appbarKodePembayaran'),
       ),
       body: SingleChildScrollView(
+        key: const Key('screenKodeBayar'),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -49,7 +50,7 @@ class _kodeBayarState extends State<kodeBayar> {
                     'assets/icon/event_icon/waiting.png',
                     width: 24.w,
                     height: 24.h,
-                    key: const Key('icon jam'),
+                    key: const Key('iconJam'),
                   ),
                   SizedBox(
                     width: 6.w,
@@ -60,7 +61,7 @@ class _kodeBayarState extends State<kodeBayar> {
                         fontWeight: FontWeight.w400,
                         fontSize: 14.sp,
                         color: blackColor),
-                    key: const Key('label menunggu pembayaran'),
+                    key: const Key('labelMenungguPembayaran'),
                   )
                 ],
               ),
@@ -76,7 +77,7 @@ class _kodeBayarState extends State<kodeBayar> {
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w700,
                         color: blackColor),
-                    key: Key('text total harga'),
+                    key: Key('textTotalHarga'),
                   ),
                   Text(
                     'Pembayaran dalam 24 jam sebelumn No. Virtual Account expired',
@@ -84,7 +85,7 @@ class _kodeBayarState extends State<kodeBayar> {
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
                         color: blackColor),
-                    key: const Key('label text'),
+                    key: const Key('labelText'),
                   )
                 ],
               ),
@@ -103,6 +104,7 @@ class _kodeBayarState extends State<kodeBayar> {
                 height: 5.h,
               ),
               Container(
+                key: const Key('labelVirtualAcc'),
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(8.r),
@@ -179,6 +181,7 @@ class _kodeBayarState extends State<kodeBayar> {
                 height: 4.h,
               ),
               Row(
+                key: const Key('labelSelectBank'),
                 children: [
                   Card(
                     color: abuAColor,
@@ -213,7 +216,6 @@ class _kodeBayarState extends State<kodeBayar> {
                 height: 250.h,
               ),
               GestureDetector(
-                key: Key('buttonLihatPesanan'),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -224,7 +226,7 @@ class _kodeBayarState extends State<kodeBayar> {
                   );
                 },
                 child: Container(
-                  key: const Key('button lihat pesanan'),
+                  key: const Key('buttonLihatPesanan'),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.r),
                     color: secondaryColor,

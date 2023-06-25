@@ -28,21 +28,21 @@ class _EventPageState extends State<EventPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        key: Key('safearea screen event'),
+        key: const Key('screenEvent'),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(key: Key('columnGambardanListEvent'), children: [
             Stack(
               children: [
-
                 Image.network(
                   'https://www.rentalmobilbali.net/wp-content/uploads/2016/05/10-Tempat-Wisata-Favorit-Wisatawan-Indonesia-Di-Bali-Unggulan.jpg',
                   width: 360.w,
                   height: 150.h,
                   fit: BoxFit.cover,
-                  key: Key('gambar'),
+                  key: const Key('gambar'),
                 ),
                 Padding(
+                  key: Key('screenTanggalWaktu'),
                   padding: const EdgeInsets.only(top: 40),
                   child: Center(
                     child: Column(
@@ -65,6 +65,7 @@ class _EventPageState extends State<EventPage> {
               builder: (context, provEvent, child) {
                 final events = provEvent.listEvent;
                 return Padding(
+                  key: const Key('cardEvent'),
                   padding: EdgeInsets.only(left: 10, right: 10, bottom: 30),
                   child: ListView.separated(
                     scrollDirection: Axis.vertical,

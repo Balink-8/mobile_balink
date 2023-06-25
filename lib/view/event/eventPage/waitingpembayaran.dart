@@ -34,10 +34,10 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
         ),
         backgroundColor: whiteColor,
         foregroundColor: blackColor,
-        key: const Key('app bar menunggu pembayaran'),
+        key: const Key('appbarWaitingPayment'),
       ),
       body: SingleChildScrollView(
-        key: Key('screen menunggu pembayaran'),
+        key: const Key('screenWaitingPayment'),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -442,14 +442,14 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       ),
                       SizedBox(height: 5.h),
                       Container(
-                        key: const Key('box rincian va'),
+                        key: const Key('boxRincianVa'),
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             borderRadius: BorderRadius.circular(8.r),
                             color: abuAColor),
                         width: 327.w,
                         height: 120.h,
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           top: 12,
                         ),
                         child: Column(
@@ -473,7 +473,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             ),
                             SizedBox(height: 3.h),
                             TextButton(
-                              key: Key('salin text va'),
+                              key: Key('salinTextVa'),
                               onPressed: () {
                                 FlutterClipboard.copy(nova).then((value) =>
                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -488,7 +488,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                     'assets/icon/event_icon/copy.png',
                                     width: 17.w,
                                     height: 20.h,
-                                    key: const Key('icon copy'),
+                                    key: const Key('iconCopy'),
                                   ),
                                   SizedBox(
                                     width: 4.w,
@@ -499,7 +499,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                         fontSize: 14.sp,
                                         fontWeight: FontWeight.w400,
                                         color: blackColor),
-                                    key: const Key('label copy '),
+                                    key: const Key('labelCopy '),
                                   )
                                 ],
                               ),
@@ -600,7 +600,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       );
                     },
                     child: Container(
-                      key: const Key('button upload bukti'),
+                      key: const Key('buttonUploadBukti'),
                       width: 360.w,
                       height: 48.h,
                       decoration: BoxDecoration(
@@ -619,7 +619,6 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                   ),
                   SizedBox(height: 100.h),
                   GestureDetector(
-                    key: Key('buttonPembayaranBerhasil'),
                     onTap: () {
                       _showMyDialog(context);
                       Timer(const Duration(seconds: 3), () {
@@ -627,7 +626,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                       });
                     },
                     child: Container(
-                      key: const Key('button batal pesanan'),
+                      key: const Key('buttonBatalPesanan'),
                       width: 360.w,
                       height: 48.h,
                       decoration: BoxDecoration(

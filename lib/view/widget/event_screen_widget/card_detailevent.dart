@@ -11,6 +11,7 @@ class DetailEv extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
+      key: const Key('deskripsiEvent'),
       alignment: Alignment.topLeft,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,7 +22,7 @@ class DetailEv extends StatelessWidget {
                 fontSize: 12, fontWeight: FontWeight.w700, color: blackColor),
             maxLines: 5,
             overflow: TextOverflow.ellipsis,
-            key: Key('label deskripsi'),
+            key: const Key('labelDeskripsi'),
           ),
           SizedBox(
             height: 10.h,
@@ -32,7 +33,7 @@ class DetailEv extends StatelessWidget {
                 fontSize: 12, fontWeight: FontWeight.w400, color: blackColor),
             maxLines: 5,
             overflow: TextOverflow.ellipsis,
-            key: Key('text deskripsi'),
+            key: Key('textDeskripsi'),
           ),
         ],
       ),
