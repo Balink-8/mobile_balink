@@ -309,7 +309,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Total (2 produk)',
+                      'Total ($jumlah produk)',
                       style: poppinsKecil.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,

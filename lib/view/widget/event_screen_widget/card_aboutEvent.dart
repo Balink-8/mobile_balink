@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
-import 'package:mobile_balink/model/artikel_model.dart';
 import 'package:mobile_balink/model/event_model.dart';
-import 'package:mobile_balink/source/source_artikel.dart';
-import 'package:mobile_balink/view/artikel/artikel_screen.dart';
 import 'package:mobile_balink/view/artikel/detail_artikel_screen.dart';
-import 'package:mobile_balink/view_model/artikel_provider.dart';
-import 'package:provider/provider.dart';
-import 'package:mobile_balink/view/artikel/detail_artikel_screen.dart';
-import 'package:mobile_balink/view/artikel/widgets/item_artikel_widget.dart';
-
-
-import '../../../view_model/event_provider.dart';
 
 class CardTentangEvent extends StatefulWidget {
   final Event eventData;
@@ -46,7 +36,6 @@ class _CardTentangEventState extends State<CardTentangEvent> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ClipRRect(
-
               borderRadius: BorderRadius.circular(10.0),
               child: Image.asset(
                 'assets/logo.png',
