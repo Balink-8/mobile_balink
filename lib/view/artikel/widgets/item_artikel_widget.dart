@@ -53,12 +53,17 @@ class ItemArtikelWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          dataArtikel.judul,
-                          style: poppinsKecil.copyWith(
-                            color: const Color(0xff000000),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.sp,
+                        SizedBox(
+                          width: 180.w,
+                          child: Text(
+                            dataArtikel.judul,
+                            style: poppinsKecil.copyWith(
+                              color: const Color(0xff000000),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.sp,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                         SizedBox(height: 8.h),

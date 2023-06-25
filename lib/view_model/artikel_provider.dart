@@ -13,6 +13,8 @@ class ArtikelProvider extends ChangeNotifier {
   Artikel? _artikel;
   Artikel? get artikel => _artikel;
 
+  String searchText = '';
+
   Future<void> getArtikel() async {
     _isLoading = true;
     notifyListeners();
@@ -31,5 +33,21 @@ class ArtikelProvider extends ChangeNotifier {
     notifyListeners();
     _isLoading = false;
     notifyListeners();
+  }
+
+  updateArtikel() {
+    if (searchText.isEmpty) {
+      _listArtikel;
+    } else {
+      _listArtikel
+          .where((e) => e.judul.toLowerCase().startsWith(searchText))
+          .toList();
+    }
+    notifyListeners();
+  }
+
+  search(String judul) {
+    searchText = judul;
+    updateArtikel();
   }
 }

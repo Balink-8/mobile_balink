@@ -15,6 +15,8 @@ class ArtikelScreen extends StatefulWidget {
 }
 
 class _ArtikelScreenState extends State<ArtikelScreen> {
+  final TextEditingController _searchController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -23,9 +25,10 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
     );
   }
 
-  final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ArtikelProvider>(context);
+
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       appBar: PreferredSize(
@@ -66,6 +69,9 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
                   color: const Color(0xff868686),
                 ),
               ),
+              onChanged: (value) {
+                provider.search(value);
+              },
             ),
           ),
         ),
@@ -73,13 +79,30 @@ class _ArtikelScreenState extends State<ArtikelScreen> {
       body: Consumer<ArtikelProvider>(
         builder: (context, value, child) {
           final artikel = value.listArtikel;
-          return ListView.builder(
-            itemCount: artikel.length,
-            itemBuilder: (context, index) {
-              Artikel dataArtikel = artikel[index];
-              return ItemArtikelWidget(dataArtikel: dataArtikel);
-            },
-          );
+          final search = value.searchText;
+
+          List filteredArtikels = artikel
+              .where((product) =>
+                  product.judul.toLowerCase().contains(search.toLowerCase()))
+              .toList();
+
+          if (value.searchText.isEmpty) {
+            return ListView.builder(
+              itemCount: artikel.length,
+              itemBuilder: (context, index) {
+                Artikel dataArtikel = artikel[index];
+                return ItemArtikelWidget(dataArtikel: dataArtikel);
+              },
+            );
+          } else {
+            return ListView.builder(
+              itemCount: filteredArtikels.length,
+              itemBuilder: (context, index) {
+                Artikel dataArtikel = filteredArtikels[index];
+                return ItemArtikelWidget(dataArtikel: dataArtikel);
+              },
+            );
+          }
         },
       ),
     );
