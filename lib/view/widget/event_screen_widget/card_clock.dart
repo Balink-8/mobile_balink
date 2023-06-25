@@ -11,7 +11,7 @@ class cardClock extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 150.w,
-      height: 130.h,
+      height: 140.h,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
