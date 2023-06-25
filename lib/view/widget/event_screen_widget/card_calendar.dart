@@ -11,7 +11,7 @@ class cardCalendar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 180.w,
-      height: 130.h,
+      height: 150.h,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(

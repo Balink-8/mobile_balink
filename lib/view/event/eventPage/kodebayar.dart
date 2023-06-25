@@ -108,7 +108,7 @@ class _kodeBayarState extends State<kodeBayar> {
                     borderRadius: BorderRadius.circular(8.r),
                     color: abuAColor),
                 width: 327.w,
-                height: 120.h,
+                height: 150.h,
                 padding: const EdgeInsets.fromLTRB(97, 12, 97, 12),
                 child: Column(
                   children: [
