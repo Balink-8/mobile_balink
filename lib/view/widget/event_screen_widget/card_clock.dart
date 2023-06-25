@@ -26,7 +26,7 @@ class cardClock extends StatelessWidget {
                     'assets/icon/event_icon/alarmm.png',
                     width: 11.w,
                     height: 12.h,
-                    key: Key('icon jam'),
+                    key: const Key('icon jam'),
                   ),
                   SizedBox(
                     width: 5.w,
@@ -37,7 +37,7 @@ class cardClock extends StatelessWidget {
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400,
                         color: blackColor),
-                    key: Key('text waktu'),
+                    key: const Key('text waktu'),
                   )
                 ],
               ),
@@ -52,7 +52,7 @@ class cardClock extends StatelessWidget {
                         color: blackColor),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    key: Key('text waktu mulai'),
+                    key: const Key('text waktu mulai'),
                   ),
                   Text(
                     '-',
@@ -60,7 +60,7 @@ class cardClock extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       color: blackColor,
                     ),
-                    key: Key('label garis hubung'),
+                    key: const Key('label garis hubung'),
                   ),
                   Text(
                     eventData.waktuSelesai,
@@ -70,7 +70,7 @@ class cardClock extends StatelessWidget {
                         color: blackColor),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    key: Key('text waktu selesai'),
+                    key: const Key('text waktu selesai'),
                   ),
                 ],
               )

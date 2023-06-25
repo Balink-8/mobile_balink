@@ -193,7 +193,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 GestureDetector(
-                  key: Key('buttonEditProfile'),
+                  key: const Key('buttonEditProfile'),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -347,7 +347,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           GestureDetector(
-            key: Key('buttonArtikel'),
+            key: const Key('buttonArtikel'),
             onTap: () {
               Navigator.push(
                 context,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_balink/model/user_model.dart';
 
 import '../source/source_user.dart';
 
@@ -37,10 +36,10 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> edit(UserClass user) async {
+  Future<void> edit(String email, String noHp, String alamat) async {
     _isLoading = true;
     notifyListeners();
-    _succesEdit = await SourceUser.edit(user);
+    _succesEdit = await SourceUser.edit(email, noHp, alamat);
     notifyListeners();
     _isLoading = false;
     notifyListeners();

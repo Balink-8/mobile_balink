@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_event.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/realtime.dart';
@@ -31,7 +30,7 @@ class _EventPageState extends State<EventPage> {
         key: const Key('screenEvent'),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Column(key: Key('columnGambardanListEvent'), children: [
+          child: Column(key: const Key('columnGambardanListEvent'), children: [
             Stack(
               children: [
                 Image.network(
@@ -42,16 +41,16 @@ class _EventPageState extends State<EventPage> {
                   key: const Key('gambar'),
                 ),
                 Padding(
-                  key: Key('screenTanggalWaktu'),
+                  key: const Key('screenTanggalWaktu'),
                   padding: const EdgeInsets.only(top: 40),
                   child: Center(
                     child: Column(
                       children: [
-                        RealTimeScreen(),
+                        const RealTimeScreen(),
                         SizedBox(
                           height: 8.h,
                         ),
-                        Calendar()
+                        const Calendar()
                       ],
                     ),
                   ),
@@ -66,7 +65,7 @@ class _EventPageState extends State<EventPage> {
                 final events = provEvent.listEvent;
                 return Padding(
                   key: const Key('cardEvent'),
-                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 30),
+                  padding: const EdgeInsets.only(left: 10, right: 10, bottom: 30),
                   child: ListView.separated(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
@@ -80,7 +79,7 @@ class _EventPageState extends State<EventPage> {
                       );
                     },
                     itemCount: events.length,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                   ),
                 );
               },

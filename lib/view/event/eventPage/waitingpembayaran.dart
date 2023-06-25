@@ -60,7 +60,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                         color: blackColor,
                         fontWeight: FontWeight.w700,
                         fontSize: 12.sp),
-                    key: Key('label bank yang dipilih'),
+                    key: const Key('label bank yang dipilih'),
                   ),
                 ],
               ),
@@ -77,7 +77,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             'assets/icon/event_icon/dummy/g1.png',
                             width: 64.w,
                             height: 64.h,
-                            key: Key('gambar event'),
+                            key: const Key('gambar event'),
                           ),
                         ),
                       ),
@@ -97,7 +97,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w400,
                                     color: secondaryColor),
-                                key: Key('label tanggal mulai'),
+                                key: const Key('label tanggal mulai'),
                               ),
                             ),
                           ),
@@ -110,7 +110,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
-                            key: Key('label nama event'),
+                            key: const Key('label nama event'),
                           ),
                           SizedBox(
                             height: 12.h,
@@ -132,7 +132,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                     fontSize: 12.sp,
                                     fontWeight: FontWeight.w400,
                                     color: blackColor),
-                                key: Key('text lokasi'),
+                                key: const Key('text lokasi'),
                               ),
                             ],
                           ),
@@ -143,7 +143,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  Divider(),
+                  const Divider(),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -157,7 +157,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                               Image.asset('assets/icon/event_icon/ticket.png',
                                   width: 13.w,
                                   height: 11.h,
-                                  key: Key('icon tiket')),
+                                  key: const Key('icon tiket')),
                               SizedBox(
                                 width: 10.w,
                               ),
@@ -180,7 +180,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
-                            key: Key('label harga tiket'),
+                            key: const Key('label harga tiket'),
                           ),
                           SizedBox(
                             height: 10.h,
@@ -193,7 +193,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w700,
                             color: secondaryColor),
-                        key: Key('label jumlah tiket'),
+                        key: const Key('label jumlah tiket'),
                       ),
                     ],
                   ),
@@ -227,7 +227,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: abuColor),
-                            key: Key('label nomor pesanan'),
+                            key: const Key('label nomor pesanan'),
                           ),
                           Row(
                             children: [
@@ -237,7 +237,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                     fontSize: 12.sp,
                                     fontWeight: FontWeight.w700,
                                     color: blackColor),
-                                key: Key('text no pesanan'),
+                                key: const Key('text no pesanan'),
                               ),
                               SizedBox(
                                 width: 3.w,
@@ -247,7 +247,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 width: 14.w,
                                 height: 16.h,
                                 color: abuAColor,
-                                key: Key('icon copy'),
+                                key: const Key('icon copy'),
                               )
                             ],
                           ),
@@ -274,7 +274,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: Key('text tanggal pesanan'),
+                            key: const Key('text tanggal pesanan'),
                           )
                         ],
                       ),
@@ -299,13 +299,13 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: Key('bank yang dipilih'),
+                            key: const Key('bank yang dipilih'),
                           )
                         ],
                       ),
                     ],
                   ),
-                  Divider(),
+                  const Divider(),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -339,12 +339,12 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             width: 135.w,
                           ),
                           Text(
-                            'Rp ${total}',
+                            'Rp $total',
                             style: poppinsKecil.copyWith(
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: Key('text harga subtotal'),
+                            key: const Key('text harga subtotal'),
                           ),
                         ],
                       ),
@@ -369,7 +369,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: Key('text ongkir'),
+                            key: const Key('text ongkir'),
                           )
                         ],
                       ),
@@ -394,7 +394,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.red),
-                            key: Key('promo'),
+                            key: const Key('promo'),
                           )
                         ],
                       ),
@@ -419,7 +419,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
-                            key: Key('text total harga'),
+                            key: const Key('text total harga'),
                           ),
                         ],
                       )
@@ -460,7 +460,7 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w400,
                                   color: blackColor),
-                              key: Key('bank yang dipilih'),
+                              key: const Key('bank yang dipilih'),
                             ),
                             SizedBox(height: 4.h),
                             Text(
@@ -469,11 +469,11 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w700,
                                   color: blackColor),
-                              key: Key('label no.va'),
+                              key: const Key('label no.va'),
                             ),
                             SizedBox(height: 3.h),
                             TextButton(
-                              key: Key('salinTextVa'),
+                              key: const Key('salinTextVa'),
                               onPressed: () {
                                 FlutterClipboard.copy(nova).then((value) =>
                                     ScaffoldMessenger.of(context).showSnackBar(

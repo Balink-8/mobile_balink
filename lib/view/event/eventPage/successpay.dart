@@ -37,7 +37,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
         key: const Key('screenSuccsesPayment'),
         child: Padding(
           key: const Key('Screen berhasil dipesan'),
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               Row(
@@ -50,7 +50,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                         'assets/icon/event_icon/dummy/g1.png',
                         width: 64.w,
                         height: 64.h,
-                        key: Key('gambar icon'),
+                        key: const Key('gambar icon'),
                       ),
                     ),
                   ),
@@ -70,7 +70,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                                 fontSize: 10.sp,
                                 fontWeight: FontWeight.w400,
                                 color: secondaryColor),
-                            key: Key('label tanggal mulai'),
+                            key: const Key('label tanggal mulai'),
                           ),
                         ),
                       ),
@@ -83,7 +83,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w700,
                             color: blackColor),
-                        key: Key('label nama event'),
+                        key: const Key('label nama event'),
                       ),
                       SizedBox(
                         height: 12.h,
@@ -105,7 +105,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: Key('textLokasi'),
+                            key: const Key('textLokasi'),
                           ),
                         ],
                       ),
@@ -116,7 +116,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
               SizedBox(
                 height: 10.h,
               ),
-              Divider(),
+              const Divider(),
               SizedBox(
                 height: 10.h,
               ),
@@ -149,12 +149,12 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                       SizedBox(
                         width: 135.w,
                       ),
-                      Text('Rp ${total}',
+                      Text('Rp $total',
                           style: poppinsKecil.copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
-                          key: Key('labelTotal')),
+                          key: const Key('labelTotal')),
                     ],
                   ),
                   SizedBox(
@@ -178,7 +178,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
                             color: blackColor),
-                        key: Key('label harga ongkir'),
+                        key: const Key('label harga ongkir'),
                       )
                     ],
                   ),
@@ -203,7 +203,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
                             color: Colors.red),
-                        key: Key('label harga promo'),
+                        key: const Key('label harga promo'),
                       )
                     ],
                   ),
@@ -228,13 +228,13 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w700,
                             color: blackColor),
-                        key: Key('label total harga'),
+                        key: const Key('label total harga'),
                       ),
                     ],
                   )
                 ],
               ),
-              Divider(),
+              const Divider(),
               SizedBox(
                 height: 10.h,
               ),
@@ -271,7 +271,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w700,
                                 color: blackColor),
-                            key: Key('nomor pesanan'),
+                            key: const Key('nomor pesanan'),
                           ),
                           SizedBox(
                             width: 3.w,
@@ -308,7 +308,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
                             color: blackColor),
-                        key: Key('tanggal pesanan'),
+                        key: const Key('tanggal pesanan'),
                       )
                     ],
                   ),
@@ -333,7 +333,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
                             color: blackColor),
-                        key: Key('metode bayar'),
+                        key: const Key('metode bayar'),
                       )
                     ],
                   ),
@@ -379,7 +379,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => TabBarNavigation()),
+                    MaterialPageRoute(builder: (context) => const TabBarNavigation()),
                   );
                 },
                 child: Container(

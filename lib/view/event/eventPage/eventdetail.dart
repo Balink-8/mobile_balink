@@ -107,7 +107,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                             'assets/icon/event_icon/ticket.png',
                             width: 13.w,
                             height: 10.h,
-                            key: Key('iconTiket'),
+                            key: const Key('iconTiket'),
                           ),
                         ),
                         Text(
@@ -116,7 +116,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
-                          key: Key('texTiket'),
+                          key: const Key('texTiket'),
                         )
                       ],
                     ),
@@ -128,7 +128,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w700,
                             color: blackColor),
-                        key: Key('textHarga'),
+                        key: const Key('textHarga'),
                       ),
                     ),
                   ],
@@ -158,7 +158,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                       'assets/icon/event_icon/net.png',
                       width: 10.w,
                       height: 13.h,
-                      key: Key('iconNet'),
+                      key: const Key('iconNet'),
                     ),
                     SizedBox(
                       width: 10.w,
@@ -187,13 +187,13 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 10.h,
                 ),
                 Row(
-                  key: Key('lokasiEventMaps'),
+                  key: const Key('lokasiEventMaps'),
                   children: [
                     Image.asset(
                       'assets/icon/event_icon/location.png',
                       width: 10.w,
                       height: 13.h,
-                      key: Key('icon lokasi'),
+                      key: const Key('icon lokasi'),
                     ),
                     SizedBox(
                       width: 10.w,
@@ -204,7 +204,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           fontWeight: FontWeight.w400,
                           fontSize: 12.sp,
                           color: blackColor),
-                      key: Key('label lokasi'),
+                      key: const Key('label lokasi'),
                     ),
                   ],
                 ),

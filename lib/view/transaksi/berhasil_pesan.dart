@@ -239,13 +239,6 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  Text(
-
-                    key: const Key('statusPembayaran'),
-                    '" Berhasil Dibayar "',
-                    style: poppinsKecil.copyWith(
-                        fontWeight: FontWeight.w700, color: greenColor),
-                  ),
                 ],
               ),
             ),

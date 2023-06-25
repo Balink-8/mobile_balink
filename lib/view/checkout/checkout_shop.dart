@@ -1,15 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/view/checkout/berhasil_bayar.dart';
-import 'package:mobile_balink/view/checkout/choose_bank.dart';
 import 'package:mobile_balink/view/shopping/shopping_page/list_gambar.dart';
 
 import '../../model/product_model.dart';
 import 'kode_pembayaran.dart';
 
+// ignore: must_be_immutable
 class CheckoutShopPage extends StatefulWidget {
   CheckoutShopPage(
       {super.key,
@@ -401,7 +399,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                                   fontSize: 12.sp,
                                   fontWeight: FontWeight.w400,
                                   color: blackColor),
-                              key: Key('label transfer bank'),
+                              key: const Key('label transfer bank'),
                             )
                           : Text(
                               widget.metodePembayaran,
@@ -466,7 +464,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
 
             //BUTTON BUAT PESANAN
             GestureDetector(
-              key: Key('buttonBerhasilBayar'),
+              key: const Key('buttonBerhasilBayar'),
               onTap: () {
                 // Navigator.push(
                 //     context,
@@ -533,7 +531,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
         //   metodePembayaran: metodePembayaran,
         // ),
         builder: (context) => Container(
-              padding: EdgeInsets.fromLTRB(16, 20, 16, 20),
+              padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
               height: 290.h,
               width: 360.w,
               child: Column(
@@ -562,7 +560,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                           'assets/icon/event_icon/close.png',
                           width: 11.w,
                           height: 11.h,
-                          key: Key('icon close'),
+                          key: const Key('icon close'),
                         ),
                       ),
                     ],
@@ -579,7 +577,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                   //   height: 16.h,
                   // ),
                   GestureDetector(
-                    key: Key('buttonKodePembayaran'),
+                    key: const Key('buttonKodePembayaran'),
                     onTap: () {
                       Navigator.push(
                           context,

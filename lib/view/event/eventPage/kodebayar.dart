@@ -77,7 +77,7 @@ class _kodeBayarState extends State<kodeBayar> {
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w700,
                         color: blackColor),
-                    key: Key('textTotalHarga'),
+                    key: const Key('textTotalHarga'),
                   ),
                   Text(
                     'Pembayaran dalam 24 jam sebelumn No. Virtual Account expired',
@@ -120,7 +120,7 @@ class _kodeBayarState extends State<kodeBayar> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
-                      key: Key('text nama bank'),
+                      key: const Key('text nama bank'),
                     ),
                     SizedBox(height: 4.h),
                     Text(
@@ -129,11 +129,11 @@ class _kodeBayarState extends State<kodeBayar> {
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
-                      key: Key('text no va'),
+                      key: const Key('text no va'),
                     ),
                     SizedBox(height: 4.h),
                     TextButton(
-                      key: Key('text button copy'),
+                      key: const Key('text button copy'),
                       onPressed: () {
                         FlutterClipboard.copy(nova).then((value) =>
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -208,7 +208,7 @@ class _kodeBayarState extends State<kodeBayar> {
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400,
                         color: blackColor),
-                    key: Key('label bank yang dipilih'),
+                    key: const Key('label bank yang dipilih'),
                   ),
                 ],
               ),
@@ -240,7 +240,7 @@ class _kodeBayarState extends State<kodeBayar> {
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         color: whiteColor),
-                    key: Key('label lihat pesanan'),
+                    key: const Key('label lihat pesanan'),
                   ),
                 ),
               ),

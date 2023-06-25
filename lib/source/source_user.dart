@@ -17,11 +17,8 @@ class SourceUser {
       Session.saveUser(UserClass.fromJson(mapUser));
       var token = responseBody['data']['token'];
       Session.saveToken(token);
-      print(mapUser);
-      print(token);
     }
-    print(responseBody['status']);
-    print(responseBody['message']);
+
     return responseBody['status'];
   }
 
@@ -43,16 +40,17 @@ class SourceUser {
     return responseBody['status'];
   }
 
-  static Future<bool> edit(UserClass user) async {
+  static Future<bool> edit(String email, String noHp, String alamat) async {
+    var user = await Session.getUser();
     Map? responseBody = await AppRequest.puts(
       '${Api.user}/${user.id}',
       jsonEncode({
         'nama': '',
         'foto_profile': '',
-        'email': user.email,
+        'email': email,
         'password': '',
-        'no_telepon': user.noTelepon,
-        'alamat': user.alamat,
+        'no_telepon': noHp,
+        'alamat': alamat,
       }),
     );
     if (responseBody == null) return false;

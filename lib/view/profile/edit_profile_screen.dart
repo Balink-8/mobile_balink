@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_balink/model/user_model.dart';
 import 'package:mobile_balink/view/profile/profile_screen.dart';
 import 'package:mobile_balink/view_model/login_provider.dart';
 import 'package:provider/provider.dart';
@@ -56,14 +55,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 String email = emailController.text;
                 String numPhone = numberController.text;
                 String address = addressController.text;
-                var uEdit =
-                    Provider.of<LoginProvider>(context, listen: false).edit(
-                  UserClass(
-                    email: email,
-                    noTelepon: numPhone,
-                    alamat: address,
-                  ),
-                );
+                var uEdit = Provider.of<LoginProvider>(context, listen: false)
+                    .edit(email, numPhone, address);
                 if (formKey.currentState!.validate()) {
                   if (email.isNotEmpty &&
                       numPhone.isNotEmpty &&

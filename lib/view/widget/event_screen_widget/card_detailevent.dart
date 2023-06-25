@@ -33,7 +33,7 @@ class DetailEv extends StatelessWidget {
                 fontSize: 12, fontWeight: FontWeight.w400, color: blackColor),
             maxLines: 5,
             overflow: TextOverflow.ellipsis,
-            key: Key('textDeskripsi'),
+            key: const Key('textDeskripsi'),
           ),
         ],
       ),

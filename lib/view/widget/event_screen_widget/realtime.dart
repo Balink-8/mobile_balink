@@ -38,7 +38,7 @@ class _RealTimeScreentate extends State<RealTimeScreen> {
     });
 
     // Update the time every second
-    _timer = Timer(Duration(seconds: 1), getCurrentTime);
+    _timer = Timer(const Duration(seconds: 1), getCurrentTime);
   }
 
   @override
@@ -83,7 +83,7 @@ class _CalendarState extends State<Calendar> {
     });
 
     // Update the date every second
-    _timer = Timer(Duration(seconds: 1), getCurrentDate);
+    _timer = Timer(const Duration(seconds: 1), getCurrentDate);
   }
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
@@ -25,6 +27,9 @@ class BuktiPembayaranPage extends StatefulWidget {
 class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
   int ongkir = 10000;
   String metodePembayaran = "";
+
+  File? image;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,11 +79,11 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                 ],
               ),
               SizedBox(height: 6.h),
-              Divider(thickness: 1),
+              const Divider(thickness: 1),
               SizedBox(height: 10.h),
               Row(
                 children: [
-                  Icon(Icons.local_shipping_outlined),
+                  const Icon(Icons.local_shipping_outlined),
                   SizedBox(width: 4.w),
                   Text(
                     'Pengiriman Produk',
@@ -88,7 +93,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
               ),
               SizedBox(height: 12.h),
               Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -97,7 +102,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                         Expanded(
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.location_on_outlined,
                               ),
                               SizedBox(width: 6.w),
@@ -121,7 +126,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                     ),
                     SizedBox(height: 4.h),
                     Padding(
-                      padding: EdgeInsets.only(left: 30),
+                      padding: const EdgeInsets.only(left: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -140,7 +145,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                 ),
               ),
               SizedBox(height: 6.h),
-              Divider(thickness: 1),
+              const Divider(thickness: 1),
               SizedBox(height: 10.h),
               Row(
                 children: [
@@ -201,7 +206,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                 ],
               ),
               SizedBox(height: 6.h),
-              Divider(thickness: 1),
+              const Divider(thickness: 1),
               SizedBox(height: 10.h),
               Text(
                 'Rincian Pesanan',
@@ -253,7 +258,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                 ],
               ),
               SizedBox(height: 6.h),
-              Divider(thickness: 1),
+              const Divider(thickness: 1),
               SizedBox(height: 10.h),
               Text(
                 'Ringkasan Pesanan',
@@ -318,7 +323,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                 ],
               ),
               SizedBox(height: 6.h),
-              Divider(thickness: 1),
+              const Divider(thickness: 1),
               SizedBox(height: 10.h),
               Text(
                 'No. Virtual Account',
@@ -372,7 +377,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                     ),
                     builder: (context) {
                       return SizedBox(
-                        height: 280,
+                        height: 280.h,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,

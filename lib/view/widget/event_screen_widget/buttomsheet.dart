@@ -34,7 +34,7 @@ class _bsTicketState extends State<bsTicket> {
           ),
           builder: (context) {
             return SizedBox(
-              key: Key('buttomSheetOverlay'),
+              key: const Key('buttomSheetOverlay'),
               width: 360.w,
               height: 450.h,
               child: Padding(
@@ -56,7 +56,7 @@ class _bsTicketState extends State<bsTicket> {
                                     //  '${Api.event}${eventData.gambar}',
                                     width: 64.w,
                                     height: 64.h,
-                                    key: Key('gambarEvent'),
+                                    key: const Key('gambarEvent'),
                                   ),
                                 ),
                               ),
@@ -89,7 +89,7 @@ class _bsTicketState extends State<bsTicket> {
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.w700,
                                         color: blackColor),
-                                    key: Key('textNamaEvent'),
+                                    key: const Key('textNamaEvent'),
                                   ),
                                   SizedBox(
                                     height: 12.h,
@@ -100,7 +100,7 @@ class _bsTicketState extends State<bsTicket> {
                                         'assets/icon/event_icon/location.png',
                                         width: 10.w,
                                         height: 13.h,
-                                        key: Key('iconLookasi'),
+                                        key: const Key('iconLookasi'),
                                       ),
                                       SizedBox(
                                         width: 10.w,
@@ -111,7 +111,7 @@ class _bsTicketState extends State<bsTicket> {
                                             fontSize: 12.sp,
                                             fontWeight: FontWeight.w400,
                                             color: blackColor),
-                                        key: Key('textAlamat'),
+                                        key: const Key('textAlamat'),
                                       ),
                                     ],
                                   ),
@@ -132,7 +132,7 @@ class _bsTicketState extends State<bsTicket> {
                                   'assets/icon/event_icon/close.png',
                                   width: 11.w,
                                   height: 11.h,
-                                  key: Key('icon close'),
+                                  key: const Key('icon close'),
                                 ),
                               ),
                             ],
@@ -151,7 +151,7 @@ class _bsTicketState extends State<bsTicket> {
                                         'assets/icon/event_icon/ticket.png',
                                         width: 13.w,
                                         height: 11.h,
-                                        key: Key('icon tiket'),
+                                        key: const Key('icon tiket'),
                                       ),
                                       SizedBox(
                                         width: 10.w,
@@ -162,7 +162,7 @@ class _bsTicketState extends State<bsTicket> {
                                             fontSize: 14.sp,
                                             fontWeight: FontWeight.w400,
                                             color: blackColor),
-                                        key: Key('label tiket'),
+                                        key: const Key('label tiket'),
                                       ),
                                     ],
                                   ),
@@ -175,7 +175,7 @@ class _bsTicketState extends State<bsTicket> {
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.w700,
                                         color: blackColor),
-                                    key: Key('text harga'),
+                                    key: const Key('text harga'),
                                   ),
                                   SizedBox(
                                     height: 10.h,
@@ -196,7 +196,7 @@ class _bsTicketState extends State<bsTicket> {
                                       'assets/icon/event_icon/min.png',
                                       width: 11.w,
                                       height: 11.h,
-                                      key: Key('iconMinus'),
+                                      key: const Key('iconMinus'),
                                     ),
                                   ),
                                   Text(
@@ -205,7 +205,7 @@ class _bsTicketState extends State<bsTicket> {
                                         fontSize: 14.sp,
                                         fontWeight: FontWeight.w700,
                                         color: secondaryColor),
-                                    key: Key('labelJumlah'),
+                                    key: const Key('labelJumlah'),
                                   ),
                                   IconButton(
                                     onPressed: () {
@@ -219,7 +219,7 @@ class _bsTicketState extends State<bsTicket> {
                                       'assets/icon/event_icon/add.png',
                                       width: 11.w,
                                       height: 11.h,
-                                      key: Key('iconTambah'),
+                                      key: const Key('iconTambah'),
                                     ),
                                   ),
                                 ],
@@ -247,7 +247,7 @@ class _bsTicketState extends State<bsTicket> {
                                       fontSize: 10.sp,
                                       fontWeight: FontWeight.w400,
                                       color: blackColor),
-                                  key: Key('labelTotal'),
+                                  key: const Key('labelTotal'),
                                 ),
                                 Text(
                                   'Rp ${widget.eventData!.hargaTiket * jumlah} ',
@@ -255,14 +255,14 @@ class _bsTicketState extends State<bsTicket> {
                                       fontSize: 16.sp,
                                       fontWeight: FontWeight.w700,
                                       color: blackColor),
-                                  key: Key('textHargaTotal'),
+                                  key: const Key('textHargaTotal'),
                                 )
                               ],
                             ),
                           ),
                         ),
                         GestureDetector(
-                          key: Key('buttonBeliSekarang'),
+                          key: const Key('buttonBeliSekarang'),
                           onTap: () {
                             _showMyDialog(context);
                             Timer(const Duration(seconds: 3), () {
@@ -291,7 +291,7 @@ class _bsTicketState extends State<bsTicket> {
                                 fontWeight: FontWeight.w700,
                                 color: fifthColor,
                               ),
-                              key: Key('labelBeliSekarang'),
+                              key: const Key('labelBeliSekarang'),
                             ),
                           ),
                         ),
@@ -305,7 +305,7 @@ class _bsTicketState extends State<bsTicket> {
         );
       },
       child: Container(
-        key: Key('buttonPesanSekarang'),
+        key: const Key('buttonPesanSekarang'),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: secondaryColor,
@@ -317,7 +317,7 @@ class _bsTicketState extends State<bsTicket> {
           'Pesan Sekarang',
           style: poppinsKecil.copyWith(
               fontSize: 14.sp, fontWeight: FontWeight.w700, color: whiteColor),
-          key: Key('labelDeskripsi'),
+          key: const Key('labelDeskripsi'),
         ),
       ),
     );
@@ -329,7 +329,7 @@ class _bsTicketState extends State<bsTicket> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return Center(
-            key: Key('iconLoading'), child: Image.asset('assets/loading.png'));
+            key: const Key('iconLoading'), child: Image.asset('assets/loading.png'));
       },
     );
   }

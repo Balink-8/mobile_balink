@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
-import 'package:mobile_balink/view/checkout/kode_pembayaran.dart';
 
 class ChooseBankSheet extends StatefulWidget {
   final String metodePembayaran;
@@ -17,7 +16,7 @@ class _ChooseBankSheetState extends State<ChooseBankSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(16, 20, 16, 20),
+      padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
       height: 290.h,
       width: 360.w,
       child: Column(
@@ -46,7 +45,7 @@ class _ChooseBankSheetState extends State<ChooseBankSheet> {
                   'assets/icon/event_icon/close.png',
                   width: 11.w,
                   height: 11.h,
-                  key: Key('icon close'),
+                  key: const Key('icon close'),
                 ),
               ),
             ],
@@ -63,7 +62,7 @@ class _ChooseBankSheetState extends State<ChooseBankSheet> {
           //   height: 16.h,
           // ),
           GestureDetector(
-            key: Key('buttonKodePembayaran'),
+            key: const Key('buttonKodePembayaran'),
             onTap: () {
               // Navigator.push(
               //     context,

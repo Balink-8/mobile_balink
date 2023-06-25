@@ -26,7 +26,7 @@ class cardCalendar extends StatelessWidget {
                     'assets/icon/event_icon/bulan.png',
                     width: 11.w,
                     height: 12.h,
-                    key: Key('icon kalendar'),
+                    key: const Key('icon kalendar'),
                   ),
                   SizedBox(
                     width: 5.w,
@@ -37,7 +37,7 @@ class cardCalendar extends StatelessWidget {
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400,
                         color: blackColor),
-                    key: Key('label tanggal'),
+                    key: const Key('label tanggal'),
                   )
                 ],
               ),
@@ -52,13 +52,13 @@ class cardCalendar extends StatelessWidget {
                         color: blackColor),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    key: Key('text tanggal mulai'),
+                    key: const Key('text tanggal mulai'),
                   ),
                   Text(
                     '-',
                     style: poppinsKecil.copyWith(
                         fontWeight: FontWeight.w700, color: blackColor),
-                    key: Key('text garis hubung'),
+                    key: const Key('text garis hubung'),
                   ),
                   Text(eventData.tanggalSelesai,
                       style: poppinsKecil.copyWith(
@@ -67,7 +67,7 @@ class cardCalendar extends StatelessWidget {
                           color: blackColor),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      key: Key('text tanggal selesai')),
+                      key: const Key('text tanggal selesai')),
                 ],
               )
             ],

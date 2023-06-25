@@ -321,7 +321,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             Align(
                                               alignment: Alignment.bottomCenter,
                                               child: GestureDetector(
-                                                key: Key("buttonLoginKembali"),
+                                                key: const Key("buttonLoginKembali"),
                                                 onTap: () {
                                                   Navigator.pop(context);
                                                 },
@@ -366,7 +366,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       color: secondaryColor),
                                                 ),
                                                 InkWell(
-                                                  key: Key('buttonRegister'),
+                                                  key: const Key('buttonRegister'),
                                                   onTap: () {
                                                     Navigator.push(
                                                         context,
@@ -473,7 +473,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           )
         : GestureDetector(
-            key: Key('buttonLogin'),
+            key: const Key('buttonLogin'),
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const NavbarBawah()));

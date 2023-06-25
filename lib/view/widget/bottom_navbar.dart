@@ -51,6 +51,7 @@ class _NavbarBawahState extends State<NavbarBawah> {
                   showUnselectedLabels: true,
                   items: <BottomNavigationBarItem>[
                     BottomNavigationBarItem(
+                      tooltip: 'buttonHome',
                       icon: Image.asset(
                           'assets/icon/bottom_navigasi_icon/home.png',
                           height: 18,
@@ -59,6 +60,7 @@ class _NavbarBawahState extends State<NavbarBawah> {
                       label: 'Home',
                     ),
                     BottomNavigationBarItem(
+                        tooltip: 'buttonEvent',
                         icon: Image.asset(
                           'assets/icon/bottom_navigasi_icon/date_range.png',
                           color: _selectedPage == 1 ? Colors.brown : null,
@@ -67,6 +69,7 @@ class _NavbarBawahState extends State<NavbarBawah> {
                         ),
                         label: 'Event'),
                     BottomNavigationBarItem(
+                        tooltip: 'buttonShop',
                         icon: Image.asset(
                           'assets/icon/bottom_navigasi_icon/store.png',
                           color: _selectedPage == 2 ? Colors.brown : null,
@@ -75,6 +78,7 @@ class _NavbarBawahState extends State<NavbarBawah> {
                         ),
                         label: 'Shop'),
                     BottomNavigationBarItem(
+                        tooltip: 'buttonProfile',
                         icon: Image.asset(
                           'assets/icon/bottom_navigasi_icon/person.png',
                           color: _selectedPage == 3 ? Colors.brown : null,

@@ -233,6 +233,7 @@ class _ResetPswPageState extends State<ResetPswPage> {
             ),
           )
         : GestureDetector(
+          // ignore: prefer_const_constructors
           key: Key('buttonResetPsw'),
             onTap: () {
               Navigator.push(

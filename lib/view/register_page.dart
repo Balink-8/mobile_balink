@@ -361,8 +361,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
       String noTelp = noTeleponRegister.text;
       var pRegister = Provider.of<LoginProvider>(context, listen: false)
           .register(email: email, noTelp: noTelp, password: password);
-      bool isSuccesRegister =
-          Provider.of<LoginProvider>(context, listen: false).successRegister;
       if (formkey.currentState!.validate()) {
         if (email.isNotEmpty && password.isNotEmpty && noTelp.isNotEmpty) {
           pRegister;
@@ -399,7 +397,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           )
         : GestureDetector(
-          key: Key('buttonRegisterKeLogin'),
+          key: const Key('buttonRegisterKeLogin'),
             onTap: () {
               register();
               // Navigator.push(context,

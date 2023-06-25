@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../config/theme.dart';
-import '../../checkout/checkout_shop.dart';
 
 class CheckOut extends StatefulWidget {
   const CheckOut({Key? key}) : super(key: key);

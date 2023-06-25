@@ -31,9 +31,14 @@ class AppRequest {
   }
 
   static Future<Map?> puts(String url, Object? body) async {
+    String token = await Session.getToken();
     try {
       var response = await http.put(Uri.parse(url),
-          headers: {'Content-Type': 'application/json'}, body: body);
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer $token'
+          },
+          body: body);
       Map responseBody = jsonDecode(response.body);
       return responseBody;
     } catch (e) {

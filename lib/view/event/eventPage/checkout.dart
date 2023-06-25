@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
@@ -7,6 +9,7 @@ import 'package:mobile_balink/view/widget/event_screen_widget/card_overlay.dart'
 
 import '../../../model/event_model.dart';
 
+// ignore: must_be_immutable
 class EventCheckOut extends StatefulWidget {
   final Event? eventData;
 
@@ -132,7 +135,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
                               color: blackColor),
-                          key: Key('text harga subtotal'),
+                          key: const Key('text harga subtotal'),
                         ),
                       ],
                     ),
@@ -140,7 +143,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 10.h,
                     ),
                     Row(
-                      key: Key('pengiriman'),
+                      key: const Key('pengiriman'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -149,7 +152,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: abuColor),
-                          key: Key('label pengiriman'),
+                          key: const Key('label pengiriman'),
                         ),
                         Text(
                           'Rp$hargaPengiriman',
@@ -157,7 +160,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
                               color: blackColor),
-                          key: Key('text harga pengiriman '),
+                          key: const Key('text harga pengiriman '),
                         ),
                       ],
                     ),
@@ -165,7 +168,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 10.h,
                     ),
                     Row(
-                      key: Key('promoo'),
+                      key: const Key('promoo'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -174,7 +177,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                               fontSize: 10.sp,
                               fontWeight: FontWeight.w400,
                               color: abuColor),
-                          key: Key('label promo'),
+                          key: const Key('label promo'),
                         ),
                         Text(
                           '-',
@@ -182,7 +185,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
                               color: blackColor),
-                          key: Key('text promo'),
+                          key: const Key('text promo'),
                         ),
                       ],
                     ),
@@ -190,7 +193,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 10.h,
                     ),
                     Row(
-                      key: Key('Total'),
+                      key: const Key('Total'),
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -199,7 +202,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
                               color: abuColor),
-                          key: Key('label total'),
+                          key: const Key('label total'),
                         ),
                         Text(
                           'Rp${widget.total + hargaPengiriman}',
@@ -207,7 +210,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
                               color: blackColor),
-                          key: Key('text total harga'),
+                          key: const Key('text total harga'),
                         ),
                       ],
                     ),
@@ -215,7 +218,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 30.h,
                     ),
                     Row(
-                      key: Key('metodePembayaran'),
+                      key: const Key('metodePembayaran'),
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Image.asset(
@@ -241,7 +244,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       height: 15.h,
                     ),
                     Row(
-                        key: Key('selectBank'),
+                        key: const Key('selectBank'),
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
@@ -260,7 +263,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w400,
                                           color: greyColor),
-                                      key: Key('label trf'),
+                                      key: const Key('label trf'),
                                     ),
                                   ),
                                 ),
@@ -271,7 +274,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                                             fontSize: 12.sp,
                                             fontWeight: FontWeight.w400,
                                             color: blackColor),
-                                        key: Key('label transfer bank'),
+                                        key: const Key('label transfer bank'),
                                       )
                                     : Text(
                                         widget.metodePembayaran,
@@ -289,7 +292,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                                     'assets/icon/event_icon/back.png',
                                     width: 11.w,
                                     height: 11.h,
-                                    key: Key('icon untk pilih bank'),
+                                    key: const Key('icon untk pilih bank'),
                                   ),
                                   onPressed: () {
                                     bsMetodePembayaran(context);
@@ -300,7 +303,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                                     'assets/icon/event_icon/back.png',
                                     width: 11.w,
                                     height: 11.h,
-                                    key: Key('icon pilih bank'),
+                                    key: const Key('icon pilih bank'),
                                   ),
                                   onPressed: () {
                                     bsMetodePembayaran(context);
@@ -313,7 +316,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                   height: 120.h,
                 ),
                 Row(
-                  key: Key('totalSeluruh'),
+                  key: const Key('totalSeluruh'),
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -322,7 +325,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: abuColor),
-                      key: Key('label total produk'),
+                      key: const Key('label total produk'),
                     ),
                     Text(
                       'Rp${widget.total + hargaPengiriman}',
@@ -330,7 +333,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w700,
                           color: blackColor),
-                      key: Key('text total hargaa'),
+                      key: const Key('text total hargaa'),
                     ),
                   ],
                 ),
@@ -340,7 +343,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
         ),
       ),
       bottomNavigationBar: BuatPesanan(
-          key: Key('buttomNavigatorPesanan'),
+          key: const Key('buttomNavigatorPesanan'),
           eventData: widget.eventData!,
           metodePembayaran: widget.metodePembayaran),
     );
@@ -372,7 +375,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
-                      key: Key('label metode pmbyrn'),
+                      key: const Key('label metode pmbyrn'),
                     ),
                     IconButton(
                       onPressed: () {
@@ -391,7 +394,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                         'assets/icon/event_icon/close.png',
                         width: 11.w,
                         height: 11.h,
-                        key: Key('icon close'),
+                        key: const Key('icon close'),
                       ),
                     ),
                   ],
@@ -403,7 +406,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: blackColor),
-                  key: Key('label trf bank'),
+                  key: const Key('label trf bank'),
                 ),
                 SizedBox(
                   height: 15.h,
@@ -439,13 +442,13 @@ class _EventCheckOutState extends State<EventCheckOut> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: Key('label bank bca'),
+                            key: const Key('label bank bca'),
                           ),
                         ],
                       ),
                     ),
                     Radio(
-                        key: Key('radio button bca'),
+                        key: const Key('radio button bca'),
                         value: 'Bank Central Asia',
                         groupValue: radioValue,
                         activeColor: blackColor,
@@ -491,13 +494,13 @@ class _EventCheckOutState extends State<EventCheckOut> {
                                 fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
                                 color: blackColor),
-                            key: Key('label bank mandiri'),
+                            key: const Key('label bank mandiri'),
                           ),
                         ],
                       ),
                     ),
                     Radio(
-                        key: Key('radio button bank mandiri'),
+                        key: const Key('radio button bank mandiri'),
                         value: 'Bank Mandiri',
                         groupValue: radioValue,
                         activeColor: blackColor,
@@ -517,7 +520,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                     Navigator.pop(context);
                   },
                   child: Container(
-                    key: Key('button selanjutnya'),
+                    key: const Key('button selanjutnya'),
                     width: 360.w,
                     height: 35.h,
                     decoration: BoxDecoration(
@@ -530,7 +533,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                             fontSize: 11.sp,
                             fontWeight: FontWeight.w700,
                             color: whiteColor),
-                        key: Key('label selanjutnya'),
+                        key: const Key('label selanjutnya'),
                       ),
                     ),
                   ),
@@ -558,7 +561,7 @@ class _BuatPesananState extends State<BuatPesanan> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      key: Key('buttonBuatPesanan'),
+      key: const Key('buttonBuatPesanan'),
       onTap: () {
         Navigator.push(
           context,

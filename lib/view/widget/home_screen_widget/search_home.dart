@@ -86,7 +86,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                           key: const Key('textFieldSearchHome'),
                           style: poppinsKecil,
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(vertical: 5.0),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 5.0),
                             filled: true,
                             fillColor: const Color.fromRGBO(205, 203, 200, 0.2),
                             prefixIcon: const Icon(

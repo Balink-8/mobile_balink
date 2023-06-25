@@ -48,7 +48,7 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
             children: [
               Row(
                 children: [
-                  Icon(Icons.access_time),
+                  const Icon(Icons.access_time),
                   SizedBox(width: 4.w),
                   Text(
                     'Menunggu untuk pembayaran',
@@ -85,7 +85,7 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
                 height: 108.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Color.fromRGBO(242, 243, 242, 1)),
+                    color: const Color.fromRGBO(242, 243, 242, 1)),
                 child: Column(
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
