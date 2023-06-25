@@ -8,6 +8,7 @@ import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
 import 'package:mobile_balink/view/event/eventPage/successpay.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/realtime.dart';
 
 class WaitingPembayaran extends StatefulWidget {
   final Event? eventData;

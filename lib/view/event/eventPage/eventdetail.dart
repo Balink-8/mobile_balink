@@ -8,6 +8,7 @@ import 'package:mobile_balink/view/widget/event_screen_widget/card_calendar.dart
 import 'package:mobile_balink/view/widget/event_screen_widget/card_clock.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_detailevent.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../view_model/event_provider.dart';
 
 class EventDetailScreen extends StatefulWidget {
@@ -207,8 +208,11 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   height: 10.h,
                 ),
                 GestureDetector(
-                  onTap: () {
-                    setState(() {});
+                  onTap: () async {
+                    Uri mapsUrl = Uri.parse(
+                      widget.eventData!.linkLokasi,
+                    );
+                    await launchUrl(mapsUrl);
                   },
                   child: Container(
                     decoration: BoxDecoration(
