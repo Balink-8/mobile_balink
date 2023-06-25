@@ -14,7 +14,7 @@ class CardEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      key: Key('buttonEventDetailScreen'),
+      key: const Key('buttonEventDetailScreen'),
       onTap: () {
         Navigator.push(
           context,
@@ -32,7 +32,7 @@ class CardEvent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ClipRRect(
-                key: Key('gambar event'),
+                key: const Key('gambar event'),
                 borderRadius: BorderRadius.circular(10.0),
                 child: SizedBox(
                   height: 87.h,
@@ -67,7 +67,7 @@ class CardEvent extends StatelessWidget {
                           fontSize: 11.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
-                      key: Key('text tanggal'),
+                      key: const Key('text tanggal'),
                     ),
                   ),
                 ),
@@ -91,7 +91,7 @@ class CardEvent extends StatelessWidget {
                       'assets/icon/event_icon/location.png',
                       width: 10.w,
                       height: 13.h,
-                      key: Key('icon lokasi'),
+                      key: const Key('icon lokasi'),
                     ),
                     SizedBox(
                       width: 10.w,
@@ -102,7 +102,7 @@ class CardEvent extends StatelessWidget {
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: blackColor),
-                      key: Key('text lokasi'),
+                      key: const Key('text lokasi'),
                     ),
                   ],
                 ),

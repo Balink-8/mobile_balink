@@ -8,18 +8,18 @@ import 'package:mobile_balink/view/event/eventPage/eventdetail.dart';
 
 import '../../../model/event_model.dart';
 
-class bsTicket extends StatefulWidget {
+class BsTicket extends StatefulWidget {
   final Event? eventData;
-  const bsTicket({super.key, required this.eventData});
+  const BsTicket({super.key, required this.eventData});
 
   @override
-  State<bsTicket> createState() => _bsTicketState();
+  State<BsTicket> createState() => _BsTicketState();
 }
 
 int jumlah = 0;
 int total = 0;
 
-class _bsTicketState extends State<bsTicket> {
+class _BsTicketState extends State<BsTicket> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -329,7 +329,8 @@ class _bsTicketState extends State<bsTicket> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return Center(
-            key: const Key('iconLoading'), child: Image.asset('assets/loading.png'));
+            key: const Key('iconLoading'),
+            child: Image.asset('assets/loading.png'));
       },
     );
   }

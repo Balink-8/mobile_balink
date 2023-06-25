@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 
-class Card_CO extends StatelessWidget {
+class Cardcheckout extends StatelessWidget {
   final Event eventData;
   var jumlah;
 
-  Card_CO({super.key, required this.jumlah, required this.eventData});
+  Cardcheckout({super.key, required this.jumlah, required this.eventData});
 
   @override
   Widget build(BuildContext context) {

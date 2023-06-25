@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 
-class cardClock extends StatelessWidget {
+class CardClock extends StatelessWidget {
   final Event eventData;
-  const cardClock({super.key, required this.eventData});
+  const CardClock({super.key, required this.eventData});
 
   @override
   Widget build(BuildContext context) {

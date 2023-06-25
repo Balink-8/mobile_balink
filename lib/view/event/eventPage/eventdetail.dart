@@ -144,8 +144,8 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   key: const Key('tanggalDanWaktu'),
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(child: cardCalendar(eventData: widget.eventData!)),
-                    Expanded(child: cardClock(eventData: widget.eventData!)),
+                    Expanded(child: CardCalendar(eventData: widget.eventData!)),
+                    Expanded(child: CardClock(eventData: widget.eventData!)),
                   ],
                 ),
                 SizedBox(
@@ -240,7 +240,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 SizedBox(
                   height: 25.h,
                 ),
-                bsTicket(
+                BsTicket(
                   key: const Key('buttomsheetPembelianTiket'),
                   eventData: widget.eventData,
                 )

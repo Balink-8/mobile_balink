@@ -6,22 +6,22 @@ import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/event/eventPage/waitingpembayaran.dart';
 import '../../widget/event_screen_widget/buttomsheet.dart';
 
-class kodeBayar extends StatefulWidget {
+class KodeBayar extends StatefulWidget {
   final Event eventData;
   final String bank;
-  const kodeBayar({
+  const KodeBayar({
     super.key,
     required this.eventData,
     required this.bank,
   });
 
   @override
-  State<kodeBayar> createState() => _kodeBayarState();
+  State<KodeBayar> createState() => _KodeBayarState();
 }
 
 var nova = '2668 8001 9203 8388';
 
-class _kodeBayarState extends State<kodeBayar> {
+class _KodeBayarState extends State<KodeBayar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +71,7 @@ class _kodeBayarState extends State<kodeBayar> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Total : ${total}',
+                    'Total : $total',
                     style: poppinsKecil.copyWith(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w700,

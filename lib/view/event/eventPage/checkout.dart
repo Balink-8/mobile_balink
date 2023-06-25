@@ -61,7 +61,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Card_CO(jumlah: jumlah, eventData: widget.eventData!),
+                Cardcheckout(jumlah: jumlah, eventData: widget.eventData!),
                 SizedBox(height: 20.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
