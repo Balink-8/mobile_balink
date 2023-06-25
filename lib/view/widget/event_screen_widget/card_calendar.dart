@@ -16,7 +16,7 @@ class cardCalendar extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding:
-              const EdgeInsets.only(top: 16, bottom: 16, right: 10, left: 10),
+              const EdgeInsets.only(top: 16, bottom: 16, right: 5, left: 5),
           child: Column(
             children: [
               Row(
