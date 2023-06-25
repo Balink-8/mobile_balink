@@ -13,20 +13,12 @@ class OrderNow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? noTelepon;
-    String wa = 'halo';
-
     sendMessage() async {
-      String text = 'https://wa.me/${noTelepon!}?text=$wa';
+      String text = 'https://wa.me/6281357311456?text=Haloo';
       var url = Uri.parse(text);
       await canLaunchUrl(url)
           ? await launchUrl(url, mode: LaunchMode.externalApplication)
           : throw 'Could not launch $url';
-    }
-
-    getNomor() {
-      String no = '+6281357311456';
-      noTelepon = no.substring(1);
     }
 
     return Padding(
