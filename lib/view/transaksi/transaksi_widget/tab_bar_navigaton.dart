@@ -76,7 +76,10 @@ class _TabBarNavigationState extends State<TabBarNavigation>
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.event_available),
+                        Image.asset(
+                          'assets/theater_comedy.png',
+                          color: blackColor,
+                        ),
                         SizedBox(
                           width: 11.w,
                         ),

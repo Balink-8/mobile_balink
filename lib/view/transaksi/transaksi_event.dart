@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_balink/view/checkout/berhasil_bayar.dart';
+import 'package:mobile_balink/view/transaksi/batal_pesan.dart';
+import 'package:mobile_balink/view/transaksi/kirim_pesanan.dart';
+import 'package:mobile_balink/view/transaksi/proses_pesanan.dart';
+import 'package:mobile_balink/view/transaksi/transaksi_widget/data_transaksi.dart';
 
 import '../../config/theme.dart';
 
@@ -21,139 +26,438 @@ class _TransaksiEventPageState extends State<TransaksiEventPage> {
         ),
         child: Column(children: [
           const CardEventSuccess(),
-
           SizedBox(
             height: 13.h,
           ),
-          // CardEventSuccess(),
+          const CardCancel(),
           SizedBox(
-            height: 220.h,
-            width: 330.w,
-            child: Card(
-              // margin: const EdgeInsets.fromLTRB(6, 16, 6, 16),
-              // color: Color.fromRGBO(215, 245, 246, 1),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(2.0)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            height: 13.h,
+          ),
+          const CardPesan(),
+          SizedBox(
+            height: 13.h,
+          ),
+          const CardWaiting()
+        ]),
+      ),
+    );
+  }
+}
+
+class CardWaiting extends StatelessWidget {
+  const CardWaiting({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ProsesPesananPage()));
+      },
+      child: SizedBox(
+        height: 220.h,
+        width: 330.w,
+        child: Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.0)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 16.0, bottom: 6),
+                child: Container(
+                    height: 30.h,
+                    width: 100.w,
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      // Replace with your desired background color
+                      borderRadius: BorderRadius.circular(
+                          20.0), // Replace with your desired border radius
+                    ),
+                    // color: thirdColor,
+                    child: Center(
+                      child: Text(
+                        status[3],
+                        style: poppinsKecil.copyWith(
+                            color: blackColor, fontWeight: FontWeight.w400),
+                      ),
+                    )),
+              ),
+              Row(
                 children: [
+                  // CarouselView(),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 8, top: 16.0, bottom: 6),
-                    child: Container(
-                        height: 30.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                          border: Border.all(),
-                          // Replace with your desired background color
-                          borderRadius: BorderRadius.circular(
-                              20.0), // Replace with your desired border radius
-                        ),
-                        // color: thirdColor,
-                        child: Center(
-                          child: Text(
-                            'Dibatalkan',
-                            style: poppinsKecil.copyWith(
-                                color: blackColor, fontWeight: FontWeight.w400),
-                          ),
-                        )),
-                  ),
-                  Row(
-                    children: [
-                      // CarouselView(),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(4.0),
-                          child: SizedBox(
-                            height: 120.h,
-                            width: 120.w,
-                            child: Image.network(
-                              'https://www.duniart.com/wp-content/uploads/2020/03/Makepung-14-08-528-2048x1365.jpg'
-                              // 'https://f.ptcdn.info/298/073/000/qs7t6ibhscUkbPBmH8t-o.jpg',
-                              ,
-                              fit: BoxFit.cover,
-                              // scale: 25.0,
-                            ),
-                          ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(4.0),
+                      child: SizedBox(
+                        height: 120.h,
+                        width: 120.w,
+                        child: Image.asset(
+                          gambarEventTransaksi[3],
+                          fit: BoxFit.cover,
+                          // scale: 25.0,
                         ),
                       ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color:
+                                thirdColor, // Replace with your desired background color
+                            borderRadius: BorderRadius.circular(
+                                4.0), // Replace with your desired border radius
+                          ),
+                          // color: thirdColor,
+                        ),
+                        Text(
+                          namaEvent[3],
+                          style: poppinsKecil.copyWith(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          lokasi[2],
+                          style: poppinsKecil.copyWith(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color:
-                                    thirdColor, // Replace with your desired background color
-                                borderRadius: BorderRadius.circular(
-                                    4.0), // Replace with your desired border radius
-                              ),
-                              // color: thirdColor,
-                            ),
                             Text(
-                              'Festival Makepung',
-                              style: poppinsKecil.copyWith(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              'Kab. Jembrang',
-                              style: poppinsKecil.copyWith(
-                                  fontSize: 14,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Rp 90.000',
-                                  style: poppinsKecil.copyWith(
-                                      fontSize: 14,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 8.0),
-                                  child: Text(
-                                    '1x',
-                                    style: poppinsKecil.copyWith(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 14.h,
-                            ),
-                            Text(
-                              'Event Berlangsung',
-                              style: poppinsKecil.copyWith(
-                                fontSize: 14,
-                                color: Colors.grey,
-                              ),
-                            ),
-                            Text(
-                              '29 Mei 2023',
+                              'Rp 90.000',
                               style: poppinsKecil.copyWith(
                                   fontSize: 14,
                                   color: Colors.black,
                                   fontWeight: FontWeight.w600),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Text(
+                                '1x',
+                                style: poppinsKecil.copyWith(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            )
                           ],
                         ),
-                      )
-                    ],
-                  ),
+                        SizedBox(
+                          height: 14.h,
+                        ),
+                        Text(
+                          'Event Berlangsung',
+                          style: poppinsKecil.copyWith(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Text(
+                          '29 Mei 2023',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
-            ),
+            ],
           ),
-        ]),
+        ),
+      ),
+    );
+  }
+}
+
+class CardPesan extends StatelessWidget {
+  const CardPesan({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const KirimPesananPage()));
+      },
+      child: SizedBox(
+        height: 220.h,
+        width: 330.w,
+        child: Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.0)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 16.0, bottom: 6),
+                child: Container(
+                    height: 30.h,
+                    width: 100.w,
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      // Replace with your desired background color
+                      borderRadius: BorderRadius.circular(
+                          20.0), // Replace with your desired border radius
+                    ),
+                    // color: thirdColor,
+                    child: Center(
+                      child: Text(
+                        status[2],
+                        style: poppinsKecil.copyWith(
+                            color: blackColor, fontWeight: FontWeight.w400),
+                      ),
+                    )),
+              ),
+              Row(
+                children: [
+                  // CarouselView(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(4.0),
+                      child: SizedBox(
+                        height: 120.h,
+                        width: 120.w,
+                        child: Image.asset(
+                          gambarEventTransaksi[2]
+                          // 'https://www.duniart.com/wp-content/uploads/2020/03/Makepung-14-08-528-2048x1365.jpg'
+                          // 'https://f.ptcdn.info/298/073/000/qs7t6ibhscUkbPBmH8t-o.jpg',
+                          ,
+                          fit: BoxFit.cover,
+                          // scale: 25.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color:
+                                thirdColor, // Replace with your desired background color
+                            borderRadius: BorderRadius.circular(
+                                4.0), // Replace with your desired border radius
+                          ),
+                          // color: thirdColor,
+                        ),
+                        Text(
+                          namaEvent[2],
+                          style: poppinsKecil.copyWith(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          'Kab. Jembrang',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Rp 90.000',
+                              style: poppinsKecil.copyWith(
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Text(
+                                '1x',
+                                style: poppinsKecil.copyWith(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 14.h,
+                        ),
+                        Text(
+                          'Event Berlangsung',
+                          style: poppinsKecil.copyWith(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Text(
+                          '29 Mei 2023',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardCancel extends StatelessWidget {
+  const CardCancel({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const BatalPesanPage()));
+      },
+      child: SizedBox(
+        height: 220.h,
+        width: 330.w,
+        child: Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.0)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 16.0, bottom: 6),
+                child: Container(
+                    height: 30.h,
+                    width: 100.w,
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      // Replace with your desired background color
+                      borderRadius: BorderRadius.circular(
+                          20.0), // Replace with your desired border radius
+                    ),
+                    // color: thirdColor,
+                    child: Center(
+                      child: Text(
+                        'Dibatalkan',
+                        style: poppinsKecil.copyWith(
+                            color: blackColor, fontWeight: FontWeight.w400),
+                      ),
+                    )),
+              ),
+              Row(
+                children: [
+                  // CarouselView(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(4.0),
+                      child: SizedBox(
+                        height: 120.h,
+                        width: 120.w,
+                        child: Image.network(
+                          'https://www.duniart.com/wp-content/uploads/2020/03/Makepung-14-08-528-2048x1365.jpg'
+                          // 'https://f.ptcdn.info/298/073/000/qs7t6ibhscUkbPBmH8t-o.jpg',
+                          ,
+                          fit: BoxFit.cover,
+                          // scale: 25.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color:
+                                thirdColor, // Replace with your desired background color
+                            borderRadius: BorderRadius.circular(
+                                4.0), // Replace with your desired border radius
+                          ),
+                          // color: thirdColor,
+                        ),
+                        Text(
+                          'Festival Makepung',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          'Kab. Jembrang',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Rp 90.000',
+                              style: poppinsKecil.copyWith(
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Text(
+                                '1x',
+                                style: poppinsKecil.copyWith(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 14.h,
+                        ),
+                        Text(
+                          'Event Berlangsung',
+                          style: poppinsKecil.copyWith(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Text(
+                          '29 Mei 2023',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -166,139 +470,146 @@ class CardEventSuccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 220.h,
-      width: 330.w,
-      child: Card(
-        key: const Key('cardEventTransaksi'),
-        // margin: const EdgeInsets.fromLTRB(6, 16, 6, 16),
-        // color: Color.fromRGBO(215, 245, 246, 1),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.0)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 6,
-                top: 16.0,
-                bottom: 6,
-              ),
-              child: Container(
-                  height: 30.h,
-                  width: 150.w,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    // Replace with your desired background color
-                    borderRadius: BorderRadius.circular(
-                        20.0), // Replace with your desired border radius
-                  ),
-                  // color: thirdColor,
-                  child: Center(
-                    child: Text(
-                      key: const Key('statusEventTransaksi'),
-                      'Berhasil dipesan',
-                      style: poppinsKecil.copyWith(
-                          color: blackColor, fontWeight: FontWeight.w400),
-                    ),
-                  )),
-            ),
-            Row(
-              children: [
-                // CarouselView(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(4.0),
-                    child: SizedBox(
-                      height: 120.h,
-                      width: 120.w,
-                      child: Image.network(
-                        key: const Key('imageEventTransaksi'),
-                        'https://ticket.gwkbali.com/images/ticket/1200%20x%20900.png'
-                        // 'https://f.ptcdn.info/298/073/000/qs7t6ibhscUkbPBmH8t-o.jpg',
-                        ,
-                        fit: BoxFit.cover,
-                        // scale: 25.0,
-                      ),
-                    ),
-                  ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => BerhasilBayarPage()));
+      },
+      child: SizedBox(
+        height: 220.h,
+        width: 330.w,
+        child: Card(
+          key: const Key('cardEventTransaksi'),
+          // margin: const EdgeInsets.fromLTRB(6, 16, 6, 16),
+          // color: Color.fromRGBO(215, 245, 246, 1),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.0)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 6,
+                  top: 16.0,
+                  bottom: 6,
                 ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color:
-                              thirdColor, // Replace with your desired background color
-                          borderRadius: BorderRadius.circular(
-                              4.0), // Replace with your desired border radius
+                child: Container(
+                    height: 30.h,
+                    width: 100.w,
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      // Replace with your desired background color
+                      borderRadius: BorderRadius.circular(
+                          20.0), // Replace with your desired border radius
+                    ),
+                    // color: thirdColor,
+                    child: Center(
+                      child: Text(
+                        key: const Key('statusEventTransaksi'),
+                        'Sukses',
+                        style: poppinsKecil.copyWith(
+                            color: blackColor, fontWeight: FontWeight.w400),
+                      ),
+                    )),
+              ),
+              Row(
+                children: [
+                  // CarouselView(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(4.0),
+                      child: SizedBox(
+                        height: 120.h,
+                        width: 120.w,
+                        child: Image.network(
+                          key: const Key('imageEventTransaksi'),
+                          'https://ticket.gwkbali.com/images/ticket/1200%20x%20900.png'
+                          // 'https://f.ptcdn.info/298/073/000/qs7t6ibhscUkbPBmH8t-o.jpg',
+                          ,
+                          fit: BoxFit.cover,
+                          // scale: 25.0,
                         ),
-                        // color: thirdColor,
                       ),
-                      Text(
-                        key: const Key('namaEventTransaksi'),
-                        'Festival Ogoh - Ogoh',
-                        style: poppinsKecil.copyWith(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      Text(
-                        key: const Key('lokasiEventTransaksi'),
-                        'Denpasar, Bali',
-                        style: poppinsKecil.copyWith(
-                            fontSize: 14,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            key: const Key('hargaEventTransaksi'),
-                            'Rp 90.000',
-                            style: poppinsKecil.copyWith(
-                                fontSize: 14,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color:
+                                thirdColor, // Replace with your desired background color
+                            borderRadius: BorderRadius.circular(
+                                4.0), // Replace with your desired border radius
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: Text(
-                              '1x',
+                          // color: thirdColor,
+                        ),
+                        Text(
+                          key: const Key('namaEventTransaksi'),
+                          'Festival Ogoh - Ogoh',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          key: const Key('lokasiEventTransaksi'),
+                          'Denpasar, Bali',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              key: const Key('hargaEventTransaksi'),
+                              'Rp 90.000',
                               style: poppinsKecil.copyWith(
                                   fontSize: 14,
                                   color: Colors.black,
-                                  fontWeight: FontWeight.w400),
+                                  fontWeight: FontWeight.w600),
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 14.h,
-                      ),
-                      Text(
-                        'Event Berlangsung',
-                        style: poppinsKecil.copyWith(
-                          fontSize: 14,
-                          color: Colors.grey,
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Text(
+                                '1x',
+                                style: poppinsKecil.copyWith(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            )
+                          ],
                         ),
-                      ),
-                      Text(
-                        key: const Key('tanggalEventTransaksi'),
-                        '29 Mei 2023',
-                        style: poppinsKecil.copyWith(
+                        SizedBox(
+                          height: 14.h,
+                        ),
+                        Text(
+                          'Event Berlangsung',
+                          style: poppinsKecil.copyWith(
                             fontSize: 14,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ],
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Text(
+                          key: const Key('tanggalEventTransaksi'),
+                          '29 Mei 2023',
+                          style: poppinsKecil.copyWith(
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

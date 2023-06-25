@@ -10,10 +10,12 @@ class BuktiPembayaranPage extends StatefulWidget {
       {super.key,
       required this.productMembayar,
       required this.index,
-      required this.quantity});
+      required this.quantity,
+      required this.bank});
   final Product productMembayar;
   final int index;
   final int quantity;
+  final String bank;
 
   @override
   State<BuktiPembayaranPage> createState() => _BuktiPembayaranPageState();
@@ -21,6 +23,7 @@ class BuktiPembayaranPage extends StatefulWidget {
 
 class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
   int ongkir = 10000;
+  String metodePembayaran = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +65,8 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                   ),
                   SizedBox(width: 4.w),
                   Text(
-                    'Bank Central Asia',
+                    widget.bank,
+                    // 'Bank Central Asia',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.bold),
                   ),
@@ -241,7 +245,8 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                     style: poppinsKecil.copyWith(color: blackColor),
                   ),
                   Text(
-                    'Bank Central Asia',
+                    widget.bank,
+                    // 'Bank Central Asia',
                     style: poppinsKecil.copyWith(color: blackColor),
                   ),
                 ],
@@ -324,7 +329,8 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                 child: Column(
                   children: [
                     Text(
-                      'Bank Central Asia',
+                      widget.bank,
+                      // 'Bank Central Asia',
                       style: poppinsKecil.copyWith(color: blackColor),
                     ),
                     Text(

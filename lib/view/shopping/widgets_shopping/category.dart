@@ -30,6 +30,7 @@ class Category extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => CategoryProduct(
                       index: index,
+                      categoryData: categoryData,
                     ),
                   ),
                 );

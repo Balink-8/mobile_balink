@@ -10,17 +10,20 @@ class KodePembayaranPage extends StatefulWidget {
       {super.key,
       required this.productBayar,
       required this.quantity,
-      required this.index});
+      required this.index,
+      required this.bank});
 
   final Product productBayar;
   final int quantity;
   final int index;
+  final String bank;
 
   @override
   State<KodePembayaranPage> createState() => _KodePembayaranPageState();
 }
 
 class _KodePembayaranPageState extends State<KodePembayaranPage> {
+  String metodePembayaran = "";
   int ongkir = 10000;
   @override
   Widget build(BuildContext context) {
@@ -89,7 +92,8 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 12),
                       child: Text(
-                        'Bank Central Asia',
+                        // 'Bank Central Asia',
+                        widget.bank,
                         style: poppinsKecil.copyWith(color: blackColor),
                       ),
                     ),
@@ -140,7 +144,7 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
                       // color: thirdColor,
                       child: Center(
                         child: Text(
-                          'BCA',
+                          'TRF',
                           style: poppinsKecil.copyWith(
                               color: blackColor, fontWeight: FontWeight.w400),
                         ),
@@ -149,7 +153,8 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
                     width: 4.h,
                   ),
                   Text(
-                    'Bank Central Asia',
+                    widget.bank,
+                    // 'Bank Central Asia',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.w400),
                   )
@@ -166,6 +171,7 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
                                 index: widget.index,
                                 productMembayar: widget.productBayar,
                                 quantity: widget.quantity,
+                                bank: widget.bank,
                               )));
                 },
                 child: Container(

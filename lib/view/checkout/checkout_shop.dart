@@ -11,7 +11,7 @@ import '../../model/product_model.dart';
 import 'kode_pembayaran.dart';
 
 class CheckoutShopPage extends StatefulWidget {
-  const CheckoutShopPage(
+  CheckoutShopPage(
       {super.key,
       required this.index,
       required this.productCheckout,
@@ -19,6 +19,7 @@ class CheckoutShopPage extends StatefulWidget {
   final int index;
   final Product productCheckout;
   final int? quantity;
+  String metodePembayaran = "";
 
   @override
   State<CheckoutShopPage> createState() => _CheckoutShopPageState();
@@ -26,7 +27,6 @@ class CheckoutShopPage extends StatefulWidget {
 
 class _CheckoutShopPageState extends State<CheckoutShopPage> {
   int hargaPengiriman = 10000;
-  String metodePembayaran = "";
   String radioValue = "";
 
   @override
@@ -394,7 +394,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                       // Text('Transfer Bank',
                       //     style: poppinsKecil.copyWith(
                       //         color: blackColor, fontWeight: FontWeight.w400)),
-                      metodePembayaran == ""
+                      widget.metodePembayaran == ""
                           ? Text(
                               'Transfer Bank',
                               style: poppinsKecil.copyWith(
@@ -404,7 +404,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                               key: Key('label transfer bank'),
                             )
                           : Text(
-                              metodePembayaran,
+                              widget.metodePembayaran,
                               style: poppinsKecil.copyWith(
                                   fontSize: 12.sp,
                                   fontWeight: FontWeight.w400,
@@ -481,6 +481,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                         index: widget.index,
                         productBayar: widget.productCheckout,
                         quantity: widget.quantity!,
+                        bank: widget.metodePembayaran,
                       ),
                     ),
                   );
@@ -587,6 +588,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                                     index: widget.index,
                                     productBayar: widget.productCheckout,
                                     quantity: widget.quantity!,
+                                    bank: '',
                                   )));
                     },
                     child: Row(
@@ -630,7 +632,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                             onChanged: (String? value) {
                               setState(() {
                                 radioValue = value ?? '';
-                                metodePembayaran = value.toString();
+                                widget.metodePembayaran = value.toString();
                               });
                             })
                       ],
@@ -679,7 +681,7 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                           onChanged: (String? value) {
                             setState(() {
                               radioValue = value ?? '';
-                              metodePembayaran = value.toString();
+                              widget.metodePembayaran = value.toString();
                             });
                           })
                     ],

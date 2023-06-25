@@ -18,13 +18,16 @@ import '../widget/home_screen_widget/search_home.dart';
 import '../widget/home_screen_widget/shopping_card_widget.dart';
 
 class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({super.key});
+  const HomePageScreen({
+    super.key,
+  });
 
   @override
   State<HomePageScreen> createState() => _HomePageScreenState();
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
+  int? index;
   @override
   void initState() {
     super.initState();
@@ -220,10 +223,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              CategoryProduct(index: index)));
+                                          builder: (context) => CategoryProduct(
+                                                index: index,
+                                                categoryData: categoryData,
+                                              )));
                                 },
                                 child: ShoppingCardWidget(
+                                  index: index,
                                   categoryDataHome: categoryData,
                                 ),
                               );
@@ -275,8 +281,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                               index: index,
                                               detailProduct: productData)));
                                 },
-                                child:
-                                    PromoCardWidget(productData: productData));
+                                child: PromoCardWidget(
+                                  productData: productData,
+                                  index: index,
+                                ));
                           },
                           separatorBuilder: (context, index) {
                             return SizedBox(
