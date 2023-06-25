@@ -394,11 +394,6 @@ class _SuccessPaymentState extends State<SuccessPayment> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const TabBarNavigation()),
-                  );
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
