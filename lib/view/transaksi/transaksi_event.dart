@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/view/checkout/berhasil_bayar.dart';
 import 'package:mobile_balink/view/transaksi/batal_pesan.dart';
-import 'package:mobile_balink/view/transaksi/kirim_pesanan.dart';
 import 'package:mobile_balink/view/transaksi/proses_pesanan.dart';
 import 'package:mobile_balink/view/transaksi/transaksi_widget/data_transaksi.dart';
 
@@ -192,7 +191,7 @@ class CardPesan extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const KirimPesananPage()));
+            MaterialPageRoute(builder: (context) => const ProsesPesananPage()));
       },
       child: SizedBox(
         height: 220.h,
@@ -473,7 +472,7 @@ class CardEventSuccess extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => BerhasilBayarPage()));
+            MaterialPageRoute(builder: (context) => ProsesPesananPage()));
       },
       child: SizedBox(
         height: 220.h,

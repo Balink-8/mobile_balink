@@ -4,6 +4,7 @@ import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/shopping/shopping_page/list_gambar.dart';
 
 import '../../model/product_model.dart';
+import 'berhasil_bayar.dart';
 
 class BuktiPembayaranPage extends StatefulWidget {
   const BuktiPembayaranPage(
@@ -51,7 +52,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                   ),
                   SizedBox(width: 4.w),
                   Text(
-                    'Rp. ${(widget.productMembayar.harga * widget.quantity) + ongkir}',
+                    'Rp ${(widget.productMembayar.harga * widget.quantity) + ongkir}',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.bold),
                   ),
@@ -387,7 +388,18 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                                   ),
                                 ),
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => BerhasilBayarPage(
+                                              productBerhasil:
+                                                  widget.productMembayar,
+                                              bank: widget.bank,
+                                              index: widget.index,
+                                              quantity: widget.quantity,
+                                            )));
+                              },
                             ),
                             const Divider(),
                             ListTile(

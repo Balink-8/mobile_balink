@@ -449,7 +449,9 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
                             color: abuAColor),
                         width: 327.w,
                         height: 120.h,
-                        padding: EdgeInsets.fromLTRB(97, 12, 97, 12),
+                        padding: EdgeInsets.only(
+                          top: 12,
+                        ),
                         child: Column(
                           children: [
                             Text(
