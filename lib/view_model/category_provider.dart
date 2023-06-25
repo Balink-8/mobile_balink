@@ -19,21 +19,4 @@ class CategoryProvider extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
-
-  resultSearchCategory() {
-    if (searchCategory.isEmpty) {
-      _listCategory;
-    } else {
-      _listCategory
-          .where((element) =>
-              element.nama.toLowerCase().startsWith(searchCategory))
-          .toList();
-    }
-    notifyListeners();
-  }
-
-  searching(String namaCategory) {
-    searchCategory = namaCategory;
-    resultSearchCategory();
-  }
 }
