@@ -2,8 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 
+import '../../model/product_model.dart';
+import '../shopping/shopping_page/list_gambar.dart';
+import '../transaksi/transaksi_widget/tab_bar_navigaton.dart';
+
 class BerhasilBayarPage extends StatefulWidget {
-  const BerhasilBayarPage({super.key});
+  const BerhasilBayarPage(
+      {super.key,
+      required this.productBerhasil,
+      required this.index,
+      required this.quantity,
+      required this.bank});
+  final Product productBerhasil;
+  final int index;
+  final int quantity;
+  final String bank;
 
   @override
   State<BerhasilBayarPage> createState() => _BerhasilBayarPageState();
@@ -42,7 +55,8 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                     ),
                     // ),
                     child: Image.network(
-                      'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+                      imageProduct[widget.index],
+                      // 'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
                       fit: BoxFit.cover,
 
                       // scale: 1.7,
@@ -56,7 +70,8 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Kemeja Endek Strait Motif Bali Premium',
+                      Text(widget.productBerhasil.nama,
+                          // 'Kemeja Endek Strait Motif Bali Premium',
                           style: poppinsKecil.copyWith(
                               color: blackColor, fontWeight: FontWeight.w400)),
                       const SizedBox(
@@ -66,11 +81,12 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Rp 90.0000',
+                            'Rp ${widget.productBerhasil.harga}',
+                            // 'Rp 90.0000',
                             style: poppinsKecil.copyWith(
                                 color: blackColor, fontWeight: FontWeight.w400),
                           ),
-                          Text('1x',
+                          Text('${widget.quantity}x',
                               style: poppinsKecil.copyWith(
                                   color: blackColor,
                                   fontWeight: FontWeight.w400))
@@ -101,7 +117,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
-                  'Rp. 90.000',
+                  'Rp ${widget.productBerhasil.harga * widget.quantity}',
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
               ],
@@ -143,7 +159,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                       color: blackColor, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  'Rp. 100.000',
+                  'Rp ${(widget.productBerhasil.harga * widget.quantity) + 10000}',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.bold),
                 ),
@@ -195,7 +211,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
                 Text(
-                  'Bank Central Asia',
+                  widget.bank,
                   style: poppinsKecil.copyWith(color: blackColor),
                 ),
               ],
@@ -246,20 +262,39 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
             ),
             SizedBox(height: 230.h),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const TabBarNavigation()),
+                );
+              },
               child: Container(
+                key: const Key('button lihat transaksi'),
                 width: 360.w,
                 height: 48.h,
                 decoration: BoxDecoration(
-                  color: secondaryColor,
                   borderRadius: BorderRadius.circular(8),
+                  color: secondaryColor,
                 ),
-                child: Center(
-                  child: Text(
-                    'Batalkan Pesanan',
-                    style: poppinsKecil.copyWith(),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Image.asset(
+                    'assets/icon/event_icon/bill.png',
+                    width: 14.w,
+                    height: 16.h,
+                    key: const Key('icon bill'),
                   ),
-                ),
+                  SizedBox(
+                    width: 7.w,
+                  ),
+                  Text(
+                    'Lihat Riwayat Transaksi',
+                    style: poppinsKecil.copyWith(
+                        fontWeight: FontWeight.w700, color: whiteColor),
+                    key: const Key('label riwayat transaksi'),
+                  ),
+                ]),
               ),
             ),
           ],

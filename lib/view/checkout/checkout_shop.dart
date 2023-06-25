@@ -691,12 +691,11 @@ class _CheckoutShopPageState extends State<CheckoutShopPage> {
                   ),
                   InkWell(
                     onTap: () {
-                      _showMyDialog(context);
-                      Timer(const Duration(seconds: 3), () {
-                        Navigator.pop(
-                          context,
-                        );
-                      });
+                      // _showMyDialog(context);
+                      // Timer(const Duration(seconds: 3), () {});
+                      Navigator.pop(
+                        context,
+                      );
                       // _showMyDialog(context);
                       // Navigator.pop(context);
                       // Navigator.push(

@@ -142,8 +142,8 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    cardCalendar(eventData: widget.eventData!),
-                    cardClock(eventData: widget.eventData!),
+                    Expanded(child: cardCalendar(eventData: widget.eventData!)),
+                    Expanded(child: cardClock(eventData: widget.eventData!)),
                   ],
                 ),
                 SizedBox(

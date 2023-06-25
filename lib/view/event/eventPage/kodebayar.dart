@@ -109,7 +109,9 @@ class _kodeBayarState extends State<kodeBayar> {
                     color: abuAColor),
                 width: 327.w,
                 height: 120.h,
-                padding: const EdgeInsets.fromLTRB(97, 12, 97, 12),
+                padding: const EdgeInsets.only(
+                  top: 12,
+                ),
                 child: Column(
                   children: [
                     Text(

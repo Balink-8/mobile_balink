@@ -10,8 +10,8 @@ class cardClock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 150.w,
-      height: 140.h,
+      width: 180.w,
+      height: 150.h,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
