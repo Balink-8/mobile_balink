@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/model/category_model.dart';
 import '../../../config/theme.dart';
-import '../../shopping/shopping_page/list_gambar.dart';
 
 class ShoppingCardWidget extends StatelessWidget {
   final CategoryModel categoryDataHome;

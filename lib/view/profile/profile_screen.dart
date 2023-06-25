@@ -210,25 +210,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       fontSize: 12.sp,
                     ),
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const EditProfileScreen();
-                        },
-                      ),
-                    );
-                  },
-                  child: Text(
-                    'Edit',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12.sp,
-                    ),
-                  ),
-                ),
+                )
               ],
             ),
             SizedBox(height: 24.h),

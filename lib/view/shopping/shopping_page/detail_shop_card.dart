@@ -194,34 +194,34 @@ class _DetailCardState extends State<DetailCard> {
                           color: Colors.black,
                           overflow: TextOverflow.clip),
                     ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Text(
-                      'Ready Warna :',
-                      style: poppinsKecil.copyWith(
-                          fontWeight: FontWeight.w100, color: Colors.black),
-                    ),
-                    Text(
-                      'Ungu Wine',
-                      style: poppinsKecil.copyWith(
-                          fontWeight: FontWeight.w100, color: Colors.black),
-                    ),
-                    Text(
-                      'Ungu Terong',
-                      style: poppinsKecil.copyWith(
-                          fontWeight: FontWeight.w100, color: Colors.black),
-                    ),
-                    Text(
-                      'Biru',
-                      style: poppinsKecil.copyWith(
-                          fontWeight: FontWeight.w100, color: Colors.black),
-                    ),
-                    Text(
-                      'Hitam',
-                      style: poppinsKecil.copyWith(
-                          fontWeight: FontWeight.w100, color: Colors.black),
-                    ),
+                    // SizedBox(
+                    //   height: 10.h,
+                    // ),
+                    // Text(
+                    //   'Ready Warna :',
+                    //   style: poppinsKecil.copyWith(
+                    //       fontWeight: FontWeight.w100, color: Colors.black),
+                    // ),
+                    // Text(
+                    //   'Ungu Wine',
+                    //   style: poppinsKecil.copyWith(
+                    //       fontWeight: FontWeight.w100, color: Colors.black),
+                    // ),
+                    // Text(
+                    //   'Ungu Terong',
+                    //   style: poppinsKecil.copyWith(
+                    //       fontWeight: FontWeight.w100, color: Colors.black),
+                    // ),
+                    // Text(
+                    //   'Biru',
+                    //   style: poppinsKecil.copyWith(
+                    //       fontWeight: FontWeight.w100, color: Colors.black),
+                    // ),
+                    // Text(
+                    //   'Hitam',
+                    //   style: poppinsKecil.copyWith(
+                    //       fontWeight: FontWeight.w100, color: Colors.black),
+                    // ),
                     SizedBox(
                       height: 20.h,
                     ),

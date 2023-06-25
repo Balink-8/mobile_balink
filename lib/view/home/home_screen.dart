@@ -12,8 +12,6 @@ import 'package:mobile_balink/view_model/product_provider.dart';
 import 'package:provider/provider.dart';
 import '../../config/theme.dart';
 import '../../model/product_model.dart';
-import '../../model/promo_model.dart';
-import '../../view_model/promo_provider.dart';
 import '../widget/home_screen_widget/carousel_welcome.dart';
 import '../widget/home_screen_widget/event_card.dart';
 import '../widget/home_screen_widget/search_home.dart';
@@ -40,9 +38,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
     Future.microtask(
       () => Provider.of<CategoryProvider>(context, listen: false).getCategory(),
     );
-    // Future.microtask(
-    //   () => Provider.of<PromoProvider>(context, listen: false).getPromo(),
-    // );
   }
 
   @override
@@ -258,46 +253,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       fontWeight: FontWeight.w600),
                 ),
               ),
-              // Consumer2<ProductProvider, PromoProvider>(
-              //     builder: (context, provProduct, provPromo, child) {
-              //   final products = provProduct.listProduct;
-              //   final promo = provPromo.listPromo;
-              //   return Padding(
-              //       padding: const EdgeInsets.only(
-              //           left: 25.0, right: 25.0, bottom: 17),
-              //       child: SizedBox(
-              //         height: 230.h,
-              //         child: ListView.separated(
-              //             key: const Key('listPromoHome'),
-              //             scrollDirection: Axis.horizontal,
-              //             shrinkWrap: true,
-              //             itemBuilder: (context, index) {
-              //               Product productData = products[index];
-              //               Promo promoData = promo[1];
-              //               return GestureDetector(
-              //                   onTap: () {
-              //                     Navigator.push(
-              //                         context,
-              //                         MaterialPageRoute(
-              //                             builder: (context) => DetailCard(
-              //                                 index: index,
-              //                                 detailProduct: productData)));
-              //                   },
-              //                   child: PromoCardWidget(
-              //                     productData: productData,
-              //                     promoDataHome: promoData,
-              //                   ));
-              //             },
-              //             separatorBuilder: (context, index) {
-              //               return SizedBox(
-              //                 width: 5.w,
-              //               );
-              //             },
-              //             itemCount: products.length + promo.length >= 5
-              //                 ? 5
-              //                 : products.length),
-              //       ));
-              // })
               Consumer<ProductProvider>(builder: (context, provProduct, child) {
                 final products = provProduct.listProduct;
                 return Padding(

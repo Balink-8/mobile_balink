@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,9 +7,27 @@ import 'package:mobile_balink/view/checkout/berhasil_bayar.dart';
 import 'package:mobile_balink/view/checkout/choose_bank.dart';
 import 'package:mobile_balink/view/shopping/shopping_page/list_gambar.dart';
 
-class CheckoutShopPage extends StatelessWidget {
-  const CheckoutShopPage({super.key, required this.index});
+import '../../model/product_model.dart';
+import 'kode_pembayaran.dart';
+
+class CheckoutShopPage extends StatefulWidget {
+  const CheckoutShopPage(
+      {super.key,
+      required this.index,
+      required this.productCheckout,
+      this.quantity});
   final int index;
+  final Product productCheckout;
+  final int? quantity;
+
+  @override
+  State<CheckoutShopPage> createState() => _CheckoutShopPageState();
+}
+
+class _CheckoutShopPageState extends State<CheckoutShopPage> {
+  int hargaPengiriman = 10000;
+  String metodePembayaran = "";
+  String radioValue = "";
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +125,7 @@ class CheckoutShopPage extends StatelessWidget {
                     ),
                     // ),
                     child: Image.network(
-                      category[index],
+                      imageProduct[widget.index],
                       fit: BoxFit.cover,
 
                       // scale: 1.7,
@@ -119,7 +139,7 @@ class CheckoutShopPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(nameCategory[index],
+                      Text(widget.productCheckout.nama,
                           style: poppinsKecil.copyWith(
                               color: blackColor, fontWeight: FontWeight.w400)),
                       SizedBox(
@@ -129,11 +149,14 @@ class CheckoutShopPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Rp 90.0000',
+                            'Rp ${widget.productCheckout.harga}',
+                            // 'Rp 90.0000',
                             style: poppinsKecil.copyWith(
                                 color: blackColor, fontWeight: FontWeight.w400),
                           ),
-                          Text('1x',
+                          Text(
+                              // '1x',
+                              '${widget.quantity} x',
                               style: poppinsKecil.copyWith(
                                   color: blackColor,
                                   fontWeight: FontWeight.w400))
@@ -158,7 +181,7 @@ class CheckoutShopPage extends StatelessWidget {
                 Text('Pengiriman',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.w700)),
-                Text('Rp 10.000',
+                Text('Rp $hargaPengiriman',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.w400)),
               ],
@@ -181,20 +204,13 @@ class CheckoutShopPage extends StatelessWidget {
                 Text('Pesan',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.w700)),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 12,
-                  color: Color.fromRGBO(89, 90, 89, 1),
-                ),
+                Text('Rp ${widget.productCheckout.harga * widget.quantity!}',
+                    textAlign: TextAlign.end,
+                    style: poppinsKecil.copyWith(
+                        color: blackColor, fontWeight: FontWeight.w400)),
               ],
             ),
-            SizedBox(
-              height: 4.h,
-            ),
-            Text('Rp 100.000',
-                textAlign: TextAlign.end,
-                style: poppinsKecil.copyWith(
-                    color: blackColor, fontWeight: FontWeight.w400)),
+
             SizedBox(
               height: 24.h,
             ),
@@ -279,7 +295,8 @@ class CheckoutShopPage extends StatelessWidget {
                     style: poppinsKecil.copyWith(
                         color: const Color.fromRGBO(89, 90, 89, 1),
                         fontWeight: FontWeight.w400)),
-                Text('Rp 90.000',
+                Text('Rp ${(widget.productCheckout.harga * widget.quantity!)}',
+                    // 'Rp 90.000',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.w400)),
               ],
@@ -291,7 +308,7 @@ class CheckoutShopPage extends StatelessWidget {
                     style: poppinsKecil.copyWith(
                         color: const Color.fromRGBO(89, 90, 89, 1),
                         fontWeight: FontWeight.w400)),
-                Text('Rp 10.000',
+                Text('Rp $hargaPengiriman',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.w400)),
               ],
@@ -314,7 +331,9 @@ class CheckoutShopPage extends StatelessWidget {
                 Text('Total',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.w700)),
-                Text('Rp 100.000',
+                Text(
+                    'Rp ${((widget.productCheckout.harga * widget.quantity!) + hargaPengiriman)}',
+                    // 'Rp 100.000',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.w700)),
               ],
@@ -372,9 +391,25 @@ class CheckoutShopPage extends StatelessWidget {
                       const SizedBox(
                         width: 6,
                       ),
-                      Text('Transfer Bank',
-                          style: poppinsKecil.copyWith(
-                              color: blackColor, fontWeight: FontWeight.w400)),
+                      // Text('Transfer Bank',
+                      //     style: poppinsKecil.copyWith(
+                      //         color: blackColor, fontWeight: FontWeight.w400)),
+                      metodePembayaran == ""
+                          ? Text(
+                              'Transfer Bank',
+                              style: poppinsKecil.copyWith(
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: blackColor),
+                              key: Key('label transfer bank'),
+                            )
+                          : Text(
+                              metodePembayaran,
+                              style: poppinsKecil.copyWith(
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: blackColor),
+                            ),
                     ],
                   ),
                   const Icon(Icons.arrow_forward_ios,
@@ -382,24 +417,44 @@ class CheckoutShopPage extends StatelessWidget {
                 ],
               ),
             ),
+            // metodePembayaran == ""
+            //     ? IconButton(
+            //         icon: Image.asset(
+            //           'assets/icon/event_icon/back.png',
+            //           width: 11.w,
+            //           height: 11.h,
+            //           key: Key('icon untk pilih bank'),
+            //         ),
+            //         onPressed: () {
+            //           chooseBankBottomSheet(context);
+            //         },
+            //       )
+            //     : IconButton(
+            //         icon: Image.asset(
+            //           'assets/icon/event_icon/radio.png',
+            //           width: 11.w,
+            //           height: 11.h,
+            //           key: Key('icon pilih bank'),
+            //         ),
+            //         onPressed: () {
+            //           chooseBankBottomSheet(context);
+            //         },
+            //       ),
             SizedBox(
               height: 143.h,
             ),
-            // SizedBox(
-            //   height: 80.h,
-            // ),
 
             //TOTAL PRODUK DAN HARGA
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Total (1 Produk)',
+                  'Total (${widget.quantity} Produk)',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.w400),
                 ),
                 Text(
-                  'Rp 100.000',
+                  'Rp ${((widget.productCheckout.harga * widget.quantity!) + hargaPengiriman)}',
                   style: poppinsKecil.copyWith(
                       color: blackColor, fontWeight: FontWeight.w700),
                 )
@@ -413,10 +468,23 @@ class CheckoutShopPage extends StatelessWidget {
             GestureDetector(
               key: Key('buttonBerhasilBayar'),
               onTap: () {
-                Navigator.push(
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const KodePembayaranPage()));
+                _showMyDialog(context);
+                Timer(const Duration(seconds: 3), () {
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const BerhasilBayarPage()));
+                      builder: (context) => KodePembayaranPage(
+                        index: widget.index,
+                        productBayar: widget.productCheckout,
+                        quantity: widget.quantity!,
+                      ),
+                    ),
+                  );
+                });
               },
               child: Container(
                 width: 360.w,
@@ -433,60 +501,225 @@ class CheckoutShopPage extends StatelessWidget {
                 ),
               ),
             ),
-
-            //COMMAND CANCEL CODE USED LIST TILE
-            // const ListTile(
-            //   title: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Text('Pengiriman'),
-            //       Text('Rp. 10.000'),
-            //     ],
-            //   ),
-            //   subtitle: Text('Akan diterima pada tanggal 30 April - 2 Mei'),
-            // ),
-            // const ListTile(
-            //   title: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Text('Pesan'),
-            //       Row(
-            //         children: [
-            //           Text('Opsional'),
-            //           SizedBox(
-            //             width: 8,
-            //           ),
-            //           Icon(
-            //             Icons.arrow_forward_ios,
-            //             size: 12,
-            //           )
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            //   subtitle: Text(
-            //     'Rp. 100.000',
-            //     textAlign: TextAlign.end,
-            //   ),
-            // )
           ],
         ),
       ),
     );
   }
 
-  Future<dynamic> chooseBankBottomSheet(BuildContext context) {
-    return showModalBottomSheet(
+  Future<void> _showMyDialog(context) async {
+    return showDialog<void>(
       context: context,
-      // isScrollControlled: true,
-      // backgroundColor: const Color.fromRGBO(239, 252, 252, 1),
-      // constraints: BoxConstraints(maxHeight: double.infinity),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(10),
-        ),
-      ),
-      builder: (context) => const ChooseBankSheet(),
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return Center(child: Image.asset('assets/loading.png'));
+      },
     );
+  }
+
+  Future<void> chooseBankBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        // backgroundColor: const Color.fromRGBO(239, 252, 252, 1),
+        // constraints: BoxConstraints(maxHeight: double.infinity),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(10),
+          ),
+        ),
+        // builder: (context) => ChooseBankSheet(
+        //   metodePembayaran: metodePembayaran,
+        // ),
+        builder: (context) => Container(
+              padding: EdgeInsets.fromLTRB(16, 20, 16, 20),
+              height: 290.h,
+              width: 360.w,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Center(
+                  //   child: Text('CHOOSE BANK'),
+                  // ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Metode Pembayaran',
+                        style: poppinsKecil.copyWith(
+                            color: blackColor,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(
+                            context,
+                          );
+                        },
+                        icon: Image.asset(
+                          'assets/icon/event_icon/close.png',
+                          width: 11.w,
+                          height: 11.h,
+                          key: Key('icon close'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  Text(
+                    'Transfer Bank',
+                    style: poppinsKecil.copyWith(
+                        color: blackColor, fontWeight: FontWeight.w400),
+                  ),
+                  // SizedBox(
+                  //   height: 16.h,
+                  // ),
+                  GestureDetector(
+                    key: Key('buttonKodePembayaran'),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => KodePembayaranPage(
+                                    index: widget.index,
+                                    productBayar: widget.productCheckout,
+                                    quantity: widget.quantity!,
+                                  )));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                                height: 28,
+                                width: 42,
+                                decoration: BoxDecoration(
+                                  color:
+                                      forthColor, // Replace with your desired background color
+                                  borderRadius: BorderRadius.circular(
+                                      6.0), // Replace with your desired border radius
+                                ),
+                                // color: thirdColor,
+                                child: Center(
+                                  child: Text(
+                                    'BCA',
+                                    style: poppinsKecil.copyWith(
+                                        color: blackColor,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                )),
+                            SizedBox(
+                              width: 4.h,
+                            ),
+                            Text(
+                              'Bank Central Asia',
+                              style: poppinsKecil.copyWith(
+                                  color: blackColor,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
+                        Radio(
+                            value: 'Bank Central Asia',
+                            groupValue: radioValue,
+                            activeColor: blackColor,
+                            onChanged: (String? value) {
+                              setState(() {
+                                radioValue = value ?? '';
+                                metodePembayaran = value.toString();
+                              });
+                            })
+                      ],
+                    ),
+                  ),
+                  // SizedBox(
+                  //   height: 16.h,
+                  // ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                              height: 28.h,
+                              width: 64.w,
+                              decoration: BoxDecoration(
+                                color:
+                                    forthColor, // Replace with your desired background color
+                                borderRadius: BorderRadius.circular(
+                                    6.0), // Replace with your desired border radius
+                              ),
+                              // color: thirdColor,
+                              child: Center(
+                                child: Text(
+                                  'Mandiri',
+                                  style: poppinsKecil.copyWith(
+                                      color: blackColor,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              )),
+                          SizedBox(
+                            width: 4.h,
+                          ),
+                          Text(
+                            'Bank Mandiri',
+                            style: poppinsKecil.copyWith(
+                                color: blackColor, fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                      Radio(
+                          value: 'Bank Mandiri',
+                          groupValue: radioValue,
+                          activeColor: blackColor,
+                          onChanged: (String? value) {
+                            setState(() {
+                              radioValue = value ?? '';
+                              metodePembayaran = value.toString();
+                            });
+                          })
+                    ],
+                  ),
+                  SizedBox(
+                    height: 32.h,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      _showMyDialog(context);
+                      Timer(const Duration(seconds: 3), () {
+                        Navigator.pop(
+                          context,
+                        );
+                      });
+                      // _showMyDialog(context);
+                      // Navigator.pop(context);
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => BerhasilBayarPage()));
+                    },
+                    child: Container(
+                      width: 326.w,
+                      height: 35.h,
+                      decoration: BoxDecoration(
+                        color: secondaryColor,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Oke',
+                          style: poppinsKecil.copyWith(
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ));
   }
 }
