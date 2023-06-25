@@ -3,14 +3,25 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/checkout/upload_bukti_pembayaran.dart';
 
+import '../../model/product_model.dart';
+
 class KodePembayaranPage extends StatefulWidget {
-  const KodePembayaranPage({super.key});
+  const KodePembayaranPage(
+      {super.key,
+      required this.productBayar,
+      required this.quantity,
+      required this.index});
+
+  final Product productBayar;
+  final int quantity;
+  final int index;
 
   @override
   State<KodePembayaranPage> createState() => _KodePembayaranPageState();
 }
 
 class _KodePembayaranPageState extends State<KodePembayaranPage> {
+  int ongkir = 10000;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +59,7 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
               // Divider(thickness: 1),
               SizedBox(height: 28.h),
               Text(
-                'Total: Rp 100.00',
+                'Total: Rp ${(widget.productBayar.harga * widget.quantity) + ongkir}',
                 style: poppinsKecil.copyWith(
                     color: blackColor, fontWeight: FontWeight.bold),
               ),
@@ -145,107 +156,17 @@ class _KodePembayaranPageState extends State<KodePembayaranPage> {
                 ],
               ),
               SizedBox(height: 250.h),
-              // GestureDetector(
-              //   onTap: () {
-              //     showModalBottomSheet(
-              //       context: context,
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.vertical(
-              //           top: Radius.circular(20.0.r),
-              //         ),
-              //       ),
-              //       builder: (context) {
-              //         return SizedBox(
-              //           height: 280,
-              //           child: Column(
-              //             crossAxisAlignment: CrossAxisAlignment.start,
-              //             mainAxisSize: MainAxisSize.min,
-              //             children: [
-              //               ListTile(
-              //                 title: Center(
-              //                   child: Text(
-              //                     'Ambil Foto',
-              //                     style: poppinsKecil.copyWith(
-              //                       fontSize: 18.sp,
-              //                       fontWeight: FontWeight.w600,
-              //                       color: blackColor,
-              //                     ),
-              //                   ),
-              //                 ),
-              //                 onTap: () {},
-              //               ),
-              //               const Divider(),
-              //               ListTile(
-              //                 title: Center(
-              //                   child: Text(
-              //                     'Pilih dari Galeri',
-              //                     style: poppinsKecil.copyWith(
-              //                       fontSize: 18.sp,
-              //                       fontWeight: FontWeight.w600,
-              //                       color: blackColor,
-              //                     ),
-              //                   ),
-              //                 ),
-              //                 onTap: () {},
-              //               ),
-              //               const Divider(),
-              //               ListTile(
-              //                 title: Center(
-              //                   child: Text(
-              //                     'Lihat foto',
-              //                     style: poppinsKecil.copyWith(
-              //                       fontSize: 18.sp,
-              //                       fontWeight: FontWeight.w600,
-              //                       color: blackColor,
-              //                     ),
-              //                   ),
-              //                 ),
-              //                 onTap: () {},
-              //               ),
-              //               const Divider(),
-              //               ListTile(
-              //                 title: Center(
-              //                   child: Text(
-              //                     'Batal',
-              //                     style: poppinsKecil.copyWith(
-              //                       fontSize: 18.sp,
-              //                       fontWeight: FontWeight.w100,
-              //                       color: const Color(0xff5E5E5E),
-              //                     ),
-              //                   ),
-              //                 ),
-              //                 onTap: () {
-              //                   Navigator.pop(context);
-              //                 },
-              //               ),
-              //             ],
-              //           ),
-              //         );
-              //       },
-              //     );
-              //   },
-              //   child: Container(
-              //     width: 360.w,
-              //     height: 48.h,
-              //     decoration: BoxDecoration(
-              //       color: secondaryColor,
-              //       borderRadius: BorderRadius.circular(8),
-              //     ),
-              //     child: Center(
-              //       child: Text(
-              //         'Upload Bukti Pembayaran',
-              //         style: poppinsKecil.copyWith(fontWeight: FontWeight.bold),
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              // SizedBox(height: 100.h),
+
               GestureDetector(
                 onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const BuktiPembayaranPage()));
+                          builder: (context) => BuktiPembayaranPage(
+                                index: widget.index,
+                                productMembayar: widget.productBayar,
+                                quantity: widget.quantity,
+                              )));
                 },
                 child: Container(
                   width: 360.w,

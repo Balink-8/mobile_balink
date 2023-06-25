@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
+import 'package:mobile_balink/view/shopping/shopping_page/list_gambar.dart';
+
+import '../../model/product_model.dart';
 
 class BuktiPembayaranPage extends StatefulWidget {
-  const BuktiPembayaranPage({super.key});
+  const BuktiPembayaranPage(
+      {super.key,
+      required this.productMembayar,
+      required this.index,
+      required this.quantity});
+  final Product productMembayar;
+  final int index;
+  final int quantity;
 
   @override
   State<BuktiPembayaranPage> createState() => _BuktiPembayaranPageState();
 }
 
 class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
+  int ongkir = 10000;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +48,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                   ),
                   SizedBox(width: 4.w),
                   Text(
-                    'Rp. 100.000',
+                    'Rp. ${(widget.productMembayar.harga * widget.quantity) + ongkir}',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.bold),
                   ),
@@ -139,7 +150,8 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                       ),
                       // ),
                       child: Image.network(
-                        'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+                        imageProduct[widget.index],
+                        // 'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
                         fit: BoxFit.cover,
 
                         // scale: 1.7,
@@ -153,7 +165,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Kemeja Endek Strait Motif Bali Premium',
+                        Text(widget.productMembayar.nama,
                             style: poppinsKecil.copyWith(
                                 color: blackColor,
                                 fontWeight: FontWeight.w400)),
@@ -164,12 +176,12 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Rp 90.0000',
+                              'Rp ${widget.productMembayar.harga}',
                               style: poppinsKecil.copyWith(
                                   color: blackColor,
                                   fontWeight: FontWeight.w400),
                             ),
-                            Text('1x',
+                            Text('${widget.quantity}x',
                                 style: poppinsKecil.copyWith(
                                     color: blackColor,
                                     fontWeight: FontWeight.w400))
@@ -251,7 +263,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                     style: poppinsKecil.copyWith(color: blackColor),
                   ),
                   Text(
-                    'Rp. 90.000',
+                    'Rp ${widget.productMembayar.harga * widget.quantity}',
                     style: poppinsKecil.copyWith(color: blackColor),
                   ),
                 ],
@@ -265,7 +277,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                     style: poppinsKecil.copyWith(color: blackColor),
                   ),
                   Text(
-                    'Rp. 10.000',
+                    'Rp $ongkir',
                     style: poppinsKecil.copyWith(color: blackColor),
                   ),
                 ],
@@ -293,7 +305,7 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                         color: blackColor, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Rp. 100.000',
+                    'Rp ${(widget.productMembayar.harga * widget.quantity) + ongkir}',
                     style: poppinsKecil.copyWith(
                         color: blackColor, fontWeight: FontWeight.bold),
                   ),

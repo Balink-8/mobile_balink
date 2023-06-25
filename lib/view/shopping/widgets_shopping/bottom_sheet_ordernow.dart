@@ -18,17 +18,21 @@ class BottomSheetOrderNow extends StatefulWidget {
 
 class _BottomSheetOrderNowState extends State<BottomSheetOrderNow> {
   int quantity = 1;
+  int jumlah = 0;
+  int total = 0;
 
   void increaseQuantity() {
     setState(() {
-      quantity++;
+      jumlah = quantity++;
+      total = widget.productInfo.harga * jumlah;
     });
   }
 
   void decreaseQuantity() {
     setState(() {
       if (quantity > 1) {
-        quantity--;
+        jumlah = quantity--;
+        total = widget.productInfo.harga * jumlah;
       }
     });
   }
@@ -169,7 +173,9 @@ class _BottomSheetOrderNowState extends State<BottomSheetOrderNow> {
                     (context),
                     MaterialPageRoute(
                       builder: (context) => CheckoutShopPage(
+                        productCheckout: widget.productInfo,
                         index: widget.index,
+                        quantity: quantity,
                       ),
                     ),
                   );

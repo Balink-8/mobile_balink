@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../config/theme.dart';
 import '../../../model/product_model.dart';
-import '../../../model/promo_model.dart';
 
 class PromoCardWidget extends StatelessWidget {
   final Product productData;
@@ -59,9 +58,6 @@ class PromoCardWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              // SizedBox(
-              //   height: 4.h,
-              // ),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
@@ -82,8 +78,6 @@ class PromoCardWidget extends StatelessWidget {
                     ),
                     Text(
                       key: const Key('hargaProdukHome'),
-                      // 'Rp 24.000',
-                      // 'Rp ${(productData.harga - promoDataHome.potonganHarga).toString()}',
                       'Rp ${(productData.harga - (productData.harga * 0.2)).toStringAsFixed(0)}',
                       style: poppinsKecil.copyWith(
                           fontSize: 11.sp,
@@ -131,13 +125,11 @@ class PromoCardWidget extends StatelessWidget {
               height: 20.h,
               width: 30.w,
               decoration: BoxDecoration(
-                  color:
-                      thirdColor, // Replace with your desired background color
+                  color: thirdColor,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(5.0),
                     bottomRight: Radius.circular(5.0),
-                  ) // Replace with your desired border radius
-                  ),
+                  )),
               child: Text(
                 '20%',
                 textAlign: TextAlign.center,

@@ -7,8 +7,6 @@ import 'package:mobile_balink/view_model/product_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../config/theme.dart';
-import '../../../model/product_model.dart';
-import 'promo_card.dart';
 
 class SearchHomeWidget extends StatefulWidget {
   const SearchHomeWidget({super.key});
@@ -70,9 +68,6 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                           onTap: () {
                             Navigator.pop(
                               context,
-                              // MaterialPageRoute(
-                              //     builder: (context) =>
-                              //         const CheckoutShopPage())
                             );
                           },
                           key: const Key('cartHome'),
@@ -124,7 +119,6 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                   ),
                 ),
               ),
-
               Consumer<EventProvider>(builder: (context, eventProv, child) {
                 final eventsResult = eventProv.listEvent;
                 final searchText = eventProv.searchEventText;
@@ -154,76 +148,6 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                   );
                 }
               })
-
-              // Consumer2<EventProvider, ProductProvider>(
-              //     builder: (context, eventProv, productProv, child) {
-              //   final eventsResult = eventProv.listEvent;
-              //   final searchEvent = eventProv.searchEventText;
-              //   final searchProduct = productProv.searchText;
-              //   final productResult = productProv.listProduct;
-
-              //   List filteredEvents = eventsResult
-              //       .where((event) => event.nama
-              //           .toLowerCase()
-              //           .contains(searchEvent.toLowerCase()))
-              //       .toList();
-
-              //   List filteredProduct = productResult
-              //       .where((product) => product.nama
-              //           .toLowerCase()
-              //           .contains(searchProduct.toLowerCase()))
-              //       .toList();
-
-              //   if (eventProv.searchEventText.isEmpty &&
-              //       productProv.searchText.isEmpty) {
-              //     return Container();
-              //   } else if (searchEvent.isNotEmpty &&
-              //       filteredEvents.isNotEmpty) {
-              //     return Padding(
-              //       padding: const EdgeInsets.all(16.0),
-              //       child: ListView.builder(
-              //         physics: const NeverScrollableScrollPhysics(),
-              //         shrinkWrap: true,
-              //         itemCount: filteredEvents.length,
-              //         itemBuilder: (context, index) {
-              //           // if (index < filteredEvents.length) {
-              //           Event eventData = filteredEvents[index];
-              //           return EvenCardWidget(
-              //             eventDataHome: eventData,
-              //           );
-              //           // else {
-              //           //   Product productData =
-              //           //       filteredProduct[index - filteredEvents.length];
-              //           //   return PromoCardWidget(
-              //           //     productData: productData,
-              //           //   );
-              //           // }
-              //         },
-              //       ),
-              //     );
-              //   } else if (searchProduct.isNotEmpty
-              //       // &&
-              //       // filteredProduct.isNotEmpty
-              //       ) {
-              //     return Padding(
-              //       padding: const EdgeInsets.all(16.0),
-              //       child: ListView.builder(
-              //         physics: const NeverScrollableScrollPhysics(),
-              //         shrinkWrap: true,
-              //         itemCount: filteredProduct.length,
-              //         itemBuilder: (context, index) {
-              //           Product productData = filteredProduct[index];
-              //           return PromoCardWidget(
-              //             productData: productData,
-              //           );
-              //         },
-              //       ),
-              //     );
-              //   }
-              //   return Container(
-              //     child: Text('Gagal'),
-              //   );
-              // })
             ],
           ),
         ),
