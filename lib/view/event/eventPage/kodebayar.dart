@@ -20,7 +20,6 @@ class kodeBayar extends StatefulWidget {
 }
 
 var nova = '2668 8001 9203 8388';
-int hargaPengiriman = 1000;
 
 class _kodeBayarState extends State<kodeBayar> {
   @override
@@ -72,7 +71,7 @@ class _kodeBayarState extends State<kodeBayar> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Total : ${total + hargaPengiriman}',
+                    'Total : ${total}',
                     style: poppinsKecil.copyWith(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w700,
