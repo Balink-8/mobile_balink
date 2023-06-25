@@ -290,7 +290,7 @@ class _EventCheckOutState extends State<EventCheckOut> {
                                 )
                               : IconButton(
                                   icon: Image.asset(
-                                    'assets/icon/event_icon/radio.png',
+                                    'assets/icon/event_icon/back.png',
                                     width: 11.w,
                                     height: 11.h,
                                     key: Key('icon pilih bank'),

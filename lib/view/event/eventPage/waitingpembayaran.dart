@@ -657,20 +657,8 @@ class _WaitingPembayaranState extends State<WaitingPembayaran> {
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
-        return AlertDialog(
-          insetPadding:
-              EdgeInsets.symmetric(horizontal: 140.w, vertical: 360.h),
-          titlePadding:
-              const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 0),
-          title: Image.asset(
-            'assets/icon/event_icon/memuat.png',
-            width: 22.w,
-            height: 22.h,
-          ),
-          content: SizedBox(
-              width: 106.w,
-              height: 77.h,
-              child: const Center(child: Text('Memuat'))),
+        return Center(
+          child: Image.asset('assets/loading.png'),
         );
       },
     );
