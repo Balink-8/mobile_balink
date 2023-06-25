@@ -165,31 +165,6 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Pengiriman',
-                        style: poppinsKecil.copyWith(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                            color: abuColor),
-                        key: const Key('label pengiriman'),
-                      ),
-                      Text(
-                        'Rp $hargaPengiriman',
-                        style: poppinsKecil.copyWith(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: blackColor),
-                        key: const Key('label harga ongkir'),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 6.h,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
                         'Promo',
                         style: poppinsKecil.copyWith(
                             fontSize: 14.sp,
@@ -223,7 +198,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                         key: const Key('label total'),
                       ),
                       Text(
-                        'Rp ${total + hargaPengiriman}',
+                        'Rp ${total}',
                         style: poppinsKecil.copyWith(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w700,
@@ -373,13 +348,14 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                 ),
               ),
               SizedBox(
-                height: 150.h,
+                height: 160.h,
               ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const TabBarNavigation()),
+                    MaterialPageRoute(
+                        builder: (context) => const TabBarNavigation()),
                   );
                 },
                 child: Container(
