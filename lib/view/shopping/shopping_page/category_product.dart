@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../config/theme.dart';
+import '../../../model/category_model.dart';
 import '../widgets_shopping/shopping_card.dart';
 import 'list_gambar.dart';
 
 class CategoryProduct extends StatefulWidget {
-  const CategoryProduct({Key? key, required this.index}) : super(key: key);
+  const CategoryProduct(
+      {Key? key, required this.index, required this.categoryData})
+      : super(key: key);
+  final CategoryModel categoryData;
   final int index;
 
   @override
@@ -111,7 +115,7 @@ class _CategoryProductState extends State<CategoryProduct> {
                     bottom: 37,
                     left: 16,
                     child: Text(
-                      categoryProduct[widget.index],
+                      widget.categoryData.nama,
                       style: poppinsKecil.copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,

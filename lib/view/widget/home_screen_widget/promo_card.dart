@@ -3,13 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../config/theme.dart';
 import '../../../model/product_model.dart';
+import '../../shopping/shopping_page/list_gambar.dart';
 
 class PromoCardWidget extends StatelessWidget {
   final Product productData;
-  // final Promo promoDataHome;
+  final int index;
   const PromoCardWidget({
     super.key,
     required this.productData,
+    required this.index,
     // required this.promoDataHome,
   });
 
@@ -37,7 +39,8 @@ class PromoCardWidget extends StatelessWidget {
                   // ),
                   child: Image.network(
                     key: const Key('imagePromoHome'),
-                    'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+                    imageProduct[index],
+                    // 'https://images.unsplash.com/photo-1525845859779-54d477ff291f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
                     fit: BoxFit.cover,
                   ),
                 ),
