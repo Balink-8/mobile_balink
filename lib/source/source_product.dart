@@ -41,6 +41,6 @@ class SourceProduct {
       List list = responseBody['data']['data'];
       return list.map((e) => Product.fromJson(e)).toList();
     }
-    throw Exception('Gagal Get Products by Name');
+    throw Exception('Gagal Get Products by Id');
   }
 }

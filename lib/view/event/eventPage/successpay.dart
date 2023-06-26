@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
-import 'package:mobile_balink/view/event/eventPage/kodebayar.dart';
-import 'package:mobile_balink/view/transaksi/transaksi_widget/tab_bar_navigaton.dart';
 import 'package:mobile_balink/view/widget/bottom_navbar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
 
@@ -205,7 +203,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                         key: const Key('label total'),
                       ),
                       Text(
-                        'Rp ${total}',
+                        'Rp $total',
                         style: poppinsKecil.copyWith(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w700,
@@ -347,7 +345,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                                 // fit: BoxFit.cover,
                               ),
                             )
-                          : Center(
+                          : const Center(
                               child: InkWell(
                                 child: Text('Belum ada gambar'),
                               ),
