@@ -257,7 +257,6 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                               child: Text('Belum ada gambar'),
                             ),
                           ),
-                    const SizedBox(height: 50),
                   ],
                 ),
               ),

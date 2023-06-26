@@ -529,7 +529,6 @@ class _BuktiPembayaranPageState extends State<BuktiPembayaranPage> {
                                 },
                               ),
                             ),
-                      const SizedBox(height: 50),
                     ],
                   ),
                 ),

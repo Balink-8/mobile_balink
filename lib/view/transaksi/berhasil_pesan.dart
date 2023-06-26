@@ -248,6 +248,31 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                 ],
               ),
             ),
+            SizedBox(height: 16.h),
+            Container(
+              decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(8.r),
+                  color: abuAColor),
+              width: 327.w,
+              height: 390.h,
+              padding: const EdgeInsets.only(
+                top: 12,
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/struk.jpg',
+                      height: 350,
+                      width: 350,
+                    ),
+                  ],
+                ),
+              ),
+            ),
             SizedBox(height: 230.h),
             GestureDetector(
               key: const Key('buttonCancelPesanan'),
