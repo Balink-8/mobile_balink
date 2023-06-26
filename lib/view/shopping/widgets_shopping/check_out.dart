@@ -72,11 +72,11 @@ class _CheckOutState extends State<CheckOut> {
                   //   ),
                   // );
                 },
+                key: const Key('checkoutButton'),
                 child: Text('Checkout (1)',
                     style: poppinsKecil.copyWith(
                       fontWeight: FontWeight.w700,
                     )),
-                key: const Key('checkoutButton'),
               ),
             ),
           )

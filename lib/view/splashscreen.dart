@@ -26,7 +26,9 @@ class _SplashScreenState extends State<SplashScreen> {
             (route) => false);
       });
     } else {
+      // ignore: use_build_context_synchronously
       Provider.of<UserProvider>(context, listen: false).setUser(user);
+      // ignore: use_build_context_synchronously
       Provider.of<UserProvider>(context, listen: false).setToken(token);
       Timer(const Duration(seconds: 3), () {
         Navigator.pushAndRemoveUntil(

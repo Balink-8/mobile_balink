@@ -15,6 +15,7 @@ class TabBarNavigation extends StatefulWidget {
 class _TabBarNavigationState extends State<TabBarNavigation>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  // ignore: unused_field
   int _selectedTabIndex = 0;
 
   @override

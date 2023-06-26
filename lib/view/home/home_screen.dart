@@ -91,7 +91,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             decoration: InputDecoration(
                               enabled: false,
                               contentPadding:
-                                  EdgeInsets.symmetric(vertical: 5.0),
+                                  const EdgeInsets.symmetric(vertical: 5.0),
                               filled: true,
                               fillColor:
                                   const Color.fromRGBO(205, 203, 200, 0.2),

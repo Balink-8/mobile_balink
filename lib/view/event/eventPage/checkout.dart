@@ -540,7 +540,7 @@ class _BuatPesananState extends State<BuatPesanan> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => kodeBayar(
+            builder: (context) => KodeBayar(
                 eventData: widget.eventData!, bank: widget.metodePembayaran),
           ),
         );
