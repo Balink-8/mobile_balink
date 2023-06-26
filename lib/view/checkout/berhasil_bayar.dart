@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/view/widget/bottom_navbar.dart';
-
 import '../../model/product_model.dart';
 import '../shopping/shopping_page/list_gambar.dart';
-import '../transaksi/transaksi_widget/tab_bar_navigaton.dart';
 
 class BerhasilBayarPage extends StatefulWidget {
   const BerhasilBayarPage(
@@ -244,6 +242,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    // ignore: unnecessary_null_comparison
                     widget.image != null
                         ? SizedBox(
                             height: 350,
@@ -253,7 +252,7 @@ class _BerhasilBayarPageState extends State<BerhasilBayarPage> {
                               // fit: BoxFit.cover,
                             ),
                           )
-                        : Center(
+                        : const Center(
                             child: InkWell(
                               child: Text('Belum ada gambar'),
                             ),

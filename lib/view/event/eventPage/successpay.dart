@@ -336,6 +336,7 @@ class _SuccessPaymentState extends State<SuccessPayment> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      // ignore: unnecessary_null_comparison
                       widget.image != null
                           ? SizedBox(
                               height: 350,

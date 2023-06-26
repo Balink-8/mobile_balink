@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/buttomsheet.dart';
-import 'package:mobile_balink/view/widget/event_screen_widget/card_aboutEvent.dart';
+import 'package:mobile_balink/view/widget/event_screen_widget/card_about_event.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_calendar.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_clock.dart';
 import 'package:mobile_balink/view/widget/event_screen_widget/card_detailevent.dart';

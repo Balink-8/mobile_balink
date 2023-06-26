@@ -3,8 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_balink/config/theme.dart';
 import 'package:mobile_balink/model/event_model.dart';
 
+// ignore: must_be_immutable
 class Cardcheckout extends StatelessWidget {
   final Event eventData;
+  // ignore: prefer_typing_uninitialized_variables
   var jumlah;
 
   Cardcheckout({super.key, required this.jumlah, required this.eventData});
